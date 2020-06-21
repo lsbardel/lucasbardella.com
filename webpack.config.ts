@@ -3,18 +3,20 @@ const hasFlag = require("has-flag");
 const path = require("path");
 const webpack = require("webpack");
 const RequireFrom = require("webpack-require-from");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const STATIC_PATH = "./static";
 
-const mode = process.env.NODE_ENV === "production" ? "production" : "development";
+const mode =
+  process.env.NODE_ENV === "production" ? "production" : "development";
 const PWD = process.cwd();
 const resolvePath = (relativePath: string) => path.resolve(PWD, relativePath);
 
 const config = {
   mode,
   entry: {
-    luca: "./main/index.tsx",
+    luca: "./main/index.ts",
   },
   output: {
     publicPath: STATIC_PATH,
@@ -32,6 +34,9 @@ const config = {
       variableName: "__metablock_assets_url__",
     }),
   ],
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
   module: {
     rules: [
       {
@@ -41,7 +46,6 @@ const config = {
           loader: "ts-loader",
         },
       },
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.(s?)css$/,
         use: ["style-loader", "css-loader"],
@@ -74,7 +78,10 @@ if (mode === "development") {
   logger.log("Looks like we are in development mode");
 
   if (hasFlag("--watch") || hasFlag("-w")) {
-    const bundleAnaliser = new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerPort: 8889 });
+    const bundleAnaliser = new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      analyzerPort: 8833,
+    });
     config.plugins.push(bundleAnaliser);
   }
 

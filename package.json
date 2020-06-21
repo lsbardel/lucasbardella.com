@@ -2,7 +2,6 @@
   "name": "lucasbardella.com",
   "version": "1.0.0",
   "description": "Luca Sbardella Personal Website",
-  "main": "main/index.ts",
   "repository": "git@github.com:lsbardel/lucasbardella.com.git",
   "author": "Luca Sbardella <luca@quantmind.com>",
   "license": "ISC",
@@ -12,11 +11,11 @@
     "build": "export TS_NODE_PROJECT=tsconfig.json && export NODE_ENV=production && webpack"
   },
   "dependencies": {
-    "@metablock/core": "^0.1.2",
-    "@metablock/react": "^0.1.2"
+    "@metablock/core": "^0.1.4",
+    "@metablock/react": "^0.1.4"
   },
   "devDependencies": {
-    "@metablock/cli": "^0.1.1",
+    "@metablock/cli": "^0.1.4",
     "@testing-library/jest-dom": "^5.8.0",
     "@testing-library/react": "^10.0.4",
     "@types/react": "^16.9.35",
@@ -49,7 +48,7 @@
     "typescript": "^3.9.5",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.7.0",
-    "webpack-cli": "3.3.11",
+    "webpack-cli": "3.3.12",
     "webpack-dev-middleware": "^3.6.2",
     "webpack-hot-middleware": "^2.24.4",
     "webpack-merge": "^4.2.2",

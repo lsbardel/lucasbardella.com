@@ -3,6 +3,7 @@
 node_modules
 bin
 build
+static
 package-lock.json
 
 # directories

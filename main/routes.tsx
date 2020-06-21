@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "../pages/Home";
 import Footer from "./Footer";
 
-const Routes: React.FC = () => {
+const Routes = () => {
   return (
     <>
       <Switch>
