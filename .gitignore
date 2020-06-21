@@ -1,0 +1,17 @@
+#
+# javascript
+node_modules
+bin
+build
+package-lock.json
+
+# directories
+coverage
+dist
+.tmp
+
+#
+# files
+.DS_Store
+*.log
+*.zip
