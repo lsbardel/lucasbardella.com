@@ -5,6 +5,7 @@ const webpack = require("webpack");
 const RequireFrom = require("webpack-require-from");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
+const { devServer } = require("@metablock/server");
 
 const STATIC_PATH = "./static";
 
@@ -15,6 +16,7 @@ const resolvePath = (relativePath: string) => path.resolve(PWD, relativePath);
 
 const config = {
   mode,
+  devServer: devServer({ hot: true }),
   entry: {
     luca: "./main/index.ts",
   },
