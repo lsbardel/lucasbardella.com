@@ -7,7 +7,7 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const { devServer } = require("@metablock/server");
 
-const STATIC_PATH = "/static";
+const STATIC_PATH = "static";
 
 const mode =
   process.env.NODE_ENV === "production" ? "production" : "development";
