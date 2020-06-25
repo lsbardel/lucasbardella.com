@@ -7,7 +7,7 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 const { devServer } = require("@metablock/server");
 
-const STATIC_PATH = "./static";
+const STATIC_PATH = "/static";
 
 const mode =
   process.env.NODE_ENV === "production" ? "production" : "development";
@@ -16,7 +16,7 @@ const resolvePath = (relativePath: string) => path.resolve(PWD, relativePath);
 
 const config = {
   mode,
-  devServer: devServer({ hot: true }),
+  devServer: devServer("https://new.lucasbardella.com", { hot: true }),
   entry: {
     luca: "./main/index.ts",
   },
