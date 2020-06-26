@@ -1,4 +1,5 @@
 const OFF = 0;
+const WARN = 1;
 const ERROR = 2;
 
 module.exports = {
@@ -23,6 +24,14 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
   ],
 
+  plugins: ["react", "react-hooks", "markdown"],
+
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+
   rules: {
     "@typescript-eslint/no-explicit-any": OFF,
     "@typescript-eslint/explicit-function-return-type": OFF,
@@ -45,5 +54,9 @@ module.exports = {
         patterns: ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"],
       },
     ],
+    "react-hooks/rules-of-hooks": ERROR,
+    "react-hooks/exhaustive-deps": WARN,
+    "react/prop-types": OFF,
+    "react/display-name": OFF,
   },
 };
