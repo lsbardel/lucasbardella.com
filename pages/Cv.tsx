@@ -1,6 +1,6 @@
 import { Page } from "@metablock/react";
 import React from "react";
-import Main from "../components/Main";
+import Main from "../views/Main";
 
 const Home = () => {
   return (

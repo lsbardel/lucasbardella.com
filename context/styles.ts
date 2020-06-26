@@ -30,5 +30,13 @@ export default makeStyles((theme: Theme) => {
     listItem: {
       padding: 0,
     },
+    avatarSmall: {
+      width: theme.spacing(3),
+      height: theme.spacing(3),
+    },
+    avatarLarge: {
+      width: theme.spacing(7),
+      height: theme.spacing(7),
+    },
   });
 });

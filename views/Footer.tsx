@@ -1,38 +1,38 @@
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
+import MuiLink from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import { Link } from "@metablock/react";
+import { Copyright } from "@metablock/react";
 import React from "react";
-import Copyright from "../components/Copyright";
-import List from "../components/List";
-import Main from "../components/Main";
-import useStyles from "./styles";
+import { List } from "../components";
+import useStyles from "../context/styles";
+import Main from "./Main";
 
 const social = [
   {
-    url: "https://twitter.com/lsbardel",
+    href: "https://twitter.com/lsbardel",
     icon: <TwitterIcon />,
   },
   {
-    url: "https://www.linkedin.com/in/lucasbardella",
+    href: "https://www.linkedin.com/in/lucasbardella",
     icon: <LinkedInIcon />,
   },
   {
-    url: "https://github.com/quantmind",
+    href: "https://github.com/quantmind",
     icon: <GitHubIcon />,
   },
   {
-    url: "https://www.flickr.com/photos/sbardella/",
+    href: "https://www.flickr.com/photos/sbardella/",
     icon: <PhotoCameraIcon />,
   },
   {
-    url: "https://www.strava.com/athletes/lsbardel",
+    href: "https://www.strava.com/athletes/lsbardel",
     icon: <DirectionsBikeIcon />,
   },
 ];
@@ -56,21 +56,16 @@ const Footer: React.FC = () => {
   const classes = useStyles();
   return (
     <Box fontSize={8}>
-      <Typography
-        component="footer"
-        variant="body2"
-        color="textSecondary"
-        className={classes.root}
-      >
-        <Main>
+      <Typography component="footer" variant="body2" color="textSecondary" className={classes.root}>
+        <Main header={false}>
           <Box pt={3} pb={1}>
             <Grid container spacing={4}>
               <Grid item sm={6}>
                 {social.map((s: any, index: number) => (
                   <IconButton key={index} color="primary" component="span">
-                    <Link target="_blank" rel="noopener" href={s.url}>
+                    <MuiLink target="_blank" rel="noopener" href={s.href}>
                       {s.icon}
-                    </Link>
+                    </MuiLink>
                   </IconButton>
                 ))}
               </Grid>
@@ -78,16 +73,22 @@ const Footer: React.FC = () => {
                 <List direction="horizontal" align="right" items={links} />
               </Grid>
               <Grid item sm={12}>
+                <Typography variant="body2" color="textSecondary" align="center">
+                  <MuiLink color="inherit" href="https://github.com/lsbardel/lucasbardella.com">
+                    Webside code on github
+                  </MuiLink>
+                </Typography>
                 <Copyright
                   title="Luca Sbardella."
                   rights={
-                    <Link
+                    <MuiLink
                       target="_blank"
                       rel="noopener"
+                      color="inherit"
                       href="https://creativecommons.org/licenses/by/4.0/"
                     >
                       Some rights reserved
-                    </Link>
+                    </MuiLink>
                   }
                 />
               </Grid>

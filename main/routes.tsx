@@ -3,7 +3,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "../pages/Home";
 import Cv from "../pages/Cv";
-import Footer from "./Footer";
+import Footer from "../views/Footer";
 
 const Routes = () => {
   return (

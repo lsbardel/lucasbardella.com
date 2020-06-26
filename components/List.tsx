@@ -10,8 +10,15 @@ import React from "react";
 type Direction = "vertical" | "horizontal";
 type Align = "left" | "right";
 
+interface ListItem {
+  text?: string;
+  href?: string;
+  to?: string;
+  icon?: React.ReactNode;
+}
+
 interface ListProps {
-  items: any[];
+  items: ListItem[];
   direction?: Direction;
   align?: Align;
 }
@@ -50,9 +57,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const List = (props: ListProps) => {
   const { items, direction = "vertical", align = "left" } = props;
-  const name = `${direction}${align
-    .substring(0, 1)
-    .toUpperCase()}${align.substring(1)}`;
+  const name = `${direction}${align.substring(0, 1).toUpperCase()}${align.substring(1)}`;
   const classes: Record<string, any> = useStyles();
   const classList = classes[name];
   const classItem = classes[`${name}Item`];
