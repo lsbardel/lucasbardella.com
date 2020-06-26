@@ -10,8 +10,7 @@
     "lint": "eslint '*'",
     "fix": "eslint '*' --fix",
     "precommit": "lint-staged",
-    "watch": "export TS_NODE_PROJECT=tsconfig.json && webpack -w",
-    "build": "export TS_NODE_PROJECT=tsconfig.json && export NODE_ENV=production && webpack",
+    "build": "export NODE_ENV=production && webpack",
     "dev": "webpack-dev-server -w"
   },
   "dependencies": {
