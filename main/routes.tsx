@@ -3,9 +3,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Cv from "../pages/Cv";
 import Home from "../pages/Home";
-import Cms from "../react/Cms";
+import Cms from "../views/Cms";
 import Footer from "../views/Footer";
-import Main from "../views/Main";
 
 const Routes = () => {
   return (
@@ -13,15 +12,7 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/cv" component={Cv} />
-        <Route
-          exact
-          path="/blog/:slug"
-          render={(p: any) => (
-            <Main>
-              <Cms target={`blog/${p.match.params.slug}.json`} />
-            </Main>
-          )}
-        />
+        <Route exact path="/blog/:slug" render={() => <Cms topic="blog" />} />
         <Route component={NotFound} />
       </Switch>
       <Footer />
