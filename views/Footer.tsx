@@ -10,7 +10,7 @@ import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { Copyright } from "@metablock/react";
 import React from "react";
-import { List } from "../components";
+import { List } from "../react";
 import useStyles from "../context/styles";
 import Main from "./Main";
 

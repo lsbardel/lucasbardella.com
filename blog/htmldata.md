@@ -8,6 +8,8 @@ image: $site_url$site_media/lucasbardella/blog/html5.png
 description: HTML5 custom data attribute is useful, how is it used and why.
 category: HTML5
 
+---
+
 <a href="#" class="thumbnail pull-right">
 <img width=300 src="$site_media/lucasbardella/blog/html5.png" alt="HTML custom data attribute">
 </a>
@@ -36,23 +38,23 @@ sorts of hacks and tricks to get the job done.
 
 ## Specification
 
-Each custom ``data-*`` attribute is valid if the ``name`` replacing the ``*`` follows
+Each custom `data-*` attribute is valid if the `name` replacing the `*` follows
 these rules:
 
-* it must not start with ``xml``, whatever case
-* it must not contain any semicolon
-* it must not contain spaces
+- it must not start with `xml`, whatever case
+- it must not contain any semicolon
+- it must not contain spaces
 
 These attributes are converted into a dictionary like container of
-``String`` key and ``String`` value
+`String` key and `String` value
 pairs called the [DOMStringMap](https://developer.mozilla.org/en/docs/Web/API/DOMStringMap).
 The conversion follows these rules:
 
-* any dash (U+002D) in the ``name`` is removed
-* any letter following a dash, before its removal, is set in its upper case counterpart
+- any dash (U+002D) in the `name` is removed
+- any letter following a dash, before its removal, is set in its upper case counterpart
 
-In other words, the ``data-date-of-birth`` attribute becomes the
-``dateOfBirth`` key in the data container.
+In other words, the `data-date-of-birth` attribute becomes the
+`dateOfBirth` key in the data container.
 
 I'm not sure why the decision to change the attribute names to their
 [camel-cased](http://en.wikipedia.org/wiki/CamelCase) versions was taken,
@@ -68,7 +70,6 @@ The value associated with the above data attribute is an empty string:
 
     var data = $('#id').data();
     // data.anEmptyName = ''
-
 
 ## Javascript plugins
 
@@ -115,7 +116,6 @@ A carousel is activated.
   </a>
 </div>
 
-
 ## Data driven documents
 
 Another important use of the data attribute is with JavaScript libraries such as [d3][]:
@@ -136,7 +136,6 @@ The following script generates the bar chart below:
     bar.data(data).enter().append('div')
        .style("width", function(d) { return d + "px"; })
 
-
 <div id='barchart' data-values='[60, 140, 25]'></div>
 
 <script type='text/javascript'>
@@ -155,5 +154,3 @@ require(['d3'], function (d3) {
 </script>
 
 And that is all.
-
-

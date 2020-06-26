@@ -3,9 +3,10 @@ title: Planarity
 slug: planarity
 date: 2014-05-01 14:26
 description: Can you untangle the planar graphs? See if you can position the vertices so that no two lines cross.
-image: $site_media/lucasbardella/lab/planarity.svg
+image: \$site_media/lucasbardella/lab/planarity.svg
 category: game
 
+---
 
 <div class="row">
 <div class="col-sm-3">
@@ -29,7 +30,6 @@ category: game
 Idea taken from [Jason Davis](http://www.jasondavies.com/planarity/),
 code available
 <a href="$site_url$site_media/lucasbardella/lab/planarity.js" target="_self">here</a>.
-
 
 <script type="text/javascript">
 lux.require(['jquery', 'd3', 'lucasbardella/lab/planarity'], function ($, d3, Planarity) {

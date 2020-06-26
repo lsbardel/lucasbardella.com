@@ -6,6 +6,7 @@ description: How to set up Sphinx and Github to create great documentation for y
 image: $site_url$site_media/lucasbardella/blog/github.jpg
 head-tag: github, python, documentation
 category: git
+---
 
 [Github](http://github.com/)  is a social source control service which has been growing at an incredible pace over the last year or so. I use it for most of my own and my company source control. If you don't know about it, check it out.
 [Sphinx](http://sphinx.pocoo.org/) is a tool that makes it easy to create intelligent and beautiful documentation.

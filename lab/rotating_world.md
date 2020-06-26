@@ -7,6 +7,8 @@ category: map
 require_js: lucasbardella/lab/rotating-world
 twitter_card: summary_large_image
 
+---
+
 <div class="container-fluid">
 <div class="row">
 <div class="col-sm-9 push-bottom">

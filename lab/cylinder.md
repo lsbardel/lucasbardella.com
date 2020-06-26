@@ -8,6 +8,7 @@ image: $site_url$site_media/lucasbardella/lab/cylinder.png
 category: visualization
 require_css: katex
 
+---
 
 <div class='lazyContainer'>
     <div style='padding-top: 60%'></div>
@@ -23,7 +24,7 @@ The stream function for this type of flow has a closed form solution in polar co
   \psi\left(r,\theta\right) = V_{\infty} \left(\frac{a^2}{r} - r\right) \sin{\theta}
 </div>
 
-where ``a`` is the cylinder radius.
+where `a` is the cylinder radius.
 
 Visialization using [d3][].
 Code available <a href="$site_url$site_media/lucasbardella/lab/transform.js" target="_self">here</a>.

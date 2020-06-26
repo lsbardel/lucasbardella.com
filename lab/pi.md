@@ -9,6 +9,7 @@ image: $site_url$site_media/lucasbardella/lab/pi.png
 category: visualization
 twitter_card: summary_large_image
 
+---
 
 <div class="container">
     <div class="row" data-ng-controller="GiottoCtrl">
@@ -31,5 +32,5 @@ twitter_card: summary_large_image
 
 The simulation has been implemented using [GiottoJs](http://quantmind.github.io/giotto/)
 javascript library which is built on top of [d3][].
-Rendering using ``svg`` elements. Source code available here
+Rendering using `svg` elements. Source code available here
 <a href="$site_url$site_media/lucasbardella/lab/pi.js" target="_self">here</a>.

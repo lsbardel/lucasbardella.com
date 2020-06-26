@@ -7,7 +7,7 @@ description: An example of d3.js to plot the witch of Agnesi. Move the mouse ove
 require_css: katex
 image: http://upload.wikimedia.org/wikipedia/commons/5/57/Maria_Gaetana_Agnesi.jpg
 category: visualization
-
+---
 
 <div id='agnesi'></div>
 
@@ -31,4 +31,3 @@ lux.require(['lucasbardella/lab/agnesi'], function (agnesi) {
     agnesi('#agnesi');
 });
 </script>
-

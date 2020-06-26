@@ -8,6 +8,7 @@ image: $site_url$site_media/lucasbardella/blog/china-wine-regions.png
 twitter-card: summary_large_image
 require_css: leaflet
 require_js: lucasbardella/lab/china-wine
+---
 
 <div data-options='chinamap' style="height: 400px"
 data-src="$site_url$site_media/lucasbardella/blog/china_adm1.topo.json" data-giotto-chart></div>
@@ -122,7 +123,3 @@ difficult and I've written a [d3 extension](http://quantmind.github.io/d3ext/exa
 for it.
 
 The source code for the map is available <a href="$site_url$site_media/lucasbardella/lab/china-wine.js" target="_self">here</a>.
-
-
-
-

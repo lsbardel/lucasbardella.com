@@ -8,6 +8,8 @@ head-twitter-type: summary_large_image
 author: Luca Sbardella
 category: personal
 
+---
+
 <a href="#" class="thumbnail pull-right">
 <img width=300 src="$site_media/lucasbardella/blog/roller-coaster.jpg" alt="Roller coaster">
 </a>

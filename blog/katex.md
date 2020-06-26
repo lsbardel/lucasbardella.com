@@ -7,6 +7,8 @@ require_css: katex
 image: $site_url$site_media/lucasbardella/blog/katex.png
 category: math
 
+---
+
 I've recently switched from using [MathJax][] to using [KaTeX][] when rendering
 maths expressions in the browser.
 KaTeX is a JavaScript library developed at [Khan Academy](https://www.khanacademy.org)
@@ -74,17 +76,17 @@ by inserting the mark-up:
 
     <katex>d y_t = \alpha_t dt + \sigma_t d W_t</katex>
 
-To create an expression in a new line one uses the ``div`` element:
+To create an expression in a new line one uses the `div` element:
 
     <div katex>
     d y_t = \alpha_t dt + \sigma_t d W_t
     </div>
 
 which renders as:
+
 <div katex>
 d y_t = \alpha_t dt + \sigma_t d W_t
 </div>
-
 
 KaTeX is more limited in the kinds of output it supports than MathJax,
 sticking to inline-style rendering and a much smaller subset of TeX commands.
@@ -94,7 +96,7 @@ and he’s also set up a page where you can
 [compare the output of KaTeX with MathJax](http://www.intmath.com/cg5/katex-mathjax-comparison.php).
 
 One can use MathJax as fallback when KaTex fails to render a block of code. The fallback
-is implemented in the ``render`` function above and it is triggered when rendering this equation
+is implemented in the `render` function above and it is triggered when rendering this equation
 which is the Heston stochastic volatility model for asset prices
 
 <div katex>
@@ -117,9 +119,8 @@ t' = \frac{t}{\sqrt{1 - \frac{v^2}{c^2}}}
 
 Do you know what they are?
 
-[KaTex]: http://khan.github.io/KaTeX/
-[MathJax]: http://www.mathjax.org/
-
+[katex]: http://khan.github.io/KaTeX/
+[mathjax]: http://www.mathjax.org/
 
 Feedbacks and comments on [GitHub](https://github.com/lsbardel/lucasbardella.com/issues/1)
 {.alert .alert-info .lead}

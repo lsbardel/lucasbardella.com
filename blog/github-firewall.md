@@ -7,6 +7,7 @@ image: https://farm3.staticflickr.com/2548/4110823060_227b76fccd_z_d.jpg
 head-tag: github, firewall
 category: git
 
+---
 
 Sometimes there is a need to work with sub-optimal technologies such as a windows operative system behind a ssh-blocking draconian firewall. How worse can it get?
 I had this problem while working at a client office and fortunately there is a way to handle the situation as discussed in this [thread at github](http://github.com/blog/642-smart-http-support).
@@ -23,6 +24,5 @@ To solve the problem clone the repo using the url:
     https://username:password@github.com/user/repo
 
 Then switch off SSL verification
-
 
     git config --global http.sslverify false

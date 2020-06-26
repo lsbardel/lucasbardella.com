@@ -5,6 +5,8 @@ description: Rendering performance of particle animation using giottojs and d3js
 image: $site_url$site_media/lucasbardella/lab/particles.png
 category: visualization
 
+---
+
 <div class="container-fluid">
 <div class="row">
 <div class="col-sm-9">

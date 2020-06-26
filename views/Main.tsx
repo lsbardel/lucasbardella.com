@@ -3,7 +3,7 @@ import Container from "@material-ui/core/Container";
 import { assetUrl } from "@metablock/core";
 import { Header, Link } from "@metablock/react";
 import React from "react";
-import { List } from "../components";
+import { List } from "../react";
 import useStyles from "../context/styles";
 
 const links: any[] = [
@@ -42,7 +42,7 @@ const Main = (props: any) => {
   return (
     <>
       {headerComponent}
-      <Container maxWidth="lg">{children}</Container>
+      <Container maxWidth="md">{children}</Container>
     </>
   );
 };
