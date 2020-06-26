@@ -1,46 +1,54 @@
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
+import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { Copyright, Link, Section } from "@metablock/react";
+import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import { Link } from "@metablock/react";
 import React from "react";
+import Copyright from "../components/Copyright";
+import List from "../components/List";
+import Main from "../components/Main";
 import useStyles from "./styles";
 
-const columns = [
+const social = [
   {
-    name: "Company",
-    links: [
-      {
-        label: "About",
-        to: "/about",
-      },
-      {
-        label: "Services",
-        to: "/services",
-      },
-      {
-        label: "Expertise",
-        to: "/expertise",
-      },
-      {
-        label: "Contact",
-        to: "/contact",
-      },
-    ],
+    url: "https://twitter.com/lsbardel",
+    icon: <TwitterIcon />,
   },
   {
-    name: "More",
-    links: [
-      {
-        label: "Blog",
-        to: "/blog",
-      },
-      {
-        label: "Open Source Software",
-        to: "/oss",
-      },
-    ],
+    url: "https://www.linkedin.com/in/lucasbardella",
+    icon: <LinkedInIcon />,
+  },
+  {
+    url: "https://github.com/quantmind",
+    icon: <GitHubIcon />,
+  },
+  {
+    url: "https://www.flickr.com/photos/sbardella/",
+    icon: <PhotoCameraIcon />,
+  },
+  {
+    url: "https://www.strava.com/athletes/lsbardel",
+    icon: <DirectionsBikeIcon />,
+  },
+];
+
+const links = [
+  {
+    text: "lab",
+    to: "/lab",
+  },
+  {
+    text: "blog",
+    to: "/blog",
+  },
+  {
+    text: "cv",
+    to: "/cv",
   },
 ];
 
@@ -48,32 +56,44 @@ const Footer: React.FC = () => {
   const classes = useStyles();
   return (
     <Box fontSize={8}>
-      <Typography component="footer" variant="body2" color="textSecondary" className={classes.root}>
-        <Section component="div">
-          <Grid container spacing={4}>
-            {columns.map((column) => (
-              <Grid item sm={6} md={3} key={column.name}>
-                <Typography component="h5">{column.name}</Typography>
-                <List>
-                  {column.links.map((entry: any, index: number) => (
-                    <ListItem className={classes.listItem} key={index}>
-                      <Link color="inherit" to={entry.to}>
-                        {entry.label}
-                      </Link>
-                    </ListItem>
-                  ))}
-                </List>
+      <Typography
+        component="footer"
+        variant="body2"
+        color="textSecondary"
+        className={classes.root}
+      >
+        <Main>
+          <Box pt={3} pb={1}>
+            <Grid container spacing={4}>
+              <Grid item sm={6}>
+                {social.map((s: any, index: number) => (
+                  <IconButton key={index} color="primary" component="span">
+                    <Link target="_blank" rel="noopener" href={s.url}>
+                      {s.icon}
+                    </Link>
+                  </IconButton>
+                ))}
               </Grid>
-            ))}
-          </Grid>
-        </Section>
-        <Section component="div">
-          <Grid container>
-            <Grid item sm={12}>
-              <Copyright />
+              <Grid item sm={6}>
+                <List direction="horizontal" align="right" items={links} />
+              </Grid>
+              <Grid item sm={12}>
+                <Copyright
+                  title="Luca Sbardella."
+                  rights={
+                    <Link
+                      target="_blank"
+                      rel="noopener"
+                      href="https://creativecommons.org/licenses/by/4.0/"
+                    >
+                      Some rights reserved
+                    </Link>
+                  }
+                />
+              </Grid>
             </Grid>
-          </Grid>
-        </Section>
+          </Box>
+        </Main>
       </Typography>
     </Box>
   );
