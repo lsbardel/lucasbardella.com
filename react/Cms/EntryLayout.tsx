@@ -1,7 +1,7 @@
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import { Parallax } from "@metablock/react";
+import { Page, Parallax } from "@metablock/react";
 import { timeFormat } from "d3-time-format";
 import "highlight.js/styles/github.css";
 import React from "react";
@@ -11,7 +11,7 @@ const SimpleEntry = (props: CmsData) => {
   const maxWidth = "md";
   const format = timeFormat("%B %d, %Y");
   return (
-    <>
+    <Page title={props.title} description={props.description} prefix={false}>
       <Parallax small>
         <Container maxWidth={maxWidth}>
           <Typography component="h1" variant="h3" align="center" paragraph>
@@ -34,7 +34,7 @@ const SimpleEntry = (props: CmsData) => {
           </Typography>
         </Box>
       </Container>
-    </>
+    </Page>
   );
 };
 

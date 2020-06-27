@@ -1,6 +1,6 @@
 title: Luca Sbardella - CV
 description: Curriculum Vitae of Luca Sbardella, a passionate developer specialised in quantitative data analysis, quantitative finance, web application development, data visualization, python and much more.
-head-image: $site_url$site_media/lucasbardella/lucacv.png
+head-image: ${assetUrl}/lucacv.png
 head-type: profile
 head-first_name: Luca
 head-last_name: Sbardella

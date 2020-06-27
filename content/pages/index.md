@@ -1,5 +1,5 @@
 date: 2014 March 26
-image: $site_url$site_media/lucasbardella/lsbardel.jpg
+image: ${assetUrl}/lsbardel.jpg
 
 ---
 

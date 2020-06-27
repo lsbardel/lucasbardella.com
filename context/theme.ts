@@ -7,6 +7,9 @@ export const options = {
 
 export const lightTheme = responsiveFontSizes(
   createMuiTheme({
+    typography: {
+      fontSize: 18,
+    },
     palette: {
       type: "light",
       primary: blue,
@@ -21,6 +24,9 @@ export const lightTheme = responsiveFontSizes(
 
 export const darkTheme = responsiveFontSizes(
   createMuiTheme({
+    typography: {
+      fontSize: 18,
+    },
     palette: {
       type: "dark",
       secondary: {

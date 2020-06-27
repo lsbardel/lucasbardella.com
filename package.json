@@ -12,8 +12,9 @@
     "precommit": "lint-staged",
     "compile": "metablock compile",
     "build": "export NODE_ENV=production && yarn compile content && webpack",
-    "dev": "webpack-dev-server -w",
-    "watch": "npm-run-all --parallel dev watch:compile",
+    "dev": "webpack-dev-server",
+    "watch": "npm-run-all --parallel watch:dev watch:compile",
+    "watch:dev": "webpack-dev-server -w",
     "watch:compile": "metablock compile content -w"
   },
   "dependencies": {
