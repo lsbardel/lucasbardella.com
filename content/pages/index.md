@@ -1,5 +1,5 @@
 date: 2014 March 26
-image: ${assetUrl}/lsbardel.jpg
+image: \${assetUrl}/lsbardel.jpg
 tagline: Hi!
 parallax: unsplash:t7YycgAoVSw
 
@@ -20,4 +20,4 @@ a quantitative analyst/trader at major investment banks and hedge funds.
 - Lots of [open source work](https://github.com/quantmind)
 - Studying for the [WSET level 4 diploma](http://www.wsetglobal.com/qualifications/level_4_diploma/)
 
-If you like my stuff, I would love [to get your feedback]($site_url/contact).
+If you want to get in contact, [please do so](/contact).

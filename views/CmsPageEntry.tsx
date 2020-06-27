@@ -4,9 +4,9 @@ import Typography from "@material-ui/core/Typography";
 import { Page, Parallax } from "@metablock/react";
 import "highlight.js/styles/github.css";
 import React from "react";
+import maxWidth from "./width";
 
 const SimpleEntry = (props: any) => {
-  const maxWidth = "md";
   return (
     <Page title={props.title} description={props.description} prefix={false}>
       <Parallax small>
@@ -15,7 +15,7 @@ const SimpleEntry = (props: any) => {
             {props.tagline || props.title}
           </Typography>
           {props.description ? (
-            <Typography component="div" variant="h6" align="center">
+            <Typography component="p" variant="subtitle1" align="center">
               {props.description}
             </Typography>
           ) : null}

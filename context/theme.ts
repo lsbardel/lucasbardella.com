@@ -1,4 +1,4 @@
-import { blue, grey } from "@material-ui/core/colors";
+import { blueGrey as primary, grey } from "@material-ui/core/colors";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
 export const options = {
@@ -12,7 +12,14 @@ export const lightTheme = responsiveFontSizes(
     },
     palette: {
       type: "light",
-      primary: blue,
+      background: {
+        default: grey["100"],
+      },
+      primary: {
+        light: primary["700"],
+        main: primary["800"],
+        dark: primary["900"],
+      },
       secondary: {
         light: grey["50"],
         main: grey["100"],

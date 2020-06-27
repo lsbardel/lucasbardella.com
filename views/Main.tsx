@@ -4,6 +4,7 @@ import { Header, Link } from "@metablock/react";
 import React from "react";
 import useStyles from "../context/styles";
 import { List } from "../react";
+import maxWidth from "./width";
 
 const links: any[] = [
   {
@@ -37,6 +38,7 @@ const Main = (props: any) => {
         rightLinks={rightLinks}
         paddingTop={1}
         paddingBottom={1}
+        maxWidth={maxWidth}
       />
       {children}
     </>
