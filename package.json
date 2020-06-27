@@ -18,16 +18,16 @@
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "@metablock/core": "^0.2.3",
-    "@metablock/react": "^0.2.3",
+    "@metablock/core": "^0.2.4",
+    "@metablock/react": "^0.2.4",
     "d3-time-format": "^2.2.3",
     "dompurify": "^2.0.12",
     "highlight.js": "^10.1.1",
     "marked": "^1.1.0"
   },
   "devDependencies": {
-    "@metablock/cli": "^0.2.3",
-    "@metablock/server": "^0.2.3",
+    "@metablock/cli": "^0.2.4",
+    "@metablock/server": "^0.2.4",
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.3",
     "@types/marked": "^1.1.0",

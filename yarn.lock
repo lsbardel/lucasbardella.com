@@ -132,12 +132,12 @@
     prop-types "^15.7.2"
     react-is "^16.8.0"
 
-"@metablock/cli@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@metablock/cli/-/cli-0.2.3.tgz#21203e0b020406b9bd04b0a88db07cfcbca9eb30"
-  integrity sha512-+6iROg7iipuNHV5qC7+z5JxRZp4rWZ0z9nIAr7AM/8fPeZ5mGCh35yhlrrcST+n0FOQK7nQSuYxtzhUqfML71g==
+"@metablock/cli@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@metablock/cli/-/cli-0.2.4.tgz#8937938196004406b6478860486e875aed912a84"
+  integrity sha512-liNXft2KCsppAzkImiWhD+L9roH5zHM1J8Rfofk/HrcWYmajBiwCeq1KKt1h6B4xFx44c0Lzb2b7qE3TeyOQZg==
   dependencies:
-    "@metablock/core" "0.2.3"
+    "@metablock/core" "0.2.4"
     archiver "^4.0.1"
     colors "^1.4.0"
     commander "^5.1.0"
@@ -150,23 +150,23 @@
     pretty-bytes "^5.3.0"
     slugify "^1.4.2"
 
-"@metablock/core@0.2.3", "@metablock/core@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@metablock/core/-/core-0.2.3.tgz#1443db7b8b66958ffa89c466bd7f99c3482ab7ad"
-  integrity sha512-FgLfrzybOa0MlLndhZ6HyvzvlSb9MRLRgDDun7QjOSK+lrWgqswpieeU+ePOywAy+Z0gzEo+fGWEzPuWUoRrbw==
+"@metablock/core@0.2.4", "@metablock/core@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@metablock/core/-/core-0.2.4.tgz#7f22af08b5d86924c62ae851194098c094243799"
+  integrity sha512-2pO+uweu3zbfGCsn3431B/l7ILLLCWUC25SvClJ6pOtiWvWscLOCB2Xe6nHi2v7/nM6vwN/IwIXjQGNhlSv5FQ==
   dependencies:
     debug "^4.1.1"
     query-string "^6.12.1"
 
-"@metablock/react@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@metablock/react/-/react-0.2.3.tgz#b11f88faeab3ce7ba1619be13a713483d256e2f2"
-  integrity sha512-yHURt1LAxn8DHchEQNFCQfkM0+JwMBobyNXpPJvfzJHG/ZKmTldLB4waOuGCWC7mhDnnEAcn7XF4FieUGcKL+Q==
+"@metablock/react@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@metablock/react/-/react-0.2.4.tgz#9d6a1c7db8c929a4849244d7431639a76a9952c9"
+  integrity sha512-lTIEYrbtay/65rAyl6WJnqclYLfkQOdABWg+Puz888gYXkQFnq3/nwm3ZhOvj23II9nx+svifM9qtVNiTs9VsQ==
   dependencies:
     "@material-ui/core" "^4.10.1"
     "@material-ui/icons" "^4.9.1"
-    "@metablock/core" "0.2.3"
-    "@metablock/store" "0.2.3"
+    "@metablock/core" "0.2.4"
+    "@metablock/store" "0.2.4"
     clsx "^1.1.1"
     history "4.10"
     mobx-react-lite "^2.0.7"
@@ -176,24 +176,24 @@
     react-router "^5.2.0"
     react-router-dom "^5.2.0"
 
-"@metablock/server@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@metablock/server/-/server-0.2.3.tgz#00e85b40c698d3d3d17e00280faf2f94b64755c6"
-  integrity sha512-5zqjWqFKELNHMAPetGrti56qo8DnZNIlFBR8KqbLvJyv7z7KW5FKPYQcMjGnDI0nE6LvWHoJyJkhV/f7FLGkwA==
+"@metablock/server@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@metablock/server/-/server-0.2.4.tgz#d8e707dc5bea8e7cc92e1fac75dd56e3705ccca8"
+  integrity sha512-cnnU4wlpO5/1CSkPA7CUSLASr9tvE2PrBD3uXTufCFntzz+gQTkt1OtxHalMp5osJKbi1k8K0AFguUvUqXnh8g==
   dependencies:
-    "@metablock/core" "0.2.3"
+    "@metablock/core" "0.2.4"
     body-parser "^1.19.0"
     btoa "^1.2.1"
     cross-fetch "^3.0.5"
     express "^4.17.1"
     mime-types "^2.1.27"
 
-"@metablock/store@0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@metablock/store/-/store-0.2.3.tgz#0ab763f438ce74960f0d34e33eedaaf28a09b10c"
-  integrity sha512-o+0Ri/jS1jmfxG4DeVc4rjm82/r8iC2V64DPgXYHbMlH/Pv4NlGmqpjAcjU8s0u23GgmIpdUSDDH6h19vTMi4A==
+"@metablock/store@0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@metablock/store/-/store-0.2.4.tgz#3861d45023933b2bf22d4518dcf452d89475b3ef"
+  integrity sha512-W07p64WraytBhTL3P5E64Wy3UC+Kas+FqyTOUKeVZSUFy/Wm2f6rB+0cNAokPlsBkEakhw7P8gneKLqUR3f3HA==
   dependencies:
-    "@metablock/core" "0.2.3"
+    "@metablock/core" "0.2.4"
     mobx "^5.15.4"
 
 "@npmcli/move-file@^1.0.1":
