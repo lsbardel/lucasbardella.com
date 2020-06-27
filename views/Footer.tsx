@@ -39,6 +39,10 @@ const social = [
 
 const links = [
   {
+    text: "cv",
+    to: "/cv",
+  },
+  {
     text: "lab",
     to: "/lab",
   },
@@ -47,8 +51,12 @@ const links = [
     to: "/blog",
   },
   {
-    text: "cv",
-    to: "/cv",
+    text: "contact",
+    to: "/contact",
+  },
+  {
+    text: "colophon",
+    to: "/colophon",
   },
 ];
 

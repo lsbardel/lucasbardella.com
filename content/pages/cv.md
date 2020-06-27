@@ -1,21 +1,19 @@
-title: Luca Sbardella - CV
-description: Curriculum Vitae of Luca Sbardella, a passionate developer specialised in quantitative data analysis, quantitative finance, web application development, data visualization, python and much more.
+title: Curriculum Vitae of Luca Sbardella
+tagline: Luca Sbardella CV
+description: Tech lead specialized in quantitative data analysis, quantitative finance, web application development, data visualization, python and much more.
 head-image: ${assetUrl}/lucacv.png
 head-type: profile
 head-first_name: Luca
 head-last_name: Sbardella
 head-twitter-type: summary_large_image
----
 
-<h2 class="hidden-print">Curriculum Vitae</h2>
-<h1 class="visible-print-block">Luca Sbardella - CV</h1>
+---
 
 [TOC]
 
 ### Info
 
-**Name**: Luca Sbardella<br>
-**Url**: [http://lucasbardella.com](http://lucasbardella.com)<br>
+**Web**: [lucasbardella.com](http://lucasbardella.com)<br>
 **Email**: [luca@quantmind.com](mailto:luca@quantmind.com)<br>
 **Nationality and status**: Italian - married<br>
 **Residence**: London, UK<br>
@@ -25,7 +23,7 @@ head-twitter-type: summary_large_image
 **GitHub**: [https://github.com/quantmind](https://github.com/quantmind)<br>
 **Interests**: technology, finance, world economics, [cycling][], [skiing][], football, [wine][], chess<br>
 **Keywords**: trading strategies, quantitative finance, statistics, machine-learning, data analysis, stochastic calculus, application development, visualization, database, concurrency, Linux, open-source, technology, WSET<br>
-**Coding**: Python, Javascript, R, Lua, C++, C, C#, Excel/VBA, FORTRAN
+**Coding**: Python, Javascript/Typescript, R, Lua, C++, C, C#, Rust, FORTRAN
 
 <div class="visible-print">
 <br>
@@ -169,18 +167,18 @@ PhD, Applied Mathematics, Computational Fluid Dynamics.
 This is an incomplete list of publications during my academic years.
 {.hidden-print}
 
-* Sbardella L, Imregun M, (2002) "[Transonic Rotor/Stator Interaction Using a 3-D Linearised Unsteady Viscous Flow Mode](http://goo.gl/W8K0KD)" International Journal of Computational Fluid Dynamics, Vol. 16, No. 3, pp. 135-153.
-{.hidden-print}
-* Sbardella L, and Imregun M ,(2001) "[Linearized Unsteady Viscous Turbomachinery Flows Using Hybrid Grids](http://goo.gl/tD47VK)", J. Turbomachinery Vol. 123, No. 3 (2001), pp. 568-582.
-{.hidden-print}
-* Sbardella L, Tester B J and Imregun M, (2001), "[A Time-Domain Method for the Prediction of Sound Attenuation in Lined Ducts](http://goo.gl/vx2IAD)" Journal of Sound and Vibration, Vol. 239, Issue 3, pp. 379–396.
-{.hidden-print}
-* Sbardella L, Imregun M, (2000) "[An efficient discretization of viscous fluxes on unstructured mixed-element grids](http://goo.gl/J1cBIa)" Communications in Numerical Methods in Engineering, Vol. 16, No. 12, pp. 839-849.
-{.hidden-print}
-* Sbardella L, Sayma A I and Imregun M, (2000), "[Semi-structured meshes for axial turbomachinery blades](http://goo.gl/vYZMfC) Int. J. Numer. Meth. Fluids, Vol 32, pp. 569–584.
-{.hidden-print}
-* Sayma A I, Vahdati M, Sbardella L, and Imregun M (2000) "[Modelling of Three-Dimensional Viscous Compressible Turbomachinery Flows Using Unstructured Hybrid Grids](http://goo.gl/1VRCme)", AIAA Journal, Vol. 38, No. 6, pp. 945-954.
-{.hidden-print}
+- Sbardella L, Imregun M, (2002) "[Transonic Rotor/Stator Interaction Using a 3-D Linearised Unsteady Viscous Flow Mode](http://goo.gl/W8K0KD)" International Journal of Computational Fluid Dynamics, Vol. 16, No. 3, pp. 135-153.
+  {.hidden-print}
+- Sbardella L, and Imregun M ,(2001) "[Linearized Unsteady Viscous Turbomachinery Flows Using Hybrid Grids](http://goo.gl/tD47VK)", J. Turbomachinery Vol. 123, No. 3 (2001), pp. 568-582.
+  {.hidden-print}
+- Sbardella L, Tester B J and Imregun M, (2001), "[A Time-Domain Method for the Prediction of Sound Attenuation in Lined Ducts](http://goo.gl/vx2IAD)" Journal of Sound and Vibration, Vol. 239, Issue 3, pp. 379–396.
+  {.hidden-print}
+- Sbardella L, Imregun M, (2000) "[An efficient discretization of viscous fluxes on unstructured mixed-element grids](http://goo.gl/J1cBIa)" Communications in Numerical Methods in Engineering, Vol. 16, No. 12, pp. 839-849.
+  {.hidden-print}
+- Sbardella L, Sayma A I and Imregun M, (2000), "[Semi-structured meshes for axial turbomachinery blades](http://goo.gl/vYZMfC) Int. J. Numer. Meth. Fluids, Vol 32, pp. 569–584.
+  {.hidden-print}
+- Sayma A I, Vahdati M, Sbardella L, and Imregun M (2000) "[Modelling of Three-Dimensional Viscous Compressible Turbomachinery Flows Using Unstructured Hybrid Grids](http://goo.gl/1VRCme)", AIAA Journal, Vol. 38, No. 6, pp. 945-954.
+  {.hidden-print}
 
 <hr>
 

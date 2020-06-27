@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { CmsRoute } from "../react/Cms";
 import { BlogList, LabList } from "../views/CmsList";
+import CmsPageEntry from "../views/CmsPageEntry";
 import Footer from "../views/Footer";
 import Main from "../views/Main";
 
@@ -21,7 +22,14 @@ const Routes = () => {
         />
         <Route
           path="/"
-          render={({ match }) => <CmsRoute topic="pages" match={match} ListComponent={false} />}
+          render={({ match }) => (
+            <CmsRoute
+              topic="pages"
+              match={match}
+              ListComponent={false}
+              EntryComponent={CmsPageEntry}
+            />
+          )}
         />
       </Switch>
       <Footer />

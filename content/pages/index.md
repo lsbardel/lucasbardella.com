@@ -1,5 +1,7 @@
 date: 2014 March 26
 image: ${assetUrl}/lsbardel.jpg
+tagline: Hi!
+parallax: unsplash:t7YycgAoVSw
 
 ---
 

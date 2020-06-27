@@ -34,7 +34,7 @@ sometimes it is a struggle to harvest fully ripe, healthy grapes.
 ## Shanxi
 
 <img src="${assetUrl}/blog/grace-deep-blue-several-bottles.jpg"
-class="pull-right img-rounded hidden-xs" style="width: 350px; margin-left: 20px">
+class="pull-right img-rounded" style="width: 350px; margin-left: 20px">
 
 This is a large region on the west of Beijing and has a continental climate
 with some effect of the eastern monsoons which characterise the climate in
@@ -44,9 +44,6 @@ The region was made famous by [Grace vineyard](http://www.grace-vineyard.com/?la
 and its Deep Blue wine, a Bordeaux blend (Cabernet Sauvignon, Merlot, Cabernet Franc,
 Petit Verdot) which has earned very positive reviews from the western wine
 commentators.
-
-<img src="${assetUrl}/blog/grace-deep-blue-several-bottles.jpg"
-class="img-responsive img-rounded visible-xs">
 
 ## Ningxia-Hui
 

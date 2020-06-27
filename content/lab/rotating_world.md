@@ -28,7 +28,7 @@ twitter_card: summary_large_image
 </div>
 <br>
 
-A comparison in rendering performance when using [d3][] with
+A comparison in rendering performance when using [d3](https://d3js.org/) with
 [canvas](http://en.wikipedia.org/wiki/Canvas_element) or [svg](http://en.wikipedia.org/wiki/Scalable_Vector_Graphics).
 On this dataset, the canvas element requires about 20 millisecond to render one
 frame while the svg element about 30.

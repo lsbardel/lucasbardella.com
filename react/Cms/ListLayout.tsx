@@ -25,16 +25,16 @@ const ListLayout = (props: CmsListProps) => {
                 <Grid item xs={12} sm container>
                   <ListItemText
                     primary={
-                      <Typography component="h2" variant="h4">
+                      <Typography component="h2" variant="h5">
                         {entry.title}
                       </Typography>
                     }
                     secondary={
                       <>
-                        <Typography component="p" variant="h6">
+                        <Typography component="p" variant="subtitle1">
                           {entry.description}
                         </Typography>
-                        <Typography component="p" variant="subtitle1">
+                        <Typography component="p" variant="subtitle2">
                           by {entry.author} - {format(entry.date)}
                         </Typography>
                       </>

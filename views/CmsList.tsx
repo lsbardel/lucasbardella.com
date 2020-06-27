@@ -5,10 +5,10 @@ import { ListLayout } from "../react/Cms";
 import Container from "./Container";
 
 const CmsList = (props: any) => {
-  const { title, ...extra } = props;
+  const { title, image, ...extra } = props;
   return (
     <>
-      <Parallax small>
+      <Parallax small image={image}>
         <Container>
           <Typography component="h1" variant="h3" align="center">
             {title}
