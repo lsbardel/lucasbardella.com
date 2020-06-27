@@ -1,4 +1,4 @@
-date: 2010-08-10 10:51:08
+date: 2010-08-10
 title: Github behind a draconian firewall
 slug: github-behind-a-draconian-firewall
 author: Luca Sbardella

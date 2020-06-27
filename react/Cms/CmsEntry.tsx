@@ -7,7 +7,7 @@ import React from "react";
 import { useFetch } from "..";
 import SimpleEntry from "./EntryLayout";
 import { CmsData } from "./interfaces";
-import { matchSlug } from "./slug";
+import { matchSlug, render } from "./slug";
 import store from "./store";
 
 interface CmsProps {
@@ -32,7 +32,7 @@ const CmsEntry = (props: CmsProps) => {
   const data = useFetch(() => store.get(url), url);
   const doSanitize = sanitize === true ? {} : sanitize;
   if (!data) return null;
-  const entry = data as CmsData;
+  const entry = render(data) as CmsData;
   if (!matchSlug(entry, slug, params)) return <NotFoundComponent />;
   marked.setOptions({
     highlight: (code) => {

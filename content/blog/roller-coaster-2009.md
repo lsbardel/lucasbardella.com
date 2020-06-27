@@ -2,7 +2,7 @@ title: Roller coaster 2009
 slug: roller-coaster-2009
 date: 2009-12-30 09:38:56
 description: A roller coaster year which started from the legacy left by the bankruptcy of Lehman and lead to the beginning of my career as specialist consultant in quantitative finance and data analysis
-image: $site_url$site_media/lucasbardella/blog/roller-coaster.jpg
+image: ${assetUrl}/blog/roller-coaster.jpg
 head-tag: business, quantmind, work
 head-twitter-type: summary_large_image
 author: Luca Sbardella
@@ -11,7 +11,7 @@ category: personal
 ---
 
 <a href="#" class="thumbnail pull-right">
-<img width=300 src="$site_media/lucasbardella/blog/roller-coaster.jpg" alt="Roller coaster">
+<img width=300 src="${assetUrl}/blog/roller-coaster.jpg" alt="Roller coaster">
 </a>
 This was *the recession* year for most developed and several emerging economies. The UK has been, and still is, one of the worse performing countries with the Pound toying with parity against the Euro and unemployment at its highest for several years.
 London, where I live, has been hit by the recession especially in the financial sector. The City, where I work, has undergone an incredible transformation.

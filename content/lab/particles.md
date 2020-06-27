@@ -2,7 +2,7 @@ title: Particles
 author: Luca Sbardella
 date: 2015 January 13
 description: Rendering performance of particle animation using giottojs and d3js
-image: $site_url$site_media/lucasbardella/lab/particles.png
+image: ${assetUrl}/lab/particles.png
 category: visualization
 
 ---
@@ -12,7 +12,7 @@ category: visualization
 <div class="col-sm-9">
 <div class="lazyContainer">
     <div style='padding-top: 50%'></div>
-    <div data-require="$site_url$site_media/lucasbardella/lab/particles.js" class="content" data-giotto-viz></div>
+    <div data-require="${assetUrl}/lab/particles.js" class="content" data-giotto-viz></div>
 </div>
 </div>
 <div class="col-sm-3">

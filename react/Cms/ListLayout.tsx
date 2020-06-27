@@ -1,3 +1,5 @@
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -14,25 +16,34 @@ const ListLayout = (props: CmsListProps) => {
     <List>
       {data.map((entry, index) => (
         <ListItem key={index}>
-          <Link to={entry.urlPath} color="inherit" underline="none">
-            <ListItemText
-              primary={
-                <Typography component="h2" variant="h4">
-                  {entry.title}
-                </Typography>
-              }
-              secondary={
-                <>
-                  <Typography component="p" variant="h6">
-                    {entry.description}
-                  </Typography>
-                  <Typography component="p" variant="subtitle1">
-                    by {entry.author} - {format(entry.date)}
-                  </Typography>
-                </>
-              }
-            />
-          </Link>
+          <Box pb={6}>
+            <Link to={entry.urlPath} color="inherit" underline="none">
+              <Grid container spacing={3}>
+                <Grid item>
+                  <img alt={entry.title} src={entry.image} width="200" />
+                </Grid>
+                <Grid item xs={12} sm container>
+                  <ListItemText
+                    primary={
+                      <Typography component="h2" variant="h4">
+                        {entry.title}
+                      </Typography>
+                    }
+                    secondary={
+                      <>
+                        <Typography component="p" variant="h6">
+                          {entry.description}
+                        </Typography>
+                        <Typography component="p" variant="subtitle1">
+                          by {entry.author} - {format(entry.date)}
+                        </Typography>
+                      </>
+                    }
+                  />
+                </Grid>
+              </Grid>
+            </Link>
+          </Box>
         </ListItem>
       ))}
     </List>

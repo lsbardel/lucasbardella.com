@@ -4,14 +4,14 @@ slug: china_wine_regions
 date: 2014 November 01
 description: A map of the top wine producing regions in China. Map created using mapbox, leaflet and d3js.
 category: wine
-image: $site_url$site_media/lucasbardella/blog/china-wine-regions.png
+image: ${assetUrl}/blog/china-wine-regions.png
 twitter-card: summary_large_image
 require_css: leaflet
 require_js: lucasbardella/lab/china-wine
 ---
 
 <div data-options='chinamap' style="height: 400px"
-data-src="$site_url$site_media/lucasbardella/blog/china_adm1.topo.json" data-giotto-chart></div>
+data-src="${assetUrl}/blog/china_adm1.topo.json" data-giotto-chart></div>
 <br>
 <br>
 
@@ -33,7 +33,7 @@ sometimes it is a struggle to harvest fully ripe, healthy grapes.
 
 ## Shanxi
 
-<img src="$site_url$site_media/lucasbardella/blog/grace-deep-blue-several-bottles.jpg"
+<img src="${assetUrl}/blog/grace-deep-blue-several-bottles.jpg"
 class="pull-right img-rounded hidden-xs" style="width: 350px; margin-left: 20px">
 
 This is a large region on the west of Beijing and has a continental climate
@@ -45,7 +45,7 @@ and its Deep Blue wine, a Bordeaux blend (Cabernet Sauvignon, Merlot, Cabernet F
 Petit Verdot) which has earned very positive reviews from the western wine
 commentators.
 
-<img src="$site_url$site_media/lucasbardella/blog/grace-deep-blue-several-bottles.jpg"
+<img src="${assetUrl}/blog/grace-deep-blue-several-bottles.jpg"
 class="img-responsive img-rounded visible-xs">
 
 ## Ningxia-Hui
@@ -112,8 +112,8 @@ JSON file. Topojson requires [nodejs](http://nodejs.org/) to be installed:
     npm install -g topojson
     topojson -o china_adm1.topo.json -p name=NAME_1 china_adm1.json
 
-The <a href="$site_url$site_media/lucasbardella/blog/china_adm1.topo.json" target="_self">china_adm1.topo.json</a> is 244 KB in size while
-<a href="$site_url$site_media/lucasbardella/blog/china_adm1.json" target="_self">china_adm1.json</a> is 3.2 MB,
+The <a href="${assetUrl}/blog/china_adm1.topo.json" target="_self">china_adm1.topo.json</a> is 244 KB in size while
+<a href="${assetUrl}/blog/china_adm1.json" target="_self">china_adm1.json</a> is 3.2 MB,
 quite a big saving! This step includes a minor transformation renaming the ``NAME_1``
 property to ``name``. Check out a great tutorial by [Mike Bostock](http://bost.ocks.org/mike/)
 form more insight on how to [make a map](http://bost.ocks.org/mike/map/).
@@ -122,4 +122,4 @@ Working with [d3 & leaflet](http://bost.ocks.org/mike/leaflet/) is not too
 difficult and I've written a [d3 extension](http://quantmind.github.io/d3ext/examples/leaflet)
 for it.
 
-The source code for the map is available <a href="$site_url$site_media/lucasbardella/lab/china-wine.js" target="_self">here</a>.
+The source code for the map is available <a href="${assetUrl}/lab/china-wine.js" target="_self">here</a>.

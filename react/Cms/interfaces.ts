@@ -4,6 +4,7 @@ export interface CmsListData {
   author: string;
   date: Date | string;
   slug: string;
+  image: string;
   urlPath: string;
 }
 

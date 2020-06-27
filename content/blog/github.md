@@ -3,7 +3,7 @@ date: 2010-02-09 09:52:19
 author: Luca Sbardella
 slug: hosting-your-sphinx-docs-in-github
 description: How to set up Sphinx and Github to create great documentation for your project on Github servers
-image: $site_url$site_media/lucasbardella/blog/github.jpg
+image: ${assetUrl}/blog/github.jpg
 head-tag: github, python, documentation
 category: git
 ---

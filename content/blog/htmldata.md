@@ -4,7 +4,7 @@ slug: how_the_html_data_works
 date: 2014-05-17 22:31
 require_js: bootstrap
 head-tag: html5, javascript, data, d3, jquery, dom
-image: $site_url$site_media/lucasbardella/blog/html5.png
+image: ${assetUrl}/blog/html5.png
 description: HTML5 custom data attribute is useful, how is it used and why.
 category: HTML5
 

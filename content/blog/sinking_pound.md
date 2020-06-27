@@ -3,7 +3,7 @@ date: 2010-02-20 11:22:04
 slug: the-sinking-pound
 description: The pound has been hit badly over the last couple of years, however things can get worse as recent data highlights more problems
 author: Luca Sbardella
-image: $site_url$site_media/lucasbardella/blog/sinking.jpg
+image: ${assetUrl}/blog/sinking.jpg
 head-tag: finance, forex
 category: finance
 
@@ -18,7 +18,7 @@ UK's [national net debt](http://en.wikipedia.org/wiki/Government_debt) was confi
 ## The bad
 
 <a href="#" class="thumbnail pull-right">
-<img width=400 src="$site_url/media/lucasbardella/blog/loan-to-businesses.png" alt="Loan to businesses">
+<img width=400 src="${assetUrl}/blog/loan-to-businesses.png" alt="Loan to businesses">
 </a>
 In 2009 Q4 the stock of lending to companies [fell across all the main sectors](http://www.bankofengland.co.uk/publications/other/monetary/TrendsFebruary10.pdf) of the economy for the third consecutive quarter as reported by the [Bank of England](http://www.bankofengland.co.uk/) this week.
 The December 09 contraction of 4.3% is particularly worrying if compared with the small expansion in November. The banks are not lending, businesses will not invest and hire people. Unemployment won't decrease in the near term. Double dip recession? More probable than possible.

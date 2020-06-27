@@ -4,7 +4,7 @@ import React from "react";
 import { useFetch } from "..";
 import { CmsListData } from "./interfaces";
 import ListLayout from "./ListLayout";
-import { urlPath } from "./slug";
+import { render, urlPath } from "./slug";
 import store from "./store";
 
 interface CmsPaginateProps {
@@ -19,6 +19,7 @@ const CmsPaginate = (props: CmsPaginateProps) => {
   const url = bundleUrl(`${topic}/index.json`);
   const data = useFetch(() => store.get(url), url) || [];
   const entries = data.map((entry: CmsListData) => {
+    entry = render(entry) as CmsListData;
     entry.urlPath = `${path}/${urlPath(entry, slug)}`;
     return entry;
   });

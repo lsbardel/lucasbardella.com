@@ -3,7 +3,7 @@ slug: sparkling_wines_of_the_world
 author: Luca Sbardella
 date: 2014-06-07 17:25
 description: A visualization af the main sparkling wines of the world. Created while preparing for Unit 5 WSET diploma exam.
-image: \$site_media/lucasbardella/lab/sparkling.jpg
+image: ${assetUrl}/lab/sparkling.jpg
 category: visualization
 
 ---

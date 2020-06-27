@@ -4,7 +4,7 @@ slug: katex-angularjs
 date: 2014 November 6
 description: How to use KaTex, the JavaScript library for TeX math rendering from Kahn Academy, with AngularJS
 require_css: katex
-image: $site_url$site_media/lucasbardella/blog/katex.png
+image: ${assetUrl}/blog/katex.png
 category: math
 
 ---

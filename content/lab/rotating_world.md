@@ -2,7 +2,7 @@ title: Rotating world
 author: Luca Sbardella
 description: Rendering performance when using canvas or svg for a rotating world animation
 date: 2014 October 30
-image: $site_url$site_media/lucasbardella/lab/rotating-world.png
+image: ${assetUrl}/lab/rotating-world.png
 category: map
 require_js: lucasbardella/lab/rotating-world
 twitter_card: summary_large_image
@@ -33,4 +33,4 @@ A comparison in rendering performance when using [d3][] with
 On this dataset, the canvas element requires about 20 millisecond to render one
 frame while the svg element about 30.
 Source code requires the [d3ext][] javascript library and it is available
-<a href="$site_url$site_media/lucasbardella/lab/rotating-world.js" target="_self">here</a>.
+<a href="${assetUrl}/lab/rotating-world.js" target="_self">here</a>.
