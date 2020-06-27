@@ -1,14 +1,14 @@
 import { Page } from "@metablock/react";
 import React from "react";
-import Main from "../views/Main";
+import Container from "../views/Container";
 
 const Home = () => {
   return (
-    <Main>
+    <Container>
       <Page>
         <div>Hi</div>
       </Page>
-    </Main>
+    </Container>
   );
 };
 

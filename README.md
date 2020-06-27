@@ -8,5 +8,5 @@ Running on [metablock.io](https://metablock.io) cloud.
 
 Local development:
 ```
-yarn dev
+yarn watch
 ```

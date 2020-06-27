@@ -10,9 +10,9 @@ import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { Copyright } from "@metablock/react";
 import React from "react";
-import { List } from "../react";
 import useStyles from "../context/styles";
-import Main from "./Main";
+import { List } from "../react";
+import Container from "./Container";
 
 const social = [
   {
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
   return (
     <Box fontSize={8}>
       <Typography component="footer" variant="body2" color="textSecondary" className={classes.root}>
-        <Main header={false}>
+        <Container>
           <Box pt={3} pb={1}>
             <Grid container spacing={4}>
               <Grid item sm={6}>
@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
               </Grid>
             </Grid>
           </Box>
-        </Main>
+        </Container>
       </Typography>
     </Box>
   );

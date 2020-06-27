@@ -1,10 +1,9 @@
 import Avatar from "@material-ui/core/Avatar";
-import Container from "@material-ui/core/Container";
 import { assetUrl } from "@metablock/core";
 import { Header, Link } from "@metablock/react";
 import React from "react";
-import { List } from "../react";
 import useStyles from "../context/styles";
+import { List } from "../react";
 
 const links: any[] = [
   {
@@ -22,7 +21,7 @@ const links: any[] = [
 ];
 
 const Main = (props: any) => {
-  const { children, header = true } = props;
+  const { children } = props;
   const rightLinks = <List direction="horizontal" align="right" items={links} />;
   const classes = useStyles();
   const brandComponent = (
@@ -30,19 +29,16 @@ const Main = (props: any) => {
       <Avatar src={assetUrl("luca-avatar.jpg")} alt="Luca" className={classes.avatarLarge} />
     </Link>
   );
-  const headerComponent = header ? (
-    <Header
-      brandComponent={brandComponent}
-      rightLinks={rightLinks}
-      paddingTop={1}
-      paddingBottom={1}
-    />
-  ) : null;
 
   return (
     <>
-      {headerComponent}
-      <Container maxWidth="md">{children}</Container>
+      <Header
+        brandComponent={brandComponent}
+        rightLinks={rightLinks}
+        paddingTop={1}
+        paddingBottom={1}
+      />
+      {children}
     </>
   );
 };

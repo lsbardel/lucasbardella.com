@@ -1,4 +1,0 @@
-{
-  "output": "static",
-  "skip": ["node_modules", "static", ".git"]
-}

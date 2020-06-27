@@ -11,22 +11,23 @@
     "fix": "eslint '*' --fix",
     "precommit": "lint-staged",
     "compile": "metablock compile",
-    "build": "export NODE_ENV=production && yarn compile && webpack",
+    "build": "export NODE_ENV=production && yarn compile content && webpack",
     "dev": "webpack-dev-server -w",
     "watch": "npm-run-all --parallel dev watch:compile",
-    "watch:compile": "metablock compile -w"
+    "watch:compile": "metablock compile content -w"
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "@metablock/core": "^0.2.2",
-    "@metablock/react": "^0.2.2",
+    "@metablock/core": "^0.2.3",
+    "@metablock/react": "^0.2.3",
+    "d3-time-format": "^2.2.3",
     "dompurify": "^2.0.12",
     "highlight.js": "^10.1.1",
     "marked": "^1.1.0"
   },
   "devDependencies": {
-    "@metablock/cli": "^0.2.2",
-    "@metablock/server": "^0.2.2",
+    "@metablock/cli": "^0.2.3",
+    "@metablock/server": "^0.2.3",
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.3",
     "@types/marked": "^1.1.0",
