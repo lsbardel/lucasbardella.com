@@ -18,7 +18,7 @@ export class CmsStore {
     this.error = undefined;
     try {
       if (!this.data[path]) {
-        const response = await this.cli.get(path, { mode: "no-cors" });
+        const response = await this.cli.get(path);
         this.data[path] = response.data;
       }
       return this.data[path];

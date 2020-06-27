@@ -23,7 +23,7 @@ The curve has Cartesian equation
 </div>
 
 
-Code available <a href="$site_url$site_media/lucasbardella/lab/agnesi.js" target="_self">here</a>.
+Code available <a href="${assetUrl}/lab/agnesi.js" target="_blank_">here</a>.
 
 
 <script>
