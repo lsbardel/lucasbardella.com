@@ -12,20 +12,6 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true
   },
-  "exclude": ["node_modules"],
-  "include": [
-    "*.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "../metablock-js/packages/metablock-cms/src/CmsEntry.tsx",
-    "../metablock-js/packages/metablock-cms/src/EntryLayout.tsx",
-    "../metablock-js/packages/metablock-cms/src/interfaces.ts",
-    "../metablock-js/packages/metablock-cms/src/CmsPaginate.tsx",
-    "../metablock-js/packages/metablock-cms/src/index.ts",
-    "../metablock-js/packages/metablock-cms/src/CmsRoute.tsx",
-    "../metablock-js/packages/metablock-cms/src/op.ts",
-    "../metablock-js/packages/metablock-cms/src/store.ts",
-    "../metablock-js/packages/metablock-cms/src/ListLayout.tsx",
-    "../metablock-js/packages/metablock-cms/src/LoadableCmsEntry.tsx"
-  ]
+  "exclude": ["node_modules", "static", ".github"],
+  "include": ["*.ts", "**/*.ts", "**/*.tsx"]
 }
