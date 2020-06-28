@@ -1,9 +1,8 @@
 import Avatar from "@material-ui/core/Avatar";
 import { assetUrl } from "@metablock/core";
-import { Header, Link } from "@metablock/react";
+import { Header, Link, List } from "@metablock/react";
 import React from "react";
 import useStyles from "../context/styles";
-import { List } from "../react";
 import maxWidth from "./width";
 
 const links: any[] = [

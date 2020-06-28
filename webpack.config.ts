@@ -3,14 +3,12 @@ const hasFlag = require("has-flag");
 const path = require("path");
 const webpack = require("webpack");
 const RequireFrom = require("webpack-require-from");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const { devServer } = require("@metablock/server");
 
 const STATIC_PATH = "static";
 
-const mode =
-  process.env.NODE_ENV === "production" ? "production" : "development";
+const mode = process.env.NODE_ENV === "production" ? "production" : "development";
 const PWD = process.cwd();
 const resolvePath = (relativePath: string) => path.resolve(PWD, relativePath);
 
@@ -18,7 +16,7 @@ const config = {
   mode,
   devServer: devServer("https://new.lucasbardella.com", { hot: true }),
   entry: {
-    luca: "./main/index.ts",
+    luca: "./main/index.tsx",
   },
   output: {
     publicPath: STATIC_PATH,
@@ -37,7 +35,13 @@ const config = {
     }),
   ],
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".jsx"],
+    alias: {
+      "@material-ui/styles": path.resolve(PWD, "node_modules", "@material-ui/styles"),
+      react: path.resolve(PWD, "node_modules", "react"),
+      "react-dom": path.resolve(PWD, "node_modules", "react-dom"),
+      "react-router-dom": path.resolve(PWD, "node_modules", "react-router-dom"),
+    },
   },
   module: {
     rules: [

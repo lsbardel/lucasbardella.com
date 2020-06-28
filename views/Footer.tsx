@@ -8,10 +8,9 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import { Copyright } from "@metablock/react";
+import { Copyright, List } from "@metablock/react";
 import React from "react";
 import useStyles from "../context/styles";
-import { List } from "../react";
 import Container from "./Container";
 
 const social = [

@@ -3,7 +3,9 @@ title: Using KaTex with AngularJS
 slug: katex-angularjs
 date: 2014 November 6
 description: How to use KaTex, the JavaScript library for TeX math rendering from Kahn Academy, with AngularJS
+require_css: //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
 require_css: katex
+require_js: ${assetUrl}/require.config.min.js
 image: ${assetUrl}/blog/katex.png
 category: math
 
@@ -23,64 +25,68 @@ see equations popping into existence while the page is processed.
 
 I've created an [AngularJS][] directive to use in my pages:
 
-    angular.module('katex-module')
+```javascript
+angular.module('katex-module')
+    .value('mathDefaults', {
+        center: True,
+        fallback: True
+    })
+    .directive('katex', ['mathDefaults', function (mathDefaults) {
 
-        .value('mathDefaults', {
-            center: True,
-            fallback: True
-        })
-
-        .directive('katex', ['mathDefaults', function (mathDefaults) {
-
-            function render(katex, text, element) {
-                try {
-                    katex.render(text, element[0]);
-                }
-                catch(err) {
-                    // MathJax fallback
-                    if (mathDefaults.fallback)
-                        require(['mathjax'], function (mathjax) {
-                            if (text.substring(0, 15) === '\\displaystyle {')
-                                text = text.substring(15, text.length-1);
-                            element.append(text);
-                            mathjax.Hub.Queue(["Typeset", mathjax.Hub, element[0]]);
-                        });
-                    } else
-                        element.html("<div class='alert alert-danger' role='alert'>" + err + "</div>");
-                }
+        function render(katex, text, element) {
+            try {
+                katex.render(text, element[0]);
             }
+            catch(err) {
+                // MathJax fallback
+                if (mathDefaults.fallback)
+                    require(['mathjax'], function (mathjax) {
+                        if (text.substring(0, 15) === '\\displaystyle {')
+                            text = text.substring(15, text.length-1);
+                        element.append(text);
+                        mathjax.Hub.Queue(["Typeset", mathjax.Hub, element[0]]);
+                    });
+                } else
+                    element.html("<div class='alert alert-danger' role='alert'>" + err + "</div>");
+            }
+        }
 
-            return {
-                restrict: 'AE',
+        return {
+            restrict: 'AE',
 
-                link: function (scope, element) {
-                    var text = element.html();
-                    if (element[0].tagName === 'DIV') {
-                        if (mathDefaults.center)
-                            element.addClass('text-center');
-                        text = '\\displaystyle {' + text + '}';
-                        element.addClass('katex-outer').html();
-                    }
-                    if (typeof(katex) === 'undefined')
-                        require(['katex'], function (katex) {
-                            render(katex, text, element);
-                        });
-                    else
-                        render(katex, text, element);
+            link: function (scope, element) {
+                var text = element.html();
+                if (element[0].tagName === 'DIV') {
+                    if (mathDefaults.center)
+                        element.addClass('text-center');
+                    text = '\\displaystyle {' + text + '}';
+                    element.addClass('katex-outer').html();
                 }
-            };
-        }]);
+                if (typeof(katex) === 'undefined')
+                    require(['katex'], function (katex) {
+                        render(katex, text, element);
+                    });
+                else
+                    render(katex, text, element);
+            }
+        };
+    }]);
+```
 
 I can use the directive for inline expressions such as <katex>d y_t = \alpha_t dt + \sigma_t d W_t</katex>
 by inserting the mark-up:
 
-    <katex>d y_t = \alpha_t dt + \sigma_t d W_t</katex>
+```html
+<katex>d y_t = \alpha_t dt + \sigma_t d W_t</katex>
+```
 
 To create an expression in a new line one uses the `div` element:
 
-    <div katex>
-    d y_t = \alpha_t dt + \sigma_t d W_t
-    </div>
+```html
+<div katex>
+  d y_t = \alpha_t dt + \sigma_t d W_t
+</div>
+```
 
 which renders as:
 
@@ -123,4 +129,3 @@ Do you know what they are?
 [mathjax]: http://www.mathjax.org/
 
 Feedbacks and comments on [GitHub](https://github.com/lsbardel/lucasbardella.com/issues/1)
-{.alert .alert-info .lead}

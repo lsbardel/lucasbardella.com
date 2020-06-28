@@ -5,8 +5,6 @@ parallax: unsplash:t7YycgAoVSw
 
 ---
 
-<br>
-<br>
 My name is Luca Sbardella and I'm a passionate developer interested in
 quantitative data analysis, machine-learning, real-time applications and technology in general.
 I have worked as a research assistant at Imperial College and over the last ten years as

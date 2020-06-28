@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { CmsRoute } from "../react/Cms";
+import { CmsRoute } from "../../metablock-js/packages/metablock-cms/src";
 import { BlogList, LabList } from "../views/CmsList";
 import CmsPageEntry from "../views/CmsPageEntry";
 import Footer from "../views/Footer";
@@ -8,7 +8,7 @@ import Main from "../views/Main";
 
 const Routes = () => {
   return (
-    <Main header={true} component={false}>
+    <Main>
       <Switch>
         <Route
           path="/blog"
@@ -18,7 +18,9 @@ const Routes = () => {
         />
         <Route
           path="/lab"
-          render={({ match }) => <CmsRoute match={match} ListComponent={LabList} />}
+          render={({ match }) => (
+            <CmsRoute match={match} ListComponent={LabList} showLineNumbers={true} />
+          )}
         />
         <Route
           path="/"

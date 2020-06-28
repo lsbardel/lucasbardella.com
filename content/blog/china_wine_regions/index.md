@@ -6,8 +6,13 @@ description: A map of the top wine producing regions in China. Map created using
 category: wine
 image: ${assetUrl}/blog/china-wine-regions.png
 twitter-card: summary_large_image
+require_css: //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
+require_css: ${assetUrl}/legacy/lucasbardella.css
 require_css: leaflet
-require_js: lucasbardella/lab/china-wine
+require_js: ${assetUrl}/legacy/require.config.min.js
+require_js: ./china-wine
+iframe: true
+
 ---
 
 <div data-options='chinamap' style="height: 400px"
@@ -58,9 +63,9 @@ well suited to the production of wine.
 
 Notable producers, located near the Helan Mountain and the Yellow River
 
-* [Silver Height](http://www.silverheights.com.cn/). Vineyards located above 1,000 metres in altitude. The owner, Emma Gao, had trained in Bordeaux and her investment demonstrated the potential of the area for quality grape growing. Wines are made from Bordeux blends dominated by Cabernet Sauvignon and to a lesser extend Cabernet Gernischt (also known as Carmenère) and Merlot.
-* [Chandon Ningxia](http://www.lvmh.com/the-group/lvmh-companies-and-brands/wines-spirits/domaine-chandon-china) is a modern new vinery owned by Moët Hennessy. The region offers excellent growing conditions for the estate’s two Champagne grape varieties, Chardonnay and Pinot Noir, essential for producing premium sparkling wines made with the [traditional method](http://en.wikipedia.org/wiki/Sparkling_wine_production). First vintage is the 2014.
-* [Helan Mountain](http://www.helanmountain.com/) was founded in 1997 and in 2012 was bought by Diageo. Produces varietal wines from Cabernet Sauvignon, Merlot and Chardonnay.
+- [Silver Height](http://www.silverheights.com.cn/). Vineyards located above 1,000 metres in altitude. The owner, Emma Gao, had trained in Bordeaux and her investment demonstrated the potential of the area for quality grape growing. Wines are made from Bordeux blends dominated by Cabernet Sauvignon and to a lesser extend Cabernet Gernischt (also known as Carmenère) and Merlot.
+- [Chandon Ningxia](http://www.lvmh.com/the-group/lvmh-companies-and-brands/wines-spirits/domaine-chandon-china) is a modern new vinery owned by Moët Hennessy. The region offers excellent growing conditions for the estate’s two Champagne grape varieties, Chardonnay and Pinot Noir, essential for producing premium sparkling wines made with the [traditional method](http://en.wikipedia.org/wiki/Sparkling_wine_production). First vintage is the 2014.
+- [Helan Mountain](http://www.helanmountain.com/) was founded in 1997 and in 2012 was bought by Diageo. Produces varietal wines from Cabernet Sauvignon, Merlot and Chardonnay.
 
 The short growing season in Ningxia is followed by a long, cold winter, and vines
 must be protected from freezing temperatures with an insulating mound of
@@ -68,8 +73,8 @@ dirt piled around the base of the plant.
 The labour costs required to bury the vines each year, are considerable and will
 be a major overhead for wineries.
 Emma Gao adds:
-> The right choice of hybrid is crucial when embarking on a project in Ningxia, to ensure they can tolerate our extreme winters that last for many months!
 
+> The right choice of hybrid is crucial when embarking on a project in Ningxia, to ensure they can tolerate our extreme winters that last for many months!
 
 ## Yunnan
 
@@ -81,12 +86,11 @@ with vineyards at an average altitude of about 2,400 metres.
 Moet Hennessy are aiming to produce high
 quality red wines made mainly from Cabernet Sauvignon and Merlot.
 
-
 ## The map
 
 This session is for the geeks!
 
-The map uses the great [d3][] and [leaflet](http://leafletjs.com/)
+The map uses the great [d3](https://d3js.org/) and [leaflet](http://leafletjs.com/)
 javascript libraries. Tiles are provided by [mapbox](https://www.mapbox.com/) while boundary data is from
 [Diva administrative areas](http://www.diva-gis.org/gdata).
 The four regions were extracted using the [GDAL](http://www.gdal.org/) library on a mac:
@@ -101,7 +105,6 @@ and conversion of the four regions data into GeoJSON format
         china_adm1.json\
         CHN_adm1.shp
 
-
 I used [topojson](https://github.com/mbostock/topojson/wiki) to reduce the size of the
 JSON file. Topojson requires [nodejs](http://nodejs.org/) to be installed:
 
@@ -111,8 +114,8 @@ JSON file. Topojson requires [nodejs](http://nodejs.org/) to be installed:
 
 The <a href="${assetUrl}/blog/china_adm1.topo.json" target="_self">china_adm1.topo.json</a> is 244 KB in size while
 <a href="${assetUrl}/blog/china_adm1.json" target="_self">china_adm1.json</a> is 3.2 MB,
-quite a big saving! This step includes a minor transformation renaming the ``NAME_1``
-property to ``name``. Check out a great tutorial by [Mike Bostock](http://bost.ocks.org/mike/)
+quite a big saving! This step includes a minor transformation renaming the `NAME_1`
+property to `name`. Check out a great tutorial by [Mike Bostock](http://bost.ocks.org/mike/)
 form more insight on how to [make a map](http://bost.ocks.org/mike/map/).
 
 Working with [d3 & leaflet](http://bost.ocks.org/mike/leaflet/) is not too

@@ -1,7 +1,7 @@
 import Typography from "@material-ui/core/Typography";
-import { Parallax } from "@metablock/react";
+import { Page, Parallax } from "@metablock/react";
 import React from "react";
-import { ListLayout } from "../react/Cms";
+import { ListLayout } from "../../metablock-js/packages/metablock-cms/src";
 import Container from "./Container";
 
 const CmsList = (props: any) => {
@@ -23,11 +23,22 @@ const CmsList = (props: any) => {
 };
 
 export const BlogList = (props: any) => {
-  return <CmsList title="Blog" {...props} />;
+  return (
+    <Page title="Luca Blog" description="Writing about tech finance and betting">
+      <CmsList title="Blog" {...props} />
+    </Page>
+  );
 };
 
 export const LabList = (props: any) => {
-  return <CmsList title="Lab" {...props} />;
+  return (
+    <Page
+      title="Luca Lab"
+      description="Tachnical articheles with live code in javascript and python"
+    >
+      <CmsList title="Lab" {...props} />
+    </Page>
+  );
 };
 
 export default CmsList;
