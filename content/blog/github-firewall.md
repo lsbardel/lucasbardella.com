@@ -15,14 +15,20 @@ I had this problem while working at a client office and fortunately there is a w
 In short the best way is to use git smart HTTP support.
 Starting with a working installation of [cygwin](http://www.cygwin.com/) with git, I first set the proxy
 
-    git config --global http.proxy "your.proxyserver.com"
+```bash
+git config --global http.proxy "your.proxyserver.com"
+```
 
 This should be enough to pull read-only repository via http. However if you try to pull read/write repos via https git prompts for a password but doesn't accept the input for some bizarre reason.
 
 To solve the problem clone the repo using the url:
 
-    https://username:password@github.com/user/repo
+```
+https://username:password@github.com/user/repo
+```
 
 Then switch off SSL verification
 
-    git config --global http.sslverify false
+```bash
+git config --global http.sslverify false
+```

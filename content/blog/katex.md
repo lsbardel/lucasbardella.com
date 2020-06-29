@@ -73,7 +73,7 @@ angular.module('katex-module')
     }]);
 ```
 
-I can use the directive for inline expressions such as <katex>d y_t = \alpha_t dt + \sigma_t d W_t</katex>
+I can use the directive for inline expressions such as $d y_t = \alpha_t dt + \sigma_t d W_t$
 by inserting the mark-up:
 
 ```html
@@ -90,9 +90,9 @@ To create an expression in a new line one uses the `div` element:
 
 which renders as:
 
-<div katex>
+$$
 d y_t = \alpha_t dt + \sigma_t d W_t
-</div>
+$$
 
 KaTeX is more limited in the kinds of output it supports than MathJax,
 sticking to inline-style rendering and a much smaller subset of TeX commands.
@@ -105,23 +105,23 @@ One can use MathJax as fallback when KaTex fails to render a block of code. The 
 is implemented in the `render` function above and it is triggered when rendering this equation
 which is the Heston stochastic volatility model for asset prices
 
-<div katex>
-\begin{align}
+$$
+\begin{aligned}
   d S &= \mu S dt + \sqrt{\nu} S d W_S\\
   d \nu &= \kappa(\theta - \nu) dt + \alpha \sqrt{\nu} d W_\nu\\
   {\tt E}\left[dW_S d W_\nu\right] &= \rho dt
-\end{align}
-</div>
+\end{aligned}
+$$
 
 These last two equations were used to create the blog-post image:
 
-<div style="font-size: 20px" katex>
+$$
 G_{\mu\nu} = 8 \pi G \left(T_{\mu\nu} - \rho_\Lambda g_{\mu\nu}\right)
-</div>
-<br>
-<div style="font-size: 20px" katex>
+$$
+
+$$
 t' = \frac{t}{\sqrt{1 - \frac{v^2}{c^2}}}
-</div>
+$$
 
 Do you know what they are?
 

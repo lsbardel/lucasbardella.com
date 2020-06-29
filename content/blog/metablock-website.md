@@ -5,6 +5,7 @@ description: The new website is hosted on metablock cloud
 keywords: react, metablock, material ui
 hero_photo: KBX9XHk266s
 hero_photo_filter: 0.8
+hero_dark: true
 
 ---
 
@@ -14,4 +15,4 @@ the javascript tooling from [metablock-js](https://github.com/quantmind/metabloc
 The source code for the website is available on [github](https://github.com/lsbardel/lucasbardella.com).
 
 [Metablock](https://metablock.io/) is a serverless cloud platform under active development and it should be
-ready to be tested tested by invited users in a couple of months or so.
+ready to be tested by invited users in a couple of months or so.

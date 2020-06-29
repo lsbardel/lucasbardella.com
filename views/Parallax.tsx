@@ -45,7 +45,8 @@ const Parallax = (props: ParallaxProps) => {
       if (photo) return await photoStore.getPhoto(photo);
     }, photo) || null;
 
-  const urls = data ? [data.urls.thumb, data.urls.small, data.urls.regular, data.urls.full] : [];
+  const urls =
+    data && data.urls ? [data.urls.thumb, data.urls.small, data.urls.regular, data.urls.full] : [];
   const inner = (
     <Container maxWidth={maxWidth} className={classes.main}>
       {children}

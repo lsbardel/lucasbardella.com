@@ -1,7 +1,7 @@
 title: Curriculum Vitae of Luca Sbardella
 tagline: Luca Sbardella CV
 description: Tech lead specialized in quantitative data analysis, quantitative finance, web application development, data visualization, python and much more.
-head-image: ${assetUrl}/lucacv.png
+head-image: \${assetUrl}/lucacv.png
 head-type: profile
 head-first_name: Luca
 head-last_name: Sbardella
@@ -11,9 +11,7 @@ hero_dark: true
 
 ---
 
-[TOC]
-
-### Info
+## Info
 
 **Web**: [lucasbardella.com](http://lucasbardella.com)<br>
 **Email**: [luca@quantmind.com](mailto:luca@quantmind.com)<br>
@@ -27,25 +25,15 @@ hero_dark: true
 **Keywords**: trading strategies, quantitative finance, statistics, machine-learning, data analysis, stochastic calculus, application development, visualization, database, concurrency, Linux, open-source, technology, WSET<br>
 **Coding**: Python, Javascript/Typescript, R, Lua, C++, C, C#, Rust, FORTRAN
 
-<div class="visible-print">
-<br>
-<br>
-<br>
-</div>
+<hr>
+
+## Work Experience
 
 <hr>
 
-### Work Experience
+### Director - [Quantmind](https://quantmind.com)
 
-<hr>
-
-#### Director - [Quantmind](http://quantmind.com)
-
-Privately Held; Myself Only; Computer Software industry; <span class="visible-print-block">http://quantmind.com<span>
-{.text-muted .small}
-
-<strong>November 2008 - Present</strong>. <span class='time-since' data_since='November 2008'></span> London, UK
-{.text-info}
+**November 2008 - Present** London, UK
 
 Consultant specialising in quantitative data analysis, realtime web applications,
 visualization of complex datasets and full stack technological solutions.
@@ -57,13 +45,25 @@ visualization of complex datasets and full stack technological solutions.
 
 <hr>
 
-#### Director - Quantitative Analyst - [Citi](https://www.linkedin.com/company/citi)
+### Head of Algo Trading - [Smarkets](https://smarkets.com)
 
-Public Company; Investment Banking industry
-{.text-muted .small}
+**November 2008 - Present** London, UK
 
-<strong>July 2011 – March 2014</strong> (2 years 9 months) London, UK
-{.text-info}
+I managed the sport algorithmic trading division consisting of 12 engineers, 10 quants and 8 ops traders.
+We market-make sporting events 24/7 using python, rust, react and many other open source technologies
+on a microservice driven architecture deployed into Kubernetes clusters on AWS.
+I was part of the leadearship team with daily interactions with the CEO of the group based in LA.
+
+**Specialities**: quantitative finance, calculus, machine learning, data analysis, web applications
+
+**Coding**: Python, JavaScript, C, C++, R, Lua<br>
+**Data Stores**: PostgreSQL, Redis, MongoDB, Google data store, Amazon DynamoDB
+
+<hr>
+
+### Director - Quantitative Analyst - [Citi](https://www.linkedin.com/company/citi)
+
+**April 2009 – March 2014** London, UK
 
 Development of a web-based application for quantitative analysis of **interest rate options strategies**.
 Working closely with the head of the exotic trading desk, the development started in April 2009 during a 6 month contract with Citi, then extended for
@@ -80,18 +80,11 @@ proprietary libraries. Excel/VBA and Python REST-API were also developed and use
 **Coding**: Python, JavaScript, C, C++, R, Lua, Excel/VBA<br>
 **Data Stores**: PostgreSQL, Redis, MongoDB
 
-<div class="visible-print">
-<br>
-</div>
 <hr>
 
-#### Fund Manager - [Investec Asset Management](https://www.linkedin.com/company/investec-asset-management)
+### Fund Manager - [Investec Asset Management](https://www.linkedin.com/company/investec-asset-management)
 
-Public Company; Investment Management industry
-{.text-muted .small}
-
-<strong>March 2008 – April 2009</strong> (1 year 2 months) London, UK
-{.text-info}
+**March 2008 – April 2009** London, UK
 
 Creating a new Quantitative Hedge Fund product within an established Asset management firm.
 I was part of a group of five where I was heading the technological and algorithmic part of the project.
@@ -100,13 +93,9 @@ I was part of a group of five where I was heading the technological and algorith
 
 <hr>
 
-#### Option Trader - Ulpia SA
+### Option Trader - Ulpia SA
 
-Privately Held; No longer operating; Financial Services industry
-{.text-muted .small}
-
-<strong>May 2006 – September 2007</strong> (1 year 5 months) - Chiasso, Switzerland
-{.text-info}
+**May 2006 – September 2007** - Lugano, Switzerland
 
 Quantitative trading in currency and currency options at a start-up Hedge Fund.
 
@@ -114,13 +103,9 @@ Quantitative trading in currency and currency options at a start-up Hedge Fund.
 
 <hr>
 
-#### Strategist - JWM Partners
+### Strategist - JWM Partners
 
-Privately Held; Financial Services industry
-{.text-muted .small}
-
-<strong>October 2003 – March 2006</strong> (2 years 6 months) - London, UK
-{.text-info}
+**October 2003 – March 2006** - London, UK
 
 Investment strategist in an established Hedge Fund manager.
 
@@ -131,30 +116,23 @@ investment strategies in Fixed Income and Currency Volatility.
 
 <hr>
 
-#### Quantitative Analyst - [Nomura](http://www.nomura.com/)
+### Quantitative Analyst - [Nomura](http://www.nomura.com/)
 
-Public Company; Investment Banking industry
-{.text-muted .small}
-
-<strong>April 2000 – August 2003</strong> (3 years 5 months) - London, UK
-{.text-info}
+**April 2000 – August 2003** - London, UK
 
 Quantitative analyst/trader in propriety trading group. Researching and trading in Fixed Income.
 
 **Coding**: C++, Excel/VBA
 
-<div class="visible-print">
-<br>
-</div>
+<hr>
 
-### Education
+## Education
 
 <hr>
 
-#### [Imperial College London](http://www3.imperial.ac.uk/)
+### [Imperial College London](http://www3.imperial.ac.uk/)
 
-<strong>1996 – 2000</strong> - London UK
-{.text-info}
+**1996 – 2000** - London UK
 
 PhD, Applied Mathematics, Computational Fluid Dynamics.
 
@@ -164,10 +142,8 @@ PhD, Applied Mathematics, Computational Fluid Dynamics.
 **Coding**: FORTRAN, C++
 
 **Publications**
-{.hidden-print}
 
 This is an incomplete list of publications during my academic years.
-{.hidden-print}
 
 - Sbardella L, Imregun M, (2002) "[Transonic Rotor/Stator Interaction Using a 3-D Linearised Unsteady Viscous Flow Mode](http://goo.gl/W8K0KD)" International Journal of Computational Fluid Dynamics, Vol. 16, No. 3, pp. 135-153.
   {.hidden-print}
@@ -184,28 +160,24 @@ This is an incomplete list of publications during my academic years.
 
 <hr>
 
-#### [Politecnico di Torino](http://www.polito.it/index.php?lang=en)
+### [Politecnico di Torino](http://www.polito.it/index.php?lang=en)
 
-<strong>1990 – 1995</strong> - Turin, Italy
-{.text-info}
+**1990 – 1995** - Turin, Italy
 
 Five year degree (Laurea) in Aeronautical Engineering.
 Lectures included Mathematics, Physics, Calculus, Mechanics and Computing.
 
-Graduated with maximum mark <strong>110/110</strong>.
+Graduated with maximum mark **110/110**.
 
 <hr>
 
-#### [Liceo Scientifico Galileo Galilei](http://www.liceoadria.it/)
+### [Liceo Scientifico Galileo Galilei](http://www.liceoadria.it/)
 
-<strong>1985 - 1990</strong> - Adria - Italy
-{.text-info.}
+**1985 - 1990** - Adria - Italy
 
 Five years secondary school focused on mathematics, literature, physics, Latin, history, chemistry, life sciences.
-{.hidden}
 
-Final mark: 56/60
-{.hidden}
+Final mark: **56/60**
 
 [skiing]: https://www.flickr.com/photos/sbardella/tags/skiing/
 [cycling]: http://www.strava.com/athletes/lsbardel

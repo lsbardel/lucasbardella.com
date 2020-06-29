@@ -11,9 +11,8 @@ category: personal
 
 ---
 
-<a href="#" class="thumbnail pull-right">
-<img width=300 src="${assetUrl}/blog/roller-coaster.jpg" alt="Roller coaster">
-</a>
+<img width=400 src="${assetUrl}/blog/roller-coaster.jpg" alt="Roller coaster" style="float: right; padding-left: 20px">
+
 This was *the recession* year for most developed and several emerging economies. The UK has been, and still is, one of the worse performing countries with the Pound toying with parity against the Euro and unemployment at its highest for several years.
 London, where I live, has been hit by the recession especially in the financial sector. The City, where I work, has undergone an incredible transformation.
 

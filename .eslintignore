@@ -4,5 +4,6 @@ static
 Makefile
 *.json
 *.lock
+*.log
 webpack.config.ts
 content
