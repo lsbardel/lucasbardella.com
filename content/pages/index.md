@@ -1,7 +1,9 @@
 date: 2014 March 26
 image: \${assetUrl}/lsbardel.jpg
 tagline: Hi!
-parallax: unsplash:t7YycgAoVSw
+hero_photo: t7YycgAoVSw
+hero_photo_filter: 0.5
+hero_dark: true
 
 ---
 

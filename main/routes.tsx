@@ -13,13 +13,23 @@ const Routes = () => {
         <Route
           path="/blog"
           render={({ match }) => (
-            <CmsRoute match={match} slug={["yyyy", "mm", "slug"]} ListComponent={BlogList} />
+            <CmsRoute
+              match={match}
+              slug={["yyyy", "mm", "slug"]}
+              ListComponent={BlogList}
+              EntryComponent={CmsPageEntry}
+            />
           )}
         />
         <Route
           path="/lab"
           render={({ match }) => (
-            <CmsRoute match={match} ListComponent={LabList} showLineNumbers={true} />
+            <CmsRoute
+              match={match}
+              ListComponent={LabList}
+              showLineNumbers={true}
+              EntryComponent={CmsPageEntry}
+            />
           )}
         />
         <Route

@@ -1,16 +1,18 @@
 import Typography from "@material-ui/core/Typography";
-import { Page, Parallax } from "@metablock/react";
+import { Page } from "@metablock/react";
 import React from "react";
 import { ListLayout } from "../../metablock-js/packages/metablock-cms/src";
+import { darkTheme } from "../context/theme";
 import Container from "./Container";
+import Parallax from "./Parallax";
 
 const CmsList = (props: any) => {
-  const { title, image, ...extra } = props;
+  const { title, image, opacity = 1, theme, ...extra } = props;
   return (
     <>
-      <Parallax small image={image}>
+      <Parallax small photo={image} opacity={opacity} theme={theme}>
         <Container>
-          <Typography component="h1" variant="h3" align="center">
+          <Typography component="h1" variant="h3" align="center" color="textPrimary">
             {title}
           </Typography>
         </Container>
@@ -25,7 +27,7 @@ const CmsList = (props: any) => {
 export const BlogList = (props: any) => {
   return (
     <Page title="Luca Blog" description="Writing about tech finance and betting">
-      <CmsList title="Blog" {...props} />
+      <CmsList title="Blog" theme={darkTheme} image="sfgH9dXcMRw" {...props} />
     </Page>
   );
 };
@@ -36,7 +38,7 @@ export const LabList = (props: any) => {
       title="Luca Lab"
       description="Tachnical articheles with live code in javascript and python"
     >
-      <CmsList title="Lab" {...props} />
+      <CmsList title="Lab" image="ooR1jY2yFr4" opacity={0.2} {...props} />
     </Page>
   );
 };

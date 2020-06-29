@@ -9,6 +9,9 @@ export const lightTheme = responsiveFontSizes(
   createMuiTheme({
     typography: {
       fontSize: 18,
+      caption: {
+        fontSize: 12,
+      },
     },
     palette: {
       type: "light",

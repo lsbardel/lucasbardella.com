@@ -18,15 +18,15 @@
     "watch:compile": "metablock compile content -w"
   },
   "dependencies": {
-    "@loadable/component": "^5.12.0",
-    "@metablock/cms": "^0.2.9",
-    "@metablock/core": "^0.2.9",
-    "@metablock/react": "^0.2.9",
-    "@metablock/store": "^0.2.9"
+    "@loadable/component": "^5.13.0",
+    "@metablock/cms": "^0.2.10",
+    "@metablock/core": "^0.2.10",
+    "@metablock/react": "^0.2.10",
+    "@metablock/store": "^0.2.10"
   },
   "devDependencies": {
-    "@metablock/cli": "^0.2.9",
-    "@metablock/server": "^0.2.9",
+    "@metablock/cli": "^0.2.10",
+    "@metablock/server": "^0.2.10",
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.3",
     "@types/loadable__component": "^5.10.0",
@@ -45,7 +45,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-markdown": "^1.0.2",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react": "^7.20.1",
     "eslint-plugin-react-hooks": "^4.0.4",
     "faker": "4.1",
     "file-loader": "^6.0.0",

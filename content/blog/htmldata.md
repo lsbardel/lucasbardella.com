@@ -4,16 +4,15 @@ slug: how_the_html_data_works
 date: 2014-05-17 22:31
 require_js: bootstrap
 head-tag: html5, javascript, data, d3, jquery, dom
-image: ${assetUrl}/blog/html5.png
+image: \${assetUrl}/blog/html5.png
 description: HTML5 custom data attribute is useful, how is it used and why.
 category: HTML5
 
 ---
 
-<a href="#" class="thumbnail pull-right">
-<img width=300 src="$site_media/lucasbardella/blog/html5.png" alt="HTML custom data attribute">
-</a>
-The HTML custom data attribute ``data-*`` has become one of the most important parts in modern
+<img width=300 src="${assetUrl}/blog/html5.png" alt="HTML custom data attribute" style="float: right; padding-left: 20px">
+
+The HTML custom data attribute `data-*` has become one of the most important parts in modern
 front-end development, especially since [HTML5][] has become the de-facto
 standard mark-up language for the world wide web.
 This attribute is extremely useful because it allows one to inject custom data values
@@ -21,16 +20,20 @@ directly into the [DOM](http://en.wikipedia.org/wiki/Document_Object_Model) tree
 
 It is intended for use by the site's own scripts, for example:
 
-    <div class="user" data-username="pippo" data-email="pippo@pippo.com"></div>
+```html
+<div class="user" data-username="pippo" data-email="pippo@pippo.com"></div>
+```
 
 And using [jQuery][]:
 
-    elems = $('.user').each(function () {
-        var user = $(this).data();
-        // user.username = 'pippo'
-        // user.email = 'pippo@pippo.com'
-        ...
-    });
+```js
+elems = $('.user').each(function () {
+    var user = $(this).data();
+    // user.username = 'pippo'
+    // user.email = 'pippo@pippo.com'
+    ...
+});
+```
 
 Before this important change in the mark-up language, developers could not add
 data to the DOM in a clean and elegant way. Instead they were forced to use all
@@ -64,12 +67,16 @@ we can live with.
 Another important fact to notice is that you don't need to set a data attribute to a given value,
 instead you can simply add the attribute to the element:
 
-    <div id='test' data-an-empty-name></div>
+```html
+<div id="test" data-an-empty-name></div>
+```
 
 The value associated with the above data attribute is an empty string:
 
-    var data = $('#id').data();
-    // data.anEmptyName = ''
+```js
+var data = $("#id").data();
+// data.anEmptyName = ''
+```
 
 ## Javascript plugins
 
@@ -80,9 +87,11 @@ be used through the markup API without writing a single line of JavaScript.
 
 By setting:
 
-    <div id="carousel1" class="carousel slide" data-ride="carousel">
-        ...
-    </div>
+```html
+<div id="carousel1" class="carousel slide" data-ride="carousel">
+  ...
+</div>
+```
 
 A carousel is activated.
 
@@ -126,15 +135,24 @@ Another important use of the data attribute is with JavaScript libraries such as
 
 Lets take this example:
 
-    <div id='barchart' data-values='[45, 63, 7]'></div>
+```html
+<div id="barchart" data-values="[45, 63, 7]"></div>
+```
 
 The following script generates the bar chart below:
 
-    var chart = d3.select('#barchart'),
-        data = JSON.parse(chart[0][0].dataset.values);
-    var bar = chart.selectAll('div');
-    bar.data(data).enter().append('div')
-       .style("width", function(d) { return d + "px"; })
+```js
+var chart = d3.select("#barchart"),
+  data = JSON.parse(chart[0][0].dataset.values);
+var bar = chart.selectAll("div");
+bar
+  .data(data)
+  .enter()
+  .append("div")
+  .style("width", function (d) {
+    return d + "px";
+  });
+```
 
 <div id='barchart' data-values='[60, 140, 25]'></div>
 
