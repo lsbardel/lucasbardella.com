@@ -1,6 +1,6 @@
+import { CmsRoute } from "@metablock/cms";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { CmsRoute } from "../../metablock-js/packages/metablock-cms/src";
 import { BlogList, LabList } from "../views/CmsList";
 import CmsPageEntry from "../views/CmsPageEntry";
 import Footer from "../views/Footer";
