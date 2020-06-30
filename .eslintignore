@@ -6,4 +6,3 @@ Makefile
 *.lock
 *.log
 webpack.config.ts
-content

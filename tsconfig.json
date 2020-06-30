@@ -12,6 +12,6 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true
   },
-  "exclude": ["node_modules", "static", ".github"],
-  "include": ["*.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": ["content", "node_modules", "static", ".github"],
+  "include": ["*.ts", "**/*.ts", "**/*.tsx", "content/blog/china_wine_regions/china-wine.js"]
 }

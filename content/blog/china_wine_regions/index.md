@@ -9,16 +9,16 @@ twitter-card: summary_large_image
 require_css: //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
 require_css: ${assetUrl}/legacy/lucasbardella.css
 require_css: leaflet
-require_js: ${assetUrl}/legacy/require.config.min.js
-require_js: ./china-wine
+require_js: \${assetUrl}/legacy/require.config.min.js
 iframe: true
 
 ---
 
-<div data-options='chinamap' style="height: 400px"
-data-src="${assetUrl}/blog/china_adm1.topo.json" data-giotto-chart></div>
-<br>
-<br>
+$$
+module: ./china-wine.js
+json: ${assetUrl}/blog/china_adm1.topo.json
+height: 400px
+$$
 
 China is the fifth largest wine producer in the world, the first four being France, Italy, Spain and the USA. Most of its production is consumed in the local market but some
 examples have started to venture out in the export market.
@@ -123,3 +123,7 @@ difficult and I've written a [d3 extension](http://quantmind.github.io/d3ext/exa
 for it.
 
 The source code for the map is available <a href="${assetUrl}/lab/china-wine.js" target="_self">here</a>.
+
+```
+
+```

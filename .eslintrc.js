@@ -59,4 +59,12 @@ module.exports = {
     "react/prop-types": OFF,
     "react/display-name": OFF,
   },
+  overrides: [
+    {
+      files: ["**/*.md"],
+      rules: {
+        "no-inline-html": OFF,
+      },
+    },
+  ],
 };

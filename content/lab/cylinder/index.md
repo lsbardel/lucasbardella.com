@@ -6,25 +6,22 @@ keywords: flow, cylinder, incompressible, javascript, mathematics, math, fluid-d
 description: The classic closed form solution for incompressible flow past a two-dimensional cylinder
 image: ${assetUrl}/lab/cylinder.png
 category: visualization
-require_css: katex
 
 ---
 
-<div class='lazyContainer'>
-    <div style='padding-top: 60%'></div>
-    <div require="${assetUrl}/lab/transform.js" class='content' data-giotto-viz></div>
-</div>
+$$
+module: ./transform.js
+aspectRatio: 70%
+$$
 
-<br>
-
-The image visualise the stream function of an incompressible inviscid flow past a cylinder.
+The image represents the stream function of an incompressible inviscid flow past a cylinder.
 The stream function for this type of flow has a closed form solution in polar coordinates
 
-<div data-katex>
-  \psi\left(r,\theta\right) = V_{\infty} \left(\frac{a^2}{r} - r\right) \sin{\theta}
-</div>
+$$
+\psi\left(r,\theta\right) = V_{\infty} \left(\frac{a^2}{r} - r\right) \sin{\theta}
+$$
 
 where `a` is the cylinder radius.
 
-Visialization using [d3][].
-Code available <a href="${assetUrl}/lab/transform.js" target="_self">here</a>.
+Visialization using [d3](https://d3js.org/).
+Code available [here](${bundleUrl}/lab/potential_flow_around_a_cylinder/transform.js).

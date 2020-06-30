@@ -1,34 +1,17 @@
 import Typography from "@material-ui/core/Typography";
-import { dateFormat, Markdown } from "@metablock/cms";
+import { dateFormat } from "@metablock/cms";
 import { Page } from "@metablock/react";
-import "katex/dist/katex.min.css";
 import React from "react";
-//@ts-ignore
-import { BlockMath, InlineMath } from "react-katex";
-//@ts-ignore
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
-//@ts-ignore
-import RemarkMathPlugin from "remark-math";
 import { darkTheme, lightTheme } from "../context/theme";
 import Container from "./Container";
+import Markdown from "./Markdown";
 import Parallax from "./Parallax";
 import maxWidth from "./width";
 
-const SimpleEntry = (props: any) => {
+const CmsPageEntry = (props: any) => {
   const { tagline, hero_photo, hero_photo_filter, hero_dark, ...extra } = props;
   const theme = hero_dark ? darkTheme : lightTheme;
   const formatDate = props.date instanceof Date ? ` on ${dateFormat()(props.date)}` : "";
-  const renderers = {
-    math: (p: any) => <BlockMath math={p.value} />,
-    inlineMath: (p: any) => <InlineMath math={p.value} />,
-  };
-  const style = { ...coy };
-  const pre = {
-    ...style[`pre[class*="language-"]`],
-    "overflow-x": "auto",
-    padding: theme.spacing(1),
-  };
-  style[`pre[class*="language-"]`] = pre;
   return (
     <Page {...extra} prefix={false}>
       <Parallax
@@ -54,10 +37,10 @@ const SimpleEntry = (props: any) => {
         ) : null}
       </Parallax>
       <Container>
-        <Markdown {...props} plugins={[RemarkMathPlugin]} style={style} renderers={renderers} />
+        <Markdown {...props} />
       </Container>
     </Page>
   );
 };
 
-export default SimpleEntry;
+export default CmsPageEntry;
