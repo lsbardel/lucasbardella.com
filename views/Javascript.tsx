@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { useWindowSize } from "@metablock/react";
+import { isSsr, useWindowSize } from "@metablock/react";
 import React from "react";
 
 const useStyles = makeStyles(() => ({
@@ -30,10 +30,12 @@ const Javascript = (props: any) => {
   });
   const setRef = async (element: HTMLDivElement) => {
     ref.current = element;
-    if (!mod.current) {
-      mod.current = await import(/* webpackIgnore: true */ module);
+    if (!isSsr()) {
+      if (!mod.current) {
+        mod.current = await import(/* webpackIgnore: true */ module);
+      }
+      mod.current.default(element);
     }
-    mod.current.default(element);
   };
 
   const classes = useStyles({ aspectRatio });

@@ -1,7 +1,8 @@
 import { useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { Markdown } from "@metablock/cms";
-import { compileOptions, NoSsr } from "@metablock/core";
+import { compileOptions } from "@metablock/core";
+import { NoSsr } from "@metablock/react";
 import "katex/dist/katex.min.css";
 import React from "react";
 //@ts-ignore
