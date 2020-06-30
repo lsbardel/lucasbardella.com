@@ -1,7 +1,7 @@
 import { useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { Markdown } from "@metablock/cms";
-import { compileOptions } from "@metablock/core";
+import { compileOptions, NoSsr } from "@metablock/core";
 import "katex/dist/katex.min.css";
 import React from "react";
 //@ts-ignore
@@ -31,7 +31,12 @@ const PageMarkdown = (props: any) => {
 
 const Module = (props: any) => {
   const { value, ...extra } = props;
-  if (value.substring(0, 7) !== "module:") return <BlockMath math={value} />;
+  if (value.substring(0, 7) !== "module:")
+    return (
+      <NoSsr>
+        <BlockMath math={value} />
+      </NoSsr>
+    );
   else {
     try {
       return <Javascript {...compileOptions(value)} {...extra} />;
