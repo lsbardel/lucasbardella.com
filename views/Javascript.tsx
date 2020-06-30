@@ -18,11 +18,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Javascript = (props: any) => {
-  const { baseUrl, aspectRatio = "50%" } = props;
+  const { baseUrl, js } = props;
+  const { aspectRatio = "50%", module, ...options } = js;
   const mod = React.useRef<any>();
   const ref = React.useRef<HTMLDivElement>();
-  let { module } = props;
-  if (module && module.substring(0, 2) === "./") module = `${baseUrl}/${module.substring(2)}`;
+  let script = module;
+  if (script && script.substring(0, 2) === "./") script = `${baseUrl}/${script.substring(2)}`;
   // make sure to re-render when offsetWidth change
   useWindowSize(() => {
     if (!ref.current) return;
@@ -30,11 +31,11 @@ const Javascript = (props: any) => {
   });
   const setRef = async (element: HTMLDivElement) => {
     ref.current = element;
-    if (!isSsr()) {
+    if (!isSsr() && script) {
       if (!mod.current) {
-        mod.current = await import(/* webpackIgnore: true */ module);
+        mod.current = await import(/* webpackIgnore: true */ script);
       }
-      mod.current.default(element);
+      mod.current.default(element, options);
     }
   };
 

@@ -9,7 +9,7 @@ import Parallax from "./Parallax";
 import maxWidth from "./width";
 
 const CmsPageEntry = (props: any) => {
-  const { tagline, hero_photo, hero_photo_filter, hero_dark, ...extra } = props;
+  const { tagline, hero_photo, hero_opacity, hero_photo_filter, hero_dark, ...extra } = props;
   const theme = hero_dark ? darkTheme : lightTheme;
   const formatDate = props.date instanceof Date ? ` on ${dateFormat()(props.date)}` : "";
   return (
@@ -17,6 +17,7 @@ const CmsPageEntry = (props: any) => {
       <Parallax
         photo={hero_photo}
         filter={hero_photo_filter}
+        opacity={hero_opacity}
         maxWidth={maxWidth}
         theme={theme}
         small

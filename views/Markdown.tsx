@@ -40,7 +40,7 @@ const Module = (props: any) => {
     );
   else {
     try {
-      return <Javascript {...compileOptions(value)} {...extra} />;
+      return <Javascript {...extra} js={compileOptions(value)} />;
     } catch (exc) {
       return <Error exc={exc} />;
     }
