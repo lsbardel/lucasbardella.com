@@ -6,19 +6,16 @@ description: A map of the top wine producing regions in China. Map created using
 category: wine
 image: ${assetUrl}/blog/china-wine-regions.png
 twitter-card: summary_large_image
-require_css: //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
-require_css: ${assetUrl}/legacy/lucasbardella.css
 require_css: leaflet
-require_js: \${assetUrl}/legacy/require.config.min.js
 iframe: true
 
 ---
 
-$$
-module: ./china-wine.js
+```module
+module: ${bundleUrl}/blog/china_wine_regions/china-wine.js
 json: ${assetUrl}/blog/china_adm1.topo.json
-height: 400px
-$$
+aspectRatio: 60%
+```
 
 China is the fifth largest wine producer in the world, the first four being France, Italy, Spain and the USA. Most of its production is consumed in the local market but some
 examples have started to venture out in the export market.
@@ -95,22 +92,28 @@ javascript libraries. Tiles are provided by [mapbox](https://www.mapbox.com/) wh
 [Diva administrative areas](http://www.diva-gis.org/gdata).
 The four regions were extracted using the [GDAL](http://www.gdal.org/) library on a mac:
 
-    brew install gdal
+```
+brew install gdal
+```
 
 and conversion of the four regions data into GeoJSON format
 
-    ogr2ogr \
-        -f GeoJSON \
-        -where "NAME_1 in ('Shanxi', 'Ningxia Hui', 'Yunnan', 'Shandong')"\
-        china_adm1.json\
-        CHN_adm1.shp
+```bash
+ogr2ogr \
+    -f GeoJSON \
+    -where "NAME_1 in ('Shanxi', 'Ningxia Hui', 'Yunnan', 'Shandong')"\
+    china_adm1.json\
+    CHN_adm1.shp
+```
 
 I used [topojson](https://github.com/mbostock/topojson/wiki) to reduce the size of the
 JSON file. Topojson requires [nodejs](http://nodejs.org/) to be installed:
 
-    brew install node
-    npm install -g topojson
-    topojson -o china_adm1.topo.json -p name=NAME_1 china_adm1.json
+```bash
+brew install node
+npm install -g topojson
+topojson -o china_adm1.topo.json -p name=NAME_1 china_adm1.json
+```
 
 The <a href="${assetUrl}/blog/china_adm1.topo.json" target="_self">china_adm1.topo.json</a> is 244 KB in size while
 <a href="${assetUrl}/blog/china_adm1.json" target="_self">china_adm1.json</a> is 3.2 MB,

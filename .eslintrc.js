@@ -39,6 +39,7 @@ module.exports = {
     "@typescript-eslint/camelcase": OFF,
     "@typescript-eslint/explicit-module-boundary-types": OFF,
     "@typescript-eslint/ban-ts-comment": OFF,
+    "@typescript-eslint/no-empty-function": OFF,
     "no-cond-assign": OFF,
     "no-floating-decimal": ERROR,
     "no-trailing-spaces": ERROR,
@@ -47,7 +48,10 @@ module.exports = {
     semi: ERROR,
     complexity: [ERROR, { max: 12 }],
     // prevent lint errors if you don't use some function arguments
-    "@typescript-eslint/no-unused-vars": ["error", { vars: "all", args: "none" }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { vars: "all", args: "none" },
+    ],
     "no-restricted-imports": [
       "error",
       {

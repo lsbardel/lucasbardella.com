@@ -5,4 +5,5 @@ Makefile
 *.json
 *.lock
 *.log
+compiled.*
 webpack.config.ts

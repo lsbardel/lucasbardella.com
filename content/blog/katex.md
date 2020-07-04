@@ -23,9 +23,9 @@ during conversion which means blocking is not an issue with the added
 benefit that you don't
 see equations popping into existence while the page is processed.
 
-I've created an [AngularJS][] directive to use in my pages:
+I created an AngularJS directive to use in my pages:
 
-```javascript
+```js
 angular.module('katex-module')
     .value('mathDefaults', {
         center: True,
@@ -73,7 +73,7 @@ angular.module('katex-module')
     }]);
 ```
 
-I can use the directive for inline expressions such as $d y_t = \alpha_t dt + \sigma_t d W_t$
+I can use the directive for inline expressions such as `math:d y_t=\alpha_t dt+\sigma_t d W_t`
 by inserting the mark-up:
 
 ```html
@@ -90,9 +90,9 @@ To create an expression in a new line one uses the `div` element:
 
 which renders as:
 
-$$
+```math
 d y_t = \alpha_t dt + \sigma_t d W_t
-$$
+```
 
 KaTeX is more limited in the kinds of output it supports than MathJax,
 sticking to inline-style rendering and a much smaller subset of TeX commands.
@@ -105,23 +105,23 @@ One can use MathJax as fallback when KaTex fails to render a block of code. The 
 is implemented in the `render` function above and it is triggered when rendering this equation
 which is the Heston stochastic volatility model for asset prices
 
-$$
+```math
 \begin{aligned}
   d S &= \mu S dt + \sqrt{\nu} S d W_S\\
   d \nu &= \kappa(\theta - \nu) dt + \alpha \sqrt{\nu} d W_\nu\\
   {\tt E}\left[dW_S d W_\nu\right] &= \rho dt
 \end{aligned}
-$$
+```
 
 These last two equations were used to create the blog-post image:
 
-$$
+```math
 G_{\mu\nu} = 8 \pi G \left(T_{\mu\nu} - \rho_\Lambda g_{\mu\nu}\right)
-$$
+```
 
-$$
+```math
 t' = \frac{t}{\sqrt{1 - \frac{v^2}{c^2}}}
-$$
+```
 
 Do you know what they are?
 

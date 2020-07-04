@@ -1,12 +1,12 @@
-import "https://d3js.org/d3.v5.min.js";
-
 export default (el) => {
-  draw(el, window.d3, {
-    margin: 0,
-    color: "#707070",
-    nodes: 2,
-    radius: 0.1,
-    ny: 30,
+  notebook.require("d3-selection", "d3-scale", "d3-shape").then((d3) => {
+    draw(el, d3, {
+      margin: 0,
+      color: "#707070",
+      nodes: 2,
+      radius: 0.1,
+      ny: 30,
+    });
   });
 };
 
@@ -14,7 +14,12 @@ const draw = (el, d3, opts) => {
   const width = el.offsetWidth,
     height = el.offsetHeight,
     radius = opts.radius,
-    g = d3.select(el).html("").append("svg").attr("height", height).attr("width", width),
+    g = d3
+      .select(el)
+      .html("")
+      .append("svg")
+      .attr("height", height)
+      .attr("width", width),
     Nx = opts.nx ? +opts.nx : 20,
     Ny = opts.ny ? +opts.ny : 5,
     c = g.selectAll("circle").data([true]),

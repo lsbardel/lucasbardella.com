@@ -1,23 +1,38 @@
-import "https://d3js.org/d3.v5.min.js";
+// We need to keep a state across refresh
+export default (el, options) => {
+  notebook
+    .require(
+      "d3-selection",
+      "d3-scale",
+      "d3-drag",
+      "d3-transition",
+      "d3-timer",
+      "d3-format"
+    )
+    .then((d3) => {
+      planarity(el, d3, state, options);
+    });
+};
 
-const d3 = window.d3;
+// We need to keep a state across refresh
+const state = {
+  nodes: 8,
+  radius: 15,
+  points: [],
+  links: [],
+  crosses: 0,
+  start: 0,
+  moves: 0,
+  time: 0,
+  strokeWidth: 2,
+  circleColor: "#4DA6FF",
+  linkColor: "#555",
+  interSectionColor: "#ff7600",
+  highlightIntersections: true,
+  update() {},
+};
 
-// Generates a random planar graph with *n* nodes.
-function planarGraph(n) {
-  var points = [],
-    links = [],
-    i,
-    j;
-  for (i = 0; i < n; i++) points[i] = randomNode();
-  for (i = 0; i < n; i++) addPlanarLink([points[i], points[Math.floor(Math.random() * n)]], links);
-  for (i = 0; i < n; i++) for (j = i + 1; j < n; j++) addPlanarLink([points[i], points[j]], links);
-  return {
-    nodes: points,
-    links: links,
-  };
-}
-
-function randomNode(node) {
+const randomNode = (node) => {
   var x = Math.random(),
     y = Math.random();
   if (node) {
@@ -27,19 +42,16 @@ function randomNode(node) {
     node = [x, y];
   }
   return node;
-}
+};
 
-// Scramble the node positions.
-function scramble(graph) {
-  if (graph.nodes.length < 4) return graph;
+const scramble = (graph) => {
+  if (graph.points.length < 4) return graph;
   do {
-    graph.nodes.forEach(randomNode);
+    graph.points.forEach(randomNode);
   } while (!intersections(graph.links));
-  return graph;
-}
+};
 
-// Adds a link if it doesn't intersect with anything.
-function addPlanarLink(link, links) {
+const addPlanarLink = (link, links) => {
   if (
     !links.some(function (to) {
       return intersect(link, to);
@@ -47,42 +59,15 @@ function addPlanarLink(link, links) {
   ) {
     links.push(link);
   }
-}
-
-// Counts the number of intersections for a given array of links.
-function intersections(links) {
-  var n = links.length,
-    i = -1,
-    j,
-    x,
-    count = 0;
-  // Reset flags.
-  while (++i < n) {
-    (x = links[i]).intersection = false;
-    x[0].intersection = false;
-    x[1].intersection = false;
-  }
-  i = -1;
-  while (++i < n) {
-    x = links[i];
-    j = i;
-    while (++j < n) {
-      if (intersect(x, links[j])) {
-        x.intersection = x[0].intersection = x[1].intersection = links[j].intersection = links[
-          j
-        ][0].intersection = links[j][1].intersection = true;
-        count++;
-      }
-    }
-  }
-  return count;
-}
+};
+const cross = (a, b) => a[0] * b[1] - a[1] * b[0];
 
 // Returns true if two line segments intersect.
 // Based on http://stackoverflow.com/a/565282/64009
-function intersect(a, b) {
+const intersect = (a, b) => {
   // Check if the segments are exactly the same (or just reversed).
-  if ((a[0] === b[0] && a[1] === b[1]) || (a[0] === b[1] && a[1] === b[0])) return true;
+  if ((a[0] === b[0] && a[1] === b[1]) || (a[0] === b[1] && a[1] === b[0]))
+    return true;
 
   // Represent the segments as p + tr and q + us, where t and u are scalar
   // parameters.
@@ -107,142 +92,170 @@ function intersect(a, b) {
     epsilon = 1e-6;
 
   return t > epsilon && t < 1 - epsilon && u > epsilon && u < 1 - epsilon;
-}
+};
 
-function cross(a, b) {
-  return a[0] * b[1] - a[1] * b[0];
-}
-
-// Planarity Class
-function Planarity(elem, options) {
-  //
-  var graph,
+const intersections = (links) => {
+  var n = links.length,
+    i = -1,
+    j,
     x,
-    y,
-    p = 15,
-    self = $.extend(
-      this,
-      {
-        nodes: 8,
-        //
-        count: 0,
-        //
-        strokeWidth: 2,
-        //
-        circleColor: "#4DA6FF",
-        //
-        linkColor: "#555",
-        //
-        interSectionColor: "#ff7600",
-        //
-        height: 500,
-        //
-        highlightIntersections: true,
-        //
-        start: function () {
-          this.started = new Date();
-          this.moves = 0;
-          this.count = 0;
-          this.lastCount = null;
-          graph = scramble(planarGraph(this.nodes));
-          update();
-        },
-      },
-      options
-    );
+    count = 0;
+  // Reset flags.
+  while (++i < n) {
+    (x = links[i]).intersection = false;
+    x[0].intersection = false;
+    x[1].intersection = false;
+  }
+  i = -1;
+  while (++i < n) {
+    x = links[i];
+    j = i;
+    while (++j < n) {
+      if (intersect(x, links[j])) {
+        x.intersection = x[0].intersection = x[1].intersection = links[
+          j
+        ].intersection = links[j][0].intersection = links[
+          j
+        ][1].intersection = true;
+        count++;
+      }
+    }
+  }
+  return count;
+};
 
-  function update() {
-    self.count = intersections(graph.links);
+const planarity = (el, d3, graph, options) => {
+  // Generates a random planar graph with *n* nodes.
+  options = { ...graph, ...options };
+  const format = d3.format(",.2f");
+
+  graph.update = options.update ? options.update : graph.update;
+  if (graph.points.length !== options.nodes || options.restart) {
+    graph.nodes = options.nodes;
+    graph.points = [];
+    graph.links = [];
+    graph.start = new Date();
+    graph.moves = 0;
+    if (!graph.timer)
+      graph.timer = d3.timer(() => {
+        if (graph.crosses) {
+          graph.time = format((new Date() - graph.start) / 1000);
+          graph.update(graph);
+        }
+      });
+    for (let i = 0; i < graph.nodes; i++) graph.points.push(randomNode());
+    for (let i = 0; i < graph.nodes; i++)
+      addPlanarLink(
+        [
+          graph.points[i],
+          graph.points[Math.floor(Math.random() * graph.nodes)],
+        ],
+        graph.links
+      );
+    for (let i = 0; i < graph.nodes; i++)
+      for (let j = i + 1; j < graph.nodes; j++)
+        addPlanarLink([graph.points[i], graph.points[j]], graph.links);
+    scramble(graph);
+  }
+  // Set-up paper (first time only)
+  const g = d3
+    .select(el)
+    .selectAll("svg")
+    .data([0])
+    .enter()
+    .append("svg")
+    .append("g");
+  g.append("g").attr("class", "links");
+  g.append("g").attr("class", "nodes");
+
+  // re-draw the graph
+  const padding = graph.radius + 2;
+  const width = el.offsetWidth;
+  const height = el.offsetHeight;
+  const vis = d3
+    .select(el)
+    .selectAll("svg")
+    .attr("height", height)
+    .attr("width", width)
+    .selectAll("g")
+    .attr("transform", "translate(" + [padding, padding] + ")");
+  const lines = vis
+    .selectAll(".links")
+    .style("stroke-width", graph.strokeWidth)
+    .style("stroke", graph.linkColor);
+  const nodes = vis
+    .selectAll(".nodes")
+    .style("stroke-width", graph.strokeWidth)
+    .style("stroke", graph.linkColor)
+    .style("fill", graph.circleColor);
+
+  const x = d3.scaleLinear().range([0, width - 2 * padding]);
+  const y = d3.scaleLinear().range([0, height - 2 * padding]);
+  update(options.restart);
+
+  function update(transition) {
+    graph.crosses = intersections(graph.links);
+    const intersect = graph.highlightIntersections
+      ? (d) => (d.intersection ? graph.interSectionColor : graph.linkColor)
+      : graph.linkColor;
 
     var line = lines.selectAll("line").data(graph.links);
-    line.enter().append("line");
-    line.exit().remove();
+    line.exit().transition().remove();
     line
-      .attr("x1", function (d) {
-        return x(d[0][0]);
-      })
-      .attr("y1", function (d) {
-        return y(d[0][1]);
-      })
-      .attr("x2", function (d) {
-        return x(d[1][0]);
-      })
-      .attr("y2", function (d) {
-        return y(d[1][1]);
-      })
-      .style(
-        "stroke",
-        self.highlightIntersections
-          ? function (d) {
-              return d.intersection ? self.interSectionColor : self.linkColor;
-            }
-          : self.linkColor
-      );
+      .enter()
+      .append("line")
+      .attr("x1", (d) => x(d[0][0]))
+      .attr("y1", (d) => y(d[0][1]))
+      .attr("x2", (d) => x(d[1][0]))
+      .attr("y2", (d) => y(d[1][1]))
+      .style("stroke", intersect);
 
-    var node = nodes.selectAll("circle").data(graph.nodes);
+    if (transition) line = line.transition();
+    line
+      .attr("x1", (d) => x(d[0][0]))
+      .attr("y1", (d) => y(d[0][1]))
+      .attr("x2", (d) => x(d[1][0]))
+      .attr("y2", (d) => y(d[1][1]))
+      .style("stroke", intersect);
+
+    const circles = nodes.selectAll("circle");
+    let node = circles.data(graph.points);
+    node.exit().transition().remove();
     node
       .enter()
       .append("circle")
-      .attr("r", p - 1)
+      .attr("r", graph.radius)
+      .attr("cx", (d) => x(d[0]))
+      .attr("cy", (d) => y(d[1]))
       .call(
-        d3.behavior
+        d3
           .drag()
-          .origin(function (d) {
-            return {
-              x: x(d[0]),
-              y: y(d[1]),
-            };
+          .on("start", (d) => {
+            if (!graph.crosses) circles.on(".drag", null);
+            else
+              return {
+                x: x(d[0]),
+                y: y(d[1]),
+              };
           })
-          .on("drag", function (d) {
+          .on("drag", (d) => {
             // Jitter to prevent coincident nodes.
-            d[0] = Math.max(0, Math.min(1, x.invert(d3.event.x))) + Math.random() * 1e-4;
-            d[1] = Math.max(0, Math.min(1, y.invert(d3.event.y))) + Math.random() * 1e-4;
+            d[0] =
+              Math.max(0, Math.min(1, x.invert(d3.event.x))) +
+              Math.random() * 1e-4;
+            d[1] =
+              Math.max(0, Math.min(1, y.invert(d3.event.y))) +
+              Math.random() * 1e-4;
             update();
           })
-          .on("dragend", function () {
-            ++self.moves;
+          .on("end", () => {
+            ++graph.moves;
+            options.update(graph);
           })
       );
-    node.exit().remove();
-    node
-      .attr("cx", function (d) {
-        return x(d[0]);
-      })
-      .attr("cy", function (d) {
-        return y(d[1]);
-      });
+
+    if (transition) node = node.transition();
+    node.attr("cx", (d) => x(d[0])).attr("cy", (d) => y(d[1]));
+    options.update(graph);
   }
-
-  function resize() {
-    var w = jel.width(),
-      h = Math.min(w, self.height);
-    (x = d3.scale.linear().range([0, w - 2 * p])), (y = d3.scale.linear().range([0, h - 2 * p]));
-    jel.height(h);
-    jel.children("svg").attr("width", w).attr("height", h);
-    if (graph) update();
-  }
-
-  var jel = $(elem).empty(),
-    vis = d3
-      .select(elem)
-      .attr("class", "planarity")
-      .append("svg")
-      .append("g")
-      .attr("transform", "translate(" + [p, p] + ")"),
-    lines = vis
-      .append("g")
-      .attr("class", "links")
-      .style("stroke-width", self.strokeWidth)
-      .style("stroke", self.linkColor),
-    nodes = vis
-      .append("g")
-      .attr("class", "nodes")
-      .style("stroke-width", self.strokeWidth)
-      .style("stroke", self.linkColor)
-      .style("fill", self.circleColor);
-
-  $(window).resize(resize);
-  resize();
-
-  return this;
-}
+};

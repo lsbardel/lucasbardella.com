@@ -9,10 +9,7 @@ category: visualization
 
 ---
 
-$$
-module: ./agnesi.js
-aspectRatio: 40%
-$$
+<script src="${bundleUrl}/lab/the_witch_of_agnesi/agnesi.js" aspectratio="40%"></script>
 
 This example demonstrate how to plot the
 <a href="http://en.wikipedia.org/wiki/Witch_of_Agnesi">witch of agnesi</a>
@@ -20,8 +17,8 @@ using [d3][] as explained by wikipedia.
 
 The curve has Cartesian equation
 
-$$
+```math
 y = \frac{8 r^3}{x^2 + 4 r^2}
-$$
+```
 
 Code available [here](${bundleUrl}/lab/the_witch_of_agnesi/agnesi.js).

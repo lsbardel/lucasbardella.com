@@ -3,23 +3,33 @@ import "https://cdn.jsdelivr.net/npm/d3-require";
 const state = { type: "svg", time: 0 };
 
 export default (el, options) => {
-  window.d3.require("d3", "topojson", "stats.js").then((d3) => {
-    draw(el, d3, {
-      // rotation per minute
-      rotation: 2,
-      longitude: -40,
-      sea: "#efedf5",
-      land: "#cc4c02",
-      stroke: "#662506",
-      graticule: {
-        show: true,
-        color: "#000",
-        colorOpacity: 0.3,
-        lineWidth: 0.5,
-      },
-      ...options,
+  notebook
+    .require(
+      "d3-selection",
+      "d3-scale",
+      "d3-geo",
+      "d3-timer",
+      "d3-fetch",
+      "topojson",
+      "stats.js"
+    )
+    .then((d3) => {
+      draw(el, d3, {
+        // rotation per minute
+        rotation: 2,
+        longitude: -40,
+        sea: "#efedf5",
+        land: "#cc4c02",
+        stroke: "#662506",
+        graticule: {
+          show: true,
+          color: "#000",
+          colorOpacity: 0.3,
+          lineWidth: 0.5,
+        },
+        ...options,
+      });
     });
-  });
 };
 
 const draw = (el, d3, opts) => {
@@ -50,7 +60,10 @@ const draw = (el, d3, opts) => {
   const rotate = () => {
     const rotation = Math.min(Math.max(0, opts.rotation), 1000),
       now = d3.now(),
-      delta = rotation > 0 && state.time ? (360 * rotation * (now - state.time)) / 60000 : 0;
+      delta =
+        rotation > 0 && state.time
+          ? (360 * rotation * (now - state.time)) / 60000
+          : 0;
 
     let build = false;
 
@@ -70,7 +83,12 @@ const draw = (el, d3, opts) => {
   };
 
   const svg_world = () => {
-    const g = d3.select(el).html("").append("svg").attr("height", height).attr("width", width);
+    const g = d3
+      .select(el)
+      .html("")
+      .append("svg")
+      .attr("height", height)
+      .attr("width", width);
     g.attr("stroke", opts.stroke)
       .append("path")
       .datum(globe)
