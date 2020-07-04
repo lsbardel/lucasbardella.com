@@ -63,7 +63,12 @@ const Footer: React.FC = () => {
   const classes = useStyles();
   return (
     <Box fontSize={8}>
-      <Typography component="footer" variant="body2" color="textSecondary" className={classes.root}>
+      <Typography
+        component="footer"
+        variant="body2"
+        color="textSecondary"
+        className={classes.root}
+      >
         <Container>
           <Box pt={3} pb={1}>
             <Grid container spacing={4}>
@@ -80,8 +85,15 @@ const Footer: React.FC = () => {
                 <List direction="horizontal" align="right" items={links} />
               </Grid>
               <Grid item sm={12}>
-                <Typography variant="body2" color="textSecondary" align="center">
-                  <MuiLink color="inherit" href="https://github.com/lsbardel/lucasbardella.com">
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  align="center"
+                >
+                  <MuiLink
+                    color="inherit"
+                    href="https://github.com/lsbardel/lucasbardella.com"
+                  >
                     Webside code on github
                   </MuiLink>
                 </Typography>

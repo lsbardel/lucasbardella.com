@@ -22,11 +22,17 @@ const links: any[] = [
 
 const Main = (props: any) => {
   const { children } = props;
-  const rightLinks = <List direction="horizontal" align="right" items={links} />;
+  const rightLinks = (
+    <List direction="horizontal" align="right" items={links} />
+  );
   const classes = useStyles();
   const brandComponent = (
     <Link to="/">
-      <Avatar src={assetUrl("luca-avatar.jpg")} alt="Luca" className={classes.avatarLarge} />
+      <Avatar
+        src={assetUrl("luca-avatar.jpg")}
+        alt="Luca"
+        className={classes.avatarLarge}
+      />
     </Link>
   );
 

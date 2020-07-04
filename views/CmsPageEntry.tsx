@@ -4,7 +4,6 @@ import { Page } from "@metablock/react";
 import React from "react";
 import { darkTheme, lightTheme } from "../context/theme";
 import Container from "./Container";
-//import Markdown from "./Markdown";
 import Markdown from "./Notebook";
 import Parallax from "./Parallax";
 import maxWidth from "./width";

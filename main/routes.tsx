@@ -31,7 +31,6 @@ const Routes = () => {
               <CmsRoute
                 match={match}
                 ListComponent={LabList}
-                showLineNumbers={true}
                 EntryComponent={CmsPageEntry}
               />
             )}

@@ -20,15 +20,15 @@
   },
   "dependencies": {
     "@loadable/component": "^5.13.1",
-    "@metablock/cms": "^0.2.16",
-    "@metablock/core": "^0.2.16",
-    "@metablock/notebook": "^0.2.16",
-    "@metablock/react": "^0.2.16",
-    "@metablock/store": "^0.2.16"
+    "@metablock/cms": "^0.2.17",
+    "@metablock/core": "^0.2.17",
+    "@metablock/notebook": "^0.2.17",
+    "@metablock/react": "^0.2.17",
+    "@metablock/store": "^0.2.17"
   },
   "devDependencies": {
-    "@metablock/cli": "^0.2.16",
-    "@metablock/server": "^0.2.16",
+    "@metablock/cli": "^0.2.17",
+    "@metablock/server": "^0.2.17",
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.3",
     "@types/loadable__component": "^5.10.0",

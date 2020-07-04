@@ -6,16 +6,15 @@ description: A map of the top wine producing regions in China. Map created using
 category: wine
 image: ${assetUrl}/blog/china-wine-regions.png
 twitter-card: summary_large_image
-require_css: leaflet
-iframe: true
+stylesheet: https://unpkg.com/leaflet@1.6.0/dist/leaflet.css
 
 ---
 
-```module
-module: ${bundleUrl}/blog/china_wine_regions/china-wine.js
-json: ${assetUrl}/blog/china_adm1.topo.json
-aspectRatio: 60%
-```
+<script
+    src="${bundleUrl}/blog/china_wine_regions/china-wine.js"
+    topology="${assetUrl}/blog/china_adm1.topo.json"
+    aspectratio="60%">
+</script>
 
 China is the fifth largest wine producer in the world, the first four being France, Italy, Spain and the USA. Most of its production is consumed in the local market but some
 examples have started to venture out in the export market.
@@ -121,12 +120,4 @@ quite a big saving! This step includes a minor transformation renaming the `NAME
 property to `name`. Check out a great tutorial by [Mike Bostock](http://bost.ocks.org/mike/)
 form more insight on how to [make a map](http://bost.ocks.org/mike/map/).
 
-Working with [d3 & leaflet](http://bost.ocks.org/mike/leaflet/) is not too
-difficult and I've written a [d3 extension](http://quantmind.github.io/d3ext/examples/leaflet)
-for it.
-
-The source code for the map is available <a href="${assetUrl}/lab/china-wine.js" target="_self">here</a>.
-
-```
-
-```
+The source code for the map is available [here](${bundleUrl}/blog/china_wine_regions/china-wine.js).

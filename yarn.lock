@@ -133,12 +133,12 @@
     prop-types "^15.7.2"
     react-is "^16.8.0"
 
-"@metablock/cli@^0.2.16":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@metablock/cli/-/cli-0.2.16.tgz#1e0845fc7682de40ea803ea1122999dfae7dfa1e"
-  integrity sha512-Ys9X20i93xTdQSEO7+MJFY+mHGidYzu+Q/ZiK5fwJJaqlQvbs27+xhbhDC0i1Cu4eJkQyv3zDK/R+vOWyFvJQA==
+"@metablock/cli@^0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@metablock/cli/-/cli-0.2.17.tgz#c1a46ed559fe3dca9e14a5baf618849cfddfd0b6"
+  integrity sha512-5HbLx7QGgocgGEHQjd/rr1v5z8wk9HVpyiOOj1W/69Ma6zmaeinsFHcrx6QzsSOMLPnXX7x8jifgd09r3bt2MA==
   dependencies:
-    "@metablock/core" "0.2.16"
+    "@metablock/core" "0.2.17"
     "@rollup/plugin-node-resolve" "^8.1.0"
     archiver "^4.0.1"
     colors "^1.4.0"
@@ -155,40 +155,40 @@
     svelte "^3.23.2"
     tmp "^0.2.1"
 
-"@metablock/cms@^0.2.16":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@metablock/cms/-/cms-0.2.16.tgz#9772139fc0b19e4aadce05378a72be2af9859aa9"
-  integrity sha512-x+HiEWa8iQSbnA4pg+YRT9Pu8kFnqIPcfApbAYI6Gv9gH689IaTxPhS4uusXax+lowkoDlW+c44fbwb+MOu1Ew==
+"@metablock/cms@^0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@metablock/cms/-/cms-0.2.17.tgz#10545be6af6550a04f520960c5aa43b7563b7320"
+  integrity sha512-qlxrZxxutgHfjbi+fVSmKz4tW9AqC9XDdDDsUOkGMKBFUR6gotzyMUXiO5yl26rZ8rJyFfcM9eISg/miTC7eBg==
   dependencies:
-    "@metablock/core" "0.2.16"
-    "@metablock/react" "0.2.16"
+    "@metablock/core" "0.2.17"
+    "@metablock/react" "0.2.17"
     d3-time-format "^2.2.3"
     mobx "^5.15.4"
 
-"@metablock/core@0.2.16", "@metablock/core@^0.2.16":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@metablock/core/-/core-0.2.16.tgz#854e7082243abd3faf60c1d9278a2936e4d62f2c"
-  integrity sha512-v2NzWWoh2IbSeYxZwJ4hoyqX93M+WOXkcd0PbCD9sMMkqR4x9QCwDIdvpBYe8a5tUUkPPdXOp+ZcemlHDbixCg==
+"@metablock/core@0.2.17", "@metablock/core@^0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@metablock/core/-/core-0.2.17.tgz#c8ec2c699c836355fade2ccc97ee60bdd12d06da"
+  integrity sha512-nUkyLoiiLC2RXhl9FN3o8bb8JSLdwK0z9t+pSx4EeatziQEGsdFtcuK79NM8Rw0fY5mKSsuF/4s8bp0hwQYoYA==
   dependencies:
     debug "^4.1.1"
     query-string "^6.12.1"
 
-"@metablock/notebook@^0.2.16":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@metablock/notebook/-/notebook-0.2.16.tgz#d1d31d75cf8be87f06ce7b27268a4af99872b05a"
-  integrity sha512-BoTVEw0U6p1vZNrhobGdbo0XlRt7jPpmlJPVcBSQfOlobASQYG+b+c9kt060GURTbJY5EEzyPLNBi76KiGWV4A==
+"@metablock/notebook@^0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@metablock/notebook/-/notebook-0.2.17.tgz#362ffced9a3e6ec175a03404dcc3b367733e2e70"
+  integrity sha512-CYLSl4lOnFg/K1QzK9koRw1riH7GwysHRmqMUer1xLtHQzLcX+Wag9BzDq4ye7S/xPEHeH4m00Ii9alHAQ3mzg==
   dependencies:
     d3-require "^1.2.4"
 
-"@metablock/react@0.2.16", "@metablock/react@^0.2.16":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@metablock/react/-/react-0.2.16.tgz#9adb5d2df393306ef452bc5b5c331428f24327c1"
-  integrity sha512-eXseELRsq8KUL9B8lnD62JgfxzZi5E5cuIwwKf+rXKgNP121InKOMU1WSgneUFMP69/Fv/9Hk2hnn8IE/3CqLA==
+"@metablock/react@0.2.17", "@metablock/react@^0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@metablock/react/-/react-0.2.17.tgz#27067b683cb49689d3aa0889a018adceb047c1fe"
+  integrity sha512-+atCg4XvkL0yRikHhY6+GBq4ugAgYxK6MOTy1Ox7ozZNxKG1knMOxu0gRvko95xN5xRn54voyOjGxJLbr0z9ug==
   dependencies:
     "@material-ui/core" "^4.10.1"
     "@material-ui/icons" "^4.9.1"
-    "@metablock/core" "0.2.16"
-    "@metablock/store" "0.2.16"
+    "@metablock/core" "0.2.17"
+    "@metablock/store" "0.2.17"
     clsx "^1.1.1"
     history "4.10"
     mobx-react-lite "^2.0.7"
@@ -198,24 +198,24 @@
     react-router "^5.2.0"
     react-router-dom "^5.2.0"
 
-"@metablock/server@^0.2.16":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@metablock/server/-/server-0.2.16.tgz#bdd9a5449278bea0561f2ab4b89c808ab70370c8"
-  integrity sha512-wbXUDcePFz5miAipV8g4qlXaNKG+s4gvmglpE2haEN/AQx/TptLQ38nUXxRifK87/FNxZJsWClc7MiNxqH+w9w==
+"@metablock/server@^0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@metablock/server/-/server-0.2.17.tgz#c123398aaaee498ed600ec79c93fcb54f6fe5bc4"
+  integrity sha512-SuQEPSwB9LjuKCPBVFOfcoIHV88HbDSk8JlTkhYiQMyNpEgVb4eaprXu+iJq1WXCuPHzSLqGo9a61MPkE8MkGQ==
   dependencies:
-    "@metablock/core" "0.2.16"
+    "@metablock/core" "0.2.17"
     body-parser "^1.19.0"
     btoa "^1.2.1"
     cross-fetch "^3.0.5"
     express "^4.17.1"
     mime-types "^2.1.27"
 
-"@metablock/store@0.2.16", "@metablock/store@^0.2.16":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@metablock/store/-/store-0.2.16.tgz#9da29af31f7c25ad402fdc0d1bce890fe844082f"
-  integrity sha512-amqTH8jvsAqqwW6q6SyLWHqWCMBUtyuB1nmRlDnL7Cy9ng0zuPcURZJEU6EZ0juLvFu4vj1Tx+ZSHxDLTqv22Q==
+"@metablock/store@0.2.17", "@metablock/store@^0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@metablock/store/-/store-0.2.17.tgz#d5377ee7c6564b33b722eb572a2eb333435f80c3"
+  integrity sha512-tu1VrC2791or1sxV9GYFunEodfg+TLPHFeaK+PrfJPeJwHODn99b+HYRhbBmAfRZ0oAErcaynXGYNSgdBcqwOQ==
   dependencies:
-    "@metablock/core" "0.2.16"
+    "@metablock/core" "0.2.17"
     mobx "^5.15.4"
 
 "@npmcli/move-file@^1.0.1":
@@ -805,9 +805,9 @@ ajv-keywords@^3.1.0, ajv-keywords@^3.4.1:
   integrity sha512-eyoaac3btgU8eJlvh01En8OCKzRqlLe2G5jDsCr3RiE2uLGMEEB1aaGwVVpwR8M95956tGH6R+9edC++OvzaVw==
 
 ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2:
-  version "6.12.2"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.2.tgz#c629c5eced17baf314437918d2da88c99d5958cd"
-  integrity sha512-k+V+hzjm5q/Mr8ef/1Y9goCmlsK4I6Sm74teeyGvFk1XrOsbsKLjEdrvny42CZ+a8sXbk8KWpY/bDwS+FLL2UQ==
+  version "6.12.3"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.3.tgz#18c5af38a111ddeb4f2697bd78d68abc1cabd706"
+  integrity sha512-4K0cK3L1hsqk9xIb2z9vs/XU+PGJZ9PNpJRDS9YLzmNdX6jmVPfamLvTJr0aDAusnHyCHO6MjzlkAsgtqp9teA==
   dependencies:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"

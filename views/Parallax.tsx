@@ -46,7 +46,9 @@ const Parallax = (props: ParallaxProps) => {
     }, photo) || null;
 
   const urls =
-    data && data.urls ? [data.urls.thumb, data.urls.small, data.urls.regular, data.urls.full] : [];
+    data && data.urls
+      ? [data.urls.thumb, data.urls.small, data.urls.regular, data.urls.full]
+      : [];
   const inner = (
     <Container maxWidth={maxWidth} className={classes.main}>
       {children}
