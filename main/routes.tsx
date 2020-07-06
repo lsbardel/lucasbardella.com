@@ -3,6 +3,9 @@ import { useTheme } from "@material-ui/core/styles";
 import { CmsRoute } from "@metablock/cms";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import blog from "../content/blog/collection.json";
+import lab from "../content/lab/collection.json";
+import pages from "../content/pages/collection.json";
 import { BlogList, LabList } from "../views/CmsList";
 import CmsPageEntry from "../views/CmsPageEntry";
 import Footer from "../views/Footer";
@@ -19,7 +22,7 @@ const Routes = () => {
             render={({ match }) => (
               <CmsRoute
                 match={match}
-                slug={["yyyy", "mm", "slug"]}
+                slug={blog.slug}
                 ListComponent={BlogList}
                 EntryComponent={CmsPageEntry}
               />
@@ -30,6 +33,8 @@ const Routes = () => {
             render={({ match }) => (
               <CmsRoute
                 match={match}
+                //@ts-ignore
+                slug={lab.slug}
                 ListComponent={LabList}
                 EntryComponent={CmsPageEntry}
               />
@@ -40,6 +45,8 @@ const Routes = () => {
             render={({ match }) => (
               <CmsRoute
                 topic="pages"
+                //@ts-ignore
+                slug={pages.slug}
                 match={match}
                 ListComponent={false}
                 EntryComponent={CmsPageEntry}
