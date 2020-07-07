@@ -38,7 +38,7 @@ const config = {
   },
   plugins: [
     new RequireFrom({
-      variableName: "__metablock_assets_url__",
+      variableName: "__bundle_url__",
     }),
   ],
   resolve: {
