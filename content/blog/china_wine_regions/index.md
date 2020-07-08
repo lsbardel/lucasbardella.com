@@ -4,15 +4,15 @@ slug: china_wine_regions
 date: 2014 November 01
 description: A map of the top wine producing regions in China. Map created using mapbox, leaflet and d3js.
 category: wine
-image: ${assetUrl}/blog/china-wine-regions.png
+image: {{ assetUrl }}/blog/china-wine-regions.png
 twitter-card: summary_large_image
 stylesheet: https://unpkg.com/leaflet@1.6.0/dist/leaflet.css
 
 ---
 
 <script
-    src="${bundleUrl}/blog/china_wine_regions/china-wine.js"
-    topology="${assetUrl}/blog/china_adm1.topo.json"
+    src="{{ bundleUrl }}/blog/china_wine_regions/china-wine.js"
+    topology="{{ assetUrl }}/blog/china_adm1.topo.json"
     aspectratio="60%">
 </script>
 
@@ -34,7 +34,7 @@ sometimes it is a struggle to harvest fully ripe, healthy grapes.
 
 ## Shanxi
 
-<img src="${assetUrl}/blog/grace-deep-blue-several-bottles.jpg"
+<img src="{{ assetUrl }}/blog/grace-deep-blue-several-bottles.jpg"
 class="pull-right img-rounded" style="width: 350px; margin-left: 20px">
 
 This is a large region on the west of Beijing and has a continental climate
@@ -114,10 +114,10 @@ npm install -g topojson
 topojson -o china_adm1.topo.json -p name=NAME_1 china_adm1.json
 ```
 
-The <a href="${assetUrl}/blog/china_adm1.topo.json" target="_self">china_adm1.topo.json</a> is 244 KB in size while
-<a href="${assetUrl}/blog/china_adm1.json" target="_self">china_adm1.json</a> is 3.2 MB,
+The <a href="{{ assetUrl }}/blog/china_adm1.topo.json" target="_self">china_adm1.topo.json</a> is 244 KB in size while
+<a href="{{ assetUrl }}/blog/china_adm1.json" target="_self">china_adm1.json</a> is 3.2 MB,
 quite a big saving! This step includes a minor transformation renaming the `NAME_1`
 property to `name`. Check out a great tutorial by [Mike Bostock](http://bost.ocks.org/mike/)
 form more insight on how to [make a map](http://bost.ocks.org/mike/map/).
 
-The source code for the map is available [here](${bundleUrl}/blog/china_wine_regions/china-wine.js).
+The source code for the map is available [here]({{ bundleUrl }}/blog/china_wine_regions/china-wine.js).

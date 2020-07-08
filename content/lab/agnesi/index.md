@@ -9,7 +9,7 @@ category: visualization
 
 ---
 
-<script src="${bundleUrl}/lab/the_witch_of_agnesi/agnesi.js" aspectratio="40%"></script>
+<script src="{{ bundleUrl }}/lab/the_witch_of_agnesi/agnesi.js" aspectratio="40%"></script>
 
 This example demonstrate how to plot the
 <a href="http://en.wikipedia.org/wiki/Witch_of_Agnesi">witch of agnesi</a>
@@ -21,4 +21,4 @@ The curve has Cartesian equation
 y = \frac{8 r^3}{x^2 + 4 r^2}
 ```
 
-Code available [here](${bundleUrl}/lab/the_witch_of_agnesi/agnesi.js).
+Code available [here]({{ bundleUrl }}/lab/the_witch_of_agnesi/agnesi.js).

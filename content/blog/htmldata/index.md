@@ -3,13 +3,13 @@ title: How the HTML data attribute works
 slug: how_the_html_data_works
 date: 2014-05-17 22:31
 head-tag: html5, javascript, data, d3, jquery, dom
-image: ${assetUrl}/blog/html5.png
+image: {{ assetUrl }}/blog/html5.png
 description: HTML5 custom data attribute is useful, how is it used and why.
 category: HTML5
 
 ---
 
-<img width=300 src="${assetUrl}/blog/html5.png" alt="HTML custom data attribute" style="float: right; padding-left: 20px">
+<img width=300 src="{{ assetUrl }}/blog/html5.png" alt="HTML custom data attribute" style="float: right; padding-left: 20px">
 
 The HTML custom data attribute `data-*` has become one of the most important parts in modern
 front-end development, especially since [HTML5][] has become the de-facto
@@ -87,7 +87,7 @@ By setting:
 A carousel is activated.
 
 <div style="width: 100%; position: relative; overflow: hidden; padding-top: 80%">
-<iframe src="${bundleUrl}/blog/how_the_html_data_works/carousel.html" title="Bootstrap carousel"
+<iframe src="{{ bundleUrl }}/blog/how_the_html_data_works/carousel.html" title="Bootstrap carousel"
 style="position: absolute; width: 100%; height: 100%; bottom: 0; top: 0; right: 0; left: 0; border: 0"></iframe>
 </div>
 
@@ -111,7 +111,10 @@ The following script generates the bar chart above:
 
 ```javascript
 notebook.require("d3-selection").then((d3) => {
-  const chart = d3.select("#barchart").style("text-align", "right").style("color", "#fff"),
+  const chart = d3
+      .select("#barchart")
+      .style("text-align", "right")
+      .style("color", "#fff"),
     data = JSON.parse(chart.node().dataset.values);
 
   chart

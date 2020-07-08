@@ -1,12 +1,12 @@
 title: Curriculum Vitae of Luca Sbardella
 tagline: Luca Sbardella CV
 description: Tech lead specialized in quantitative data analysis, quantitative finance, web application development, data visualization, python and much more.
-head-image: \${assetUrl}/lucacv.png
+head-image: \{{ assetUrl }}/lucacv.png
 head-type: profile
 head-first_name: Luca
 head-last_name: Sbardella
 head-twitter-type: summary_large_image
-hero_photo: _XVE6pKGiLE
+hero_photo: \_XVE6pKGiLE
 hero_dark: true
 
 ---

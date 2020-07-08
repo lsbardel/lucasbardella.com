@@ -6,6 +6,7 @@ keywords: react, metablock, material ui
 hero_photo: KBX9XHk266s
 hero_photo_filter: 0.8
 hero_dark: true
+private: true
 
 ---
 

@@ -19,7 +19,7 @@ const config = {
   devServer: devServer("https://new.lucasbardella.com", {
     ssr: true,
     ssrPlugins: [statusCode],
-    slowMo: 250,
+    // slowMo: 250,
     hot: true,
   }),
   entry: {

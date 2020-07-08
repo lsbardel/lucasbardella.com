@@ -1,6 +1,6 @@
 title: Contact Luca
 description: You can contact Luca via email, twitter or phone.
-image: ${assetUrl}/qr.svg
+image: {{ assetUrl }}/qr.svg
 
 ---
 
@@ -19,5 +19,5 @@ message [@lsbardel](https://twitter.com/lsbardel).
 ### QR code for this site
 
 <a href="/">
-    <img width=200 alt="Luca Sbardella QR" src="${assetUrl}/qr.svg">
+    <img width=200 alt="Luca Sbardella QR" src="{{ assetUrl }}/qr.svg">
 </a>

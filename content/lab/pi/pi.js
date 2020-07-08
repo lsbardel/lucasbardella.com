@@ -1,181 +1,146 @@
-import "https://d3js.org/d3.v5.min.js";
+const noop = () => {};
 
-export default (el) => {
-  draw(el, window.d3, {
-    margin: 0,
-    height: "100%",
-    rounding: 5,
-    rmin: 0.01,
-    rmax: 0.04,
-    levels: 50,
-    circleColor: "#1f77b4",
-    circleOpacity: 0.5,
-    strokeColor: "#1f77b4",
-    impactColor: "#000",
-    strokeWidth: 2,
-  });
+const state = {
+  margin: 0,
+  height: "100%",
+  rounding: 5,
+  rmin: 0.02,
+  rscale: 4,
+  levels: 50,
+  size: 0.7,
+  circleColor: "#1f77b4",
+  circleOpacity: 0.5,
+  strokeColor: "#1f77b4",
+  impactColor: "#000",
+  strokeWidth: 2,
+  nodes: [],
+  pi: 0,
+  draw(el, options) {
+    notebook
+      .require(
+        "d3-selection",
+        "d3-scale",
+        "d3-array",
+        "d3-scale-chromatic",
+        "d3-timer",
+        "d3-quant"
+      )
+      .then((d3) => {
+        draw(el, d3, options);
+      });
+  },
 };
 
-const draw = (el, d3, opts) => {
+const draw = (el, d3, options) => {
+  options = options || {};
+  let svg = d3.select(el).selectAll("svg").data([0]).enter().append("svg");
+  svg.append("rect");
+  svg.append("circle");
+  svg.append("g").classed("nodes", true);
+
   const width = el.offsetWidth,
+    update = options.update || noop,
     height = el.offsetHeight,
-    g = d3.select(el).html("").append("svg").attr("height", height).attr("width", width),
-    nodes = [],
-    colors = d3.scale.category20c().range().splice(4, 8),
-    target = d3.round(Math.PI, opts.rounding),
-    radiusScale = d3.scale.linear().range([opts.rmax, opts.rmin]).domain([0, opts.levels]),
-    colorScale = d3.scale.linear().range(colors).domain([0, opts.levels]),
-    scalex = d3.linearScale().domain([-1, 1]),
-    scaley = d3.linearScale().domain([-1, 1]),
-    scale = d3.linearScale().domain([0, 2]);
+    radius = 0.5 * state.size * Math.min(width, height),
+    rmin = Math.max(1, state.rmin * radius),
+    rmax = state.rscale * rmin,
+    levels = state.levels,
+    colors = d3.scaleOrdinal(
+      d3.range(levels, 0, -1).map((t) => d3.interpolateInferno(t / levels))
+    ),
+    x = d3.scaleLinear().range([0, width]).domain([-1, 1]),
+    y = d3.scaleLinear().range([0, height]).domain([-1, 1]),
+    cx = d3
+      .scaleLinear()
+      .range([width / 2, radius])
+      .domain([0, levels]),
+    cy = d3
+      .scaleLinear()
+      .range([height / 2, radius])
+      .domain([0, levels]),
+    cr = d3.scaleLinear().range([rmax, rmin]).domain([0, state.levels]);
 
-  let _anim, done;
-
-  g.append("rect")
+  svg = d3.select(el).select("svg").attr("height", height).attr("width", width);
+  svg
+    .select("rect")
+    .attr("x", x(0) - radius)
+    .attr("y", y(0) - radius)
+    .attr("width", 2 * radius)
+    .attr("height", 2 * radius)
     .attr("fill", "none")
-    .attr("stroke", opts.strokeColor)
-    .attr("stroke-width", opts.strokeWidth);
-  g.append("circle")
+    .attr("stroke", state.strokeColor)
+    .attr("stroke-width", state.strokeWidth);
+  svg
+    .select("circle")
+    .attr("cx", x(0))
+    .attr("cy", y(0))
+    .attr("r", radius)
     .classed("target", true)
-    .attr("fill", opts.circleColor)
-    .attr("fill-opacity", opts.circleOpacity)
-    .attr("stroke-width", opts.strokeWidth)
-    .attr("stroke", opts.scrokeColor);
+    .attr("fill", state.circleColor)
+    .attr("fill-opacity", state.circleOpacity)
+    .attr("stroke-width", state.strokeWidth)
+    .attr("stroke", state.scrokeColor);
+  const nodes = svg
+    .select(".nodes")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-  g.append("g").classed("done", true);
+  if (!state.anim || options.restart) {
+    if (state.anim) {
+      state.anim.viz.stop();
+      state.anim = undefined;
+      nodes.html("");
+    }
+    state.anim = {
+      sobol: d3.sobol(2),
+      nodes: [],
+      circle: 0,
+      total: 0,
+      target: d3.round(Math.PI, state.rounding),
+    };
+    state.anim.viz = d3.timer(() => {
+      if (!state.anim.targetValue) {
+        const xy = state.anim.sobol.next();
 
-  group.add(function () {
-    var g = group.element(),
-      s = group.element().selectAll(".node").data(nodes),
-      d = group.element().select(".done"),
-      e;
+        const node = {
+          x: 2 * (xy[0] - 0.5),
+          y: 2 * (xy[1] - 0.5),
+          l: 0,
+        };
+        state.anim.total += 1;
+        if (node.x * node.x + node.y * node.y < 1) state.anim.circle += 1;
 
-    g.select("rect")
-      .attr("x", scalex(-0.5))
-      .attr("y", scaley(0.5))
-      .attr("height", scale(1))
-      .attr("width", scale(1));
+        const pival = (4 * state.anim.circle) / state.anim.total;
+        state.anim.pi = d3.round(pival, state.rounding);
+        state.anim.nodes.push(node);
+        if (state.anim.pi === state.anim.target) state.anim.targetValue = pival;
+        update(state.anim);
+      }
 
-    g.select(".target").attr("cx", scalex(0)).attr("cy", scaley(0)).attr("r", scale(0.5));
-
-    for (var i = 0; i < done.length; ++i)
-      d.append("circle")
-        .attr("fill", opts.impactColor)
-        .attr("cx", scalex(done[i].x))
-        .attr("cy", scaley(done[i].y))
-        .attr("r", scale(opts.rmin));
-
-    s.enter().append("circle").classed("node", true);
-    s.exit().remove();
-    s.attr("cx", function (d) {
-      return scalex(d.x);
-    })
-      .attr("cy", function (d) {
-        return scaley(d.y);
-      })
-      .attr("fill", function (d) {
-        return d.c;
-      })
-      .attr("r", function (d) {
-        return scale(d.r);
+      state.anim.nodes.forEach((node) => {
+        if (node.l < levels) node.l++;
       });
-    return s;
-  });
-
-  viz.on("tick.main", function (e) {
-    var i = 0,
-      anim = getAnim(true),
-      node,
-      xy,
-      xj,
-      yj,
-      pival;
-
-    if (!anim.targetValue) {
-      xy = anim.sobol.next();
-      xj = Math.random();
-      yj = Math.random();
-
-      node = {
-        x: 2 * (xy[0] - 0.5),
-        y: 2 * (xy[1] - 0.5),
-        l: -1,
-      };
-      anim.total += 1;
-      if (node.x * node.x + node.y * node.y < 1) anim.circle += 1;
-      if (xj * xj + yj * yj < 1) anim.js += 1;
-
-      pival = (4 * anim.circle) / anim.total;
-      anim.pi = d3.round(pival, opts.rounding);
-      nodes.push(node);
-      if (anim.pi === target) anim.targetValue = pival;
-    }
-
-    var moving = [];
-    done = [];
-    nodes.forEach(function (node) {
-      node.l++;
-      if (node.l <= opts.levels) {
-        if (node.l) {
-          node.x -= node.dx;
-          node.y -= node.dy;
-        } else {
-          node.dx = (0.5 * node.x) / opts.levels;
-          node.dy = (0.5 * node.y) / opts.levels;
-        }
-        node.r = radiusScale(node.l);
-        node.c = colorScale(node.l);
-        moving.push(node);
-      } else done.push(node);
+      render();
     });
-
-    nodes = moving;
-    group.render();
-
-    if (nodes.length) {
-      viz.resume();
-    } else {
-      anim.finished = true;
-      viz.stop();
-    }
-  });
-
-  // Private stuff
-
-  function getAnim(createNew) {
-    if (!_anim || _anim.finished) {
-      g.select(".done").selectAll("*").remove();
-      g.selectAll(".node").remove();
-      _anim = {
-        total: 0,
-        circle: 0,
-        js: 0,
-        sobol: d3.giotto.math.sobol(2),
-      };
-    }
-    return _anim;
+  } else {
+    render();
   }
 
-  if (opts.scope) {
-    var scope = opts.scope;
+  function render() {
+    const circles = nodes.selectAll("circle").data(state.anim.nodes);
+    circles
+      .enter()
+      .append("circle")
+      .attr("cx", (d) => cx(d.l) * d.x)
+      .attr("cy", (d) => cy(d.l) * d.y)
+      .attr("r", (d) => cr(d.l))
+      .attr("fill", (d) => colors(d.l));
 
-    scope.pi = 0;
-    scope.total = 0;
-    scope.animate = function () {
-      if (viz.alpha()) viz.stop();
-      else viz.resume();
-    };
-
-    viz
-      .on("tick.angular", function () {
-        scope.action = "Pause";
-        scope.pi = _anim.pi;
-        scope.total = _anim.total;
-        scope.$apply();
-      })
-      .on("end", function () {
-        scope.action = "Animate";
-        if (scope.$$phase !== "$apply") scope.$apply();
-      });
+    circles
+      .attr("cx", (d) => cx(d.l) * d.x)
+      .attr("cy", (d) => cy(d.l) * d.y)
+      .attr("r", (d) => cr(d.l))
+      .attr("fill", (d) => colors(d.l));
   }
 };
+
+export default state;

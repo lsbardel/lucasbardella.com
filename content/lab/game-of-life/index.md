@@ -8,6 +8,6 @@ private: true
 
 ---
 
-<script src="${bundleUrl}/lab/game-of-life/life.js" aspectratio="60%"></script>
+<script src="{{ bundleUrl }}/lab/game-of-life/life.js" aspectratio="60%"></script>
 
-Code available [here](${bundleUrl}/lab/the_witch_of_agnesi/agnesi.js).
+Code available [here]({{ bundleUrl }}/lab/the_witch_of_agnesi/agnesi.js).

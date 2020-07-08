@@ -1,5 +1,5 @@
 date: 2014 March 26
-image: ${assetUrl}/lsbardel.jpg
+image: {{ assetUrl }}/lsbardel.jpg
 tagline: Hi!
 hero_photo: t7YycgAoVSw
 hero_photo_filter: 0.5

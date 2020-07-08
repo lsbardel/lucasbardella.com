@@ -5,8 +5,8 @@ date: 2014 November 6
 description: How to use KaTex, the JavaScript library for TeX math rendering from Kahn Academy, with AngularJS
 require_css: //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
 require_css: katex
-require_js: ${assetUrl}/require.config.min.js
-image: ${assetUrl}/blog/katex.png
+require_js: {{ assetUrl }}/require.config.min.js
+image: {{ assetUrl }}/blog/katex.png
 category: math
 
 ---
