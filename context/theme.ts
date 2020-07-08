@@ -19,9 +19,9 @@ export const lightTheme = responsiveFontSizes(
         default: grey["100"],
       },
       primary: {
-        light: primary["700"],
-        main: primary["800"],
-        dark: primary["900"],
+        light: primary["500"],
+        main: primary["700"],
+        dark: primary["800"],
       },
       secondary: {
         light: grey["50"],

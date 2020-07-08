@@ -16,7 +16,7 @@ const resolvePath = (relativePath: string) => path.resolve(PWD, relativePath);
 
 const config = {
   mode,
-  devServer: devServer("https://new.lucasbardella.com", {
+  devServer: devServer("https://lucasbardella.com", {
     ssr: true,
     ssrPlugins: [statusCode],
     // slowMo: 250,
