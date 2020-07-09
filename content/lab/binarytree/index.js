@@ -2,7 +2,7 @@ export default (el) => {
   notebook
     .require(
       "d3-selection",
-      "d3-quant",
+      "d3-quant@0.5.1",
       "d3-scale",
       "d3-timer",
       "d3-force",
@@ -26,28 +26,44 @@ const state = {
       x = d3.scaleLinear().range([0, width]),
       y = d3.scaleLinear().range([0, height]);
 
+    this.el = el;
     // setup of svg
     d3.select(el).selectAll("svg").data([0]).enter().append("svg");
     const paper = d3
       .select(el)
       .select("svg")
       .attr("width", width)
-      .attr("height", height)
-      .style("fill", "#fff");
+      .attr("height", height);
 
     paper
-      .selectAll("g.text")
+      .selectAll("g.legend")
       .data([0])
       .enter()
       .append("g")
-      .classed("text", true)
-      .append("text")
-      .text("Depth: 0")
-      .style("font-size", "20px")
-      .style("text-anchor", "middle")
-      .style("alignment-baseline", "middle")
-      .attr("transform", "translate(50, 50)");
+      .attr("transform", "translate(50, 50)")
+      .classed("legend", true)
+      .selectAll("g")
+      .data(["depth", "red", "black"])
+      .enter()
+      .append((d, index) => {
+        const g = d3
+          .select(document.createElement("g"))
+          .attr("transform", `translate(0, ${2 * radius * index})`);
+        if (d === "depth")
+          g.append("text").text("Depth").style("fill", "black");
+        else
+          g.append("circle")
+            .style("fill", d)
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("r", radius);
+        g.append("text").text("0").classed(d, true).style("fill", d);
+        return g.node();
+      });
 
+    paper.selectAll("text").style("font-size", "20px");
+    //.style("text-anchor", "middle")
+    //.style("alignment-baseline", "middle");
     paper
       .selectAll("g.links")
       .data([0])
@@ -62,15 +78,6 @@ const state = {
       .append("g")
       .classed("tree", true);
     paper
-      .selectAll("g.node")
-      .data([0])
-      .enter()
-      .append("g")
-      .classed("node", true)
-      .append("circle")
-      .style("stroke", "black")
-      .style("fill", "yellow");
-    paper
       .selectAll("g.circle")
       .data([0])
       .enter()
@@ -82,7 +89,9 @@ const state = {
       .attr("r", this.dropRadiusScale * radius);
 
     // live circles
-    const text = paper.select("g.text"),
+    const textDepth = paper.select("text.depth"),
+      textRed = paper.select("text.red"),
+      textBlack = paper.select("text.black"),
       circle = paper
         .select("g.circle")
         .select("circle")
@@ -176,7 +185,7 @@ const state = {
 
       function insertAnimation(node) {
         if (!tree.root) return doInsert(node);
-        const self = this.root ? this.root : this;
+        const self = this.depth ? this : this.root;
         node.x = self.x;
         node.y = self.y;
         updateNode();
@@ -227,7 +236,15 @@ const state = {
         nd.x = nd.parent.x;
         nd.y = nd.parent.y;
       }
-      text.text("Depth: " + tree.maxDepth);
+      textDepth.text(tree.maxDepth);
+      let red = 0,
+        black = 0;
+      tree.traverse((n) => {
+        if (n.red) red++;
+        else black++;
+      });
+      textRed.text(red);
+      textBlack.text(black);
       nodes.push(nd);
       simulation.nodes(nodes);
       links.links(tree.links());

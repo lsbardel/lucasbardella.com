@@ -40,8 +40,8 @@ visualization of complex datasets and full stack technological solutions.
 
 **Specialities**: quantitative finance, calculus, machine learning, data analysis, web applications
 
-**Coding**: Python, JavaScript, C, C++, R, Lua<br>
-**Data Stores**: PostgreSQL, Redis, MongoDB, Google data store, Amazon DynamoDB
+**Coding**: Python, TypeScript/JavaScript, C/C++<br>
+**Technologies**: PostgreSQL, Redis, MongoDB, Google data store, Amazon DynamoDB
 
 <hr>
 
