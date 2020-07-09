@@ -45,19 +45,37 @@ visualization of complex datasets and full stack technological solutions.
 
 <hr>
 
-### Head of Algo Trading - [Smarkets](https://smarkets.com)
+### Head of Sport Algo Trading - [Smarkets](https://smarkets.com)
 
-**November 2008 - Present** London, UK
+**March 2019 - August 2020** London, UK
 
-I managed the sport algorithmic trading division consisting of 12 engineers, 10 quants and 8 ops traders.
-We market-make sporting events 24/7 using python, rust, react and many other open source technologies
-on a microservice driven architecture deployed into Kubernetes clusters on AWS.
-I was part of the leadearship team with daily interactions with the CEO of the group based in LA.
+I managed the sport algorithmic trading division consisting of 12 engineers, 10 quants and 8 operational traders.
+The two main objectives were to provide liquidity to the betting exchange via market making sporting events
+24/7 and increase risk-adjusted returns for the group. The main technologies were python, rust and react on a microservice driven architecture deployed into Kubernetes clusters on AWS.
+I was part of the leadership team with daily interactions with the CEO of the group based in LA.
 
-**Specialities**: quantitative finance, calculus, machine learning, data analysis, web applications
+**Technology**: Python, TypeScript/React, Rust, PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
 
-**Coding**: Python, JavaScript, C, C++, R, Lua<br>
-**Data Stores**: PostgreSQL, Redis, MongoDB, Google data store, Amazon DynamoDB
+<hr>
+
+### CTO - [Lendingblock](https://lendingblock.com)
+
+**March 2018 - February 2019** London, UK
+
+I engineered the creation of the first cloud platform for cross blockchain borrowing and lending. Loans in cryptocurrency collateralized by other cryptocurrencies. I managed a team of ten engineers and I was part of the leadership team.
+
+**Technology**: Python, JavaScript, React, d3.js, node.js, Lua, PostgreSQL, Redis, AWS, Kubernetes, Docker
+
+<hr>
+
+### CTO - [BMLL](https://bmlltech.com/)
+
+**April 2015 - February 2016** London, UK
+
+This was a contract position with the aim to build the development team and the technology product, a cloud based platform for limit order book (LOB) data and analytics.
+The engineering team grew from four to over ten engineers and a minimum viable product was on its way by the time a permanent CTO came on board.
+
+**Technology**: Python, Angular, d3.js, node.js, PostgreSQL, Redis, AWS, ansible
 
 <hr>
 

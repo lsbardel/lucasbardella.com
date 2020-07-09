@@ -1,20 +1,33 @@
 export default (el) => {
-  notebook.require("d3-selection", "d3-quant", "d3-force").then((d3) => {
-    state.draw(el, d3);
-  });
+  notebook
+    .require(
+      "d3-selection",
+      "d3-quant",
+      "d3-scale",
+      "d3-timer",
+      "d3-force",
+      "d3-random"
+    )
+    .then((d3) => {
+      state.draw(el, d3);
+    });
 };
 
 const state = {
+  radius: 0.01,
+  dropRadiusScale: 1.5,
+  c1: 0.5,
+  c2: 0.3,
   draw(el, d3) {
     const width = el.offsetWidth,
       height = el.offsetHeight,
       dim = Math.min(width, height),
-      radius = Math.max(1, 0.02 * dim),
+      radius = Math.max(1, this.radius * dim),
       x = d3.scaleLinear().range([0, width]),
       y = d3.scaleLinear().range([0, height]);
 
     // setup of svg
-    d3.select(el).selectAll("svg").data([0]).enter.append("svg");
+    d3.select(el).selectAll("svg").data([0]).enter().append("svg");
     const paper = d3
       .select(el)
       .select("svg")
@@ -57,10 +70,73 @@ const state = {
       .append("circle")
       .style("stroke", "black")
       .style("fill", "yellow");
+    paper
+      .selectAll("g.circle")
+      .data([0])
+      .enter()
+      .append("g")
+      .classed("circle", true)
+      .append("circle")
+      .style("stroke", "black")
+      .style("fill", "yellow")
+      .attr("r", this.dropRadiusScale * radius);
 
     // live circles
-    const circles = paper.selectAll(".circle").attr("r", 1.5 * radius);
-    if (this.tree) this.tree = d3.binaryTree();
+    const text = paper.select("g.text"),
+      circle = paper
+        .select("g.circle")
+        .select("circle")
+        .attr("r", this.dropRadiusScale * radius);
+    let plinks, pnodes;
+    if (!this.node) {
+      this.node = {};
+      this.generator = d3.randomUniform(0, 1);
+    }
+    const { generator, node } = this;
+
+    if (!this.tree) {
+      const { c1, c2 } = this;
+      this.node = {};
+      this.tree = binaryTree();
+      this.generator = d3.randomUniform(0, 1);
+      this.simulation = d3
+        .forceSimulation()
+        //.force("center", d3.forceCenter(0.5, 0.5))
+        .force("body", d3.forceManyBody().strength(-0.002))
+        .force("links", d3.forceLink().strength(0.2).distance(0.005))
+        .force(
+          "x",
+          d3
+            .forceX(function (nd) {
+              if (nd.parent) {
+                var x1 = nd.parent.parent ? nd.parent.parent.x : 0.5;
+                return c2 * (c1 * nd.parent.x + (1 - c1) * x1) + (1 - c2) * 0.5;
+              }
+              return 0.5;
+            })
+            .strength(function (nd) {
+              if (!nd.depth) return 5;
+              return Math.min(0.005 * (tree.size + 1), 5);
+            })
+        )
+        .force(
+          "y",
+          d3
+            .forceY(function (nd) {
+              return 0.1 + (0.8 * (1 + nd.depth)) / (tree.maxDepth + 2);
+            })
+            .strength(function (nd) {
+              if (!nd.depth) return 5;
+              return Math.min(0.5 * (tree.maxDepth + 1), 5);
+            })
+        )
+        .on("tick", tick);
+      // drop the first value
+      resetNode();
+      updateNode();
+      d3.timeout(dropNode, 1000);
+    }
+    const { simulation, tree } = this;
 
     updateTree();
 
@@ -89,24 +165,31 @@ const state = {
       }
     }
 
-    function insertAnimation(node, tree) {
-      var self = this;
-      node.x = self.x;
-      node.y = self.y;
-      updateNode();
+    function binaryTree() {
+      const tree = d3.binaryTree();
+      const insert = tree.insert;
+      const doInsert = (node) => {
+        insert.call(tree, node, (nd) => d3.timeout(() => addNode(nd)));
+      };
+      tree.insert = insertAnimation;
+      return tree;
 
-      d3.timeout(function () {
-        if (node.score > self.score) {
-          if (self.right) return insertAnimation.call(self.right, node, tree);
-        } else {
-          if (self.left) return insertAnimation.call(self.left, node, tree);
-        }
-        tree.root = self.insert(node, function (nd) {
-          d3.timeout(function () {
-            addNode(nd);
-          });
-        });
-      }, 50);
+      function insertAnimation(node) {
+        if (!tree.root) return doInsert(node);
+        const self = this.root ? this.root : this;
+        node.x = self.x;
+        node.y = self.y;
+        updateNode();
+
+        d3.timeout(function () {
+          if (node.score > self.score) {
+            if (self.right) return insertAnimation.call(self.right, node);
+          } else {
+            if (self.left) return insertAnimation.call(self.left, node);
+          }
+          doInsert(node);
+        }, 50);
+      }
     }
 
     function updateTree() {
@@ -144,9 +227,7 @@ const state = {
         nd.x = nd.parent.x;
         nd.y = nd.parent.y;
       }
-      maxDepth = tree.maxDepth();
-      treeSize = tree.size();
-      text.text("Depth: " + maxDepth);
+      text.text("Depth: " + tree.maxDepth);
       nodes.push(nd);
       simulation.nodes(nodes);
       links.links(tree.links());
@@ -157,7 +238,7 @@ const state = {
 
     function dropNode() {
       if (!node.x) resetNode();
-      var target = tree.root ? tree.root.y : 0.5;
+      const target = tree.root ? tree.root.y : 0.5;
       node.y += 0.01;
       if (node.y >= target) tree.insert(node);
       else {
