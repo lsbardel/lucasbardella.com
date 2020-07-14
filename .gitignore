@@ -17,3 +17,13 @@ content/phd
 .DS_Store
 *.log
 *.zip
+
+# latex
+*.log
+*.dvi
+*.fls
+*.gz
+*.pdf
+*.aux
+*.fdb_latexmk
+__latexindent_temp.tex
