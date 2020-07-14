@@ -3,7 +3,11 @@
 node_modules
 bin
 build
-static
+static/*.js
+static/*.map
+static/blog
+static/lab
+static/pages
 package-lock.json
 
 # directories

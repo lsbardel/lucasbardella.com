@@ -26,7 +26,7 @@ const Main = (props: any) => {
     <List direction="horizontal" align="right" items={links} />
   );
   const classes = useStyles();
-  const brandComponent = (
+  const BrandComponent = () => (
     <Link to="/">
       <Avatar
         src={assetUrl("luca-avatar.jpg")}
@@ -39,7 +39,7 @@ const Main = (props: any) => {
   return (
     <>
       <Header
-        brandComponent={brandComponent}
+        BrandComponent={BrandComponent}
         rightLinks={rightLinks}
         paddingTop={1}
         paddingBottom={1}

@@ -8,3 +8,10 @@ help:
 
 update:		## Update dependencies
 	@yarn upgrade --latest
+
+install-py:	## Install tools dependencies in virtual-env
+	@pip install -U -r ./extra/tools/requirements.txt
+
+qr:		## Create QR svg image in virtualenv
+	qr --factory=svg-path "https://lucasbardella.com" > ./static/luca-qr.svg
+	qr "https://lucasbardella.com" > ./static/luca-qr.png
