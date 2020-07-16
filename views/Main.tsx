@@ -1,6 +1,6 @@
 import Avatar from "@material-ui/core/Avatar";
-import { assetUrl } from "@metablock/core";
-import { Header, Link, List } from "@metablock/react";
+import { assetUrl, getBlock } from "@metablock/core";
+import { Header, Link, List, useGa } from "@metablock/react";
 import React from "react";
 import useStyles from "../context/styles";
 import maxWidth from "./width";
@@ -22,6 +22,7 @@ const links: any[] = [
 
 const Main = (props: any) => {
   const { children } = props;
+  const block = getBlock();
   const rightLinks = (
     <List direction="horizontal" align="right" items={links} />
   );
@@ -35,6 +36,7 @@ const Main = (props: any) => {
       />
     </Link>
   );
+  useGa(block.plugins.ga?.id);
 
   return (
     <>
