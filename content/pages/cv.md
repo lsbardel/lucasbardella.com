@@ -47,7 +47,7 @@ visualization of complex datasets and full stack technological solutions.
 
 ### Head of Sport Algo Trading - [Smarkets](https://smarkets.com)
 
-**March 2019 - August 2020** London, UK
+**March 2019 - July 2020** London, UK
 
 I managed the sport algorithmic trading division consisting of 12 engineers, 10 quants and 8 operational traders.
 The two main objectives were to provide liquidity to the betting exchange via market making sporting events

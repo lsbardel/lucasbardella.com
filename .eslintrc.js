@@ -48,10 +48,7 @@ module.exports = {
     semi: ERROR,
     complexity: [ERROR, { max: 12 }],
     // prevent lint errors if you don't use some function arguments
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { vars: "all", args: "none" },
-    ],
+    "@typescript-eslint/no-unused-vars": ["error", { vars: "all", args: "none" }],
     "no-restricted-imports": [
       "error",
       {

@@ -49,7 +49,7 @@
 \usepackage[a4paper]{geometry}
 
 % for example, change the margins to 2 inches all round
-\geometry{top=1.25cm, bottom=-.6cm, left=1.5cm, right=1.5cm}
+\geometry{top=2cm, bottom=1cm, left=2cm, right=2cm}
 
 %use customized header
 \usepackage{fancyhdr}
@@ -97,6 +97,7 @@
 \usepackage{color}
 
 %accent color
+%\definecolor{sectcol}{RGB}{2,120,120}
 \definecolor{sectcol}{RGB}{0,150,255}
 
 %dark background color
@@ -148,8 +149,8 @@
 \newcommand{\cvevent}[4]
 {
     \vspace{3mm}
-    \begin{tabular*}{\textwidth}{p{13.6cm}  x{3.9cm}}
-        \textcolor{black}{\textbf{#2}} - \textcolor{bgcol}{#3} \textcolor{sectcol}{#4} & \vspace{2.5pt}\textcolor{sectcol}{#1}
+    \begin{tabular*}{\textwidth}{p{12cm}  x{4cm}}
+        \textcolor{black}{\textbf{#2}} - \textcolor{bgcol}{#3} \textcolor{sectcol}{#4} & \vspace{2.5pt}\textcolor{black}{\textbf{#1}}
     \end{tabular*}
 
     \vspace{-8pt}
