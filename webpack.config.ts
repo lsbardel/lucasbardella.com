@@ -64,14 +64,6 @@ const config = {
         //use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf)$/,
-        use: [
-          {
-            loader: "file-loader",
-          },
-        ],
-      },
-      {
         test: /\.svg$/,
         use: [
           {
@@ -79,6 +71,14 @@ const config = {
             options: {
               removeSVGTagAttrs: false,
             },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf)$/,
+        use: [
+          {
+            loader: "file-loader",
           },
         ],
       },

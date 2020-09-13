@@ -8,6 +8,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import TwitterIcon from "@material-ui/icons/Twitter";
+import KeybaseIcon from "@material-ui/icons/VpnKey";
 import { Copyright, List } from "@metablock/react";
 import React from "react";
 import useStyles from "../context/styles";
@@ -25,6 +26,10 @@ const social = [
   {
     href: "https://github.com/quantmind",
     icon: <GitHubIcon />,
+  },
+  {
+    href: "https://keybase.io/lsbardel",
+    icon: <KeybaseIcon />,
   },
   {
     href: "https://www.flickr.com/photos/sbardella/",
@@ -63,12 +68,7 @@ const Footer: React.FC = () => {
   const classes = useStyles();
   return (
     <Box fontSize={8}>
-      <Typography
-        component="footer"
-        variant="body2"
-        color="textSecondary"
-        className={classes.root}
-      >
+      <Typography component="footer" variant="body2" color="textSecondary" className={classes.root}>
         <Container>
           <Box pt={3} pb={1}>
             <Grid container spacing={4}>
@@ -85,15 +85,8 @@ const Footer: React.FC = () => {
                 <List direction="horizontal" align="right" items={links} />
               </Grid>
               <Grid item sm={12}>
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  align="center"
-                >
-                  <MuiLink
-                    color="inherit"
-                    href="https://github.com/lsbardel/lucasbardella.com"
-                  >
+                <Typography variant="body2" color="textSecondary" align="center">
+                  <MuiLink color="inherit" href="https://github.com/lsbardel/lucasbardella.com">
                     Webside code on github
                   </MuiLink>
                 </Typography>
