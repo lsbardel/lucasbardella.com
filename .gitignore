@@ -5,6 +5,7 @@ bin
 build
 static/*.js
 static/*.map
+static/*.txt
 static/blog
 static/lab
 static/pages

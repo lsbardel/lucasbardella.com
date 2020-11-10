@@ -5,10 +5,13 @@ export const options = {
   drawerWidth: 240,
 };
 
+export const fontFamilyMono = "'Roboto Mono', monospace";
+
 export const lightTheme = responsiveFontSizes(
   createMuiTheme({
     typography: {
       fontSize: 18,
+      fontFamily: "'Roboto', sans-serif",
       caption: {
         fontSize: 12,
       },

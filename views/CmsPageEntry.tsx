@@ -20,8 +20,7 @@ const CmsPageEntry = (props: any) => {
   } = props;
   const theme = hero_dark ? darkTheme : lightTheme;
   const highlightStyle = highlight_style || "github";
-  const formatDate =
-    props.date instanceof Date ? ` on ${dateFormat()(props.date)}` : "";
+  const formatDate = props.date instanceof Date ? ` on ${dateFormat()(props.date)}` : "";
   return (
     <Page {...extra} prefix={false}>
       <Parallax
@@ -32,33 +31,17 @@ const CmsPageEntry = (props: any) => {
         theme={theme}
         small
       >
-        <Typography
-          component="h1"
-          variant="h3"
-          align="center"
-          paragraph
-          color="textPrimary"
-        >
+        <Typography component="h1" variant="h3" align="center" paragraph color="textPrimary">
           {tagline || props.title}
         </Typography>
         {props.author ? (
-          <Typography
-            component="h5"
-            variant="subtitle2"
-            align="center"
-            paragraph
-          >
+          <Typography component="h5" variant="subtitle2" align="center" paragraph>
             by {props.author}
             {formatDate}
           </Typography>
         ) : null}
         {props.description ? (
-          <Typography
-            component="p"
-            variant="subtitle1"
-            align="center"
-            color="textPrimary"
-          >
+          <Typography component="p" variant="subtitle1" align="center" color="textPrimary">
             {props.description}
           </Typography>
         ) : null}

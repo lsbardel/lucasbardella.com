@@ -2,6 +2,7 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 import { Notebook } from "@metablock/notebook";
 import { isSsr, useWindowSize } from "@metablock/react";
 import React from "react";
+import { fontFamilyMono } from "../context/theme";
 export {};
 
 declare global {
@@ -18,6 +19,17 @@ const useStyles = makeStyles((theme: Theme) => ({
       "& p": {
         fontSize: theme.typography.body1.fontSize,
         fontFamily: theme.typography.body1.fontFamily,
+        fontWeight: 400,
+      },
+      "& ul": {
+        fontSize: theme.typography.body1.fontSize,
+        fontFamily: theme.typography.body1.fontFamily,
+        fontWeight: 400,
+      },
+      "& code": {
+        fontSize: theme.typography.body1.fontSize,
+        fontFamily: fontFamilyMono,
+        fontWeight: 500,
       },
       "& a": {
         textDecoration: "none",
@@ -49,8 +61,7 @@ const Book = (props: any) => {
   const setRef = async (element: HTMLDivElement) => {
     ref.current = element;
     window.notebook = notebook;
-    if (element)
-      await notebook.render(body, element, { ...extra, isSsr: isSsr() });
+    if (element) await notebook.render(body, element, { ...extra, isSsr: isSsr() });
   };
   return <div className={classes.markdown} ref={setRef} />;
 };
