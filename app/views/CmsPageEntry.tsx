@@ -1,12 +1,11 @@
-import Typography from "@material-ui/core/Typography";
 import { dateFormat } from "@metablock/cms";
 import { Page } from "@metablock/react";
+import Typography from "@mui/material/Typography";
 import React from "react";
-import { darkTheme, lightTheme } from "../context/theme";
+import { darkTheme, lightTheme } from "../theme";
 import Container from "./Container";
 import Markdown from "./Notebook";
 import Parallax from "./Parallax";
-import maxWidth from "./width";
 
 const CmsPageEntry = (props: any) => {
   const {
@@ -27,7 +26,7 @@ const CmsPageEntry = (props: any) => {
         photo={hero_photo}
         filter={hero_photo_filter}
         opacity={hero_opacity}
-        maxWidth={maxWidth}
+        maxWidth="md"
         theme={theme}
         small
       >

@@ -1,17 +1,16 @@
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
-import MuiLink from "@material-ui/core/Link";
-import Typography from "@material-ui/core/Typography";
-import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import KeybaseIcon from "@material-ui/icons/VpnKey";
 import { Copyright, List } from "@metablock/react";
+import DirectionsBikeIcon from "@mui/icons-material/DirectionsBike";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import KeybaseIcon from "@mui/icons-material/VpnKey";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import MuiLink from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import React from "react";
-import useStyles from "../context/styles";
 import Container from "./Container";
 
 const social = [
@@ -65,14 +64,13 @@ const links = [
 ];
 
 const Footer: React.FC = () => {
-  const classes = useStyles();
   return (
     <Box fontSize={8}>
-      <Typography component="footer" variant="body2" color="textSecondary" className={classes.root}>
+      <Typography component="footer" variant="body2" color="textSecondary">
         <Container>
           <Box pt={3} pb={1}>
             <Grid container spacing={4}>
-              <Grid item sm={6}>
+              <Grid item md={12} lg={6}>
                 {social.map((s: any, index: number) => (
                   <IconButton key={index} color="primary" component="span">
                     <MuiLink target="_blank" rel="noopener" href={s.href}>
@@ -81,7 +79,7 @@ const Footer: React.FC = () => {
                   </IconButton>
                 ))}
               </Grid>
-              <Grid item sm={6}>
+              <Grid item md={12} lg={6}>
                 <List direction="horizontal" align="right" items={links} />
               </Grid>
               <Grid item sm={12}>

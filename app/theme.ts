@@ -1,5 +1,5 @@
-import { blueGrey as primary, grey } from "@material-ui/core/colors";
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { blueGrey as primary, grey } from "@mui/material/colors";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 export const options = {
   drawerWidth: 240,
@@ -8,7 +8,7 @@ export const options = {
 export const fontFamilyMono = "'Roboto Mono', monospace";
 
 export const lightTheme = responsiveFontSizes(
-  createMuiTheme({
+  createTheme({
     typography: {
       fontSize: 18,
       fontFamily: "'Roboto', sans-serif",
@@ -17,7 +17,7 @@ export const lightTheme = responsiveFontSizes(
       },
     },
     palette: {
-      type: "light",
+      mode: "light",
       background: {
         default: grey["100"],
       },
@@ -36,12 +36,16 @@ export const lightTheme = responsiveFontSizes(
 );
 
 export const darkTheme = responsiveFontSizes(
-  createMuiTheme({
+  createTheme({
     typography: {
       fontSize: 18,
     },
     palette: {
-      type: "dark",
+      mode: "dark",
+      background: {
+        //default: grey["900"],
+        paper: grey["900"],
+      },
       secondary: {
         light: grey["700"],
         main: grey["800"],

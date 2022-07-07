@@ -1,8 +1,8 @@
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { createStyles, makeStyles, Theme } from "@mui/material/styles";
 
 export default makeStyles((theme: Theme) => {
   const p = theme.palette;
-  const dark = p.type === "dark";
+  const dark = p.mode === "dark";
 
   return createStyles({
     root: {

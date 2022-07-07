@@ -1,5 +1,5 @@
-import Box from "@material-ui/core/Box";
-import MuiContainer from "@material-ui/core/Container";
+import Box from "@mui/material/Box";
+import MuiContainer from "@mui/material/Container";
 import React from "react";
 
 const Container = (props: any) => {

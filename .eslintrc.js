@@ -52,7 +52,7 @@ module.exports = {
     "no-restricted-imports": [
       "error",
       {
-        patterns: ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"],
+        patterns: ["@material-ui/*/*/*", "!@mui/material/test-utils/*"],
       },
     ],
     "react-hooks/rules-of-hooks": ERROR,
