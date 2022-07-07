@@ -3,14 +3,14 @@ import { ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import { hydrate } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { darkTheme } from "./theme";
 import Main from "./main";
+import { defaultTheme } from "./theme";
 
 const root = document.getElementById("__metablock");
 
 hydrate(
   <BrowserRouter>
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <Main />
     </ThemeProvider>

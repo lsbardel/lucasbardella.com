@@ -54,3 +54,6 @@ export const darkTheme = responsiveFontSizes(
     },
   })
 );
+
+
+export const defaultTheme = darkTheme;

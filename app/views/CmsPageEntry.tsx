@@ -2,7 +2,7 @@ import { dateFormat } from "@metablock/cms";
 import { Page } from "@metablock/react";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import { darkTheme, lightTheme } from "../theme";
+import { darkTheme, defaultTheme, lightTheme } from "../theme";
 import Container from "./Container";
 import Markdown from "./Notebook";
 import Parallax from "./Parallax";
@@ -14,10 +14,11 @@ const CmsPageEntry = (props: any) => {
     hero_opacity,
     hero_photo_filter,
     hero_dark,
+    hero_light,
     highlight_style,
     ...extra
   } = props;
-  const theme = hero_dark ? darkTheme : lightTheme;
+  const theme = hero_dark ? darkTheme : hero_light ? lightTheme : defaultTheme;
   const highlightStyle = highlight_style || "github";
   const formatDate = props.date instanceof Date ? ` on ${dateFormat()(props.date)}` : "";
   return (
