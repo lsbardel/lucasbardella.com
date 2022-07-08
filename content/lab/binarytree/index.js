@@ -1,13 +1,6 @@
 export default (el) => {
   notebook
-    .require(
-      "d3-selection",
-      "d3-quant@0.5.1",
-      "d3-scale",
-      "d3-timer",
-      "d3-force",
-      "d3-random"
-    )
+    .require("d3-selection", "d3-quant@0.5.1", "d3-scale", "d3-timer", "d3-force", "d3-random")
     .then((d3) => {
       state.draw(el, d3);
     });
@@ -28,12 +21,8 @@ const state = {
 
     this.el = el;
     // setup of svg
-    d3.select(el).selectAll("svg").data([0]).enter().append("svg");
-    const paper = d3
-      .select(el)
-      .select("svg")
-      .attr("width", width)
-      .attr("height", height);
+    d3.select(el).selectAll("svg").data([0]).enter().append("svg").style("background-color", "#999");
+    const paper = d3.select(el).select("svg").attr("width", width).attr("height", height);
 
     paper
       .selectAll("g.legend")
@@ -49,14 +38,8 @@ const state = {
         const g = d3
           .select(document.createElement("g"))
           .attr("transform", `translate(0, ${2 * radius * index})`);
-        if (d === "depth")
-          g.append("text").text("Depth").style("fill", "black");
-        else
-          g.append("circle")
-            .style("fill", d)
-            .attr("cx", 0)
-            .attr("cy", 0)
-            .attr("r", radius);
+        if (d === "depth") g.append("text").text("Depth").style("fill", "black");
+        else g.append("circle").style("fill", d).attr("cx", 0).attr("cy", 0).attr("r", radius);
         g.append("text").text("0").classed(d, true).style("fill", d);
         return g.node();
       });
@@ -71,12 +54,7 @@ const state = {
       .append("g")
       .classed("links", true)
       .style("stroke-width", "0.5px");
-    paper
-      .selectAll("g.tree")
-      .data([0])
-      .enter()
-      .append("g")
-      .classed("tree", true);
+    paper.selectAll("g.tree").data([0]).enter().append("g").classed("tree", true);
     paper
       .selectAll("g.circle")
       .data([0])
@@ -202,20 +180,10 @@ const state = {
     }
 
     function updateTree() {
-      var circles = paper
-          .select("g.tree")
-          .selectAll("circle")
-          .data(simulation.nodes()),
-        lines = paper
-          .select("g.links")
-          .selectAll("line")
-          .data(simulation.force("links").links());
+      var circles = paper.select("g.tree").selectAll("circle").data(simulation.nodes()),
+        lines = paper.select("g.links").selectAll("line").data(simulation.force("links").links());
 
-      plinks = lines
-        .enter()
-        .append("line")
-        .style("stroke", "black")
-        .merge(lines);
+      plinks = lines.enter().append("line").style("stroke", "black").merge(lines);
 
       pnodes = circles
         .enter()

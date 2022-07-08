@@ -21,3 +21,6 @@ install-py:		## Install tools dependencies in virtual-env
 qr:			## Create QR svg image in virtualenv
 	qr --factory=svg-path "https://lucasbardella.com" > ./static/luca-qr.svg
 	qr "https://lucasbardella.com" > ./static/luca-qr.png
+
+cv:			## build CV
+	@cd extra/cv && pdflatex luca-sbardella-cv.tex

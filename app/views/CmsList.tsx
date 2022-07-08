@@ -1,8 +1,8 @@
-import Typography from "@material-ui/core/Typography";
 import { ListLayout } from "@metablock/cms";
 import { Page } from "@metablock/react";
+import Typography from "@mui/material/Typography";
 import React from "react";
-import { darkTheme } from "../context/theme";
+import { darkTheme } from "../theme";
 import Container from "./Container";
 import Parallax from "./Parallax";
 

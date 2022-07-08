@@ -1,4 +1,5 @@
 {
   "content": true,
-  "paginate": true
+  "paginate": true,
+  "slug": ["slug"]
 }

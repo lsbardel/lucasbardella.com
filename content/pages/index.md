@@ -20,7 +20,7 @@ Over the last twenty plus years I have worked as
 On a daily basis
 
 - I live in East Dulwich, London, but originally from Italy
-- I write code in Python & Typescript/Javascript (sometime in C/C++, C#, Rust & Lua)
+- I write code in Python, Rust & Typescript
 - I follow tech/economical/financial/sport/political developments daily
 - I do lots of [open source work](https://github.com/quantmind)
 - Perfection my wine testing skills from [WSET level 3](https://www.northernwineschool.co.uk/c/courses/wine/wset-level-3-wine/) qualification

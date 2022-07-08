@@ -6,26 +6,20 @@ const RequireFrom = require("webpack-require-from");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const { devServer, statusCode } = require("@metablock/server");
 
-const STATIC_PATH = "static";
+const PWD = process.cwd();
+const STATIC_PATH = "/static/";
+const DIRECTORY = path.resolve(PWD, `.${STATIC_PATH}`);
 
 const mode = process.env.NODE_ENV === "production" ? "production" : "development";
-const PWD = process.cwd();
-const resolvePath = (relativePath: string) => path.resolve(PWD, relativePath);
 
 const config = {
   mode,
-  devServer: devServer("https://lucasbardella.com", {
-    ssr: true,
-    ssrPlugins: [statusCode],
-    // slowMo: 250,
-    hot: true,
-  }),
   entry: {
-    luca: "./main/index.tsx",
+    luca: "./app/index.tsx",
   },
   output: {
     publicPath: STATIC_PATH,
-    path: resolvePath(STATIC_PATH),
+    path: DIRECTORY,
     filename: "block.js",
     chunkFilename: "[name].bundle.js",
     libraryTarget: "umd",
@@ -41,12 +35,13 @@ const config = {
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx"],
-    alias: {
-      "@material-ui/styles": path.resolve(PWD, "node_modules", "@material-ui/styles"),
-      react: path.resolve(PWD, "node_modules", "react"),
-      "react-dom": path.resolve(PWD, "node_modules", "react-dom"),
-      "react-router-dom": path.resolve(PWD, "node_modules", "react-router-dom"),
-    },
+    alias: ["@mui", "react", "react-dom", "react-router-dom", "react-data-grid"].reduce(
+      (p, name) => {
+        p[name] = path.resolve(PWD, "node_modules", name);
+        return p;
+      },
+      {}
+    ),
   },
   module: {
     rules: [
@@ -64,18 +59,7 @@ const config = {
         //use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: "svg-inline-loader",
-            options: {
-              removeSVGTagAttrs: false,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf)$/,
+        test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf|svg)$/,
         use: [
           {
             loader: "file-loader",
@@ -89,6 +73,17 @@ const config = {
 if (mode === "development") {
   logger.log("Looks like we are in development mode");
 
+  config.devServer = devServer("https://lucasbardella.com", {
+    ssr: true,
+    ssrPlugins: [statusCode],
+    static: {
+      publicPath: STATIC_PATH,
+      directory: DIRECTORY,
+    },
+    hot: true,
+    port: 9085,
+  });
+
   if (hasFlag("--watch") || hasFlag("-w")) {
     const bundleAnaliser = new BundleAnalyzerPlugin({
       openAnalyzer: false,
@@ -96,9 +91,6 @@ if (mode === "development") {
     });
     config.plugins.push(bundleAnaliser);
   }
-
-  const ignorePlugin = new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/);
-  config.plugins.push(ignorePlugin);
 }
 
 module.exports = config;

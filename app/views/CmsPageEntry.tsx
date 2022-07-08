@@ -1,12 +1,12 @@
-import Typography from "@material-ui/core/Typography";
 import { dateFormat } from "@metablock/cms";
 import { Page } from "@metablock/react";
+import { useTheme } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
 import React from "react";
-import { darkTheme, lightTheme } from "../context/theme";
+import { darkTheme, getHighlightStyle, lightTheme } from "../theme";
 import Container from "./Container";
 import Markdown from "./Notebook";
 import Parallax from "./Parallax";
-import maxWidth from "./width";
 
 const CmsPageEntry = (props: any) => {
   const {
@@ -15,11 +15,13 @@ const CmsPageEntry = (props: any) => {
     hero_opacity,
     hero_photo_filter,
     hero_dark,
+    hero_light,
     highlight_style,
     ...extra
   } = props;
-  const theme = hero_dark ? darkTheme : lightTheme;
-  const highlightStyle = highlight_style || "github";
+  const defaultTheme = useTheme();
+  const theme = hero_dark ? darkTheme : hero_light ? lightTheme : defaultTheme;
+  const highlightStyle = highlight_style || getHighlightStyle(defaultTheme.palette.mode);
   const formatDate = props.date instanceof Date ? ` on ${dateFormat()(props.date)}` : "";
   return (
     <Page {...extra} prefix={false}>
@@ -27,7 +29,7 @@ const CmsPageEntry = (props: any) => {
         photo={hero_photo}
         filter={hero_photo_filter}
         opacity={hero_opacity}
-        maxWidth={maxWidth}
+        maxWidth="md"
         theme={theme}
         small
       >
@@ -35,7 +37,13 @@ const CmsPageEntry = (props: any) => {
           {tagline || props.title}
         </Typography>
         {props.author ? (
-          <Typography component="h5" variant="subtitle2" align="center" paragraph>
+          <Typography
+            component="h5"
+            variant="subtitle2"
+            align="center"
+            paragraph
+            color="text.secondary"
+          >
             by {props.author}
             {formatDate}
           </Typography>

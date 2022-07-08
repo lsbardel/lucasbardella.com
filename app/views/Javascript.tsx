@@ -1,21 +1,6 @@
-import { makeStyles } from "@material-ui/core/styles";
 import { isSsr, useWindowSize } from "@metablock/react";
+import Box from "@mui/material/Box";
 import React from "react";
-
-const useStyles = makeStyles(() => ({
-  module: (props: any) => ({
-    width: "100%",
-    position: "relative",
-    paddingTop: props.aspectRatio,
-  }),
-  inner: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-  },
-}));
 
 const Javascript = (props: any) => {
   const { baseUrl, js } = props;
@@ -39,11 +24,16 @@ const Javascript = (props: any) => {
     }
   };
 
-  const classes = useStyles({ aspectRatio });
   return (
-    <div className={classes.module}>
-      <div className={classes.inner} ref={setRef}></div>
-    </div>
+    <Box
+      sx={{
+        width: "100%",
+        position: "relative",
+        paddingTop: aspectRatio,
+      }}
+    >
+      <Box sx={{ position: "absolute", top: 0, left: 0, bottom: 0, right: 0 }} ref={setRef}></Box>
+    </Box>
   );
 };
 

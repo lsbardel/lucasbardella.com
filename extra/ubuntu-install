@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+apt update -q
+apt install -qy \
+    libfontconfig1 \
+    texlive-full
