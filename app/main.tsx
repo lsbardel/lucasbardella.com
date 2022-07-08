@@ -35,18 +35,16 @@ const links: any[] = [
 const BrandComponent = () => {
   const theme = useTheme();
   return (
-    <NoSsr>
-      <Link to="/">
-        <Avatar
-          src={assetUrl("luca-avatar.jpg")}
-          alt="Luca"
-          sx={{
-            width: theme.spacing(7),
-            height: theme.spacing(7),
-          }}
-        />
-      </Link>
-    </NoSsr>
+    <Link to="/">
+      <Avatar
+        src={assetUrl("luca-avatar.jpg")}
+        alt="Luca"
+        sx={{
+          width: theme.spacing(7),
+          height: theme.spacing(7),
+        }}
+      />
+    </Link>
   );
 };
 
@@ -72,14 +70,16 @@ const Main = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header
-        BrandComponent={BrandComponent}
-        RightLinks={RightLinks}
-        paddingTop={1}
-        paddingBottom={1}
-        maxWidth="md"
-        hideSize="sm"
-      />
+      <NoSsr>
+        <Header
+          BrandComponent={BrandComponent}
+          RightLinks={RightLinks}
+          paddingTop={1}
+          paddingBottom={1}
+          maxWidth="md"
+          hideSize="sm"
+        />
+      </NoSsr>
       <Box bgcolor={theme.palette.background.paper}>
         <Routes>
           <Route
