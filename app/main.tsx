@@ -1,6 +1,6 @@
 import { CmsRoute } from "@metablock/cms";
 import { assetUrl, getBlock } from "@metablock/core";
-import { Header, Link, List, useGa } from "@metablock/react";
+import { Header, Link, List, NoSsr, useGa } from "@metablock/react";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -35,16 +35,18 @@ const links: any[] = [
 const BrandComponent = () => {
   const theme = useTheme();
   return (
-    <Link to="/">
-      <Avatar
-        src={assetUrl("luca-avatar.jpg")}
-        alt="Luca"
-        sx={{
-          width: theme.spacing(7),
-          height: theme.spacing(7),
-        }}
-      />
-    </Link>
+    <NoSsr>
+      <Link to="/">
+        <Avatar
+          src={assetUrl("luca-avatar.jpg")}
+          alt="Luca"
+          sx={{
+            width: theme.spacing(7),
+            height: theme.spacing(7),
+          }}
+        />
+      </Link>
+    </NoSsr>
   );
 };
 
