@@ -55,5 +55,8 @@ export const darkTheme = responsiveFontSizes(
   })
 );
 
+export const getHighlightStyle = (mode: string) => {
+  return mode === "light" ? "github" : "monokai-sublime";
+};
 
 export const defaultTheme = darkTheme;

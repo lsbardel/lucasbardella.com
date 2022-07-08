@@ -3,15 +3,20 @@ import { assetUrl, getBlock } from "@metablock/core";
 import { Header, Link, List, useGa } from "@metablock/react";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import { useTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider, useTheme } from "@mui/material/styles";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { useSessionStorage } from "react-use";
 import blog from "../content/blog/collection.json";
 import lab from "../content/lab/collection.json";
 import pages from "../content/pages/collection.json";
+import MUISwitch from "./MUISwitch";
+import { darkTheme, lightTheme } from "./theme";
 import { BlogList, LabList } from "./views/CmsList";
 import CmsPageEntry from "./views/CmsPageEntry";
 import Footer from "./views/Footer";
+
 const links: any[] = [
   {
     text: "cv",
@@ -26,8 +31,6 @@ const links: any[] = [
     to: "/lab",
   },
 ];
-
-const RightLinks = () => <List direction="horizontal" align="right" items={links} />;
 
 const BrandComponent = () => {
   const theme = useTheme();
@@ -46,17 +49,34 @@ const BrandComponent = () => {
 };
 
 const Main = () => {
-  const theme = useTheme();
+  const [mode, setMode] = useSessionStorage("lucasbardella-mode", "dark");
+  const theme = mode === "dark" ? darkTheme : lightTheme;
   const block = getBlock();
   useGa(block.plugins.ga?.id);
+
+  const RightLinks = () => {
+    const props = mode === "dark" ? { defaultChecked: true } : {};
+    const switchTheme = (event: any) => {
+      setMode(event.target.checked ? "dark" : "light");
+    };
+    return (
+      <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "flex-end" }}>
+        <MUISwitch sx={{ display: "flex" }} {...props} onChange={switchTheme} />
+        <List direction="horizontal" align="right" items={links} />
+      </Box>
+    );
+  };
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Header
         BrandComponent={BrandComponent}
         RightLinks={RightLinks}
         paddingTop={1}
         paddingBottom={1}
         maxWidth="md"
+        hideSize="sm"
       />
       <Box bgcolor={theme.palette.background.paper}>
         <Routes>
@@ -96,7 +116,7 @@ const Main = () => {
         </Routes>
       </Box>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 };
 

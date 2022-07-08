@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
                     <MuiLink
                       target="_blank"
                       rel="noopener"
-                      color="inherit"
+                      color="text.secondary"
                       href="https://creativecommons.org/licenses/by/4.0/"
                     >
                       Some rights reserved

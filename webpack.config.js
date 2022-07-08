@@ -74,7 +74,7 @@ if (mode === "development") {
   logger.log("Looks like we are in development mode");
 
   config.devServer = devServer("https://lucasbardella.com", {
-    ssr: false,
+    ssr: true,
     ssrPlugins: [statusCode],
     static: {
       publicPath: STATIC_PATH,

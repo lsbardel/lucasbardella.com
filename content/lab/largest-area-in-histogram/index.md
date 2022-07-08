@@ -4,6 +4,8 @@ date: 2020-08-05
 keywords: algorithms, histogram, stack
 description: Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram
 image: {{ assetUrl }}/lab/histogram.png
+hero_photo: h3kuhYUCE9A
+hero_opacity: 0.1
 category: visualization
 
 ---

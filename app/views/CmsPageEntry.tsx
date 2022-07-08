@@ -1,8 +1,9 @@
 import { dateFormat } from "@metablock/cms";
 import { Page } from "@metablock/react";
+import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import { darkTheme, defaultTheme, lightTheme } from "../theme";
+import { darkTheme, getHighlightStyle, lightTheme } from "../theme";
 import Container from "./Container";
 import Markdown from "./Notebook";
 import Parallax from "./Parallax";
@@ -18,8 +19,9 @@ const CmsPageEntry = (props: any) => {
     highlight_style,
     ...extra
   } = props;
+  const defaultTheme = useTheme();
   const theme = hero_dark ? darkTheme : hero_light ? lightTheme : defaultTheme;
-  const highlightStyle = highlight_style || "github";
+  const highlightStyle = highlight_style || getHighlightStyle(defaultTheme.palette.mode);
   const formatDate = props.date instanceof Date ? ` on ${dateFormat()(props.date)}` : "";
   return (
     <Page {...extra} prefix={false}>
@@ -35,7 +37,13 @@ const CmsPageEntry = (props: any) => {
           {tagline || props.title}
         </Typography>
         {props.author ? (
-          <Typography component="h5" variant="subtitle2" align="center" paragraph>
+          <Typography
+            component="h5"
+            variant="subtitle2"
+            align="center"
+            paragraph
+            color="text.secondary"
+          >
             by {props.author}
             {formatDate}
           </Typography>

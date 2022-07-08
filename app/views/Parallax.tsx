@@ -9,29 +9,25 @@ interface ParallaxProps {
   maxWidth?: any;
   className?: string;
   children: any;
-  image?: string;
   filter?: number;
   small?: boolean;
   theme?: any;
 }
 
 const Parallax = (props: ParallaxProps) => {
-  const {
-    filter,
-    photo,
-    opacity,
-    className = "",
-    children,
-    image = "",
-    small,
-    theme,
-    maxWidth = "md",
-  } = props;
+  const { filter, photo, opacity, children, small, theme, maxWidth = "md" } = props;
 
   const inner = <Container maxWidth={maxWidth}>{children}</Container>;
   return (
     <>
-      <Unsplash photoId={photo} filter={filter} opacity={opacity} credit small>
+      <Unsplash
+        minScrollWidth={0}
+        photoId={photo}
+        filter={filter}
+        opacity={opacity}
+        credit
+        small={small}
+      >
         {theme ? <ThemeProvider theme={theme}>{inner}</ThemeProvider> : inner}
       </Unsplash>
     </>
