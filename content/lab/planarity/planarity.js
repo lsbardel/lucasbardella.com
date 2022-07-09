@@ -1,14 +1,7 @@
 // We need to keep a state across refresh
 export default (el, options) => {
   notebook
-    .require(
-      "d3-selection",
-      "d3-scale",
-      "d3-drag",
-      "d3-transition",
-      "d3-timer",
-      "d3-format"
-    )
+    .require("d3-selection", "d3-scale", "d3-drag", "d3-transition", "d3-timer", "d3-format")
     .then((d3) => {
       planarity(el, d3, state, options);
     });
@@ -66,8 +59,7 @@ const cross = (a, b) => a[0] * b[1] - a[1] * b[0];
 // Based on http://stackoverflow.com/a/565282/64009
 const intersect = (a, b) => {
   // Check if the segments are exactly the same (or just reversed).
-  if ((a[0] === b[0] && a[1] === b[1]) || (a[0] === b[1] && a[1] === b[0]))
-    return true;
+  if ((a[0] === b[0] && a[1] === b[1]) || (a[0] === b[1] && a[1] === b[0])) return true;
 
   // Represent the segments as p + tr and q + us, where t and u are scalar
   // parameters.
@@ -112,11 +104,13 @@ const intersections = (links) => {
     j = i;
     while (++j < n) {
       if (intersect(x, links[j])) {
-        x.intersection = x[0].intersection = x[1].intersection = links[
-          j
-        ].intersection = links[j][0].intersection = links[
-          j
-        ][1].intersection = true;
+        x.intersection =
+          x[0].intersection =
+          x[1].intersection =
+          links[j].intersection =
+          links[j][0].intersection =
+          links[j][1].intersection =
+            true;
         count++;
       }
     }
@@ -146,10 +140,7 @@ const planarity = (el, d3, graph, options) => {
     for (let i = 0; i < graph.nodes; i++) graph.points.push(randomNode());
     for (let i = 0; i < graph.nodes; i++)
       addPlanarLink(
-        [
-          graph.points[i],
-          graph.points[Math.floor(Math.random() * graph.nodes)],
-        ],
+        [graph.points[i], graph.points[Math.floor(Math.random() * graph.nodes)]],
         graph.links
       );
     for (let i = 0; i < graph.nodes; i++)
@@ -158,13 +149,7 @@ const planarity = (el, d3, graph, options) => {
     scramble(graph);
   }
   // Set-up paper (first time only)
-  const g = d3
-    .select(el)
-    .selectAll("svg")
-    .data([0])
-    .enter()
-    .append("svg")
-    .append("g");
+  const g = d3.select(el).selectAll("svg").data([0]).enter().append("svg").append("g");
   g.append("g").attr("class", "links");
   g.append("g").attr("class", "nodes");
 
@@ -238,14 +223,10 @@ const planarity = (el, d3, graph, options) => {
                 y: y(d[1]),
               };
           })
-          .on("drag", (d) => {
+          .on("drag", (event, d) => {
             // Jitter to prevent coincident nodes.
-            d[0] =
-              Math.max(0, Math.min(1, x.invert(d3.event.x))) +
-              Math.random() * 1e-4;
-            d[1] =
-              Math.max(0, Math.min(1, y.invert(d3.event.y))) +
-              Math.random() * 1e-4;
+            d[0] = Math.max(0, Math.min(1, x.invert(event.x))) + Math.random() * 1e-4;
+            d[1] = Math.max(0, Math.min(1, y.invert(event.y))) + Math.random() * 1e-4;
             update();
           })
           .on("end", () => {

@@ -5,7 +5,7 @@ date: 2014-05-01 14:26
 description: Can you untangle the planar graphs? See if you can position the vertices so that no two lines cross.
 image: {{ assetUrl }}/lab/planarity.svg
 category: game
-stylesheet: https://unpkg.com/purecss@2.0.3/build/pure-min.css
+stylesheet: https://unpkg.com/purecss@2.1/build/pure-min.css
 js_source: main.js
 
 ---

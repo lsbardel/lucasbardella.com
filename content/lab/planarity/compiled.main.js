@@ -14,9 +14,32 @@ function is_function(thing) {
 function safe_not_equal(a, b) {
     return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
 }
-
+function is_empty(obj) {
+    return Object.keys(obj).length === 0;
+}
 function append(target, node) {
     target.appendChild(node);
+}
+function append_styles(target, style_sheet_id, styles) {
+    const append_styles_to = get_root_for_style(target);
+    if (!append_styles_to.getElementById(style_sheet_id)) {
+        const style = element('style');
+        style.id = style_sheet_id;
+        style.textContent = styles;
+        append_stylesheet(append_styles_to, style);
+    }
+}
+function get_root_for_style(node) {
+    if (!node)
+        return document;
+    const root = node.getRootNode ? node.getRootNode() : node.ownerDocument;
+    if (root && root.host) {
+        return root;
+    }
+    return node.ownerDocument;
+}
+function append_stylesheet(node, style) {
+    append(node.head || node, style);
 }
 function insert(target, node, anchor) {
     target.insertBefore(node, anchor || null);
@@ -44,14 +67,14 @@ function attr(node, attribute, value) {
         node.setAttribute(attribute, value);
 }
 function to_number(value) {
-    return value === '' ? undefined : +value;
+    return value === '' ? null : +value;
 }
 function children(element) {
     return Array.from(element.childNodes);
 }
 function set_data(text, data) {
     data = '' + data;
-    if (text.data !== data)
+    if (text.wholeText !== data)
         text.data = data;
 }
 function set_input_value(input, value) {
@@ -64,7 +87,7 @@ function set_current_component(component) {
 }
 function get_current_component() {
     if (!current_component)
-        throw new Error(`Function called outside component initialization`);
+        throw new Error('Function called outside component initialization');
     return current_component;
 }
 function onMount(fn) {
@@ -86,21 +109,40 @@ function schedule_update() {
 function add_render_callback(fn) {
     render_callbacks.push(fn);
 }
-let flushing = false;
+// flush() calls callbacks in this order:
+// 1. All beforeUpdate callbacks, in order: parents before children
+// 2. All bind:this callbacks, in reverse order: children before parents.
+// 3. All afterUpdate callbacks, in order: parents before children. EXCEPT
+//    for afterUpdates called during the initial onMount, which are called in
+//    reverse order: children before parents.
+// Since callbacks might update component values, which could trigger another
+// call to flush(), the following steps guard against this:
+// 1. During beforeUpdate, any updated components will be added to the
+//    dirty_components array and will cause a reentrant call to flush(). Because
+//    the flush index is kept outside the function, the reentrant call will pick
+//    up where the earlier call left off and go through all dirty components. The
+//    current_component value is saved and restored so that the reentrant call will
+//    not interfere with the "parent" flush() call.
+// 2. bind:this callbacks cannot trigger new flush() calls.
+// 3. During afterUpdate, any updated components will NOT have their afterUpdate
+//    callback called a second time; the seen_callbacks set, outside the flush()
+//    function, guarantees this behavior.
 const seen_callbacks = new Set();
+let flushidx = 0; // Do *not* move this inside the flush() function
 function flush() {
-    if (flushing)
-        return;
-    flushing = true;
+    const saved_component = current_component;
     do {
         // first, call beforeUpdate functions
         // and update components
-        for (let i = 0; i < dirty_components.length; i += 1) {
-            const component = dirty_components[i];
+        while (flushidx < dirty_components.length) {
+            const component = dirty_components[flushidx];
+            flushidx++;
             set_current_component(component);
             update(component.$$);
         }
+        set_current_component(null);
         dirty_components.length = 0;
+        flushidx = 0;
         while (binding_callbacks.length)
             binding_callbacks.pop()();
         // then, once components are updated, call
@@ -120,8 +162,8 @@ function flush() {
         flush_callbacks.pop()();
     }
     update_scheduled = false;
-    flushing = false;
     seen_callbacks.clear();
+    set_current_component(saved_component);
 }
 function update($$) {
     if ($$.fragment !== null) {
@@ -140,22 +182,24 @@ function transition_in(block, local) {
         block.i(local);
     }
 }
-function mount_component(component, target, anchor) {
+function mount_component(component, target, anchor, customElement) {
     const { fragment, on_mount, on_destroy, after_update } = component.$$;
     fragment && fragment.m(target, anchor);
-    // onMount happens before the initial afterUpdate
-    add_render_callback(() => {
-        const new_on_destroy = on_mount.map(run).filter(is_function);
-        if (on_destroy) {
-            on_destroy.push(...new_on_destroy);
-        }
-        else {
-            // Edge case - component was destroyed immediately,
-            // most likely as a result of a binding initialising
-            run_all(new_on_destroy);
-        }
-        component.$$.on_mount = [];
-    });
+    if (!customElement) {
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+    }
     after_update.forEach(add_render_callback);
 }
 function destroy_component(component, detaching) {
@@ -177,10 +221,9 @@ function make_dirty(component, i) {
     }
     component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
 }
-function init(component, options, instance, create_fragment, not_equal, props, dirty = [-1]) {
+function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
     const parent_component = current_component;
     set_current_component(component);
-    const prop_values = options.props || {};
     const $$ = component.$$ = {
         fragment: null,
         ctx: null,
@@ -192,19 +235,23 @@ function init(component, options, instance, create_fragment, not_equal, props, d
         // lifecycle
         on_mount: [],
         on_destroy: [],
+        on_disconnect: [],
         before_update: [],
         after_update: [],
-        context: new Map(parent_component ? parent_component.$$.context : []),
+        context: new Map(options.context || (parent_component ? parent_component.$$.context : [])),
         // everything else
         callbacks: blank_object(),
-        dirty
+        dirty,
+        skip_bound: false,
+        root: options.target || parent_component.$$.root
     };
+    append_styles && append_styles($$.root);
     let ready = false;
     $$.ctx = instance
-        ? instance(component, prop_values, (i, ret, ...rest) => {
+        ? instance(component, options.props || {}, (i, ret, ...rest) => {
             const value = rest.length ? rest[0] : ret;
             if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
-                if ($$.bound[i])
+                if (!$$.skip_bound && $$.bound[i])
                     $$.bound[i](value);
                 if (ready)
                     make_dirty(component, i);
@@ -230,11 +277,14 @@ function init(component, options, instance, create_fragment, not_equal, props, d
         }
         if (options.intro)
             transition_in(component.$$.fragment);
-        mount_component(component, options.target, options.anchor);
+        mount_component(component, options.target, options.anchor, options.customElement);
         flush();
     }
     set_current_component(parent_component);
 }
+/**
+ * Base class for Svelte components. Used when dev=false.
+ */
 class SvelteComponent {
     $destroy() {
         destroy_component(this, 1);
@@ -249,22 +299,19 @@ class SvelteComponent {
                 callbacks.splice(index, 1);
         };
     }
-    $set() {
-        // overridden by instance, if it has props
+    $set($$props) {
+        if (this.$$set && !is_empty($$props)) {
+            this.$$.skip_bound = true;
+            this.$$set($$props);
+            this.$$.skip_bound = false;
+        }
     }
 }
 
 // We need to keep a state across refresh
 var planarity = (el, options) => {
   notebook
-    .require(
-      "d3-selection",
-      "d3-scale",
-      "d3-drag",
-      "d3-transition",
-      "d3-timer",
-      "d3-format"
-    )
+    .require("d3-selection", "d3-scale", "d3-drag", "d3-transition", "d3-timer", "d3-format")
     .then((d3) => {
       planarity$1(el, d3, state, options);
     });
@@ -322,8 +369,7 @@ const cross = (a, b) => a[0] * b[1] - a[1] * b[0];
 // Based on http://stackoverflow.com/a/565282/64009
 const intersect = (a, b) => {
   // Check if the segments are exactly the same (or just reversed).
-  if ((a[0] === b[0] && a[1] === b[1]) || (a[0] === b[1] && a[1] === b[0]))
-    return true;
+  if ((a[0] === b[0] && a[1] === b[1]) || (a[0] === b[1] && a[1] === b[0])) return true;
 
   // Represent the segments as p + tr and q + us, where t and u are scalar
   // parameters.
@@ -368,11 +414,13 @@ const intersections = (links) => {
     j = i;
     while (++j < n) {
       if (intersect(x, links[j])) {
-        x.intersection = x[0].intersection = x[1].intersection = links[
-          j
-        ].intersection = links[j][0].intersection = links[
-          j
-        ][1].intersection = true;
+        x.intersection =
+          x[0].intersection =
+          x[1].intersection =
+          links[j].intersection =
+          links[j][0].intersection =
+          links[j][1].intersection =
+            true;
         count++;
       }
     }
@@ -402,10 +450,7 @@ const planarity$1 = (el, d3, graph, options) => {
     for (let i = 0; i < graph.nodes; i++) graph.points.push(randomNode());
     for (let i = 0; i < graph.nodes; i++)
       addPlanarLink(
-        [
-          graph.points[i],
-          graph.points[Math.floor(Math.random() * graph.nodes)],
-        ],
+        [graph.points[i], graph.points[Math.floor(Math.random() * graph.nodes)]],
         graph.links
       );
     for (let i = 0; i < graph.nodes; i++)
@@ -414,13 +459,7 @@ const planarity$1 = (el, d3, graph, options) => {
     scramble(graph);
   }
   // Set-up paper (first time only)
-  const g = d3
-    .select(el)
-    .selectAll("svg")
-    .data([0])
-    .enter()
-    .append("svg")
-    .append("g");
+  const g = d3.select(el).selectAll("svg").data([0]).enter().append("svg").append("g");
   g.append("g").attr("class", "links");
   g.append("g").attr("class", "nodes");
 
@@ -494,14 +533,10 @@ const planarity$1 = (el, d3, graph, options) => {
                 y: y(d[1]),
               };
           })
-          .on("drag", (d) => {
+          .on("drag", (event, d) => {
             // Jitter to prevent coincident nodes.
-            d[0] =
-              Math.max(0, Math.min(1, x.invert(d3.event.x))) +
-              Math.random() * 1e-4;
-            d[1] =
-              Math.max(0, Math.min(1, y.invert(d3.event.y))) +
-              Math.random() * 1e-4;
+            d[0] = Math.max(0, Math.min(1, x.invert(event.x))) + Math.random() * 1e-4;
+            d[1] = Math.max(0, Math.min(1, y.invert(event.y))) + Math.random() * 1e-4;
             update();
           })
           .on("end", () => {
@@ -516,13 +551,10 @@ const planarity$1 = (el, d3, graph, options) => {
   }
 };
 
-/* content/lab/planarity/App.svelte generated by Svelte v3.23.2 */
+/* content/lab/planarity/App.svelte generated by Svelte v3.49.0 */
 
-function add_css() {
-	var style = element("style");
-	style.id = "svelte-1b1355s-style";
-	style.textContent = ".full-height.svelte-1b1355s{height:100%}.game.svelte-1b1355s{height:90%;position:relative}.board.svelte-1b1355s{float:left}.main.svelte-1b1355s{position:absolute;top:0;left:0;right:0;bottom:0}";
-	append(document.head, style);
+function add_css(target) {
+	append_styles(target, "svelte-14nkxzr", ".full-height.svelte-14nkxzr{height:100%}.game.svelte-14nkxzr{height:90%;position:relative}.board.svelte-14nkxzr{float:left}.main.svelte-14nkxzr{position:absolute;top:0;left:0;right:0;bottom:0}");
 }
 
 function create_fragment(ctx) {
@@ -592,10 +624,10 @@ function create_fragment(ctx) {
 			attr(input1, "max", "20");
 			attr(buttom, "class", "pure-button pure-button-primary");
 			attr(div0, "class", "pure-u-1");
-			attr(div1, "class", "board svelte-1b1355s");
-			attr(div2, "class", "full-height main svelte-1b1355s");
-			attr(div3, "class", "pure-u-1 game svelte-1b1355s");
-			attr(div4, "class", "pure-g full-height svelte-1b1355s");
+			attr(div1, "class", "board svelte-14nkxzr");
+			attr(div2, "class", "full-height main svelte-14nkxzr");
+			attr(div3, "class", "pure-u-1 game svelte-14nkxzr");
+			attr(div4, "class", "pure-g full-height svelte-14nkxzr");
 		},
 		m(target, anchor) {
 			insert(target, div4, anchor);
@@ -695,7 +727,7 @@ function instance($$self, $$props, $$invalidate) {
 	}
 
 	function div2_binding($$value) {
-		binding_callbacks[$$value ? "unshift" : "push"](() => {
+		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
 			game = $$value;
 			$$invalidate(4, game);
 		});
@@ -717,8 +749,7 @@ function instance($$self, $$props, $$invalidate) {
 class App extends SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-1b1355s-style")) add_css();
-		init(this, options, instance, create_fragment, safe_not_equal, {});
+		init(this, options, instance, create_fragment, safe_not_equal, {}, add_css);
 	}
 }
 
@@ -726,4 +757,4 @@ var main = (el) => {
   new App({ target: el });
 };
 
-export default main;
+export { main as default };

@@ -75,6 +75,7 @@ if (mode === "development") {
 
   config.devServer = devServer("https://lucasbardella.com", {
     ssr: true,
+    docker: true,
     ssrPlugins: [statusCode],
     static: {
       publicPath: STATIC_PATH,

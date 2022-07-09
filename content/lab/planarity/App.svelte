@@ -17,27 +17,26 @@
   function restart() {
     restarts += 1;
     planarity(game, { nodes, update, restart: true });
-  }
+  };
 
   onMount(() => {
     planarity(game, { nodes, update });
-  });
+  })
 </script>
-
 <style>
   .full-height {
     height: 100%;
   }
-  .control {
-    height: 10%;
-  }
+
   .game {
     height: 90%;
     position: relative;
   }
+
   .board {
     float: left;
   }
+
   .main {
     position: absolute;
     top: 0;
@@ -46,16 +45,13 @@
     bottom: 0;
   }
 </style>
-
 <div class="pure-g full-height">
   <div class="pure-u-1">
     <label>
       <input type="number" bind:value={nodes} min="4" max="20" />
       <input type="range" bind:value={nodes} min="4" max="20" />
     </label>
-    <buttom class="pure-button pure-button-primary" on:click={restart}>
-      Restart
-    </buttom>
+    <buttom class="pure-button pure-button-primary" on:click={restart}> Restart </buttom>
   </div>
   <div class="pure-u-1 game">
     <div class="board">
