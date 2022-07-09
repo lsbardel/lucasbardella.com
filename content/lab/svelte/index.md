@@ -4,6 +4,9 @@ author: Luca
 date: 2 July 2020
 js_source: main.js
 stylesheet: https://unpkg.com/purecss@2.1/build/pure-min.css
+image: {{ bundleUrl }}/lab/svelte/svelte.png
+hero_photo: Q1p7bh3SHj8
+hero_opacity: 0.8
 
 ---
 
@@ -11,5 +14,7 @@ stylesheet: https://unpkg.com/purecss@2.1/build/pure-min.css
 
 In this notebook I experiment with a new integration based on the [svelte](https://svelte.dev/) framework.
 
-* Add `js_source` to the fields in the `index.md` file so that it triggers the compilation
+### TL;DR
+
+* Add `js_source` to the fields in the `index.md` file so that it triggers the compilation (check this [notebook fields]({{ bundleUrl }}/lab/svelte.json))
 * This example uses the minimalist [purecss](https://purecss.io/) for styling
