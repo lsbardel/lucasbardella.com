@@ -9,7 +9,7 @@ hero_photo: _Ya__WUgeUg
 
 ---
 
-<script src="{{ bundleUrl }}/lab/svelte/compiled.main.js" aspectratio="50%"></script>
+<script src="{{ bundleUrl }}/lab/svelte/compiled.main.js"></script>
 
 In this notebook I experiment with a new integration based on the [svelte](https://svelte.dev/) framework.
 

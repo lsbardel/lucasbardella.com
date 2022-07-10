@@ -10,6 +10,7 @@ static/blog
 static/lab
 static/pages
 package-lock.json
+compiled.*
 
 # directories
 coverage
