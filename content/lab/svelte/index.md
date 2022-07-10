@@ -5,8 +5,7 @@ date: 2 July 2020
 js_source: main.js
 stylesheet: https://unpkg.com/purecss@2.1/build/pure-min.css
 image: {{ bundleUrl }}/lab/svelte/svelte.png
-hero_photo: Q1p7bh3SHj8
-hero_opacity: 0.8
+hero_photo: _Ya__WUgeUg
 
 ---
 
