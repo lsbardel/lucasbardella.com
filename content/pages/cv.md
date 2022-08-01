@@ -45,6 +45,16 @@ visualization of complex datasets and full stack technological solutions.
 
 <hr>
 
+### Tech Lead - [B2C2](https://www.b2c2.com/)
+
+**August 2020 - July 2022** London, UK
+
+I managed a team responsible for crypto trading technologies.
+
+**Technology**: Python, TypeScript, PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
+
+<hr>
+
 ### Head of Sport Algo Trading - [Smarkets](https://smarkets.com)
 
 **March 2019 - July 2020** London, UK

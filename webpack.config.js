@@ -15,7 +15,7 @@ const mode = process.env.NODE_ENV === "production" ? "production" : "development
 const config = {
   mode,
   entry: {
-    luca: "./app/index.tsx",
+    luca: "./app/Index.tsx",
   },
   output: {
     publicPath: STATIC_PATH,

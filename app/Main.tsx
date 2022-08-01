@@ -13,9 +13,9 @@ import lab from "../content/lab/collection.json";
 import pages from "../content/pages/collection.json";
 import MUISwitch from "./MUISwitch";
 import { darkTheme, lightTheme } from "./theme";
-import { BlogList, LabList } from "./views/CmsList";
-import CmsPageEntry from "./views/CmsPageEntry";
-import Footer from "./views/Footer";
+import { BlogList, LabList } from "./Views/CmsList";
+import CmsPageEntry from "./Views/CmsPageEntry";
+import Footer from "./Views/Footer";
 
 const links: any[] = [
   {
@@ -62,7 +62,7 @@ const Main = () => {
     return (
       <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "flex-end" }}>
         <MUISwitch sx={{ display: "flex" }} {...props} onChange={switchTheme} />
-        <List direction="horizontal" align="right" items={links} />
+        <List direction="horizontal" align="right" underline="hover" items={links} />
       </Box>
     );
   };
