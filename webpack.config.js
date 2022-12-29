@@ -73,7 +73,7 @@ if (mode === "development") {
   logger.log("Looks like we are in development mode");
 
   config.devServer = devServer("https://lucasbardella.com", {
-    ssr: true,
+    ssr: false,
     docker: true,
     ssrPlugins: [statusCode],
     static: {

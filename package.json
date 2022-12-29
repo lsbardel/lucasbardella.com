@@ -22,7 +22,8 @@
     "@metablock/core": "^0.21.0",
     "@metablock/notebook": "^0.21.0",
     "@metablock/react": "^0.21.0",
-    "@metablock/store": "^0.21.0"
+    "@metablock/store": "^0.21.0",
+    "nodejs-polars": "^0.7.2"
   },
   "devDependencies": {
     "@metablock/cli": "^0.21.0",
