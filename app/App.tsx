@@ -1,3 +1,5 @@
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
 import { assetUrl, getBlock } from "@metablock/core";
 import { CmsRoute, Header, Link, List, useGa } from "@metablock/react";
 import Avatar from "@mui/material/Avatar";
@@ -5,7 +7,7 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, useTheme } from "@mui/material/styles";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useSessionStorage } from "react-use";
 import blog from "../content/blog/collection.json";
 import lab from "../content/lab/collection.json";
@@ -31,6 +33,11 @@ const links: any[] = [
   },
 ];
 
+const emotionCache = createCache({
+  key: "emotion-cache-no-speedy",
+  speedy: false,
+});
+
 const BrandComponent = () => {
   const theme = useTheme();
   return (
@@ -44,6 +51,14 @@ const BrandComponent = () => {
         }}
       />
     </Link>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>
   );
 };
 
@@ -68,55 +83,57 @@ const Main = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header
-        BrandComponent={BrandComponent}
-        RightLinks={RightLinks}
-        paddingTop={1}
-        paddingBottom={1}
-        maxWidth="md"
-        hideSize="sm"
-      />
-      <Box bgcolor={theme.palette.background.paper}>
-        <Routes>
-          <Route
-            path="/blog/*"
-            element={
-              <CmsRoute
-                topic="blog"
-                slug={blog.slug}
-                ListComponent={BlogList}
-                EntryComponent={CmsPageEntry}
-              />
-            }
-          />
-          <Route
-            path="/lab/*"
-            element={
-              <CmsRoute
-                topic="lab"
-                slug={lab.slug}
-                ListComponent={LabList}
-                EntryComponent={CmsPageEntry}
-              />
-            }
-          />
-          <Route
-            path="*"
-            element={
-              <CmsRoute
-                topic="pages"
-                slug={pages.slug}
-                ListComponent={false}
-                EntryComponent={CmsPageEntry}
-              />
-            }
-          />
-        </Routes>
-      </Box>
-      <Footer />
+      <CacheProvider value={emotionCache}>
+        <CssBaseline />
+        <Header
+          BrandComponent={BrandComponent}
+          RightLinks={RightLinks}
+          paddingTop={1}
+          paddingBottom={1}
+          maxWidth="md"
+          hideSize="sm"
+        />
+        <Box bgcolor={theme.palette.background.paper}>
+          <Routes>
+            <Route
+              path="/blog/*"
+              element={
+                <CmsRoute
+                  topic="blog"
+                  slug={blog.slug}
+                  ListComponent={BlogList}
+                  EntryComponent={CmsPageEntry}
+                />
+              }
+            />
+            <Route
+              path="/lab/*"
+              element={
+                <CmsRoute
+                  topic="lab"
+                  slug={lab.slug}
+                  ListComponent={LabList}
+                  EntryComponent={CmsPageEntry}
+                />
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <CmsRoute
+                  topic="pages"
+                  slug={pages.slug}
+                  ListComponent={false}
+                  EntryComponent={CmsPageEntry}
+                />
+              }
+            />
+          </Routes>
+        </Box>
+        <Footer />
+      </CacheProvider>
     </ThemeProvider>
   );
 };
 
-export default Main;
+export default App;

@@ -1,13 +1,7 @@
 import React from "react";
 import { hydrateRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import Main from "./Main";
+import App from "./App";
 
 const root = document.getElementById("__metablock") as HTMLElement;
 
-hydrateRoot(
-  root,
-  <BrowserRouter>
-    <Main />
-  </BrowserRouter>
-);
+hydrateRoot(root, <App />);
