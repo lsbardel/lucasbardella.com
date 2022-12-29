@@ -1,6 +1,5 @@
-import { CmsRoute } from "@metablock/cms";
 import { assetUrl, getBlock } from "@metablock/core";
-import { Header, Link, List, NoSsr, useGa } from "@metablock/react";
+import { CmsRoute, Header, Link, List, useGa } from "@metablock/react";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -70,16 +69,14 @@ const Main = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <NoSsr>
-        <Header
-          BrandComponent={BrandComponent}
-          RightLinks={RightLinks}
-          paddingTop={1}
-          paddingBottom={1}
-          maxWidth="md"
-          hideSize="sm"
-        />
-      </NoSsr>
+      <Header
+        BrandComponent={BrandComponent}
+        RightLinks={RightLinks}
+        paddingTop={1}
+        paddingBottom={1}
+        maxWidth="md"
+        hideSize="sm"
+      />
       <Box bgcolor={theme.palette.background.paper}>
         <Routes>
           <Route

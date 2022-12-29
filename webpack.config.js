@@ -1,7 +1,6 @@
 const logger = require("console");
 const hasFlag = require("has-flag");
 const path = require("path");
-const webpack = require("webpack");
 const RequireFrom = require("webpack-require-from");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const { devServer, statusCode } = require("@metablock/server");

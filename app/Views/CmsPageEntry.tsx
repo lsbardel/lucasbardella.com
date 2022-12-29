@@ -1,5 +1,4 @@
-import { dateFormat } from "@metablock/cms";
-import { Page } from "@metablock/react";
+import { dateFormat, Page } from "@metablock/react";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import React from "react";

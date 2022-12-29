@@ -1,13 +1,13 @@
 import React from "react";
-import { hydrate } from "react-dom";
+import { hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import Main from "./Main";
 
-const root = document.getElementById("__metablock");
+const root = document.getElementById("__metablock") as HTMLElement;
 
-hydrate(
+hydrateRoot(
+  root,
   <BrowserRouter>
     <Main />
-  </BrowserRouter>,
-  root
+  </BrowserRouter>
 );

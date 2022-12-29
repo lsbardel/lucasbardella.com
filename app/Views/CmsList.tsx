@@ -1,5 +1,4 @@
-import { ListLayout } from "@metablock/cms";
-import { Page } from "@metablock/react";
+import { CmsListLayout, Page } from "@metablock/react";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { darkTheme } from "../theme";
@@ -18,7 +17,7 @@ const CmsList = (props: any) => {
         </Container>
       </Parallax>
       <Container>
-        <ListLayout {...extra} />
+        <CmsListLayout {...extra} />
       </Container>
     </>
   );
