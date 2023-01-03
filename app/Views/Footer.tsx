@@ -17,18 +17,22 @@ const social = [
   {
     href: "https://twitter.com/lsbardel",
     icon: <TwitterIcon />,
+    label: "Luca Sbardella on Twitter",
   },
   {
     href: "https://www.linkedin.com/in/lucasbardella",
     icon: <LinkedInIcon />,
+    label: "Luca Sbardella on LinkedIn",
   },
   {
     href: "https://github.com/quantmind",
     icon: <GitHubIcon />,
+    label: "Luca Sbardella on GitHub",
   },
   {
     href: "https://keybase.io/lsbardel",
     icon: <KeybaseIcon />,
+    label: "Luca Sbardella on Keybase",
   },
   {
     href: "https://www.flickr.com/photos/sbardella/",
@@ -37,6 +41,7 @@ const social = [
   {
     href: "https://www.strava.com/athletes/lsbardel",
     icon: <DirectionsBikeIcon />,
+    label: "Luca Sbardella on Strava",
   },
 ];
 
@@ -73,7 +78,7 @@ const Footer: React.FC = () => {
               <Grid item md={12} lg={6}>
                 {social.map((s: any, index: number) => (
                   <IconButton key={index} color="primary" component="span">
-                    <MuiLink target="_blank" rel="noopener" href={s.href}>
+                    <MuiLink target="_blank" rel="noopener" href={s.href} aria-label={s.label}>
                       {s.icon}
                     </MuiLink>
                   </IconButton>
@@ -84,7 +89,11 @@ const Footer: React.FC = () => {
               </Grid>
               <Grid item sm={12}>
                 <Typography variant="body2" color="textSecondary" align="center">
-                  <MuiLink color="inherit" href="https://github.com/lsbardel/lucasbardella.com">
+                  <MuiLink
+                    color="inherit"
+                    href="https://github.com/lsbardel/lucasbardella.com"
+                    aria-label="website source code"
+                  >
                     Webside code on github
                   </MuiLink>
                 </Typography>
@@ -96,6 +105,7 @@ const Footer: React.FC = () => {
                       rel="noopener"
                       color="text.secondary"
                       href="https://creativecommons.org/licenses/by/4.0/"
+                      aria-label="Creative Commons License"
                     >
                       Some rights reserved
                     </MuiLink>
