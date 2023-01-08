@@ -19,4 +19,4 @@ This lab entry extends the [@metablock/notebook](https://www.npmjs.com/package/@
 <tradingview symbol="NASDAQ:AAPL" theme="dark" aspectratio="80%" copyright></tradingview>
 ```
 Implementation via a markdown plugin:
-<github owner="lsbardel" repo="lucasbardella.com" path="app/theme.ts" lang="ts"></github>
+<github owner="lsbardel" repo="lucasbardella.com" path="app/notebook/github.ts" lang="ts"></github>

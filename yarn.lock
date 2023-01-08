@@ -318,12 +318,12 @@
     hoist-non-react-statics "^3.3.1"
     react-is "^16.12.0"
 
-"@metablock/cli@^0.21.3":
-  version "0.21.3"
-  resolved "https://registry.yarnpkg.com/@metablock/cli/-/cli-0.21.3.tgz#152b9d9e58946068868d2e7699b99f20df06eec8"
-  integrity sha512-DZpTeWehD4BJwXMHimDM1NGiqAEw6KsPY+VO3f2xOGlk/c4b694aKPOii9G/lzM89msM8begXiNUUNwyc4774A==
+"@metablock/cli@^0.21.4":
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/@metablock/cli/-/cli-0.21.4.tgz#6f752f857f5d55d0f82e38be7658ac18b3e80c85"
+  integrity sha512-Vn4iZlW93m12zqbth2f85AdFbrtW9CUxdaWF6lFYd7cq0cOVOn5rBc05O+P2msPRSEHPPcbp++3G+vGtqFbHjQ==
   dependencies:
-    "@metablock/core" "^0.21.3"
+    "@metablock/core" "^0.21.4"
     "@rollup/plugin-node-resolve" "^15.0.1"
     archiver "^5.1.0"
     colors "^1.4.0"
@@ -341,29 +341,29 @@
     svelte "^3.23.2"
     tmp "^0.2.1"
 
-"@metablock/core@^0.21.3":
-  version "0.21.3"
-  resolved "https://registry.yarnpkg.com/@metablock/core/-/core-0.21.3.tgz#3b3ba90529f343d94facf570476fb2a81749fbe3"
-  integrity sha512-Io2CejgUmopr8JmXkskV0q9EmWAa4O378cLDuD/D86wFqFVKWTLzzdUYWN6SuOE5S4ynH4usr7gNBCIJW9bzxA==
+"@metablock/core@^0.21.4":
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/@metablock/core/-/core-0.21.4.tgz#d4dec6713bf347290f7516dfaffe1afa108c48ca"
+  integrity sha512-PK0FmYrk9jf63AbnTA/JFUJ+lLHw9tNk2e0WtiMLuz79LIQSWBbxOQTAYZJUaV29sUxe9mZ97e5IiHMhzbfsgA==
 
-"@metablock/notebook@^0.21.3":
-  version "0.21.3"
-  resolved "https://registry.yarnpkg.com/@metablock/notebook/-/notebook-0.21.3.tgz#35d8b6db1b3572e1ee1cd8a45d67b232a31f7d2f"
-  integrity sha512-mxSicrPESj8W20olhKxYC3CNccP71x9BK4YY5G4w6d84OnlSBH9pkPAMI/xpLuPHsqcaKdrGvilnI6lbVEbvag==
+"@metablock/notebook@^0.21.4":
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/@metablock/notebook/-/notebook-0.21.4.tgz#306b2a8b9a19eef5a4a5fc831009088c44c23eaf"
+  integrity sha512-RWeGD5OYbY4CXtow5gDNEf7dTc2WLd86m1GxPzN1XQ2DlH7yY2ecnGJ5MJXhq2zz0r52bxg10vxX7KnmpShQqQ==
   dependencies:
     d3-require "^1.2.4"
 
-"@metablock/react@^0.21.3":
-  version "0.21.3"
-  resolved "https://registry.yarnpkg.com/@metablock/react/-/react-0.21.3.tgz#2af617419865892b85e48bcbf166fe9cfb0f9c22"
-  integrity sha512-khl07r3nugkWDJRB8uIRF+l4qLEG36dlLNAxNdmnszVPkUWX07wg0vo8CTw9FArfvtPh40qymd7Xx9swv10tSA==
+"@metablock/react@^0.21.4":
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/@metablock/react/-/react-0.21.4.tgz#4e128c82399f6da491d9f724e111b6b29e3cfdd3"
+  integrity sha512-tabgb8cXfRXCkRKU6nIjE+cjs4xOrc76inuaPTCDF7ogC0ql46G9Z95bJ9/SACaIq2zBne3Y3EleOBJ/MTkWNA==
   dependencies:
     "@emotion/react" "^11.4.1"
     "@emotion/styled" "^11.3.0"
     "@loadable/component" "^5.14.1"
-    "@metablock/core" "^0.21.3"
-    "@metablock/notebook" "^0.21.3"
-    "@metablock/store" "^0.21.3"
+    "@metablock/core" "^0.21.4"
+    "@metablock/notebook" "^0.21.4"
+    "@metablock/store" "^0.21.4"
     "@mui/icons-material" "^5.0.3"
     "@mui/lab" "^5.0.0-alpha.50"
     "@mui/material" "^5.0.3"
@@ -381,12 +381,12 @@
     react-router-dom "^6.2.1"
     react-use "^17.1.1"
 
-"@metablock/server@^0.21.3":
-  version "0.21.3"
-  resolved "https://registry.yarnpkg.com/@metablock/server/-/server-0.21.3.tgz#62611cb4b13e94041fda91804048a4ceea724118"
-  integrity sha512-swvd70sGC3FY/c5qfoiSWg6IMQAViSuvlNvyzsLUzFG5jcG4Fn3cwUBGXwP6ZNdRwF0ivxj+K1RKPhiEfFiHzw==
+"@metablock/server@^0.21.4":
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/@metablock/server/-/server-0.21.4.tgz#496b29eb67d5c1a05973169ce69f394eb5250a42"
+  integrity sha512-qs66nPBm/0ymRH3/+pYOkZo9qJLfSs2NtgPTkTDx4L/csc0e5RD/CKg6XsEkMHUPhCAAWSd571hu4t422shLEg==
   dependencies:
-    "@metablock/core" "^0.21.3"
+    "@metablock/core" "^0.21.4"
     async-lock "^1.2.4"
     body-parser "^1.19.0"
     btoa "^1.2.1"
@@ -398,12 +398,12 @@
     puppeteer "^19.4.1"
     sitemap "^7.0.0"
 
-"@metablock/store@^0.21.3":
-  version "0.21.3"
-  resolved "https://registry.yarnpkg.com/@metablock/store/-/store-0.21.3.tgz#a8b15b50a0103904e162b0984fda013eba9bc01e"
-  integrity sha512-DlZWsnBg6JHjCDx/TIq+mEBWdKyeJV4JZChmo2Ycr9KYhR8mXf4fopi3gQ3Iq+I9A0U5QnZp28xYQu4GN6mDlQ==
+"@metablock/store@^0.21.4":
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/@metablock/store/-/store-0.21.4.tgz#5ce0b9db479d840f0d03cee65eb6293c4196c33f"
+  integrity sha512-S2OqbCQ2sv9uF4kBx5fOlRnJwbqxI28VIBXWQDn3NvfEiLjpkPl4eQyATfs9xHDUHhMLVlD8SY/QwrMIYaZpdw==
   dependencies:
-    "@metablock/core" "^0.21.3"
+    "@metablock/core" "^0.21.4"
     mobx "^6.0.3"
 
 "@mui/base@5.0.0-alpha.112":
