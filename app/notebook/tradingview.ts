@@ -39,13 +39,13 @@ const after = async (mkd: Markdown, root: any) => {
 const renderTradingView = (element: HTMLElement) => {
   const dom = new Html(element);
   const attrs = dom.getAttrs();
-  const theme = attrs["data-theme"] || "dark";
+  const theme = element.dataset.theme || "dark";
 
   // @ts-ignore
   const TradingView = window.TradingView;
   new TradingView.widget({
     autosize: true,
-    symbol: attrs["data-symbol"],
+    symbol: element.dataset.symbol,
     interval: "D",
     timezone: "Etc/UTC",
     theme,
