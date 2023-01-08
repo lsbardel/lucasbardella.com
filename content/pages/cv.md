@@ -23,7 +23,7 @@ hero_dark: true
 **GitHub**: [https://github.com/quantmind](https://github.com/quantmind)<br>
 **Interests**: technology, finance, world economics, [cycling][], [skiing][], football, [wine][], chess<br>
 **Keywords**: trading strategies, quantitative finance, statistics, machine-learning, data analysis, stochastic calculus, application development, visualization, database, concurrency, Linux, open-source, technology, WSET<br>
-**Coding**: Python, Javascript/Typescript, R, Lua, C++, C, C#, Rust, FORTRAN
+**Coding**: Python, Rust, Javascript/Typescript, R, Lua, C++, C, C#, FORTRAN
 
 <hr>
 
@@ -40,7 +40,7 @@ visualization of complex datasets and full stack technological solutions.
 
 **Specialities**: quantitative finance, calculus, machine learning, data analysis, web applications
 
-**Coding**: Python, TypeScript/JavaScript, C/C++<br>
+**Coding**: Python, Rust, TypeScript<br>
 **Technologies**: PostgreSQL, Redis, MongoDB, Google data store, Amazon DynamoDB
 
 <hr>
