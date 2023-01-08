@@ -68,15 +68,16 @@ const Main = () => {
   const block = getBlock();
   useGa(block.plugins.ga?.id);
 
-  const RightLinks = () => {
+  const RightLinks = ({ mobileOpen }: { mobileOpen: boolean }) => {
     const props = mode === "dark" ? { defaultChecked: true } : {};
+    const direction = mobileOpen ? "vertical" : "horizontal";
     const switchTheme = (event: any) => {
       setMode(event.target.checked ? "dark" : "light");
     };
     return (
       <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "flex-end" }}>
         <MUISwitch sx={{ display: "flex" }} {...props} onChange={switchTheme} />
-        <List direction="horizontal" align="right" underline="hover" items={links} />
+        <List direction={direction} align="right" underline="hover" items={links} />
       </Box>
     );
   };
@@ -91,7 +92,7 @@ const Main = () => {
           paddingTop={1}
           paddingBottom={1}
           maxWidth="md"
-          hideSize="sm"
+          hideSize="md"
         />
         <Box bgcolor={theme.palette.background.paper}>
           <Routes>

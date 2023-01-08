@@ -42,10 +42,6 @@ export const darkTheme = responsiveFontSizes(
     },
     palette: {
       mode: "dark",
-      background: {
-        //default: grey["900"],
-        paper: grey["900"],
-      },
       secondary: {
         light: grey["700"],
         main: grey["800"],

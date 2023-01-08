@@ -3,6 +3,8 @@ import { isSsr, useWindowSize } from "@metablock/react";
 import Box from "@mui/material/Box";
 import { Theme, useTheme } from "@mui/material/styles";
 import React from "react";
+import tradingview from "../notebook/tradingview";
+import github from "../notebook/github";
 import { fontFamilyMono } from "../theme";
 export {};
 
@@ -46,10 +48,17 @@ const nodeBookStyle = (theme: Theme): any => {
   };
 };
 
+const createNotebook = (): Notebook => {
+  const notebook = new Notebook();
+  notebook.md.extensions.push(tradingview);
+  notebook.md.extensions.push(github);
+  return notebook;
+};
+
 const Book = (props: any) => {
   const { body, ...extra } = props;
   const theme = useTheme();
-  const noteRef = React.useRef<Notebook>(new Notebook());
+  const noteRef = React.useRef<Notebook>(createNotebook());
   const ref = React.useRef<HTMLDivElement>();
   const notebook = noteRef.current;
   // make sure to re-render when offsetWidth change
