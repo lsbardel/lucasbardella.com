@@ -32,14 +32,15 @@ const after = async (mkd: Markdown, root: any) => {
   if (modules.length === 0) return;
   await loadJs("https://s3.tradingview.com/tv.js");
   modules.forEach((element: any) => {
-    renderTradingView(element);
+    renderTradingView(mkd, element);
   });
 };
 
-const renderTradingView = (element: HTMLElement) => {
+const renderTradingView = (mkd: Markdown, element: HTMLElement) => {
   const dom = new Html(element);
   const attrs = dom.getAttrs();
-  const theme = element.dataset.theme || "dark";
+  const theme_ = element.dataset.theme;
+  const theme = !theme_ || theme_ === "auto" ? mkd.theme || "light" : theme_ || "light";
 
   // @ts-ignore
   const TradingView = window.TradingView;

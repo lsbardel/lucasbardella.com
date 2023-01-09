@@ -48,8 +48,9 @@ const nodeBookStyle = (theme: Theme): any => {
   };
 };
 
-const createNotebook = (): Notebook => {
+const createNotebook = (theme: string): Notebook => {
   const notebook = new Notebook();
+  notebook.md.theme = theme;
   notebook.md.extensions.push(tradingview);
   notebook.md.extensions.push(github);
   return notebook;
@@ -58,7 +59,7 @@ const createNotebook = (): Notebook => {
 const Book = (props: any) => {
   const { body, ...extra } = props;
   const theme = useTheme();
-  const noteRef = React.useRef<Notebook>(createNotebook());
+  const noteRef = React.useRef<Notebook>(createNotebook(theme.palette.mode));
   const ref = React.useRef<HTMLDivElement>();
   const notebook = noteRef.current;
   // make sure to re-render when offsetWidth change

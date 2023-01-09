@@ -19,16 +19,16 @@
   },
   "dependencies": {
     "@loadable/component": "^5.15.2",
-    "@metablock/core": "^0.21.4",
-    "@metablock/notebook": "^0.21.4",
-    "@metablock/react": "^0.21.4",
-    "@metablock/store": "^0.21.4",
+    "@metablock/core": "^0.21.5",
+    "@metablock/notebook": "^0.21.5",
+    "@metablock/react": "^0.21.5",
+    "@metablock/store": "^0.21.5",
     "@octokit/rest": "^19.0.5",
     "nodejs-polars": "^0.7.2"
   },
   "devDependencies": {
-    "@metablock/cli": "^0.21.4",
-    "@metablock/server": "^0.21.4",
+    "@metablock/cli": "^0.21.5",
+    "@metablock/server": "^0.21.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/loadable__component": "^5.13.4",
