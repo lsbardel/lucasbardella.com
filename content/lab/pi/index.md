@@ -15,7 +15,7 @@ hero_opacity: 0.1
 
 ---
 
-<script src="{{ bundleUrl }}/lab/pi/compiled.main.js" aspectratio="70%"></script>
+<module-component src="{{ bundleUrl }}/lab/pi/compiled.main.js" aspectratio="70%"></module-component>
 
 Help from [d3](https://d3js.org/).
 Rendering using `svg` elements. Source code available [here]({{ liveUrl }}/lab/pi/pi.js).

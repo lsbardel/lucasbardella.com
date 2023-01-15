@@ -10,7 +10,7 @@ js_source: main.js
 
 ---
 
-<script src="{{ bundleUrl }}/lab/planarity/compiled.main.js" aspectratio="70%"></script>
+<module-component src="{{ bundleUrl }}/lab/planarity/compiled.main.js" aspectratio="70%"></module-component>
 
 Idea taken from [Jason Davis](http://www.jasondavies.com/planarity/),
 code available [here]({{ bundleUrl }}/lab/planarity/planarity.js).

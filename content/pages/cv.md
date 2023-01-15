@@ -7,6 +7,7 @@ head-first_name: Luca
 head-last_name: Sbardella
 head-twitter-type: summary_large_image
 hero_photo: _XVE6pKGiLE
+image: unsplash-_XVE6pKGiLE
 hero_dark: true
 
 ---

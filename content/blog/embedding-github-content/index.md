@@ -20,7 +20,7 @@ In this blog post, I'll dive into the basics of web components and explore how t
 
 Here is a simple example of a web component that displays a message:
 
-```js
+```html
 <template id="greeting-template">
   <div>
     <p style="background-color: #333">Hello, <slot></slot>!</p>
@@ -59,19 +59,7 @@ And this is the result:
     <p style="background-color: #333">Hello, <slot></slot>!</p>
   </div>
 </template>
-<script>
-class Greeting extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-    const template = document.getElementById('greeting-template');
-    if (template) {
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
-    }
-  }
-}
-customElements.define('greeting-component', Greeting);
-</script>
+<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/hello.js"></script>
 <greeting-component>World</greeting-component>
 
 Not that exciting, but it's a start!
@@ -107,34 +95,7 @@ class AnimatedSquare extends HTMLElement {
 customElements.define('animated-square', AnimatedSquare);
 </script>
 ```
-
-<script>
-class AnimatedSquare extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `
-      <style>
-        .animated-square {
-          width: 50px;
-          height: 50px;
-          background-color: red;
-          position: relative;
-          animation: move-square 1s linear infinite;
-        }
-        @keyframes move-square {
-          from { left: 0px; }
-          to { left: 100%; }
-        }
-      </style>
-
-      <div class="animated-square"></div>
-    `;
-
-}
-}
-customElements.define('animated-square', AnimatedSquare);
-</script>
+<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/square.js"></script>
 This component can be used in an HTML file by simply adding the tag
 
 ```html
@@ -154,6 +115,9 @@ Github has a rich and powerful API that allows you to access all the content hos
 <script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/github.js"></script>
 <github-content owner="lsbardel" repo="lucasbardella.com" path="app/notebook/github.ts"></github-content>
 ```
+
 An this is the result:
+
 <script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/github.js"></script>
+
 <github-content owner="lsbardel" repo="lucasbardella.com" path="content/blog/embedding-github-content/github.js"></github-content>

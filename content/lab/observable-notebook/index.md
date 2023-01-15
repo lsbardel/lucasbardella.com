@@ -15,4 +15,4 @@ Embed [observable](https://observablehq.com/) notebooks into the website.
 
 Credit: [Connected Particles III by Mike Bostock](https://observablehq.com/@mbostock/connected-particles-iii)
 
-<script src="{{ bundleUrl }}/lab/observable-notebook/notebook.js"></script>
+<module-component src="{{ bundleUrl }}/lab/observable-notebook/notebook.js"></module-component>

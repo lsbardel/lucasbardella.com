@@ -3,16 +3,8 @@ import { isSsr, useWindowSize } from "@metablock/react";
 import Box from "@mui/material/Box";
 import { Theme, useTheme } from "@mui/material/styles";
 import React from "react";
-import github from "../notebook/github";
-import tradingview from "../notebook/tradingview";
-import { fontFamilyMono } from "../theme";
-export {};
-
-declare global {
-  interface Window {
-    notebook: Notebook;
-  }
-}
+import "../notebook/tradingview";
+import { fontFamilyMono, getHighlightStyle } from "../theme";
 
 const nodeBookStyle = (theme: Theme): any => {
   const anchor = "primary";
@@ -49,10 +41,9 @@ const nodeBookStyle = (theme: Theme): any => {
 };
 
 const createNotebook = (theme: string): Notebook => {
-  const notebook = new Notebook();
+  const notebook = Notebook.create();
   notebook.md.theme = theme;
-  notebook.md.extensions.push(tradingview);
-  notebook.md.extensions.push(github);
+  notebook.options.highlightStyle = getHighlightStyle(theme);
   return notebook;
 };
 
@@ -69,7 +60,6 @@ const Book = (props: any) => {
   });
   const setRef = async (element: HTMLDivElement) => {
     ref.current = element;
-    window.notebook = notebook;
     if (element) await notebook.render(body, element, { ...extra, isSsr: isSsr() });
   };
   return <Box sx={nodeBookStyle(theme)} ref={setRef} />;

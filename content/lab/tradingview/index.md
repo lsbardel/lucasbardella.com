@@ -11,12 +11,12 @@ category: visualization
 
 ---
 
-<tradingview symbol="NASDAQ:AAPL" theme="auto" aspectratio="80%"></tradingview>
+<trading-view symbol="NASDAQ:AAPL" theme="auto" aspectratio="80%"></trading-view>
 
 This lab entry extends the [@metablock/notebook](https://www.npmjs.com/package/@metablock/notebook) tool to embed a TradingView chart into the website.
 
 ```html
-<tradingview symbol="NASDAQ:AAPL" theme="auto" aspectratio="80%"></tradingview>
+<trading-view symbol="NASDAQ:AAPL" theme="auto" aspectratio="80%"></trading-view>
 ```
 Implementation via a markdown plugin:
-<github owner="lsbardel" repo="lucasbardella.com" path="app/notebook/tradingview.ts" lang="ts"></github>
+<github-repo owner="lsbardel" repo="lucasbardella.com" path="app/notebook/tradingview.ts"></github-repo>

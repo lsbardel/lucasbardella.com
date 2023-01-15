@@ -9,7 +9,7 @@ category: visualization
 
 ---
 
-<script src="{{ bundleUrl }}/lab/potential_flow_around_a_cylinder/transform.js" aspectratio="70%"></script>
+<module-component src="{{ bundleUrl }}/lab/potential_flow_around_a_cylinder/transform.js" aspectratio="70%"></module-component>
 
 The image represents the stream function of an incompressible inviscid flow past a cylinder.
 The stream function for this type of flow has a closed form solution in polar coordinates

@@ -10,7 +10,7 @@ category: visualization
 
 ---
 
-<script src="{{ bundleUrl }}/lab/largest-area-in-histogram/histogram.js" aspectratio="70%"></script>
+<module-component src="{{ bundleUrl }}/lab/largest-area-in-histogram/histogram.js" aspectratio="70%"></module-component>
 
 This is a visualization of the maximum rectangular area in a histogram. It is the solution of the following problem
 

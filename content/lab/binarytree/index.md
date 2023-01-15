@@ -8,7 +8,7 @@ date: 9/July/2020
 
 ---
 
-<script src="{{ bundleUrl }}/lab/binarytree/index.js" aspectratio="70%"></script>
+<module-component src="{{ bundleUrl }}/lab/binarytree/index.js" aspectratio="70%"></module-component>
 
 A visualisation of insertions in a self-balancing red-black binary tree, originally from one of my [blocks](https://bl.ocks.org/lsbardel).
 

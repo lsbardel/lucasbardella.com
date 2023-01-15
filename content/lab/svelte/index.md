@@ -9,7 +9,7 @@ hero_photo: _Ya__WUgeUg
 
 ---
 
-<script src="{{ bundleUrl }}/lab/svelte/compiled.main.js"></script>
+<module-component src="{{ bundleUrl }}/lab/svelte/compiled.main.js"></module-component>
 
 In this notebook I experiment with a new integration based on the [svelte](https://svelte.dev/) framework.
 

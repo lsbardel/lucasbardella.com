@@ -10,10 +10,10 @@ hero_opacity: 0.2
 
 ---
 
-<script src="{{ bundleUrl }}/lab/rotating_world/code.js"
+<module-component src="{{ bundleUrl }}/lab/rotating_world/code.js"
   geometry="{{ assetUrl }}/lab/world-topo.json"
   aspectratio="70%">
-</script>
+</module-component>
 
 A comparison in rendering performance when using [d3](https://d3js.org/) with
 [canvas](http://en.wikipedia.org/wiki/Canvas_element) or [svg](http://en.wikipedia.org/wiki/Scalable_Vector_Graphics).
