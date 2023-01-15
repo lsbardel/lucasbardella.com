@@ -16,7 +16,7 @@ const CmsList = (props: any) => {
           </Typography>
         </Container>
       </Parallax>
-      <Container>
+      <Container disableGutters>
         <CmsListLayout {...extra} />
       </Container>
     </>

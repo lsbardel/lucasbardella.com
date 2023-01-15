@@ -1,3 +1,7 @@
+/// A Notebook plugin to render code from github
+///
+/// Usage: <github owner="quantmind" repo="metablock-js" path="packages/notebook/github.ts" lang="ts"></github>
+///
 import { Html, Markdown, renderCode } from "@metablock/notebook";
 import { Octokit } from "@octokit/rest";
 
@@ -36,7 +40,8 @@ const after = async (mkd: Markdown, root: any) => {
         const code = element.querySelector("code");
         const text = atob(data.content);
         code.innerHTML = text;
-        await renderCode(mkd, code, text, element.dataset.lang);
+        const lang = element.dataset.lang || element.dataset.path.split(".").pop();
+        await renderCode(mkd, code, text, lang);
       }
     })
   );

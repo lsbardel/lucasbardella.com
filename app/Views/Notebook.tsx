@@ -3,8 +3,8 @@ import { isSsr, useWindowSize } from "@metablock/react";
 import Box from "@mui/material/Box";
 import { Theme, useTheme } from "@mui/material/styles";
 import React from "react";
-import tradingview from "../notebook/tradingview";
 import github from "../notebook/github";
+import tradingview from "../notebook/tradingview";
 import { fontFamilyMono } from "../theme";
 export {};
 
