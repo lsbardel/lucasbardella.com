@@ -4,7 +4,7 @@ import {
   Runtime,
 } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 
-export default (el) => {
+export default (_, el) => {
   const runtime = new Runtime();
   runtime.module(notebook, Inspector.into(el));
 };

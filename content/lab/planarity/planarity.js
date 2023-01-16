@@ -1,5 +1,5 @@
 // We need to keep a state across refresh
-export default (el, options) => {
+export default (_, el, options) => {
   notebook
     .require("d3-selection", "d3-scale", "d3-drag", "d3-transition", "d3-timer", "d3-format")
     .then((d3) => {
