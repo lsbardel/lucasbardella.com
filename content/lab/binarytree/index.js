@@ -1,4 +1,4 @@
-export default (el) => {
+export default (notebook, el) => {
   notebook
     .require("d3-selection", "d3-quant@0.5.1", "d3-scale", "d3-timer", "d3-force", "d3-random")
     .then((d3) => {
@@ -21,7 +21,12 @@ const state = {
 
     this.el = el;
     // setup of svg
-    d3.select(el).selectAll("svg").data([0]).enter().append("svg").style("background-color", "#999");
+    d3.select(el)
+      .selectAll("svg")
+      .data([0])
+      .enter()
+      .append("svg")
+      .style("background-color", "#999");
     const paper = d3.select(el).select("svg").attr("width", width).attr("height", height);
 
     paper

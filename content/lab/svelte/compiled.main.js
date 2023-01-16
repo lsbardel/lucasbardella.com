@@ -471,7 +471,7 @@ class App extends SvelteComponent {
 	}
 }
 
-var main = (el) => {
+var main = (notebook, el) => {
   new App({ target: el });
 };
 

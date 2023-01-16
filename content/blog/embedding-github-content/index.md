@@ -59,7 +59,7 @@ And this is the result:
     <p style="background-color: #333">Hello, <slot></slot>!</p>
   </div>
 </template>
-<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/hello.js"></script>
+<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/hello.js" async></script>
 <greeting-component>World</greeting-component>
 
 Not that exciting, but it's a start!
@@ -95,7 +95,7 @@ class AnimatedSquare extends HTMLElement {
 customElements.define('animated-square', AnimatedSquare);
 </script>
 ```
-<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/square.js"></script>
+<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/square.js" async></script>
 This component can be used in an HTML file by simply adding the tag
 
 ```html
@@ -112,12 +112,12 @@ This is far more interesting but quite useless. Let's get to the main point of t
 Github has a rich and powerful API that allows you to access all the content hosted on the platform. This includes code snippets, files, and gists. Here we write a simple web component that fetches a file from a github repository and displays it in the browser with syntax highlighting.
 
 ```js
-<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/github.js"></script>
+<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/github.js" async></script>
 <github-content owner="lsbardel" repo="lucasbardella.com" path="app/notebook/github.ts"></github-content>
 ```
 
 An this is the result:
 
-<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/github.js"></script>
+<script type="module" src="{{ bundleUrl }}/blog/embedding-github-content/github.js" async></script>
 
 <github-content owner="lsbardel" repo="lucasbardella.com" path="content/blog/embedding-github-content/github.js"></github-content>

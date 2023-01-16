@@ -1,4 +1,4 @@
-export default (el) => {
+export default (notebook, el) => {
   notebook
     .require(
       "d3-selection",
