@@ -1,10 +1,14 @@
 title: Colophon
-description: How this lucasbardella.com is built and technologies employed
+description: How lucasbardella.com site is built and technologies used
+image: unsplash-w46tRF64qNc
+hero_photo: w46tRF64qNc
+hero_photo_filter: 0.5
 
 ---
 
-Web site built with
+This web site technologies and tools used:
 
-- [React](https://reactjs.org/)
-- [Material UI](https://mui.com/)
-- [Metablock](https://metablock.io/)
+- Beautiful [Unsplash](https://unsplash.com/) images
+- [MUI](https://mui.com/) react components
+- [metablock-js](https://github.com/quantmind/metablock-js) for blog and lab
+- [Metablock](https://metablock.io/) cloud for hosting the website
