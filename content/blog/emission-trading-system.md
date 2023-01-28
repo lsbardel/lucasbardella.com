@@ -38,4 +38,5 @@ Some interesting videos on the topic:
 
 * [Kyoto Protocol](https://en.wikipedia.org/wiki/Kyoto_Protocol)
 * [Carbon Pricing Dashboard](https://carbonpricingdashboard.worldbank.org/)
+* [A beginner’s guide to the EU’s Emissions Trading System](https://carbonmarketwatch.org/wp-content/uploads/2022/03/CMW_EU_ETS_101_guide.pdf)
 * [EEX Environmentals](https://www.eex.com/en/markets/environmentals)
