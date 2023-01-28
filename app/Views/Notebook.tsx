@@ -42,7 +42,7 @@ const nodeBookStyle = (theme: Theme): any => {
 
 const createNotebook = (theme: string): Notebook => {
   const notebook = Notebook.create();
-  notebook.md.theme = theme;
+  notebook.options.mode = theme;
   notebook.options.highlightStyle = getHighlightStyle(theme);
   return notebook;
 };

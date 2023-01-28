@@ -1,124 +1,136 @@
-const state = {
-  paper: "svg",
-  pattern: "gosper",
-};
-
-const patternUrl = (pattern) =>
-  `https://fluidily-public.s3.amazonaws.com/fluidily/life/${pattern}.csv`;
-
-export default (el, options) => {
-  notebook.require("d3-selection").then((d3) => {
-    gol(el, d3, state, options);
-  });
-};
-
-const gol = (el, d3, game1, options) => {
-  options = {
-    ...state,
-    width: el.offsetWidth,
-    height: el.offsetHeight,
-    resolution: 1,
-    ...options,
-  };
-  const paper = d3.select(el).select(".paper");
-  if (options.paper !== state.paper || !paper.node()) {
-    draw(options);
+class GameOfLife extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.squares = new Map();
+    this.dark = {
+      new: "#1d91c0",
+      alive: "#fff",
+      dead: "#e31a1c",
+    };
+    this.light = {
+      new: "#1d91c0",
+      alive: "#333",
+      dead: "#e31a1c",
+    };
   }
 
-  var example = d3.select("#example"),
-    width = d3.getSize(example.style("width")),
-    height = Math.min(500, width),
-    delta = 10,
-    speed = 200,
-    Ny = Math.floor(height / delta),
-    Nx = Math.floor(width / delta),
-    game = gameOfLife(Nx, Ny),
-    radius = delta / 2,
-    squares = d3.map(),
-    alive,
-    dead,
-    trail,
-    currentType,
-    currentRes;
-
-  load();
-  d3.timeout(redraw);
-
-  function load() {
-    d3.csv(patternUrl(game1.pattern), (e, data) => {
-      delete data.columns;
-      squares = d3.map();
-      game.reset(data);
-      draw(currentType, currentRes);
-    });
-  }
-
-  function redraw() {
-    var cells = game.step(),
-      stylet = false,
-      current = alive.selectAll("circle").data(cells.alive);
-
-    current
-      .enter()
-      .append("circle")
-      .attr("r", radius)
-      .merge(current)
-      .style("fill", function (d) {
-        return d.isnew ? "#1d91c0" : "#333";
-      })
-      .attr("cx", function (d) {
-        return delta * d[0] - radius;
-      })
-      .attr("cy", function (d) {
-        return delta * d[1] - radius;
+  async connectedCallback() {
+    const ar = this.getAttribute("aspect-ratio");
+    const options = {
+      speed: +(this.getAttribute("speed") || 200),
+      delta: +(this.getAttribute("delta") || 10),
+      patternUrl: this.getAttribute("pattern-url"),
+      style: notebook.options.mode == "dark" ? this.dark : this.light,
+    };
+    const root = this.shadowRoot || this;
+    root.innerHTML = ar
+      ? `<div class="module-outer" style="width: 100%; position: relative; padding-top:${ar}">
+        <div class="module" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0"></div>
+      </div>`
+      : `<div class="module"></div>`;
+    this.paper = root.querySelector(".module");
+    notebook
+      .require("d3-selection", "d3-timer", "d3-fetch", "d3-array", "d3-transition")
+      .then((d3) => {
+        this.animate({ d3, ...options });
       });
-
-    current.exit().remove();
-
-    current = dead.selectAll("circle").data(cells.dead);
-
-    current
-      .enter()
-      .append("circle")
-      .attr("r", radius)
-      .merge(current)
-      .style("fill", "#e31a1c")
-      .attr("cx", function (d) {
-        return delta * d[0] - radius;
-      })
-      .attr("cy", function (d) {
-        return delta * d[1] - radius;
-      })
-      .transition()
-      .duration(speed - 20)
-      .style("fill", "#fff")
-      .transition()
-      .duration(10)
-      .each(function (d) {
-        if (!squares.get(d)) {
-          squares.set(d, d);
-          stylet = true;
-        }
-      })
-      .remove();
-
-    if (stylet) styleTrail();
-
-    d3.timeout(redraw, speed);
   }
 
-  function draw(options) {
-    example.select(".paper").remove();
-    var paper = d3
-      .select(el)
-      .append(options.paper)
+  disconnectedCallback() {
+    if (this.timer) this.timer.stop();
+  }
+
+  load(state, game) {
+    const { d3, squares, patternUrl } = state;
+    if (patternUrl) {
+      d3.csv(patternUrl).then((data) => {
+        squares.clear();
+        game.reset(data);
+        this.draw(state);
+      });
+    }
+  }
+
+  animate(options) {
+    const width = this.paper.offsetWidth;
+    const height = this.paper.offsetHeight;
+    const { delta, speed, d3, style } = options;
+    const squares = new Map();
+    const state = {
+      ...options,
+      squares,
+      width,
+      height,
+      Ny: Math.floor(height / delta),
+      Nx: Math.floor(width / delta),
+    };
+    const game = gameOfLife(state);
+    const radius = delta / 2;
+
+    this.load(state, game);
+
+    this.timer = d3.interval(() => {
+      const cells = game.step();
+      const { alive, dead } = state;
+
+      if (!alive) return;
+
+      let stylet = false,
+        current = alive.selectAll("circle").data(cells.alive);
+
+      current
+        .enter()
+        .append("circle")
+        .attr("r", radius)
+        .merge(current)
+        .style("fill", (d) => (d.isnew ? style.new : style.alive))
+        .attr("cx", (d) => delta * d[0] - radius)
+        .attr("cy", function (d) {
+          return delta * d[1] - radius;
+        });
+
+      current.exit().remove();
+
+      current = dead.selectAll("circle").data(cells.dead);
+
+      current
+        .enter()
+        .append("circle")
+        .attr("r", radius)
+        .merge(current)
+        .style("fill", style.dead)
+        .style("opacity", 0.5)
+        .attr("cx", function (d) {
+          return delta * d[0] - radius;
+        })
+        .attr("cy", function (d) {
+          return delta * d[1] - radius;
+        })
+        .transition()
+        .duration(0.3 * speed)
+        .style("opacity", 0)
+        .each(function (d) {
+          if (!squares.get(d)) {
+            squares.set(d, d);
+          }
+        })
+        .remove();
+
+      if (stylet) this.styleTrail(state);
+    }, speed);
+  }
+
+  draw(state) {
+    const { d3, delta, Nx, Ny, width, height } = state;
+    const paper = d3
+      .select(this.paper)
+      .append("svg")
       .classed("paper", true)
-      .attr("width", options.width)
-      .attr("height", options.height)
-      .canvasResolution(options.resolution)
-      .canvas(true)
+      .attr("width", width)
+      .attr("height", height)
       .style("stroke", "#999")
-      .style("stroke-width", 0.5);
+      .style("stroke-width", 0.1);
 
     paper
       .append("g")
@@ -127,13 +139,9 @@ const gol = (el, d3, game1, options) => {
       .enter()
       .append("line")
       .attr("x1", 0)
-      .attr("y1", function (d, i) {
-        return delta * i;
-      })
+      .attr("y1", (d, i) => delta * i)
       .attr("x2", Nx * delta)
-      .attr("y2", function (d, i) {
-        return delta * i;
-      });
+      .attr("y2", (d, i) => delta * i);
 
     paper
       .append("g")
@@ -142,127 +150,122 @@ const gol = (el, d3, game1, options) => {
       .enter()
       .append("line")
       .attr("y1", 0)
-      .attr("x1", function (d, i) {
-        return delta * i;
-      })
+      .attr("x1", (d, i) => delta * i)
       .attr("y2", Ny * delta)
-      .attr("x2", function (d, i) {
-        return delta * i;
-      });
+      .attr("x2", (d, i) => delta * i);
 
-    alive = paper.append("g").classed("alive", true).style("stroke", "none");
-    dead = paper.append("g").classed("dead", true).style("stroke", "none");
-    trail = paper.append("g").classed("trail", true).style("stroke", "none");
-
-    styleTrail();
+    state.alive = paper.append("g").classed("alive", true).style("stroke", "none");
+    state.dead = paper.append("g").classed("dead", true).style("stroke", "none");
+    state.trail = paper.append("g").classed("trail", true).style("stroke", "none");
+    this.styleTrail(state);
   }
 
-  function styleTrail() {
+  styleTrail(state) {
+    const { delta, trail, squares } = state;
     trail
       .selectAll("rect")
-      .data(squares.values())
+      .data(Array.from(squares.values()))
       .enter()
       .append("rect")
-      .attr("x", function (d) {
-        return delta * (d[0] - 1);
-      })
-      .attr("y", function (d) {
-        return delta * (d[1] - 1);
-      })
+      .attr("x", (d) => delta * (d[0] - 1))
+      .attr("y", (d) => delta * (d[1] - 1))
       .attr("height", delta)
       .attr("width", delta)
       .style("fill", "#e31a1c")
       .style("fill-opacity", 0.1);
   }
+}
 
-  function gameOfLife(N, M) {
-    var cells = d3.map(),
-      life = 0;
+const gameOfLife = (state) => {
+  const { d3, Nx, Ny } = state;
 
-    return {
-      reset: reset,
-      step: step,
-      addRandom: addRandom,
-    };
+  let cells = new Map(),
+    life = 0;
 
-    function reset(data) {
-      cells.clear();
-      data.forEach(function (d) {
-        d = [+d.i, +d.j];
-        cells.set(d, d);
+  const cell_key = (cell) => `${cell[0]},${cell[1]}`;
+
+  const reset = (data) => {
+    cells.clear();
+    data.forEach((d) => {
+      const cell = [+d.i, +d.j];
+      cells.set(cell_key(cell), cell);
+    });
+    life = 0;
+  };
+
+  const step = () => {
+    var dead = [];
+
+    if (life) {
+      const alive = new Map(),
+        born = new Map();
+
+      cells.forEach((cell, key) => {
+        const num = neighbours(cell, born);
+        if (num > 1 && num < 4) {
+          cell.isnew = false;
+          alive.set(key, cell);
+        } else {
+          dead.push(cell);
+        }
       });
-      life = 0;
+
+      cells = alive;
+
+      born.forEach((num, key) => {
+        if (num === 3) {
+          const d = key.split(",");
+          const cell = [+d[0], +d[1]];
+          cell.isnew = true;
+          cells.set(key, cell);
+        }
+      });
     }
+    life += 1;
+    return { alive: Array.from(cells.values()), dead: dead };
+  };
 
-    function step() {
-      var dead = [];
-
-      if (life) {
-        var num,
-          alive = d3.map(),
-          born = d3.map();
-
-        cells.each(function (cell, key) {
-          num = neighbours(cell, born);
-          if (num > 1 && num < 4) {
-            cell.isnew = false;
-            alive.set(key, cell);
-          } else {
-            dead.push(cell);
-          }
-        });
-
-        cells = alive;
-
-        born.each(function (num, key) {
-          if (num === 3) {
-            key = key.split(",");
-            var cell = [+key[0], +key[1]];
-            cell.isnew = true;
-            cells.set(key, cell);
-          }
-        });
-      }
-      life += 1;
-      return { alive: cells.values(), dead: dead };
+  const addRandom = (p) => {
+    var n = Math.floor((p || 0.05) * Nx * Ny),
+      i = d3.randomUniform(0, Nx - 1),
+      j = d3.randomUniform(1, Ny),
+      d;
+    for (var k = 0; k < n; ++k) {
+      d = [Math.floor(i()) + 1, Math.floor(j()) + 1];
+      cells.set(d, d);
     }
+  };
 
-    function addRandom(p) {
-      var n = Math.floor((p || 0.05) * N * M),
-        i = d3.randomUniform(0, N - 1),
-        j = d3.randomUniform(1, M),
-        d;
-      for (var k = 0; k < n; ++k) {
-        d = [Math.floor(i()) + 1, Math.floor(j()) + 1];
-        cells.set(d, d);
-      }
-    }
+  const add = (cell, i, j, dead) => {
+    i = cell[0] + i;
+    j = cell[1] + j;
+    i = i <= Nx ? (i > 0 ? i : Nx) : 1;
+    j = j <= Ny ? (j > 0 ? j : Ny) : 1;
+    const index = cell_key([i, j]);
+    if (cells.get(index)) return 1;
+    const idx = dead.get(index) || 0;
+    dead.set(index, idx + 1);
+    return 0;
+  };
 
-    function add(cell, i, j, dead) {
-      i = cell[0] + i;
-      j = cell[1] + j;
-      i = i <= N ? (i > 0 ? i : N) : 1;
-      j = j <= M ? (j > 0 ? j : M) : 1;
-      var index = "" + [i, j];
+  const neighbours = (cell, dead) => {
+    return (
+      add(cell, -1, -1, dead) +
+      add(cell, 0, -1, dead) +
+      add(cell, 1, -1, dead) +
+      add(cell, -1, 0, dead) +
+      add(cell, 1, 0, dead) +
+      add(cell, -1, 1, dead) +
+      add(cell, 0, 1, dead) +
+      add(cell, 1, 1, dead)
+    );
+  };
 
-      if (cells.get(index)) return 1;
-
-      var idx = dead.get(index) || 0;
-      dead.set(index, idx + 1);
-      return 0;
-    }
-
-    function neighbours(cell, dead) {
-      return (
-        add(cell, -1, -1, dead) +
-        add(cell, 0, -1, dead) +
-        add(cell, 1, -1, dead) +
-        add(cell, -1, 0, dead) +
-        add(cell, 1, 0, dead) +
-        add(cell, -1, 1, dead) +
-        add(cell, 0, 1, dead) +
-        add(cell, 1, 1, dead)
-      );
-    }
-  }
+  return {
+    reset: reset,
+    step: step,
+    addRandom: addRandom,
+  };
 };
+
+customElements.define("game-of-life", GameOfLife);

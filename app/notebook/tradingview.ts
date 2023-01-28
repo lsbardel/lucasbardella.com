@@ -22,7 +22,7 @@ class TradingView extends HTMLElement {
       </div>`
       : `<div id="${id}"></div>`;
     const theme_ = this.getAttribute("theme");
-    const theme = !theme_ || theme_ === "auto" ? notebook.md.theme || "light" : theme_ || "light";
+    const theme = !theme_ || theme_ === "auto" ? notebook.options.mode || "light" : theme_ || "light";
 
     // @ts-ignore
     const TradingView = window.TradingView;
