@@ -19,12 +19,12 @@ hero_dark: true
 **Nationality and status**: Italian - married<br>
 **Residence**: London, UK<br>
 **Qualifications**: PhD, Laurea<br>
-**Birth**: 30-Dec-1971, Adria - Italy<br>
+**Birth**: 30-Dec-1971, [Adria](https://en.wikipedia.org/wiki/Adria) - Italy<br>
 **Linkedin**: [https://www.linkedin.com/in/lucasbardella](https://www.linkedin.com/in/lucasbardella)<br>
 **GitHub**: [https://github.com/quantmind](https://github.com/quantmind)<br>
 **Interests**: technology, finance, world economics, [cycling][], [skiing][], football, [wine][], chess<br>
-**Keywords**: trading strategies, quantitative finance, statistics, machine-learning, data analysis, stochastic calculus, application development, visualization, database, concurrency, Linux, open-source, technology, WSET<br>
-**Coding**: Python, Rust, Javascript/Typescript, R, Lua, C++, C, C#, FORTRAN
+**Keywords**: trading strategies, quantitative finance, statistics, machine-learning, data analysis, stochastic calculus, application development, visualization, database, concurrency, Linux, open-source, technology, [WSET](https://www.wsetglobal.com/)<br>
+**Coding**: [Python](https://www.python.org/), [Rust](https://www.rust-lang.org/), [Typescript](https://www.typescriptlang.org/)<br>
 
 <hr>
 
@@ -43,6 +43,19 @@ visualization of complex datasets and full stack technological solutions.
 
 **Coding**: Python, Rust, TypeScript<br>
 **Technologies**: PostgreSQL, Redis, MongoDB, Google data store, Amazon DynamoDB
+
+<hr>
+
+### Senior Quant - [Byte Trading](https://www.byte-trading.com)
+
+**August 2022 - Present** London, UK
+
+Devoping the technology stack and strategies for a new crypto trading desk.
+
+**Specialities**: algo trading, quantitative finances, machine learning, infrastructure, web applications
+
+**Coding**: Python, Rust, TypeScript<br>
+**Technologies**: PostgreSQL, Redis, AWS, Kubernetes, Docker
 
 <hr>
 
