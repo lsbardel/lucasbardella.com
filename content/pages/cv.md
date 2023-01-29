@@ -42,7 +42,7 @@ visualization of complex datasets and full stack technological solutions.
 **Specialities**: quantitative finance, calculus, machine learning, data analysis, web applications
 
 **Coding**: Python, Rust, TypeScript<br>
-**Technologies**: PostgreSQL, Redis, MongoDB, Google data store, Amazon DynamoDB
+**Technologies**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
 
 <hr>
 
@@ -50,9 +50,9 @@ visualization of complex datasets and full stack technological solutions.
 
 **August 2022 - Present** London, UK
 
-Devoping the technology stack and strategies for a new crypto trading desk.
+Devoping the technology stack and strategies for a crypto trading desk.
 
-**Specialities**: algo trading, quantitative finances, machine learning, infrastructure, web applications
+**Specialities**: algo trading, quantitative finance, infrastructure, web applications
 
 **Coding**: Python, Rust, TypeScript<br>
 **Technologies**: PostgreSQL, Redis, AWS, Kubernetes, Docker
@@ -65,7 +65,8 @@ Devoping the technology stack and strategies for a new crypto trading desk.
 
 I managed a team responsible for crypto trading technologies.
 
-**Technology**: Python, TypeScript, PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
+**Coding**: Python, TypeScript<br>
+**Technology**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
 
 <hr>
 
@@ -78,7 +79,8 @@ The two main objectives were to provide liquidity to the betting exchange via ma
 24/7 and increase risk-adjusted returns for the group. The main technologies were python, rust and react on a microservice driven architecture deployed into Kubernetes clusters on AWS.
 I was part of the leadership team with daily interactions with the CEO of the group based in LA.
 
-**Technology**: Python, TypeScript/React, Rust, PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
+**Coding**: Python, Rust, TypeScript<br>
+**Technology**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
 
 <hr>
 
@@ -88,7 +90,8 @@ I was part of the leadership team with daily interactions with the CEO of the gr
 
 I engineered the creation of the first cloud platform for cross blockchain borrowing and lending. Loans in cryptocurrency collateralized by other cryptocurrencies. I managed a team of ten engineers and I was part of the leadership team.
 
-**Technology**: Python, JavaScript, React, d3.js, node.js, Lua, PostgreSQL, Redis, AWS, Kubernetes, Docker
+**Coding**: Python, Javascript<br>
+**Technology**: React, d3.js, node.js, PostgreSQL, Redis, AWS, Kubernetes, Docker
 
 <hr>
 
@@ -99,7 +102,8 @@ I engineered the creation of the first cloud platform for cross blockchain borro
 This was a contract position with the aim to build the development team and the technology product, a cloud based platform for limit order book (LOB) data and analytics.
 The engineering team grew from four to over ten engineers and a minimum viable product was on its way by the time a permanent CTO came on board.
 
-**Technology**: Python, Angular, d3.js, node.js, PostgreSQL, Redis, AWS, ansible
+**Coding**: Python, Javascript<br>
+**Technology**: Angular, d3.js, node.js, PostgreSQL, Redis, AWS, ansible
 
 <hr>
 
