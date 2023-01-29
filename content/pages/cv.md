@@ -50,7 +50,7 @@ visualization of complex datasets and full stack technological solutions.
 
 **August 2022 - Present** London, UK
 
-Devoping the technology stack and strategies for a crypto trading desk.
+Developing and managing the technology stack and strategies for a crypto trading desk.
 
 **Specialities**: algo trading, quantitative finance, infrastructure, web applications
 
