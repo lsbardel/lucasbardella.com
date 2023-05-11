@@ -150,7 +150,7 @@
 {
     \vspace{3mm}
     \begin{tabular*}{\textwidth}{p{12cm}  x{4cm}}
-        \textcolor{black}{\textbf{#2}} - \textcolor{bgcol}{#3} \textcolor{sectcol}{#4} & \vspace{2.5pt}\textcolor{black}{\textbf{#1}}
+        \textcolor{black}{\textbf{#2}} - \textcolor{sectcol}{#3} - \textcolor{bgcol}{#4} & \vspace{2.5pt}\textcolor{black}{\textbf{#1}}
     \end{tabular*}
 
     \vspace{-8pt}
