@@ -23,4 +23,6 @@ qr:			## Create QR svg image in virtualenv
 	qr "https://lucasbardella.com" > ./static/luca-qr.png
 
 cv:			## build CV
-	@cd extra/cv && pdflatex luca-sbardella-cv.tex
+	@cd extra/cv &&\
+	pdflatex luca-sbardella-cv.tex &&\
+	mv luca-sbardella-cv.pdf ../../content/docs/luca-sbardella-cv.pdf

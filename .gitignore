@@ -9,6 +9,7 @@ static/*.txt
 static/blog
 static/lab
 static/pages
+static/docs
 package-lock.json
 compiled.*
 
@@ -29,7 +30,6 @@ content/phd
 *.dvi
 *.fls
 *.gz
-*.pdf
 *.aux
 *.fdb_latexmk
 __latexindent_temp.tex

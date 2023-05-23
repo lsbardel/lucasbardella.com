@@ -1,6 +1,6 @@
 title: Curriculum Vitae of Luca Sbardella
 tagline: Luca Sbardella CV
-description: Tech lead specialized in electronic trading, quantitative finance, web application development, data analysis, visualization, python, rust, typescript
+description: Electronic trading, quantitative finance, technology, python, rust, typescript
 head-image: {{ assetUrl }}/lucacv.png
 head-type: profile
 head-first_name: Luca
@@ -13,6 +13,8 @@ hero_dark: true
 ---
 
 ## Info
+
+[Download CV]({{ bundleUrl }}/docs/luca-sbardella-cv.pdf)
 
 **Web**: [lucasbardella.com](http://lucasbardella.com)<br>
 **Email**: [luca@quantmind.com](mailto:luca@quantmind.com)<br>
