@@ -14,7 +14,7 @@ hero_dark: true
 
 ## Info
 
-[Download CV]({{ bundleUrl }}/docs/luca-sbardella-cv.pdf)
+[Download CV]({{ liveUrl }}/docs/luca-sbardella-cv.pdf)
 
 **Web**: [lucasbardella.com](http://lucasbardella.com)<br>
 **Email**: [luca@quantmind.com](mailto:luca@quantmind.com)<br>
