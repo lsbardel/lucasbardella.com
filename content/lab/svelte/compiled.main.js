@@ -55,8 +55,9 @@ function children(element) {
 }
 function set_data(text, data) {
     data = '' + data;
-    if (text.wholeText !== data)
-        text.data = data;
+    if (text.data === data)
+        return;
+    text.data = data;
 }
 function set_input_value(input, value) {
     input.value = value == null ? '' : value;
@@ -69,9 +70,9 @@ function set_current_component(component) {
 
 const dirty_components = [];
 const binding_callbacks = [];
-const render_callbacks = [];
+let render_callbacks = [];
 const flush_callbacks = [];
-const resolved_promise = Promise.resolve();
+const resolved_promise = /* @__PURE__ */ Promise.resolve();
 let update_scheduled = false;
 function schedule_update() {
     if (!update_scheduled) {
@@ -162,6 +163,16 @@ function update($$) {
         $$.after_update.forEach(add_render_callback);
     }
 }
+/**
+ * Useful for example to execute remaining `afterUpdate` callbacks before executing `destroy`.
+ */
+function flush_render_callbacks(fns) {
+    const filtered = [];
+    const targets = [];
+    render_callbacks.forEach((c) => fns.indexOf(c) === -1 ? filtered.push(c) : targets.push(c));
+    targets.forEach((c) => c());
+    render_callbacks = filtered;
+}
 const outroing = new Set();
 function transition_in(block, local) {
     if (block && block.i) {
@@ -195,6 +206,7 @@ function mount_component(component, target, anchor, customElement) {
 function destroy_component(component, detaching) {
     const $$ = component.$$;
     if ($$.fragment !== null) {
+        flush_render_callbacks($$.after_update);
         run_all($$.on_destroy);
         $$.fragment && $$.fragment.d(detaching);
         // TODO null out other refs, including component.$$ (but need to
