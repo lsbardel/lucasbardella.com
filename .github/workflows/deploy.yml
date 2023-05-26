@@ -24,10 +24,10 @@ jobs:
           node-version: 16
       - name: build bundle
         run: yarn && yarn build
-      - uses: quantmind/metablock-action@master
+      - uses: quantmind/metablock-action@v2
         id: metablock-deployment-stage
         if: github.event_name == 'pull_request'
-      - uses: quantmind/metablock-action@master
+      - uses: quantmind/metablock-action@v2
         id: metablock-deployment-prod
         if: github.event_name == 'push'
         with:
