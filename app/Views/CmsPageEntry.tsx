@@ -1,6 +1,6 @@
-import { dateFormat, Page } from "@metablock/react";
-import { useTheme } from "@mui/material/styles";
+import { NoSsr, Page, dateFormat } from "@metablock/react";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import React from "react";
 import { darkTheme, getHighlightStyle, lightTheme } from "../theme";
 import Container from "./Container";
@@ -54,7 +54,9 @@ const CmsPageEntry = (props: any) => {
         ) : null}
       </Parallax>
       <Container>
-        <Markdown highlightStyle={highlightStyle} {...props} />
+        <NoSsr>
+          <Markdown highlightStyle={highlightStyle} {...props} />
+        </NoSsr>
       </Container>
     </Page>
   );

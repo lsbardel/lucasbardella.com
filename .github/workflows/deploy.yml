@@ -14,7 +14,6 @@ jobs:
     env:
       METABLOCK_API_TOKEN: ${{ secrets.METABLOCK_API_TOKEN }}
       METABLOCK_BLOCK_ID: 2358b53a0557468d83d821445b4b5455
-      BUNDLE_LOCATION: static
 
     steps:
       - name: checkout repo
