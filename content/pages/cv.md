@@ -34,7 +34,7 @@ hero_dark: true
 
 <hr>
 
-### Director - [Quantmind](https://quantmind.com)
+### Owner - [Quantmind](https://quantmind.com)
 
 **November 2008 - Present** London, UK
 
@@ -42,7 +42,6 @@ Consultant specialising in quantitative data analysis, realtime web applications
 visualization of complex datasets and full stack technological solutions.
 
 **Specialities**: quantitative finance, calculus, machine learning, data analysis, web applications
-
 **Coding**: Python, Rust, TypeScript<br>
 **Technologies**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
 
@@ -50,12 +49,11 @@ visualization of complex datasets and full stack technological solutions.
 
 ### Senior Quant - [Byte Trading](https://www.byte-trading.com)
 
-**August 2022 - Present** London, UK
+**August 2022 - May 2023** London, UK
 
-Developing and managing the technology stack and strategies for a crypto trading desk.
+I deveoped and managed the technology stack and trading strategies for a crypto market-making desk.
 
 **Specialities**: algo trading, quantitative finance, infrastructure, web applications
-
 **Coding**: Python, Rust, TypeScript<br>
 **Technologies**: PostgreSQL, Redis, AWS, Kubernetes, Docker
 
