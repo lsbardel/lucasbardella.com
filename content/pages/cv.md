@@ -6,7 +6,7 @@ head-type: profile
 head-first_name: Luca
 head-last_name: Sbardella
 head-twitter-type: summary_large_image
-hero_photo: _XVE6pKGiLE
+hero_photo: unsplash-_XVE6pKGiLE
 image: unsplash-_XVE6pKGiLE
 hero_dark: true
 
@@ -38,10 +38,10 @@ hero_dark: true
 
 **November 2008 - Present** London, UK
 
-Consultant specialising in quantitative data analysis, realtime web applications,
+Consultant specialising in quantitative finance, data analysis,
 visualization of complex datasets and full stack technological solutions.
 
-**Specialities**: quantitative finance, calculus, machine learning, data analysis, web applications
+**Specialities**: quantitative finance, calculus, machine learning, data analysis, web applications<br>
 **Coding**: Python, Rust, TypeScript<br>
 **Technologies**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
 
@@ -51,9 +51,9 @@ visualization of complex datasets and full stack technological solutions.
 
 **August 2022 - May 2023** London, UK
 
-I deveoped and managed the technology stack and trading strategies for a crypto market-making desk.
+I developed and managed the technology stack and trading strategies for a crypto market-making desk.
 
-**Specialities**: algo trading, quantitative finance, infrastructure, web applications
+**Specialities**: algo trading, quantitative finance, infrastructure, web applications<br>
 **Coding**: Python, Rust, TypeScript<br>
 **Technologies**: PostgreSQL, Redis, AWS, Kubernetes, Docker
 

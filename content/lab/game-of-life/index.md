@@ -4,7 +4,7 @@ date: 2023-01-28
 keywords: game, d3
 description: The famous Conway's Game of Life!
 category: visualization
-hero_photo: iWmfPbKmxEQ
+hero_photo: unsplash-iWmfPbKmxEQ
 hero_opacity: 0.6
 image: unsplash-iWmfPbKmxEQ
 

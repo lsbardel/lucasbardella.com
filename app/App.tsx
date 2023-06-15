@@ -13,10 +13,10 @@ import blog from "../content/blog/collection.json";
 import lab from "../content/lab/collection.json";
 import pages from "../content/pages/collection.json";
 import MUISwitch from "./MUISwitch";
-import { darkTheme, lightTheme } from "./theme";
 import { BlogList, LabList } from "./Views/CmsList";
 import CmsPageEntry from "./Views/CmsPageEntry";
 import Footer from "./Views/Footer";
+import { darkTheme, lightTheme } from "./theme";
 
 const links: any[] = [
   {

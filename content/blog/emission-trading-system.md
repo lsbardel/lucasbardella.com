@@ -2,7 +2,7 @@ author: Luca Sbardella
 title: Emission Trading System
 description: Data-driven solutions for a cleaner future: the role of emission trading systems
 category: data, emissions
-hero_photo: NBwP2jjnATE
+hero_photo: unsplash-NBwP2jjnATE
 hero_photo_filter: 0.4
 hero_dark: false
 image: unsplash-NBwP2jjnATE

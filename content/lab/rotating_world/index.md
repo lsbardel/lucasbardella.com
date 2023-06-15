@@ -5,7 +5,7 @@ date: 2014 October 30
 image: {{ assetUrl }}/lab/rotating-world.png
 category: map, d3
 twitter_card: summary_large_image
-hero_photo: rkFIIE9PxH0
+hero_photo: unsplash-rkFIIE9PxH0
 hero_opacity: 0.2
 
 ---

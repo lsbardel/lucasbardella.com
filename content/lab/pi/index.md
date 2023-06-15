@@ -10,7 +10,7 @@ category: visualization
 twitter_card: summary_large_image
 stylesheet: https://unpkg.com/purecss@2.0.3/build/pure-min.css
 js_source: main.js
-hero_photo: h3kuhYUCE9A
+hero_photo: unsplash-h3kuhYUCE9A
 hero_opacity: 0.1
 
 ---

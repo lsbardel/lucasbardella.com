@@ -4,8 +4,8 @@ title: New website!
 description: The new website is hosted on the metablock cloud
 keywords: react, metablock, material ui
 image: unsplash-KBX9XHk266s
-hero_photo: KBX9XHk266s
-hero_photo_filter: 0.9
+hero_photo: unsplash-KBX9XHk266s
+hero_photo_filter: 0.7
 hero_dark: true
 
 ---

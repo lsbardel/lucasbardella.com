@@ -2,7 +2,7 @@ title: Red-Black Binary Tree
 description: A visualisation of insertions in a self-balancing red-black binary tree
 author: Luca Sbardella
 image: {{ assetUrl }}/lab/red-black.png
-hero_photo: h3kuhYUCE9A
+hero_photo: unsplash-h3kuhYUCE9A
 hero_opacity: 0.1
 date: 9/July/2020
 

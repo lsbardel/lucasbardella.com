@@ -4,7 +4,7 @@ author: Luca Sbardella
 slug: embedding-github-content
 description: Github has a rich and powerful API that allows you to access all the content hosted on the platform. This post will explore how to embed these content types on your website using web components.
 image: unsplash-4hbJ-eymZ1o
-hero_photo: 4hbJ-eymZ1o
+hero_photo: unsplash-4hbJ-eymZ1o
 hero_photo_filter: 0.8
 hero_dark: true
 head-tag: github, web

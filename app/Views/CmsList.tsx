@@ -26,7 +26,7 @@ const CmsList = (props: any) => {
 export const BlogList = (props: any) => {
   return (
     <Page title="Luca Blog" description="Writing about tech finance and betting">
-      <CmsList title="Blog" theme={darkTheme} image="sfgH9dXcMRw" {...props} />
+      <CmsList title="Blog" theme={darkTheme} image="unsplash-sfgH9dXcMRw" {...props} />
     </Page>
   );
 };
@@ -34,7 +34,7 @@ export const BlogList = (props: any) => {
 export const LabList = (props: any) => {
   return (
     <Page title="Luca Lab" description="Technical articles with live code in javascript and python">
-      <CmsList title="Lab" image="ooR1jY2yFr4" opacity={0.2} {...props} />
+      <CmsList title="Lab" image="unsplash-ooR1jY2yFr4" opacity={0.2} {...props} />
     </Page>
   );
 };

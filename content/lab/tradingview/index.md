@@ -5,7 +5,7 @@ date: 2023-01-08 16:00
 keywords: d3, javascript, mathematics, math, agnesi
 description: Adding TradingView charts to a web application is easy with web-components and the @metablock/notebook tool.
 image: unsplash-JpflvzEl5cg
-hero_photo: JpflvzEl5cg
+hero_photo: unsplash-JpflvzEl5cg
 hero_opacity: 0.1
 category: visualization
 

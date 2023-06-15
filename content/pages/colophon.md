@@ -1,7 +1,7 @@
 title: Colophon
 description: How lucasbardella.com site is built and technologies used
 image: unsplash-w46tRF64qNc
-hero_photo: w46tRF64qNc
+hero_photo: unsplash-w46tRF64qNc
 hero_photo_filter: 0.5
 
 ---

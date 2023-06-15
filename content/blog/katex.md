@@ -7,7 +7,7 @@ require_css: //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
 require_css: katex
 require_js: {{ assetUrl }}/require.config.min.js
 image: {{ assetUrl }}/blog/katex.png
-hero_photo: h3kuhYUCE9A
+hero_photo: unsplash-h3kuhYUCE9A
 hero_opacity: 0.1
 category: math
 

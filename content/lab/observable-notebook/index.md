@@ -5,7 +5,7 @@ date: 2022-12-29 17:00
 keywords: notebook
 description: Embedding Observable notebooks into the website
 image: unsplash-wmJ1MhUMJ4k
-hero_photo: wmJ1MhUMJ4k
+hero_photo: unsplash-wmJ1MhUMJ4k
 hero_opacity: 0.3
 category: visualization
 
