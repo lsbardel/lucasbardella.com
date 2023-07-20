@@ -63,7 +63,7 @@ I developed and managed the technology stack and trading strategies for a crypto
 
 **August 2020 - July 2022** London, UK
 
-I managed a team responsible for crypto trading technologies.
+I managed a team responsible for crypto OTC trading technologies.
 
 **Coding**: Python, TypeScript<br>
 **Technology**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
@@ -90,8 +90,8 @@ I was part of the leadership team with daily interactions with the CEO of the gr
 
 I engineered the creation of the first cloud platform for cross blockchain borrowing and lending. Loans in cryptocurrency collateralized by other cryptocurrencies. I managed a team of ten engineers and I was part of the leadership team.
 
-**Coding**: Python, Javascript<br>
-**Technology**: React, d3.js, node.js, PostgreSQL, Redis, AWS, Kubernetes, Docker
+**Coding**: Python, Typescript, Solidity<br>
+**Technology**: Ethereum Blockchain, React, node.js, PostgreSQL, Redis, AWS, Kubernetes, Docker
 
 <hr>
 
