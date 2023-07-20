@@ -1,4 +1,4 @@
-import { blueGrey as primary, grey } from "@mui/material/colors";
+import { grey, blueGrey as primary } from "@mui/material/colors";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 export const options = {

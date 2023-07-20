@@ -1,11 +1,10 @@
-import { Notebook } from "@metablock/notebook";
+import { createNotebook } from "@metablock/notebook";
 
 let id_counter = 0;
 
 class TradingView extends HTMLElement {
-
   async connectedCallback() {
-    const notebook = Notebook.create();
+    const notebook = createNotebook();
     await notebook.loadJs("https://s3.tradingview.com/tv.js");
     const root = this.shadowRoot || this;
     const symbol = this.getAttribute("symbol");
@@ -22,7 +21,8 @@ class TradingView extends HTMLElement {
       </div>`
       : `<div id="${id}"></div>`;
     const theme_ = this.getAttribute("theme");
-    const theme = !theme_ || theme_ === "auto" ? notebook.options.mode || "light" : theme_ || "light";
+    const theme =
+      !theme_ || theme_ === "auto" ? notebook.options.mode || "light" : theme_ || "light";
 
     // @ts-ignore
     const TradingView = window.TradingView;

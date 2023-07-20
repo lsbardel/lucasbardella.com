@@ -1,4 +1,4 @@
-import { Notebook } from "@metablock/notebook";
+import { Notebook, createNotebook } from "@metablock/notebook";
 import { isSsr, useWindowSize } from "@metablock/react";
 import Box from "@mui/material/Box";
 import { Theme, useTheme } from "@mui/material/styles";
@@ -40,9 +40,8 @@ const nodeBookStyle = (theme: Theme): any => {
   };
 };
 
-const createNotebook = (theme: string): Notebook => {
-  const notebook = Notebook.create();
-  notebook.options.mode = theme;
+const getNotebook = (theme: string): Notebook => {
+  const notebook = createNotebook(theme);
   notebook.options.highlightStyle = getHighlightStyle(theme);
   return notebook;
 };
@@ -50,7 +49,7 @@ const createNotebook = (theme: string): Notebook => {
 const Book = (props: any) => {
   const { body, ...extra } = props;
   const theme = useTheme();
-  const noteRef = React.useRef<Notebook>(createNotebook(theme.palette.mode));
+  const noteRef = React.useRef<Notebook>(getNotebook(theme.palette.mode));
   const ref = React.useRef<HTMLDivElement>();
   const notebook = noteRef.current;
   // make sure to re-render when offsetWidth change
