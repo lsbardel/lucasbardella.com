@@ -110,8 +110,7 @@ function attr(node, attribute, value) {
 	else if (node.getAttribute(attribute) !== value) node.setAttribute(attribute, value);
 }
 
-/**
- * @returns {number} */
+/** @returns {number} */
 function to_number(value) {
 	return value === '' ? null : +value;
 }
