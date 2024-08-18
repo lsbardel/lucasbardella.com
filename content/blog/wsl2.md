@@ -1,7 +1,7 @@
-title: My dev environment on Windows WLS2
+title: My dev environment on Windows WSL2
 author: Luca Sbardella
-slug: my-wls2-dev-environment
-description: How I set up my development environment on Windows WLS2 for working with rust, python, and other tools
+slug: my-wsl2-dev-environment
+description: How I set up my development environment on Windows WSL2 for working with rust, python, node js and other tools
 image: {{ assetUrl }}/blog/github.jpg
 head-tag: wls2, dev, rust, python, documentation
 category: dev
@@ -9,15 +9,15 @@ category: dev
 ---
 
 
-Coming from a Mac environment, I was used to having a Unix-like shell and a package manager that made it easy to install and manage software. When I switched to Windows, I found myself struggling to get the same level of productivity. I tried using Git Bash, but it was not the same. I tried using the Windows Subsystem for Linux (WSL), but it was slow and had some limitations. Then I discovered WSL2, and everything changed.
+Coming from a Mac environment, I was used to having a Unix-like shell and a package manager that made it easy to install and manage software. I tried using the Windows Subsystem for Linux (WSL), and everything changed. I no longer need to pay the Apple tax to have a Unix-like environment. I can use Windows for both fun and work.
 
 
-## Setup WSL2
+## Setup WSL v2
 
-WSL2 stands for Windows Subsystem for Linux 2. It's a compatibility layer that enables you to run Linux environments directly on Windows. This means you can use Linux tools, utilities, and applications seamlessly on your Windows system without the need for a virtual machine.
+WSL stands for Windows Subsystem for Linux. It's a compatibility layer that enables you to run Linux environments directly on Windows. This means you can use Linux tools, utilities, and applications seamlessly on your Windows system without the need for a virtual machine.
 
 * Install the `Windows Terminal` from the Microsoft Store - this allows you to have multiple tabs with different shells
-* make sure WSL2 is set up correctly - on a Windows shell type `wsl --status` and check that the default version is 2.
+* make sure WSL v2 is set up correctly - on a Windows shell type `wsl --status` and check that the default version is 2.
 * Create a disk partition where to install a Linux distribution for WSL2 - I mounted the partition in the `D` drive
 * Install a Linux distribution from the Microsoft Store - I use Ubuntu 24.04 LTS - Install it in the dedicated disk partition if you can
 * If you cannot install to the dedicated partition, you can export the distribution and import it in the new location
@@ -37,11 +37,12 @@ WSL2 stands for Windows Subsystem for Linux 2. It's a compatibility layer that e
 ## Setup the Linux environment
 
 * Update the system `sudo apt update && sudo apt upgrade`
-* Install the tools I need
+* Install the tools, this is what is needed for pyenv (see below), [protobuf](https://github.com/protocolbuffers/protobuf) and other tools I use
   ```bash
   sudo apt install \
     keychain \
     build-essential \
+    protobuf-compiler \
     libssl-dev \
     zlib1g-dev \
     libbz2-dev \
@@ -55,8 +56,10 @@ WSL2 stands for Windows Subsystem for Linux 2. It's a compatibility layer that e
     libxml2-dev \
     libxmlsec1-dev \
     libffi-dev \
-    liblzma-dev
+    liblzma-dev \
+    just
   ```
+
 ## Setup the shell
 
 My `.bash_aliases` file
@@ -72,9 +75,44 @@ source ${HOME}/.keychain/${HOST}-sh
 
 Allows to use `py` to run the python version managed by `pyenv` and to load the SSH key when I open a new shell.
 
-## Setup the development environment
+Setup git config
+```bash
+git config --global user.name Luca Sbardella
+git config --global user.username lsbardel
+git config --global user.email luca@quantmind.com
+git config --global core.editor vim
+```
+
+and check it with `git config --list`
+
+## Setup the development tools
+
+I use Rust, Python, and Node.js for my development work. Here is how I set up the tools.
+
+### Rust
+
+* Simply [Install rust](https://www.rust-lang.org/tools/install)
+* Update to the latest version (do this anytime you want to update the compiler)
+  ```bash
+  rustup update stable
+  ```
 
 ### Python
 
 * clone [pyenv](https://github.com/pyenv/pyenv) in the `~/.pyenv` directory
-* install
+* install the python versions you need, for example
+  ```bash
+  pyenv install 3.12.5
+  ```
+
+
+### Node
+
+* Install node and npm via
+  ```bash
+  sudo apt install nodejs npm
+  ```
+* Install yarn globally
+  ```bash
+  sudo npm install -g yarn
+  ```
