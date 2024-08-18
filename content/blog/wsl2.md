@@ -13,15 +13,23 @@ category: dev
 ---
 
 
-Coming from a Mac environment, I was used to having a Unix-like shell and a package manager that made it easy to install and manage software. I tried using the Windows Subsystem for Linux (WSL), and everything changed. I no longer need to pay the Apple tax to have a Unix-like environment. I can use Windows for both fun and work.
+Coming from a Mac environment, I was used to having a Unix-like shell and a package manager that made it easy to install and manage the software I need on a daily basis. But I grew tired of the silly high prices from Apple.
+
+I tried using the [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux), and everything changed. I no longer need to pay the Apple tax to have a Unix-like environment. I can use Windows for both fun and work.
 
 
 ## Setup WSL v2
 
-WSL stands for Windows Subsystem for Linux. It's a compatibility layer that enables you to run Linux environments directly on Windows. This means you can use Linux tools, utilities, and applications seamlessly on your Windows system without the need for a virtual machine.
+WSL stands for **Windows Subsystem for Linux**. It's a compatibility layer that enables you to run Linux environments directly on Windows. This means you can use Linux tools, utilities, and applications seamlessly on your Windows system without the need for a virtual machine.
+
+This is a short guide on how I set up my development environment on Windows WSL v2 for working with rust, python, node js, and other tools.
 
 * Install the `Windows Terminal` from the Microsoft Store - this allows you to have multiple tabs with different shells
-* make sure WSL v2 is set up correctly - on a Windows shell type `wsl --status` and check that the default version is 2.
+* make sure WSL v2 is set up correctly - on a Windows shell type
+  ```
+  wsl --status
+  ```
+  and check that the default version is 2.
 * Create a disk partition where to install a Linux distribution for WSL2 - I mounted the partition in the `D` drive
 * Install a Linux distribution from the Microsoft Store - I use Ubuntu 24.04 LTS - Install it in the dedicated disk partition if you can
 * If you cannot install to the dedicated partition, you can export the distribution and import it in the new location
