@@ -1,5 +1,6 @@
 title: My dev environment on Windows WSL2
 author: Luca Sbardella
+date: 2024-08-18 18:00:00
 slug: my-wsl2-dev-environment
 description: How I set up my development environment on Windows WSL2 for working with rust, python, node js and other tools
 image: {{ assetUrl }}/blog/github.jpg
