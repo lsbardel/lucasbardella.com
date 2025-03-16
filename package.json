@@ -1,99 +1,27 @@
 {
-  "name": "lucasbardella.com",
-  "version": "1.0.0",
-  "description": "Luca Sbardella Personal Website",
-  "repository": "git@github.com:lsbardel/lucasbardella.com.git",
-  "author": "Luca Sbardella <luca@quantmind.com>",
-  "license": "ISC",
+  "name": "mywebsite",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "lint": "eslint '*'",
-    "fix": "eslint '*' --fix",
-    "precommit": "lint-staged",
-    "build:content": "export TS_NODE_PROJECT=content/ts_config.json && tsc",
-    "compile": "metablock compile content",
-    "build": "export NODE_ENV=production && yarn compile content && webpack",
-    "watch": "npm-run-all --parallel watch:serve watch:compile",
-    "watch:serve": "export NODE_ENV=development && webpack serve --progress",
-    "watch:compile": "metablock compile content -w"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@loadable/component": "^5.15.3",
-    "@metablock/core": "^0.26.4",
-    "@metablock/notebook": "^0.26.4",
-    "@metablock/react": "^0.26.4",
-    "@octokit/rest": "^20.0.1",
-    "nodejs-polars": "^0.8.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.2.2"
   },
   "devDependencies": {
-    "@metablock/cli": "^0.26.4",
-    "@metablock/server": "^0.26.4",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^14.0.0",
-    "@types/loadable__component": "^5.13.4",
-    "@types/marked": "^5.0.1",
-    "@types/react": "^18.2.17",
-    "@types/react-dom": "^18.2.7",
-    "@types/react-helmet": "^6.1.6",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/react-slick": "^0.23.10",
-    "@types/webpack": "^5.28.1",
-    "@typescript-eslint/eslint-plugin": "^6.2.0",
-    "@typescript-eslint/parser": "^6.2.0",
-    "css-loader": "^6.8.1",
-    "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.9.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-markdown": "^3.0.1",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-react": "^7.33.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "faker": "6.6.6",
-    "file-loader": "^6.2.0",
-    "husky": "^8.0.3",
-    "identity-obj-proxy": "^3.0.0",
-    "jest-fetch-mock": "^3.0.3",
-    "lint-staged": "^13.2.3",
-    "npm-run-all": "^4.1.5",
-    "path-to-regexp": "6.2.1",
-    "prettier": "^3.0.0",
-    "prettier-plugin-organize-imports": "^3.2.3",
-    "react-hot-loader": "4.13.1",
-    "rollup": "^3.27.0",
-    "rollup-plugin-svelte": "^7.1.6",
-    "sass-loader": "^13.3.2",
-    "shelljs": "0.8.5",
-    "sinon": "^15.2.0",
-    "source-map-loader": "^4.0.1",
-    "style-loader": "^3.3.3",
-    "svelte": "^4.1.1",
-    "svg-inline-loader": "^0.8.2",
-    "svgo": "^3.0.2",
-    "terser-webpack-plugin": "^5.3.9",
-    "ts-jest": "^29.1.1",
-    "ts-loader": "9.4.4",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.1.6",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.88.2",
-    "webpack-bundle-analyzer": "^4.9.0",
-    "webpack-cli": "5.1.4",
-    "webpack-dev-server": "^4.15.1",
-    "webpack-hot-middleware": "^2.25.4",
-    "webpack-require-from": "^1.8.6"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "yarn fix"
-    ],
-    "*.{json,css,scss}": [
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "post-commit": "git update-index --again"
-    }
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.2",
+    "@eslint/eslintrc": "^3"
   }
 }

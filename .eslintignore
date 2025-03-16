@@ -8,4 +8,5 @@ Makefile
 compiled.*
 webpack.config.ts
 extra
+app
 readme.md
