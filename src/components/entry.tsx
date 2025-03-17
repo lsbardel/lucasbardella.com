@@ -1,11 +1,11 @@
+"use client"
 import { Entry } from "@/api";
 import Link from 'next/link';
 import React from 'react';
-import { createNotebook } from "@metablock/notebook";
+import { createNotebook } from "@/notebook";
 
-const library = {};
 
-export const compileMarkdown = async (markDown: string, element: any) => {
+export const compileMarkdown = async (markDown: string, element: HTMLElement) => {
   const notebook = createNotebook("dark");
   return await notebook.render(markDown, element);
 }
@@ -21,10 +21,10 @@ export const Preview = ({ entry }: { entry: Entry }) => {
 }
 
 export const EntryComponent = ({ entry }: { entry: Entry }) => {
-  const refElement = React.useRef<any>(null);
-  const setRef = async (element: any) => {
+  const refElement = React.useRef<HTMLElement | null>(null);
+  const setRef = (element: HTMLElement | null) => {
     refElement.current = element;
-    if (element) await compileMarkdown(entry.body, element);
+    if (element) compileMarkdown(entry.body, element);
   };
   return (
     <div>

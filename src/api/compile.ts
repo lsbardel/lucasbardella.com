@@ -35,7 +35,7 @@ export const getPosts = async (content: string): Promise<Entry[]> => {
 
 export const getPostBySlug = async (content: string, slug: string): Promise<Entry | undefined> => {
   const posts = await getPosts(content);
-  return posts.find((post) => post.slug === slug);
+  return posts.find((post) => post.slug === slug || (post.slug === "index" && slug === ""));
 }
 
 
@@ -76,6 +76,7 @@ const compileOption = (text: string): string[] => {
   let value = bits.slice(1).join(":").trim();
   try {
     value = JSON.parse(value);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (err) {
     // skip on error
   }
