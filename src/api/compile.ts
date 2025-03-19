@@ -29,7 +29,7 @@ export const getPosts = async (content: string): Promise<Entry[]> => {
     const entry = await compileContent(content, sourcePath);
     if (entry) data.push(entry);
   }
-  postCache.set(content, data);
+  // postCache.set(content, data);
   return data;
 }
 
