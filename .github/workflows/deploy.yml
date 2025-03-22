@@ -11,14 +11,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      METABLOCK_API_TOKEN: ${{ secrets.METABLOCK_API_TOKEN }}
-      METABLOCK_BLOCK_ID: 2358b53a0557468d83d821445b4b5455
-
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
 
     steps:
       - name: checkout repo
@@ -28,6 +20,21 @@ jobs:
           node-version: 22
       - name: build bundle
         run: npm i && npm run build
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    steps:
       - name: publish
-        if: ${{ github.ref == 'refs/heads/main' }}
         uses: actions/deploy-pages@v4
