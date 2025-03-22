@@ -9,6 +9,7 @@
   "scripts": {
     "components": "node build.js",
     "build": "node build.js && .dev/node-run observable build",
+    "postbuild": "cp content/CNAME dist/",
     "dev": ".dev/node-run observable preview",
     "deploy": ".dev/node-run observable deploy",
     "observable": ".dev/node-run observable"
