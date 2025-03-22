@@ -1,18 +1,3 @@
-author: Luca Sbardella
-title: Using KaTex with AngularJS
-slug: katex-angularjs
-date: 2014 November 6
-description: How to use KaTex, the JavaScript library for TeX math rendering from Kahn Academy, with AngularJS
-require_css: //maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
-require_css: katex
-require_js: {{ assetUrl }}/require.config.min.js
-image: {{ assetUrl }}/blog/katex.png
-hero_photo: unsplash-h3kuhYUCE9A
-hero_opacity: 0.1
-category: math
-
----
-
 # Katex with AngularJS
 
 I've recently switched from using [MathJax][] to using [KaTeX][] when rendering
@@ -29,7 +14,7 @@ see equations popping into existence while the page is processed.
 
 I created an AngularJS directive to use in my pages:
 
-```js
+```javascript
 angular.module('katex-module')
     .value('mathDefaults', {
         center: True,
@@ -94,7 +79,7 @@ To create an expression in a new line one uses the `div` element:
 
 which renders as:
 
-```math
+```tex
 d y_t = \alpha_t dt + \sigma_t d W_t
 ```
 
@@ -109,22 +94,12 @@ One can use MathJax as fallback when KaTex fails to render a block of code. The 
 is implemented in the `render` function above and it is triggered when rendering this equation
 which is the Heston stochastic volatility model for asset prices
 
-```math
+```tex
 \begin{aligned}
   d S &= \mu S dt + \sqrt{\nu} S d W_S\\
   d \nu &= \kappa(\theta - \nu) dt + \alpha \sqrt{\nu} d W_\nu\\
   {\tt E}\left[dW_S d W_\nu\right] &= \rho dt
 \end{aligned}
-```
-
-These last two equations were used to create the blog-post image:
-
-```math
-G_{\mu\nu} = 8 \pi G \left(T_{\mu\nu} - \rho_\Lambda g_{\mu\nu}\right)
-```
-
-```math
-t' = \frac{t}{\sqrt{1 - \frac{v^2}{c^2}}}
 ```
 
 Do you know what they are?

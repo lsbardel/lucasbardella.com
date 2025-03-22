@@ -1,8 +1,12 @@
+# Luca Sbardella
+
+## PhD - Quantitative Algo Trader
+
 My name is Luca Sbardella and I'm a passionate tech lead working on
 quantitative-algo trading and real-time applications.
 Over the last twenty plus years I have worked as
 
-- Research assistant at Imperial College
+- Research assistant at Imperial College London
 - Quantitative analyst/trader at major investment banks and hedge funds
 - Software consultant via [quantmind](https://quantmind.com)
 - CTO at Fintech & crypto start-ups/scale-ups
@@ -12,7 +16,7 @@ Over the last twenty plus years I have worked as
 On a daily basis
 
 - I live in East Dulwich, London, but originally from Italy
-- I write code in Python, Rust & Typescript
+- I write code in [Rust](https://www.rust-lang.org/), [Python](https://www.python.org/) and [Typescript](https://www.typescriptlang.org/)
 - I follow tech/economical/financial/sport/political developments daily
 - I do lots of [open source work](https://github.com/quantmind)
 - Perfection my wine testing skills from [WSET level 3](https://www.northernwineschool.co.uk/c/courses/wine/wset-level-3-wine/) qualification

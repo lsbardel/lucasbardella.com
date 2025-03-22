@@ -31,3 +31,9 @@ cv:			## build CV
 .PHONY: lint-py
 lint-py:		## Lint python code
 	@uv run .dev/lint-py fix
+
+
+.PHONY: clean
+clean:			## Remove observable cache files
+	@rm -rf content/.observablehq/cache
+	@rm -rf dist

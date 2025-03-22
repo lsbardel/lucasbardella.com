@@ -174,7 +174,7 @@ Quantitative analyst/trader in propriety trading group. Researching and trading 
 
 <hr>
 
-### [Imperial College London](http://www3.imperial.ac.uk/)
+### [Imperial College London](https://www.imperial.ac.uk/)
 
 **1996 – 2000** - London UK
 
@@ -204,7 +204,7 @@ This is an incomplete list of publications during my academic years.
 
 <hr>
 
-### [Politecnico di Torino](http://www.polito.it/index.php?lang=en)
+### [Politecnico di Torino](https://www.polito.it/en)
 
 **1990 – 1995** - Turin, Italy
 
@@ -215,11 +215,11 @@ Graduated with maximum mark **110/110**.
 
 <hr>
 
-### [Liceo Scientifico Galileo Galilei](http://www.liceoadria.it/)
+### [Liceo Scientifico Galileo Galilei](https://www.liceoadria.edu.it/luoghi)
 
 **1985 - 1990** - Adria - Italy
 
-Five years secondary school focused on mathematics, literature, physics, Latin, history, chemistry, life sciences.
+Five years secondary school focused on mathematics, physics, literature, latin, history, chemistry, life sciences.
 
 Final mark: **56/60**
 
