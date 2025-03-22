@@ -26,7 +26,17 @@ export default {
   // Some additional configuration options and their defaults:
   // theme: "default", // try "light", "dark", "slate", etc.
   // header: "", // what to show in the header (HTML)
-  footer: `Made with Observable - last build © ${new Date().toISOString()}`,
+  footer: `
+    <p>Made with Observable - last build © ${new Date().toISOString()}</p>
+    <p>Source code available on <a href="https://github.com/lsbardel/lucasbardella.com">GitHub</a></p>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PXRMNC0X0N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PXRMNC0X0N');
+    </script>
+  `,
 
   // Some additional configuration options and their defaults:
   // header: "", // what to show in the header (HTML)
