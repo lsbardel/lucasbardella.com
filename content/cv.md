@@ -1,6 +1,6 @@
 # Curriculum Vitae
 
-[Download CV](/assets/luca-sbardella-cv.pdf)
+[Download CV](/_file/assets/luca-sbardella-cv.pdf)
 
 **Web**: [lucasbardella.com](http://lucasbardella.com)<br>
 **Email**: [luca@quantmind.com](mailto:luca@quantmind.com)<br>
@@ -24,7 +24,9 @@
 
 **October 2023 - Present** London, UK
 
-Lead a team of engineers and quants to develop and manage the algorithmic trading strategies for the commodities desk. The main focus is on development of the OTC/single dealer platform and hedging strategies.
+I lead a high-performance team of engineers and quants that develop and manage the algorithmic trading strategies for a commodities market making house.
+The main focus is on development of the OTC/single dealer platform and the hedging strategies
+associated with it.
 
 **Specialities**: commodity derivatives, algorithmic trading, quantitative finance, low-latency, OTC/single dealer platform<br>
 **Coding**: Rust, Python, TypeScript<br>
@@ -52,7 +54,7 @@ and full stack technological solutions.
 I developed and managed the technology stack and trading strategies for a crypto market-making desk.
 
 **Specialities**: algo trading, quantitative finance, infrastructure, web applications<br>
-**Coding**: Python, Rust, TypeScript<br>
+**Coding**: Rust, Python, TypeScript<br>
 **Technologies**: PostgreSQL, Redis, AWS, Kubernetes, Docker
 
 <hr>
@@ -63,7 +65,7 @@ I developed and managed the technology stack and trading strategies for a crypto
 
 I managed a team responsible for crypto OTC trading technologies.
 
-**Coding**: Python, TypeScript<br>
+**Coding**: Python, Rust, TypeScript<br>
 **Technology**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
 
 <hr>
@@ -72,10 +74,8 @@ I managed a team responsible for crypto OTC trading technologies.
 
 **March 2019 - July 2020** London, UK
 
-I managed the sport algorithmic trading division consisting of 12 engineers, 10 quants and 8 operational traders.
-The two main objectives were to provide liquidity to the betting exchange via market making sporting events
-24/7 and increase risk-adjusted returns for the group. The main technologies were python, rust and react on a microservice driven architecture deployed into Kubernetes clusters on AWS.
-I was part of the leadership team with daily interactions with the CEO of the group based in LA.
+I managed the sport algorithmic trading division consisting of 40 ish engineers/quants/traders.
+The two main objectives were to provide liquidity to the betting exchange via market making sporting events 24/7 and increase risk-adjusted returns for the group.
 
 **Coding**: Python, Rust, TypeScript<br>
 **Technology**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
@@ -89,7 +89,7 @@ I was part of the leadership team with daily interactions with the CEO of the gr
 I engineered the creation of the first cloud platform for cross blockchain borrowing and lending. Loans in cryptocurrency collateralized by other cryptocurrencies. I managed a team of ten engineers and I was part of the leadership team.
 
 **Coding**: Python, Typescript, Solidity<br>
-**Technology**: Ethereum Blockchain, React, node.js, PostgreSQL, Redis, AWS, Kubernetes, Docker
+**Technologies**: Ethereum Blockchain, PostgreSQL, Redis, AWS, Kubernetes, Docker
 
 <hr>
 
@@ -101,7 +101,7 @@ This was a contract position with the aim to build the development team and the 
 The engineering team grew from four to over ten engineers and a minimum viable product was on its way by the time a permanent CTO came on board.
 
 **Coding**: Python, Javascript<br>
-**Technology**: Angular, d3.js, node.js, PostgreSQL, Redis, AWS, ansible
+**Technologies**: PostgreSQL, Redis, AWS, ansible
 
 <hr>
 
@@ -109,20 +109,10 @@ The engineering team grew from four to over ten engineers and a minimum viable p
 
 **April 2009 – March 2014** London, UK
 
-Development of a web-based application for quantitative analysis of **interest rate options strategies**.
-Working closely with the head of the exotic trading desk, the development started in April 2009 during a 6 month contract with Citi, then extended for
-another year and eventually continued as a permanent position in July 2011.
-
-The server was written in Python with the front end in JavaScript.
-Time-series and user data was stored in [redis](http://redis.io/) for real time performance.
-Several open source libraries were adopted to perform econometric and statistic
-time-series calculations, including [numpy](http://www.numpy.org/), [pulsar](http://pythonhosted.org/pulsar/)
-and [pandas](http://pandas.pydata.org/).
-Option prices and sensitivities were calculated using Citi
-proprietary libraries. Excel/VBA and Python REST-API were also developed and used by the desk.
+Development of a web-based application for quantitative analysis of interest rate options strategies.
 
 **Coding**: Python, JavaScript, C, C++, R, Lua, Excel/VBA<br>
-**Data Stores**: PostgreSQL, Redis, MongoDB
+**Technologies**: PostgreSQL, Redis, MongoDB
 
 <hr>
 
@@ -190,17 +180,11 @@ PhD, Applied Mathematics, Computational Fluid Dynamics.
 This is an incomplete list of publications during my academic years.
 
 - Sbardella L, Imregun M, (2002) "[Transonic Rotor/Stator Interaction Using a 3-D Linearised Unsteady Viscous Flow Mode](http://goo.gl/W8K0KD)" International Journal of Computational Fluid Dynamics, Vol. 16, No. 3, pp. 135-153.
-  {.hidden-print}
-- Sbardella L, and Imregun M ,(2001) "[Linearized Unsteady Viscous Turbomachinery Flows Using Hybrid Grids](http://goo.gl/tD47VK)", J. Turbomachinery Vol. 123, No. 3 (2001), pp. 568-582.
-  {.hidden-print}
+- Sbardella L, and Imregun M ,(2001) "[Linearized Unsteady Viscous Turbomachinery Flows Using Hybrid Grids](https://doi.org/10.1115/1.1371777)", J. Turbomachinery Vol. 123, No. 3 (2001), pp. 568-582.
 - Sbardella L, Tester B J and Imregun M, (2001), "[A Time-Domain Method for the Prediction of Sound Attenuation in Lined Ducts](http://goo.gl/vx2IAD)" Journal of Sound and Vibration, Vol. 239, Issue 3, pp. 379–396.
-  {.hidden-print}
 - Sbardella L, Imregun M, (2000) "[An efficient discretization of viscous fluxes on unstructured mixed-element grids](http://goo.gl/J1cBIa)" Communications in Numerical Methods in Engineering, Vol. 16, No. 12, pp. 839-849.
-  {.hidden-print}
 - Sbardella L, Sayma A I and Imregun M, (2000), "[Semi-structured meshes for axial turbomachinery blades](http://goo.gl/vYZMfC) Int. J. Numer. Meth. Fluids, Vol 32, pp. 569–584.
-  {.hidden-print}
 - Sayma A I, Vahdati M, Sbardella L, and Imregun M (2000) "[Modelling of Three-Dimensional Viscous Compressible Turbomachinery Flows Using Unstructured Hybrid Grids](http://goo.gl/1VRCme)", AIAA Journal, Vol. 38, No. 6, pp. 945-954.
-  {.hidden-print}
 
 <hr>
 

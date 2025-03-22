@@ -12,6 +12,7 @@ static/lab
 static/pages
 static/docs
 compiled.*
+content/.observablehq
 
 # directories
 coverage
