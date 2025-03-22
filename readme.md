@@ -9,3 +9,11 @@ Local development:
 ```bash
 npm run dev
 ```
+
+
+## Latex
+
+Install latex
+
+* apt install texlive-fonts-extra
+* tlmgr init-usertree

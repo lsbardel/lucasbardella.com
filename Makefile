@@ -23,9 +23,9 @@ qr:			## Create QR svg image in virtualenv
 
 .PHONY: cv
 cv:			## build CV
-	@cd extra/cv &&\
+	@cd data/cv &&\
 	pdflatex luca-sbardella-cv.tex &&\
-	mv luca-sbardella-cv.pdf ../../content/docs/luca-sbardella-cv.pdf
+	mv luca-sbardella-cv.pdf ../../content/assets/luca-sbardella-cv.pdf
 
 
 .PHONY: lint-py
