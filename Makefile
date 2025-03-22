@@ -26,3 +26,8 @@ cv:			## build CV
 	@cd extra/cv &&\
 	pdflatex luca-sbardella-cv.tex &&\
 	mv luca-sbardella-cv.pdf ../../content/docs/luca-sbardella-cv.pdf
+
+
+.PHONY: lint-py
+lint-py:		## Lint python code
+	@uv run .dev/lint-py fix

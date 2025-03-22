@@ -23,3 +23,6 @@ jobs:
           node-version: 22
       - name: build bundle
         run: npm i && npm run build
+      - name: publish
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: make publish

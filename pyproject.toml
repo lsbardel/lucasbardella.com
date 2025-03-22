@@ -1,10 +1,19 @@
 [project]
 name = "lucasbardella-com"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.13.2"
+description = "Python tooling for lucasbardella.com"
+readme = "readme.md"
+requires-python = ">=3.13"
 dependencies = [
     "aio-fluid[cli,http]>=1.5.0",
     "qrcode[pil]>=8.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "isort>=6.0.1",
+    "mypy>=1.15.0",
+    "ruff>=0.11.2",
+    "types-qrcode>=8.0.0.20241004",
 ]
