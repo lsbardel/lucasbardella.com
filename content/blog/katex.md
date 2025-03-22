@@ -13,6 +13,8 @@ category: math
 
 ---
 
+# Katex with AngularJS
+
 I've recently switched from using [MathJax][] to using [KaTeX][] when rendering
 maths expressions in the browser.
 KaTeX is a JavaScript library developed at [Khan Academy](https://www.khanacademy.org)

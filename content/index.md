@@ -1,12 +1,3 @@
-date: 2014 March 26
-image: {{ assetUrl }}/lsbardel.jpg
-title: Hi!
-hero_photo: unsplash-t7YycgAoVSw
-hero_photo_filter: 0.5
-hero_dark: true
-
----
-
 My name is Luca Sbardella and I'm a passionate tech lead working on
 quantitative-algo trading and real-time applications.
 Over the last twenty plus years I have worked as

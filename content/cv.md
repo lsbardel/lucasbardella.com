@@ -1,6 +1,6 @@
-## Info
+# Curriculum Vitae
 
-[Download CV]({{ bundleUrl }}/docs/luca-sbardella-cv.pdf)
+[Download CV](/assets/luca-sbardella-cv.pdf)
 
 **Web**: [lucasbardella.com](http://lucasbardella.com)<br>
 **Email**: [luca@quantmind.com](mailto:luca@quantmind.com)<br>
@@ -12,7 +12,7 @@
 **GitHub**: [https://github.com/quantmind](https://github.com/quantmind)<br>
 **Interests**: technology, finance, world economics, [cycling][], [skiing][], football, [wine][], chess<br>
 **Keywords**: trading strategies, quantitative finance, statistics, machine-learning, data analysis, stochastic calculus, application development, visualization, database, concurrency, Linux, open-source, technology, [WSET](https://www.wsetglobal.com/)<br>
-**Coding**: [Python](https://www.python.org/), [Rust](https://www.rust-lang.org/), [Typescript](https://www.typescriptlang.org/)<br>
+**Coding**: [Rust](https://www.rust-lang.org/), [Python](https://www.python.org/), [Typescript](https://www.typescriptlang.org/)<br>
 
 <hr>
 
@@ -20,16 +20,28 @@
 
 <hr>
 
+### Lead Algo Trading - [Onyx Capital](https://onyxcapitalgroup.com/)
+
+**October 2023 - Present** London, UK
+
+Lead a team of engineers and quants to develop and manage the algorithmic trading strategies for the commodities desk. The main focus is on development of the OTC/single dealer platform and hedging strategies.
+
+**Specialities**: commodity derivatives, algorithmic trading, quantitative finance, low-latency, OTC/single dealer platform<br>
+**Coding**: Rust, Python, TypeScript<br>
+**Technologies**: PostgreSQL, Redis, Kafka, Azure Cloud, Kubernetes, Docker
+
+<hr>
+
 ### Owner - [Quantmind](https://quantmind.com)
 
 **November 2008 - Present** London, UK
 
-Consultant specialising in quantitative finance, data analysis,
-visualization of complex datasets and full stack technological solutions.
+Consultant specialising in algo-trading, quantitative finance, data analysis,
+and full stack technological solutions.
 
-**Specialities**: quantitative finance, calculus, machine learning, data analysis, web applications<br>
-**Coding**: Python, Rust, TypeScript<br>
-**Technologies**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
+**Specialities**: algorithmic trading, quantitative finance, machine learning<br>
+**Coding**: Rust, Python, TypeScript<br>
+**Technologies**: PostgreSQL, Redis, Kafka, AWS Cloud, Kubernetes, Docker
 
 <hr>
 
