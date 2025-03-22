@@ -18,6 +18,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.13
+      - name: install uv
+        run: pip install uv
       - name: build bundle
         run: npm i && npm run build
       - name: upload artifacts
@@ -28,6 +33,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     if: github.ref == 'refs/heads/main'
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
