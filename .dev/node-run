@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+export PYTHONPATH=${PWD}:${PYTHONPATH}
+ENV_FILE="${PWD}/.env"
+touch ${ENV_FILE}
+export $(grep -v '^#' ${ENV_FILE} | xargs)
+
+uv run "$@"

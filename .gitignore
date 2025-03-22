@@ -3,6 +3,7 @@
 node_modules
 bin
 build
+/.next/
 static/*.js
 static/*.map
 static/*.txt
@@ -10,7 +11,6 @@ static/blog
 static/lab
 static/pages
 static/docs
-package-lock.json
 compiled.*
 
 # directories
@@ -33,3 +33,13 @@ content/phd
 *.aux
 *.fdb_latexmk
 __latexindent_temp.tex
+next-env.d.ts
+
+#env
+.env
+
+#python
+.python-version
+__pycache__
+*.pyc
+*.pyo

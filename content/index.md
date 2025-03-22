@@ -1,6 +1,6 @@
 date: 2014 March 26
 image: {{ assetUrl }}/lsbardel.jpg
-tagline: Hi!
+title: Hi!
 hero_photo: unsplash-t7YycgAoVSw
 hero_photo_filter: 0.5
 hero_dark: true
@@ -8,14 +8,15 @@ hero_dark: true
 ---
 
 My name is Luca Sbardella and I'm a passionate tech lead working on
-quantitative trading, machine-learning and real-time applications.
+quantitative-algo trading and real-time applications.
 Over the last twenty plus years I have worked as
 
 - Research assistant at Imperial College
 - Quantitative analyst/trader at major investment banks and hedge funds
-- Software consulant via [quantmind](https://quantmind.com)
+- Software consultant via [quantmind](https://quantmind.com)
 - CTO at Fintech & crypto start-ups/scale-ups
 - Head algo sport trading
+- Systematic Algo trading on crypto and commodities
 
 On a daily basis
 

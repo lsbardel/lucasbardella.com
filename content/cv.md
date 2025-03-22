@@ -1,17 +1,3 @@
-title: Curriculum Vitae of Luca Sbardella
-tagline: Luca Sbardella CV
-description: Electronic trading, quantitative finance, technology, python, rust, typescript
-head-image: {{ assetUrl }}/lucacv.png
-head-type: profile
-head-first_name: Luca
-head-last_name: Sbardella
-head-twitter-type: summary_large_image
-hero_photo: unsplash-_XVE6pKGiLE
-image: unsplash-_XVE6pKGiLE
-hero_dark: true
-
----
-
 ## Info
 
 [Download CV]({{ bundleUrl }}/docs/luca-sbardella-cv.pdf)

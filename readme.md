@@ -5,6 +5,7 @@ My personal website, running on [metablock.io](https://metablock.io) cloud.
 ## Dev
 
 Local development:
-```
-yarn watch
+
+```bash
+npm run dev
 ```
