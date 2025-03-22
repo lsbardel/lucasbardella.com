@@ -17,21 +17,9 @@ jobs:
 
     steps:
       - name: checkout repo
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
       - name: build bundle
-        run: yarn && yarn build
-      - uses: quantmind/metablock-action@v3
-        id: metablock-deployment-stage
-        if: github.event_name == 'pull_request'
-        with:
-          env: stage
-          bundle: static
-      - uses: quantmind/metablock-action@v3
-        id: metablock-deployment-prod
-        if: github.event_name == 'push'
-        with:
-          env: prod
-          bundle: static
+        run: npm i && npm run build
