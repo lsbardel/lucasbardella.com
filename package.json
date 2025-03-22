@@ -1,32 +1,25 @@
 {
-  "name": "mywebsite",
+  "name": "lucasbardella-com",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "components": "node build.js",
+    "build": "node build.js && .dev/node-run observable build",
+    "dev": ".dev/node-run observable preview",
+    "deploy": ".dev/node-run observable deploy",
+    "observable": ".dev/node-run observable"
   },
   "dependencies": {
-    "@metablock/cli": "^0.26.8",
-    "@metablock/notebook": "^0.26.8",
-    "@observablehq/runtime": "^6.0.0",
-    "d3-require": "^1.3.0",
-    "next": "15.2.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@observablehq/framework": "^1.13.2",
+    "d3-dsv": "^3.0.1",
+    "d3-time-format": "^4.1.0",
+    "glob": "^11.0.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/d3-require": "^1.2.4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.2",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "esbuild": "0.25.1"
   }
 }

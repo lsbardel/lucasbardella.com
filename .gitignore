@@ -34,3 +34,9 @@ content/phd
 *.fdb_latexmk
 __latexindent_temp.tex
 next-env.d.ts
+
+#env
+.env
+
+#python
+.python-version

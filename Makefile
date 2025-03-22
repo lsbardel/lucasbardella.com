@@ -4,14 +4,6 @@ help:
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 	@echo ======================================================================================
 
-.PHONY: outdated
-outdated:		## Outdated dependencies
-	@yarn outdated
-
-.PHONY: update
-update:			## Update dependencies
-	@yarn upgrade --latest
-
 .PHONY: upgrade-interactive
 upgrade-interactive:	## Update dependencies interactively
 	@yarn upgrade-interactive --latest
