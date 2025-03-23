@@ -4,7 +4,10 @@ date: 2020-08-05
 keywords: algorithms, histogram, stack
 ---
 
-<module-component src="{{ bundleUrl }}/lab/largest-area-in-histogram/histogram.js" aspectratio="70%"></module-component>
+```jsx
+import {LargestHistogram} from "../../components/histogram.js";
+display(<LargestHistogram N={20} H={15} />);
+```
 
 This is a visualization of the maximum rectangular area in a histogram. It is the solution of the following problem
 
@@ -12,7 +15,7 @@ This is a visualization of the maximum rectangular area in a histogram. It is th
 
 To solve the problem in `math:O(N)` one can use a [stack data type](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)):
 
-```js
+```javascript
 const largestRectangle = (Height) => {
   var stack = [],
     max_area = 0,

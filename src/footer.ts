@@ -1,4 +1,9 @@
-const footer = (config) => {
+import { utcFormat } from "d3-time-format";
+
+const formatDate = utcFormat("%B %d, %Y %H:%M:%S");
+
+
+const footer = (config: Record<string, any>) => {
 
   return ({path}) => {
     let fullPath = `${path}.md`;
@@ -7,8 +12,11 @@ const footer = (config) => {
       fullPath = `/${bits[0]}/${bits[2]}.md`;
     }
     const fullUrl = `${config.homepage}/blob/main/content${fullPath}`;
+    const buildUrl = `${config.homepage}/actions/run/${process.env.GITHUB_RUN_ID}`;
+    const buildTime = formatDate(new Date());
     return `
-      <p>Made with <a href="https://observablehq.com/framework">Observable Framework</a> - last build © ${new Date().toISOString()}</p>
+      <p>Made with <a href="https://observablehq.com/framework">Observable Framework</a></p>
+      <p>Last build © <a href=${buildUrl}>${buildTime} UTC</a></p>
       <p>Source code available on <a href="${fullUrl}">${fullUrl}</a></p>
       <script async src="https://www.googletagmanager.com/gtag/js?id=${config.gtag}"></script>
       <script>
