@@ -1,5 +1,5 @@
 import footer from "./src/footer.js";
-import ContentLoader from "./src/content.js";
+import ContentLoader from "./src/content";
 import pkg from "./package.json" with { type: "json" };
 
 

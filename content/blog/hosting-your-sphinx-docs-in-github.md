@@ -1,12 +1,8 @@
+---
 title: Hosting your Sphinx docs in Github
-date: 2010-02-09 09:52:19
-author: Luca Sbardella
-slug: hosting-your-sphinx-docs-in-github
+date: 2010-02-09
 description: How to set up Sphinx and Github to create great documentation for your project on Github servers
-image: {{ assetUrl }}/blog/github.jpg
-head-tag: github, python, documentation
-category: git
-
+keywords: github, python, documentation, git
 ---
 
 [Github](http://github.com/) is a social source control service which has been growing at an incredible pace over the last year or so. I use it for most of my own and my company source control. If you don't know about it, check it out.

@@ -1,3 +1,4 @@
+---
 date: 2010-08-10
 title: Github behind a draconian firewall
 slug: github-behind-a-draconian-firewall
@@ -6,7 +7,6 @@ description: Sometimes there is a need to work with sub-optimal technologies suc
 image: https://farm3.staticflickr.com/2548/4110823060_227b76fccd_z_d.jpg
 head-tag: github, firewall
 category: git
-
 ---
 
 Sometimes there is a need to work with sub-optimal technologies such as a windows operative system behind a ssh-blocking draconian firewall. How worse can it get?
