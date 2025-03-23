@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "sources": ["../../src/github.jsx"],
+  "sources": ["../../src/components/github.jsx"],
   "sourcesContent": ["import * as Plot from \"npm:@observablehq/plot\";\nimport * as React from \"npm:react\";\n\nexport const githubStars = (data, { width, height } = {}) => {\n  return Plot.plot({\n    width,\n    height,\n    color: { legend: true },\n    y: {\n      grid: true,\n    },\n    marks: [\n      Plot.line(data, { x: \"date\", y: \"stars\", stroke: \"repo\", tip: true }),\n    ]\n  });\n}\n\n\nexport const GihubRepos = ({ repos }) => {\n  repos.sort((a, b) => b.stargazers_count - a.stargazers_count);\n  const inner = repos.map(repo =>\n    <a href={repo.html_url} target=\"_blank\">\n      <div class=\"card\">\n        <h2>{repo.name}</h2>\n        <p>{repo.description}</p>\n      </div>\n    </a>\n  );\n  return (\n    <div class=\"grid grid-cols-4\">\n      {inner}\n    </div>\n  );\n}\n"],
   "mappings": ";AAAA,YAAY,UAAU;AACtB,YAAY,WAAW;AAEhB,IAAM,cAAc,CAAC,MAAM,EAAE,OAAO,OAAO,IAAI,CAAC,MAAM;AAC3D,SAAY,UAAK;AAAA,IACf;AAAA,IACA;AAAA,IACA,OAAO,EAAE,QAAQ,KAAK;AAAA,IACtB,GAAG;AAAA,MACD,MAAM;AAAA,IACR;AAAA,IACA,OAAO;AAAA,MACA,UAAK,MAAM,EAAE,GAAG,QAAQ,GAAG,SAAS,QAAQ,QAAQ,KAAK,KAAK,CAAC;AAAA,IACtE;AAAA,EACF,CAAC;AACH;AAGO,IAAM,aAAa,CAAC,EAAE,MAAM,MAAM;AACvC,QAAM,KAAK,CAAC,GAAG,MAAM,EAAE,mBAAmB,EAAE,gBAAgB;AAC5D,QAAM,QAAQ,MAAM;AAAA,IAAI,UACtB,oCAAC,OAAE,MAAM,KAAK,UAAU,QAAO,YAC7B,oCAAC,SAAI,OAAM,UACT,oCAAC,YAAI,KAAK,IAAK,GACf,oCAAC,WAAG,KAAK,WAAY,CACvB,CACF;AAAA,EACF;AACA,SACE,oCAAC,SAAI,OAAM,sBACR,KACH;AAEJ;",
   "names": []

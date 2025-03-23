@@ -1,3 +1,7 @@
+---
+date: 2023 Jan 2
+---
+
 # Emission Trading System
 
 An Emissions Trading System ([ETS](https://www.oecd.org/env/tools-evaluation/emissiontradingsystems.htm)) is a policy tool used by governments to reduce greenhouse gas emissions, contributing to climate change. It works by setting a cap on the total amount of emissions that can be produced within a given period and then allocating or auctioning off a certain number of emissions allowances to participating companies.

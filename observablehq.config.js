@@ -1,3 +1,15 @@
+import footer from "./src/footer.js";
+import ContentLoader from "./src/content.js";
+import pkg from "./package.json" with { type: "json" };
+
+
+const config = {
+  ...pkg,
+  gtag: "G-PXRMNC0X0N",
+};
+const blog = await ContentLoader.load(config, "blog");
+const lab = await ContentLoader.load(config, "lab");
+
 // See https://observablehq.com/framework/config for documentation.
 export default {
   // The app’s title; used in the sidebar and webpage titles.
@@ -6,15 +18,14 @@ export default {
   // The pages and sections in the sidebar. If you don’t specify this option,
   // all pages will be listed in alphabetical order. Listing pages explicitly
   // lets you organize them into sections and have unlisted pages.
-  // pages: [
-  //   {
-  //     name: "Examples",
-  //     pages: [
-  //       {name: "Dashboard", path: "/example-dashboard"},
-  //       {name: "Report", path: "/example-report"}
-  //     ]
-  //   }
-  // ],
+  pages: [
+    {name: "cv", path: "/cv"},
+    {name: "contact", path: "/contact"},
+    {name: "blog", path: "/blog", open: false, pages: blog.sidebar()},
+    {name: "lab", path: "/lab", open: false, pages: lab.sidebar()},
+  ],
+
+  dynamicPaths: blog.paths(),
 
   // Content to add to the head of the page, e.g. for a favicon:
   head: '<link rel="icon" href="assets/luca-32x32.png" type="image/png" sizes="32x32">',
@@ -26,17 +37,7 @@ export default {
   // Some additional configuration options and their defaults:
   // theme: "default", // try "light", "dark", "slate", etc.
   // header: "", // what to show in the header (HTML)
-  footer: `
-    <p>Made with Observable - last build © ${new Date().toISOString()}</p>
-    <p>Source code available on <a href="https://github.com/lsbardel/lucasbardella.com">GitHub</a></p>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PXRMNC0X0N"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PXRMNC0X0N');
-    </script>
-  `,
+  footer: footer(config),
 
   // Some additional configuration options and their defaults:
   // header: "", // what to show in the header (HTML)

@@ -1,4 +1,4 @@
-// src/github.jsx
+// src/components/github.jsx
 import * as Plot from "npm:@observablehq/plot";
 import * as React from "npm:react";
 var githubStars = (data, { width, height } = {}) => {

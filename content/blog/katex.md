@@ -1,4 +1,7 @@
-# Katex with AngularJS
+---
+date: 2014 November 6
+title: Katex with AngularJS
+---
 
 I've recently switched from using [MathJax][] to using [KaTeX][] when rendering
 maths expressions in the browser.

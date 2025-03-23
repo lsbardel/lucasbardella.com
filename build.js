@@ -2,7 +2,7 @@ import {build} from "esbuild";
 import {glob} from "glob";
 
 await build({
-  entryPoints: await glob("./src/*"),
+  entryPoints: await glob("./src/components/*"),
   bundle: true,
   outdir: "content/components",
   sourcemap: "linked",

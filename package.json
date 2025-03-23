@@ -3,16 +3,19 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
+  "homepage": "https://github.com/lsbardel/lucasbardella.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lsbardel/lucasbardella.com.git"
+  },
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "components": "node build.js",
-    "build": "node build.js && .dev/node-run observable build",
+    "build": "node build.js && .dev/node-run tsx node_modules/.bin/observable build",
     "postbuild": "cp content/CNAME dist/",
-    "dev": ".dev/node-run observable preview",
-    "deploy": ".dev/node-run observable deploy",
-    "observable": ".dev/node-run observable"
+    "dev": ".dev/node-run tsx node_modules/.bin/observable preview"
   },
   "dependencies": {
     "@observablehq/framework": "^1.13.2",
@@ -21,6 +24,7 @@
     "glob": "^11.0.1"
   },
   "devDependencies": {
-    "esbuild": "0.25.1"
+    "esbuild": "0.25.1",
+    "tsx": "^4.19.3"
   }
 }
