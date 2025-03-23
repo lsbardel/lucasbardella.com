@@ -12,11 +12,11 @@ const nowTxt = formatDate(new Date());
 
 This post is for my new job hunting in 2025. If you a reading this post, it means I gave you the link so that we can work together to land me the best gig possible.
 
-Please treat this post as a private document. Do not share it with anyone else unless I give you permission to do so.
-
 The aim is to give you an introduction to myself so that we minimize the time wasted during the initial interview process.
 
-<hr/>
+<div class="warning">
+Please treat this post as a private document. Do not share it with anyone else unless I give you permission to do so.
+</div>
 
 ## CV
 
@@ -33,9 +33,9 @@ My notice period is 3 months and I have a non-compete clause that prevents me fr
 
 <hr/>
 
-## Why am I looking for a new job?
+## Why am I looking for a new role?
 
-I am looking for a new job because I am looking for a new challenge. I have been working at my current job since October 2023 where I developed the OTC trading platform for OTC commodity derivatives, including the hedging strategies associated with them.
+I am looking for a new role because I am looking for a new challenge. I have been working at Onyx since October 2023 where I developed the trading platform for OTC commodity derivatives, including the hedging strategies associated with them. All the code is written in Rust and Python.
 
 The platform has been live for few months now and, although there are still things to do, I feel that I have accomplished what I set out to do and the time is right to move on.
 
@@ -43,11 +43,13 @@ The platform has been live for few months now and, although there are still thin
 
 ## What am I looking for?
 
+* Hands-on role, not a pure management role
 * I'm looking for a new challenge in the algo trading space.
 * I'm looking for a role where I can lead a team to develop and manage algorithmic trading strategies
 * Happy to work for Hedge funds, trading houses and crypto trading shops
-* Not a fan of working for banks
 * I'm looking for a role where I can use Rust and/or Python
+* Not a fan of working for banks
+* Not keen on small startup with less than 10 million in funding or a runway of less than 2 years
 * In London or remote
 
 
