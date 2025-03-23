@@ -14,6 +14,10 @@ This post is about my job hunting in 2025. If you are reading it, it means I gav
 
 My aim is to give you an introduction to myself so that we minimize the time wasted during the initial interview process.
 
+<div class="tip">
+You can book a meeting with me <a href="https://calendly.com/luca-sbardella/30min">here</a>.
+</div>
+
 <div class="warning">
 Please treat this post as a private document. Do not share it with anyone else unless I give you permission.
 </div>
