@@ -12,7 +12,7 @@ const footer = (config: Record<string, any>) => {
       fullPath = `/${bits[0]}/${bits[2]}.md`;
     }
     const fullUrl = `${config.homepage}/blob/main/content${fullPath}`;
-    const buildUrl = `${config.homepage}/actions/run/${process.env.GITHUB_RUN_ID}`;
+    const buildUrl = `${config.homepage}/actions/runs/${process.env.GITHUB_RUN_ID}`;
     const buildTime = formatDate(new Date());
     return `
       <p>Made with <a href="https://observablehq.com/framework">Observable Framework</a></p>

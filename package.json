@@ -12,8 +12,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "components": "node build.js",
-    "build": "node build.js && .dev/node-run tsx node_modules/.bin/observable build",
+    "build": ".dev/node-run tsx node_modules/.bin/observable build",
     "postbuild": "cp content/CNAME dist/",
     "dev": ".dev/node-run tsx node_modules/.bin/observable preview"
   },

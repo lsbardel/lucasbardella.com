@@ -4,7 +4,7 @@ date: 2020-08-05
 keywords: algorithms, histogram, stack
 ---
 
-```jsx
+```tsx
 import {LargestHistogram} from "../../components/histogram.js";
 display(<LargestHistogram N={20} H={15} />);
 ```
