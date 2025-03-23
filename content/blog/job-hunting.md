@@ -50,6 +50,7 @@ The platform has been live for a few months now, and although there are still th
 * I'm looking for a role where I can use Rust and/or Python
 * Not a fan of working for banks
 * Not keen on small startups with less than 10 million in funding or a runway of less than 2 years
+* I'm open to contract roles too, via my own company [quantmind](https://github.com/quantmind)
 * In London or remote
 
 
