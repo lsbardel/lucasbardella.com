@@ -1,5 +1,5 @@
-import fs from "fs/promises";
 import { timeFormat } from "d3-time-format";
+import fs from "fs/promises";
 import { basename, join } from "path";
 import compileOptions from "./options";
 
@@ -14,7 +14,8 @@ type Page = {
   date: Date;
   description: string;
   body: string;
-  year: number,
+  year: number;
+  private: boolean;
   options: Record<string, any>;
 };
 
@@ -49,7 +50,7 @@ class ContentLoader {
   }
 
   sidebar() {
-    return this.pages.map((p) => {
+    return this.pages.filter((p) => p.private === false).map((p) => {
       return { name: `${p.year} - ${p.name}`, path: p.path };
     });
   }
@@ -84,6 +85,7 @@ const compileContent = async (sourcePath, content): Promise<Page | undefined> =>
   let date = new Date();
   let description = "";
   let options: Record<string, any> = {};
+  let private_ = false;
   if (bits.length > 2) {
     body = bits.slice(2).join("---\n")
     options = compileOptions(bits[1]);
@@ -93,6 +95,8 @@ const compileContent = async (sourcePath, content): Promise<Page | undefined> =>
     }
     description = options.description || "";
     delete options.description;
+    private_ = options.private === true ? true : false;
+    delete options.sidebar;
   }
   const slug = fileName.split(".")[0];
   const name = options.title || slug;
@@ -106,6 +110,7 @@ const compileContent = async (sourcePath, content): Promise<Page | undefined> =>
     year,
     body,
     date,
+    private: private_,
     options,
   } as Page;
 }

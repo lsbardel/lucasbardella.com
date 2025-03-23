@@ -2,8 +2,9 @@
 
 ## PhD - Quantitative Algo Trader
 
-My name is Luca Sbardella and I'm a passionate tech lead working on
-quantitative-algo trading and real-time applications.
+Hi there! I'm a passionate tech lead working on
+quantitative-algo trading and real-time trading applications.
+
 Over the last twenty plus years I have worked as
 
 - Research assistant at Imperial College London
