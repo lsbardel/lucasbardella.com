@@ -6,5 +6,5 @@ Hello there! If you'd like to get in touch send me an e-mail directly at
 
 
 <div grid>
-<a href="/"><img width=200 alt="Luca Sbardella QR" src="assets/luca-qr.png" color="white"></a>
+<a href="/"><img width=200 alt="Luca Sbardella QR" src="data/luca-qr.png" color="white"></a>
 </div>

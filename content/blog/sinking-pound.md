@@ -12,8 +12,6 @@ UK's [national net debt](http://en.wikipedia.org/wiki/Government_debt) was confi
 
 ## The bad
 
-<img src="{{ assetUrl }}/blog/loan-to-businesses.png" alt="Loan to businesses" style="width: 100%; max-width: 600px; float: right; padding-left: 20px">
-
 In 2009 Q4 the stock of lending to companies [fell across all the main sectors](http://www.bankofengland.co.uk/publications/other/monetary/TrendsFebruary10.pdf) of the economy for the third consecutive quarter as reported by the [Bank of England](http://www.bankofengland.co.uk/) this week.
 The December 09 contraction of 4.3% is particularly worrying if compared with the small expansion in November. The banks are not lending, businesses will not invest and hire people. Unemployment won't decrease in the near term. Double dip recession? More probable than possible.
 

@@ -1,6 +1,13 @@
 # Curriculum Vitae
 
-[Download CV](/_file/assets/luca-sbardella-cv.pdf)
+```js
+import {FileAttachment} from "observablehq:stdlib";
+const cvUrl = FileAttachment("data/luca-sbardella-cv.pdf").url();
+```
+
+```html
+<a href="${cvUrl}">Download CV</a>
+```
 
 **Web**: [lucasbardella.com](http://lucasbardella.com)<br>
 **Email**: [luca@quantmind.com](mailto:luca@quantmind.com)<br>

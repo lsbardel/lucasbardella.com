@@ -28,7 +28,7 @@ export default {
   dynamicPaths: blog.paths(),
 
   // Content to add to the head of the page, e.g. for a favicon:
-  head: '<link rel="icon" href="assets/luca-32x32.png" type="image/png" sizes="32x32">',
+  head: '<link rel="icon" href="data/luca-32x32.png" type="image/png" sizes="32x32">',
 
   // The path to the source root.
   root: "content",
