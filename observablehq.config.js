@@ -21,6 +21,9 @@ export default {
   pages: [
     {name: "cv", path: "/cv"},
     {name: "contact", path: "/contact"},
+    {name: "market", path: "/market", open: true, pages: [
+      {name: "heatmap", path: "/market/heatmap"},
+    ]},
     {name: "blog", path: "/blog", open: false, pages: blog.sidebar()},
     {name: "lab", path: "/lab", open: false, pages: lab.sidebar()},
   ],

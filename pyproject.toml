@@ -7,6 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "aio-fluid[cli,http]>=1.5.0",
     "qrcode[pil]>=8.0",
+    "quantflow[cli,data]>=0.3.1",
 ]
 
 [dependency-groups]

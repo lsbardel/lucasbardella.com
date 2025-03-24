@@ -30,3 +30,6 @@ In terms of qualifications, I have
 - [Laurea](https://en.wikipedia.org/wiki/Laurea) in Aeronautical Engineering from Politecnico di Torino
 
 If you want to get in contact, [please do so](/contact).
+
+<div >
+<a data-flickr-embed="true" data-header="true" data-footer="true" data-context="true" href="https://www.flickr.com/photos/sbardella/53709569137" title="Workout in Hide Park"><img src="https://live.staticflickr.com/65535/53709569137_4380abf0ac_z.jpg" width="500" alt="Workout in Hide Park"/></a>
