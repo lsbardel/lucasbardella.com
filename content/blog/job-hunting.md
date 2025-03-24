@@ -21,12 +21,12 @@ You can book a meeting with me <a href="https://calendly.com/luca-sbardella/30mi
 <div class="warning">
 Please treat this post as a private document. Do not share it with anyone else unless I give you permission.
 
-Plese don't share my CV with anyone without my permission.
+Please don't share my CV with anyone without my permission.
 </div>
 
 ## CV
 
-Check my [CV](/cv) for a detailed description of my work experience.
+Check my [CV](/cv) for a detailed description of my work experience and some useful links.
 You can download the CV pdf from there if you prefer.
 
 <hr/>
