@@ -20,6 +20,8 @@ You can book a meeting with me <a href="https://calendly.com/luca-sbardella/30mi
 
 <div class="warning">
 Please treat this post as a private document. Do not share it with anyone else unless I give you permission.
+
+Plese don't share my CV with anyone without my permission.
 </div>
 
 ## CV

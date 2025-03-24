@@ -9,7 +9,6 @@ type TradingViewInput = {
 
 
 export const TradingViewChart = ({symbol, aspectRatio, theme}: TradingViewInput) => {
-  const container = React.useRef(null);
   const setRef = (el) => {
     if (!el) return;
     const script = document.createElement("script");
