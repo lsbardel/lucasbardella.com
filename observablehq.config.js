@@ -8,6 +8,7 @@ const config = {
   gtag: "G-PXRMNC0X0N",
 };
 const blog = await ContentLoader.load(config, "blog");
+const coding = await ContentLoader.load(config, "coding");
 const lab = await ContentLoader.load(config, "lab");
 
 // See https://observablehq.com/framework/config for documentation.
@@ -24,6 +25,7 @@ export default {
     {name: "market", path: "/market", open: true, pages: [
       {name: "heatmap", path: "/market/heatmap"},
     ]},
+    {name: "coding", path: "/coding",  open: false, pages: coding.sidebar()},
     {name: "blog", path: "/blog", open: false, pages: blog.sidebar()},
     {name: "lab", path: "/lab", open: false, pages: lab.sidebar()},
   ],

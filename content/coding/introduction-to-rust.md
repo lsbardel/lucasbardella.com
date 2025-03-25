@@ -6,7 +6,7 @@ keywords: programming, rust
 ---
 
 <a href="https://www.rust-lang.org/" target="_blank" rel="noopener">
-<img src="https://www.rust-lang.org/logos/rust-logo-blk.svg" alt="Rust lang" style="float: right; margin: 10px; background-color: #222" width="30%">
+<img src="https://www.rust-lang.org/logos/rust-logo-blk.svg" alt="Rust lang" style="float: right; margin: 10px; background-color: #fff" width="30%">
 </a>
 
 High frequency trading (HFT) applications require extremely low latencies and high performance to ensure that trades are executed quickly and accurately. As a result, choosing the correct programming language is crucial for the success of an HFT system.

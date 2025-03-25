@@ -186,12 +186,12 @@ PhD, Applied Mathematics, Computational Fluid Dynamics.
 
 This is an incomplete list of publications during my academic years.
 
-- Sbardella L, Imregun M, (2002) "[Transonic Rotor/Stator Interaction Using a 3-D Linearised Unsteady Viscous Flow Mode](http://goo.gl/W8K0KD)" International Journal of Computational Fluid Dynamics, Vol. 16, No. 3, pp. 135-153.
+- Sbardella L, Imregun M, (2002) "[Transonic Rotor/Stator Interaction Using a 3-D Linearised Unsteady Viscous Flow Mode](https://doi.org/10.1080/10618560290034672)" International Journal of Computational Fluid Dynamics, Vol. 16, No. 3, pp. 135-153.
 - Sbardella L, and Imregun M ,(2001) "[Linearized Unsteady Viscous Turbomachinery Flows Using Hybrid Grids](https://doi.org/10.1115/1.1371777)", J. Turbomachinery Vol. 123, No. 3 (2001), pp. 568-582.
-- Sbardella L, Tester B J and Imregun M, (2001), "[A Time-Domain Method for the Prediction of Sound Attenuation in Lined Ducts](http://goo.gl/vx2IAD)" Journal of Sound and Vibration, Vol. 239, Issue 3, pp. 379–396.
-- Sbardella L, Imregun M, (2000) "[An efficient discretization of viscous fluxes on unstructured mixed-element grids](http://goo.gl/J1cBIa)" Communications in Numerical Methods in Engineering, Vol. 16, No. 12, pp. 839-849.
-- Sbardella L, Sayma A I and Imregun M, (2000), "[Semi-structured meshes for axial turbomachinery blades](http://goo.gl/vYZMfC) Int. J. Numer. Meth. Fluids, Vol 32, pp. 569–584.
-- Sayma A I, Vahdati M, Sbardella L, and Imregun M (2000) "[Modelling of Three-Dimensional Viscous Compressible Turbomachinery Flows Using Unstructured Hybrid Grids](http://goo.gl/1VRCme)", AIAA Journal, Vol. 38, No. 6, pp. 945-954.
+- Sbardella L, Tester B J and Imregun M, (2001), "[A Time-Domain Method for the Prediction of Sound Attenuation in Lined Ducts](https://doi.org/10.1006/jsvi.2000.3173)" Journal of Sound and Vibration, Vol. 239, Issue 3, pp. 379–396.
+- Sbardella L, Imregun M, (2000) "[An efficient discretization of viscous fluxes on unstructured mixed-element grids]( https://doi.org/10.1002/1099-0887(200012)16:12<839::AID-CNM382>3.0.CO;2-3)" Communications in Numerical Methods in Engineering, Vol. 16, No. 12, pp. 839-849.
+- Sbardella L, Sayma A I and Imregun M, (2000), "[Semi-structured meshes for axial turbomachinery blades]( https://doi.org/10.1002/(SICI)1097-0363(20000315)32:5<569::AID-FLD975>3.0.CO;2-V) Int. J. Numer. Meth. Fluids, Vol 32, pp. 569–584.
+- Sayma A I, Vahdati M, Sbardella L, and Imregun M (2000) "[Modelling of Three-Dimensional Viscous Compressible Turbomachinery Flows Using Unstructured Hybrid Grids](https://doi.org/10.2514/2.1062)", AIAA Journal, Vol. 38, No. 6, pp. 945-954.
 
 <hr>
 

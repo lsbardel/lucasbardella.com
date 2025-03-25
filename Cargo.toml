@@ -1,0 +1,14 @@
+[package]
+name = "lucasbardella-com"
+version = "0.1.0"
+edition = "2024"
+
+members = [
+    "crates/*",
+]
+default-members = [
+  "crates/*",
+]
+
+[dependencies]
+rtrb = "0.3.2"
