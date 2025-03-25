@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "type": "module",
   "private": true,
+  "author": "Luca Sbardella",
   "homepage": "https://github.com/lsbardel/lucasbardella.com",
   "repository": {
     "type": "git",
