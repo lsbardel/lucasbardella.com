@@ -49,21 +49,20 @@ const largestRectangle = (Height) => {
   }
 };
 
-export const LargestHistogram = ({N, H}: {N: number, H: number}) => {
+export const LargestHistogram = ({N, H, speed}: {N: number, H: number, speed: number}) => {
   const el = React.useRef(null);
-  const setRef = (el) => {
-    if (el) {
-      histogram(el, N, H);
-    }
-  }
-  return <div ref={setRef} />;
+  React.useEffect(() => {
+    return histogram(el.current, N, H, speed);
+  }, [N, H]);
+  return <div ref={el} />;
 }
 
-const histogram = (el, N, H) => {
+const histogram = (el, N, H, speed) => {
   const generateData = () => d3.range(0, N).map(d3.randomUniform(1, H - 2));
   const color = d3.scaleSequential(d3.interpolateViridis).domain([0, H + 5]);
   const areaColor = color(H + 5);
   const animation = {};
+  let end = false;
   let data = generateData();
 
   const svg = d3.select(el).append("svg");
@@ -114,7 +113,9 @@ const histogram = (el, N, H) => {
   }
 
   function animate(histogram, duration) {
-    var data1 = generateData(),
+    if (end) return;
+
+    const data1 = generateData(),
       Ht = d3.interpolateArray(data, data1);
 
     d3.select(animation)
@@ -126,9 +127,13 @@ const histogram = (el, N, H) => {
         };
       });
 
-    d3.timeout(function () {
+    d3.timeout(() => {
       data = data1;
       animate(histogram, duration);
     }, (Math.random() + 1) * duration);
+  }
+
+  return () => {
+    end = true;
   }
 };

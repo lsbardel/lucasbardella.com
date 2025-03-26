@@ -4,14 +4,19 @@ date: 2020-08-05
 keywords: algorithms, histogram, stack
 ---
 
+
 ```tsx
 import {LargestHistogram} from "../../components/histogram.js";
-display(<LargestHistogram N={20} H={15} />);
+display(<LargestHistogram N={nn} H={15} speed={2000}/>);
 ```
 
 This is a visualization of the maximum rectangular area in a histogram. It is the solution of the following problem
 
 > Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+
+```js
+const nn = view(Inputs.range([5, 50], {step: 1, label: "Number of rectangles", value: 20}));
+```
 
 To solve the problem in `math:O(N)` one can use a [stack data type](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)):
 
