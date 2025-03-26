@@ -3,6 +3,7 @@ title: Introduction to Rust
 date: 2023-01-07
 description: Rust is a fast, safe, and concurrent systems programming language that is quickly gaining popularity for writing HFT applications
 keywords: programming, rust
+private: true
 ---
 
 <a href="https://www.rust-lang.org/" target="_blank" rel="noopener">
