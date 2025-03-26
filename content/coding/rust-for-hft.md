@@ -37,9 +37,11 @@ When writing HFT systems, there are a few general rules that you should follow t
 
 ## Multi threaded vs Single threaded
 
-One of te key design decisions when developing an HFT system is whether to use a multi-threaded or single-threaded architecture. Multi-threaded systems can take advantage of multiple cores and processors to execute trades more quickly, but they can also be more complex to develop and maintain. Single-threaded systems are simpler and easier to debug, but they may not be able to achieve the same level of performance as multi-threaded systems.
+One of the key design decisions when developing an HFT system is whether to use a multi-threaded or single-threaded architecture. Multi-threaded systems can take advantage of multiple cores and processors to execute trades more quickly, but they can also be more complex to develop and maintain. Single-threaded systems are simpler and easier to debug, but they may not be able to achieve the same level of performance as multi-threaded systems.
 
 In addition, the cost of inter-thread communication (~100ns) is not negligible and can be a bottleneck in a multi-threaded system.
+
+Multi-threaded system are the norm in HFT system, but one must be aware of the trade-offs and therefore carefully design the system with as few threads communicating as possible.
 
 ## SPSC Queues
 
