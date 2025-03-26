@@ -1,5 +1,9 @@
 import * as Plot from "npm:@observablehq/plot";
 import * as React from "npm:react";
+import { timeFormat } from "d3-time-format";
+import GitHubButton from 'npm:react-github-btn'
+
+const formatDate = timeFormat("%B %d, %Y");
 
 export const githubStars = (data, { width, height } = {}) => {
   return Plot.plot({
@@ -30,5 +34,18 @@ export const GihubRepos = ({ repos }) => {
     <div class="grid grid-cols-4">
       {inner}
     </div>
+  );
+}
+
+
+export const GihubRepoLink = ({ repo }) => {
+  return (
+    <a href={repo.html_url} target="_blank" style={{"textDecoration": "none"}}>
+      <div class="card">
+        <h2><GitHubButton data-color-scheme="dark" data-size="large">{repo.full_name} | {repo.stargazers_count}</GitHubButton></h2>
+        <h3>{repo.description}</h3>
+        <h3>Last updated {formatDate(new Date(repo.updated_at))}</h3>
+      </div>
+    </a>
   );
 }

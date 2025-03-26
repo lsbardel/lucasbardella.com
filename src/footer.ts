@@ -16,10 +16,11 @@ const footer = (config: Record<string, any>) => {
     const buildUrl = `${config.homepage}/actions/runs/${process.env.GITHUB_RUN_ID}`;
     const buildTime = formatDate(new Date());
     return `
+      <hr>
       <p>Made with <a href="https://observablehq.com/framework">Observable Framework</a></p>
       <p>Last build © <a href=${buildUrl}>${buildTime} UTC</a></p>
       <p>Source code available on <a href="${fullUrl}">${fullUrl}</a></p>
-      <p>© 2008-${date.getFullYear()} ${config.author}</p>
+      <p>© 2009-${date.getFullYear()} ${config.author}</p>
       <script async src="https://www.googletagmanager.com/gtag/js?id=${config.gtag}"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
