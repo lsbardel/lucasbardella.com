@@ -18,3 +18,10 @@ p.description {
   font-size: 1.2em;
   color: var(--theme-foreground-muted);
 }
+
+img.luca {
+  float: right;
+  margin: 20px;
+  width: 25%;
+  border-radius: 10%;
+}

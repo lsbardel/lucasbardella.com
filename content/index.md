@@ -1,9 +1,9 @@
 # Luca Sbardella
 
 ### PhD - Quantitative Algo Trader
-
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/sbardella/54413648095/in/dateposted/" title="Me"><img src="https://live.staticflickr.com/65535/54413648095_d2fbc20bdb_w.jpg" width="20%" alt="Me" style="float: right;"/></a>
-
+```html
+<a data-flickr-embed="true" href="https://www.flickr.com/photos/sbardella/54413648095/in/dateposted/" title="Me"><img class="luca" src="https://live.staticflickr.com/65535/54413648095_d2fbc20bdb_w.jpg" alt="Me"/></a>
+```
 Hi there! I'm a passionate tech lead working on
 quantitative-algo trading and real-time trading applications.
 
@@ -14,7 +14,7 @@ Over the last twenty plus years I have worked as
 - Software consultant via [quantmind](https://quantmind.com)
 - CTO at Fintech & crypto start-ups/scale-ups
 - Head algo sport trading
-- Systematic Algo trading on crypto and commodities
+- Systematic algo trading on crypto and commodities
 
 On a daily basis
 
