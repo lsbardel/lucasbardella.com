@@ -8,6 +8,11 @@ h2 {
   color: #bdac5a;
 }
 
+h2.blog-list {
+  font-size: 20px;
+  border: none;
+}
+
 p.date {
   font-style: italic;
   color: var(--theme-foreground-faint)
@@ -24,4 +29,8 @@ img.luca {
   margin: 20px;
   width: 25%;
   border-radius: 10%;
+}
+
+a.no-deco {
+  text-decoration: none !important;
 }

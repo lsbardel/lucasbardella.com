@@ -58,6 +58,23 @@ class ContentLoader {
   paths() {
     return this.pages.map((p) => p.path);
   }
+
+  emitList(title: string) {
+    process.stdout.write(`# ${title}\n`);
+    this.pages.forEach((p) => {
+      const date = formatDate(p.date);
+      const description = p.description || "";
+      if (p.private) return;
+      const card = `<a class="no-deco" href="${p.path}">
+        <div class="card">
+          <h2 class="blog-list">${p.name}</h2>
+          <h3 class="date">${date}</h3>
+          <p class="description">${description}</p>
+        </div>
+      </a>`;
+      process.stdout.write(card);
+    });
+  }
 }
 
 
