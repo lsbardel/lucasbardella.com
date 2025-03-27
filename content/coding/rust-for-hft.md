@@ -160,6 +160,29 @@ Vendor ID:                GenuineIntel
 
 In this example, the CPU has 20 cores, with 2 threads per core.
 
+## Additional Considerations
+
+There are many other factors to consider when developing an HFT system, including network latency, market data feeds, order execution, and risk management. I won't go into details here, but it is important to carefully consider all of these factors when designing your system.
+
+There are several specialized libraries that can help you with these and other tasks, this is a list of some of them:
+
+```tsx
+display(<GihubRepoLink repo={repos["metrics-rs/quanta"]} />);
+```
+
+```tsx
+display(<GihubRepoLink repo={repos["elast0ny/shared_memory"]} />);
+```
+
+```tsx
+display(<GihubRepoLink repo={repos["SoftbearStudios/bitcode"]} />);
+```
+
+```tsx
+display(<GihubRepoLink repo={repos["gyscos/zstd-rs"]} />);
+```
+
+
 ## Some References
 
 * [The coded message](https://www.thecodedmessage.com/)
