@@ -7,7 +7,7 @@ keywords: algorithms, histogram, stack
 
 ```tsx
 import {LargestHistogram} from "../../components/histogram.js";
-display(<LargestHistogram N={nn} H={15} speed={2000}/>);
+display(<LargestHistogram N={nn} H={15} speed={2000} aspectRatio="70%"/>);
 ```
 
 This is a visualization of the maximum rectangular area in a histogram. It is the solution of the following problem

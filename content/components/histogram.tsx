@@ -1,24 +1,6 @@
 import * as React from "npm:react";
 import * as d3 from "npm:d3";
 
-export default (notebook, el) => {
-  notebook
-    .require(
-      "d3-selection",
-      "d3-transition",
-      "d3-scale",
-      "d3-array",
-      "d3-random",
-      "d3-scale",
-      "d3-timer",
-      "d3-scale-chromatic",
-      "d3-interpolate"
-    )
-    .then((d3) => {
-      histogram(el, d3, 20, 15);
-    });
-};
-
 const largestRectangle = (Height) => {
   var stack = [],
     max_area = 0,
@@ -49,12 +31,19 @@ const largestRectangle = (Height) => {
   }
 };
 
-export const LargestHistogram = ({N, H, speed}: {N: number, H: number, speed: number}) => {
+
+export const LargestHistogram = ({N, H, speed, aspectRatio}: {N: number, H: number, speed: number, aspectRatio: string}) => {
   const el = React.useRef(null);
+  const style = {width: "100%", position: "relative", paddingTop: aspectRatio};
+  const styleInner = {position: "absolute", top: 0, left: 0, bottom: 0, right: 0};
   React.useEffect(() => {
     return histogram(el.current, N, H, speed);
   }, [N, H]);
-  return <div ref={el} />;
+  return (
+    <div className="gol-container-outer" style={style}>
+      <div className="gol-container" ref={el} style={styleInner}></div>
+    </div>
+  );
 }
 
 const histogram = (el, N, H, speed) => {
@@ -65,6 +54,7 @@ const histogram = (el, N, H, speed) => {
   let end = false;
   let data = generateData();
 
+  d3.select(el).select("svg").remove();
   const svg = d3.select(el).append("svg");
   const paper = svg.append("g");
   const area = svg.append("rect").style("fill", areaColor).style("fill-opacity", 0.6);
