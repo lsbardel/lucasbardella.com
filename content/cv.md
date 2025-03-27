@@ -18,10 +18,8 @@ const cvUrl = FileAttachment("data/luca-sbardella-cv.pdf").url();
 **Linkedin**: [https://www.linkedin.com/in/lucasbardella](https://www.linkedin.com/in/lucasbardella)<br>
 **GitHub**: [https://github.com/quantmind](https://github.com/quantmind)<br>
 **Interests**: technology, finance, world economics, [cycling][], [skiing][], football, [wine][], chess<br>
-**Keywords**: trading strategies, quantitative finance, statistics, machine-learning, data analysis, stochastic calculus, application development, visualization, database, concurrency, Linux, open-source, technology, [WSET](https://www.wsetglobal.com/)<br>
+**Keywords**: algo-trading, trading strategies, quantitative finance, statistics, machine-learning, data analysis, stochastic calculus, application development, visualization, database, concurrency, Linux, open-source, technology, [WSET](https://www.wsetglobal.com/)<br>
 **Coding**: [Rust](https://www.rust-lang.org/), [Python](https://www.python.org/), [Typescript](https://www.typescriptlang.org/)<br>
-
-<hr>
 
 ## Work Experience
 
@@ -165,8 +163,6 @@ Quantitative analyst/trader in propriety trading group. Researching and trading 
 
 **Coding**: C++, Excel/VBA
 
-<hr>
-
 ## Education
 
 <hr>
@@ -184,6 +180,7 @@ PhD, Applied Mathematics, Computational Fluid Dynamics.
 
 **Publications**
 
+For a complete list of publications, please refer to [Google Scholar](https://scholar.google.com/citations?user=jV80M7QAAAAJ&hl=en).
 This is an incomplete list of publications during my academic years.
 
 - Sbardella L, Imregun M, (2002) "[Transonic Rotor/Stator Interaction Using a 3-D Linearised Unsteady Viscous Flow Mode](https://doi.org/10.1080/10618560290034672)" International Journal of Computational Fluid Dynamics, Vol. 16, No. 3, pp. 135-153.

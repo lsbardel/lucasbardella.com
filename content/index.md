@@ -1,13 +1,15 @@
 # Luca Sbardella
 
-## PhD - Quantitative Algo Trader
+### PhD - Quantitative Algo Trader
+
+<a data-flickr-embed="true" href="https://www.flickr.com/photos/sbardella/54413648095/in/dateposted/" title="Me"><img src="https://live.staticflickr.com/65535/54413648095_d2fbc20bdb_w.jpg" width="20%" alt="Me" style="float: right;"/></a>
 
 Hi there! I'm a passionate tech lead working on
 quantitative-algo trading and real-time trading applications.
 
 Over the last twenty plus years I have worked as
 
-- Research assistant at Imperial College London
+- Research assistant at Imperial College London where I got my PhD and [published several papers](https://scholar.google.com/citations?user=jV80M7QAAAAJ&hl=en)
 - Quantitative analyst/trader at major investment banks and hedge funds
 - Software consultant via [quantmind](https://quantmind.com)
 - CTO at Fintech & crypto start-ups/scale-ups
