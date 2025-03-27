@@ -1,29 +1,6 @@
 // We need to keep a state across refresh
-export default (_, el, options) => {
-  notebook
-    .require("d3-selection", "d3-scale", "d3-drag", "d3-transition", "d3-timer", "d3-format")
-    .then((d3) => {
-      planarity(el, d3, state, options);
-    });
-};
-
-// We need to keep a state across refresh
-const state = {
-  nodes: 8,
-  radius: 15,
-  points: [],
-  links: [],
-  crosses: 0,
-  start: 0,
-  moves: 0,
-  time: 0,
-  strokeWidth: 2,
-  circleColor: "#4DA6FF",
-  linkColor: "#555",
-  interSectionColor: "#ff7600",
-  highlightIntersections: true,
-  update() {},
-};
+import * as d3 from "npm:d3";
+import * as React from "npm:react";
 
 const randomNode = (node) => {
   var x = Math.random(),
@@ -118,9 +95,8 @@ const intersections = (links) => {
   return count;
 };
 
-const planarity = (el, d3, graph, options) => {
+const planarity = (el, graph) => {
   // Generates a random planar graph with *n* nodes.
-  options = { ...graph, ...options };
   const format = d3.format(",.2f");
 
   graph.update = options.update ? options.update : graph.update;
@@ -240,3 +216,32 @@ const planarity = (el, d3, graph, options) => {
     options.update(graph);
   }
 };
+
+
+const Planarity = ({ nodes, radius }: {nodes: number, radius: number, aspectRatio: string}) => {
+  const ref = React.useRef(null);
+  const [state, setState] = React.useState(null);
+  React.useEffect(() => {
+    setState({
+      nodes,
+      radius,
+      points: [],
+      links: [],
+      crosses: 0,
+      start: 0,
+      moves: 0,
+      time: 0,
+      strokeWidth: 2,
+      circleColor: "#4DA6FF",
+      linkColor: "#555",
+      interSectionColor: "#ff7600",
+      highlightIntersections: true,
+      update() {},
+    });
+  }, [nodes, radius]);
+  if (state) planarity(ref.current, state);
+  return <div ref={ref} />;
+}
+
+
+export default Planarity;
