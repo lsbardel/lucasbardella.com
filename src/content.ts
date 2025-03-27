@@ -68,7 +68,8 @@ export const emitContent = async (content: string, slug: string | undefined) => 
     const headers = Object.keys(entry.options).map((o) => `${o}: ${entry.options[o]}`);
     const title = entry.options.title || entry.name;
     const date = formatDate(entry.date);
-    let body = [`# ${title}`, `## ${date}`, entry.body].join("\n\n");
+    const description = entry.description || "";
+    let body = [`# ${title}`, `<p class="date">${date}</p>`,  `<p class="description">${description}</p>`, entry.body].join("\n");
     if (headers.length > 0) {
       body = `---\n${headers.join("\n")}\n---\n${body}`;
     }

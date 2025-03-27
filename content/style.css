@@ -1,0 +1,20 @@
+@import url("observablehq:default.css");
+@import url("observablehq:theme-near-midnight.css");
+
+
+h2 {
+  border-top: 1px solid var(--theme-foreground-fainter);
+  padding-top: 20px;
+  color: #bdac5a;
+}
+
+p.date {
+  font-style: italic;
+  color: var(--theme-foreground-faint)
+}
+
+p.description {
+  font-style: italic;
+  font-size: 1.2em;
+  color: var(--theme-foreground-muted);
+}

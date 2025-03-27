@@ -1,6 +1,6 @@
 ---
 title: Rust for HFT
-description: High-frequency trading (HFT) design patterns in Rust
+description: An introduction to High-frequency trading design patterns in Rust and practical considerations.
 date: 2025 March 25
 ---
 
@@ -35,7 +35,7 @@ When writing HFT systems, there are a few general rules that you should follow t
 * Memory operations tend to be quite expensive compared to arithmetic operations. Therefore, it is important to minimize the number of memory operations in your code. This can be achieved by using stack memory instead of heap memory, and by avoiding unnecessary allocations and deallocations. Think about [Copy](https://doc.rust-lang.org/std/marker/trait.Copy.html) vs [Clone](https://doc.rust-lang.org/std/clone/trait.Clone.html) traits in Rust.
 * IO operations, such as writing or reading to disk or to a network socket, are also expensive. It is important to minimize the number of IO operations in the crytical path of your HFT code.
 
-## Multi threaded vs Single threaded
+## Multi Threaded vs Single Threaded Process
 
 One of the key design decisions when developing an HFT system is whether to use a multi-threaded or single-threaded architecture. Multi-threaded systems can take advantage of multiple cores and processors to execute trades more quickly, but they can also be more complex to develop and maintain. Single-threaded systems are simpler and easier to debug, but they may not be able to achieve the same level of performance as multi-threaded systems.
 
@@ -80,7 +80,87 @@ flowchart TB
 
 Most SPSC queues are implemented using a FIFO [ring buffer](https://en.wikipedia.org/wiki/Circular_buffer), which is a circular buffer that can be used to store a **fixed number** of elements. Ring buffers are fast and efficient, with constant-time access to elements and no need for locks or other synchronization mechanisms.
 
-<hr>
+## Processor Affinity
+
+Another important consideration when developing an HFT system is processor affinity, aka CPU pinning.
+Processor affinity is the ability to bind a thread to a specific CPU core or set of CPU cores. This can help to reduce the latency of the system by ensuring that the thread is always running on the same core, which can reduce the overhead of context switching and cache misses.
+
+### Understanding the basics
+
+* **OS Scheduler** - The operating system's scheduler is responsible for distributing threads and processes across the available [CPU](https://en.wikipedia.org/wiki/Central_processing_unit) cores.
+* **CPU Cores** - Modern CPUs often have multiple cores, allowing them to execute multiple threads, across these cores, simultaneously.
+* **Threas** - A thread is the smallest sequence of programmed instructions that can be managed independently by the a scheduler, which is typically a part of an operating system.  
+* **Process** - A process is an instance of a computer program that is being executed. A process can contain one or more threads as we discussed above.
+
+### Why CPU pinning?
+
+Without pinning, the scheduler dynamically moves threads between cores to optimize overall system performance.
+However, this can lead to increased latency and jitter in HFT systems, as the thread may be moved to a different core at any time, causing cache misses and other performance issues. By pinnning a thread to a specific core you get the following performance benefits:
+
+* **Cache Affinity** - Data related to that thread remains in the same CPU's cache memory. This reduces the need to fetch data from slower main memory, significantly improving performance.
+* **Reduced Context Switching** - Moving a thread between cores (context switching) is a relatively expensive operation. Pinning minimizes this overhead.
+
+Rust provides this library
+
+```tsx
+display(<GihubRepoLink repo={repos["Elzair/core_affinity_rs"]} />);
+```
+
+```rust
+extern crate core_affinity;
+
+use std::thread;
+
+// Retrieve the IDs of all cores on which the current
+// thread is allowed to run.
+// NOTE: If you want ALL the possible cores, you should
+// use num_cpus.
+let core_ids = core_affinity::get_core_ids().unwrap();
+
+// Create a thread for each active CPU core.
+let handles = core_ids.into_iter().map(|id| {
+    thread::spawn(move || {
+        // Pin this thread to a single CPU core.
+        let res = core_affinity::set_for_current(id);
+        if (res) {
+          // Do more work after this.
+        }
+    })
+}).collect::<Vec<_>>();
+
+for handle in handles.into_iter() {
+    handle.join().unwrap();
+}
+```
+
+To check your CPU cores, you can use the following command in Linux:
+
+```bash
+lscpu
+```
+
+For example, the output of the command might look like this:
+
+```bash
+Architecture:             x86_64
+  CPU op-mode(s):         32-bit, 64-bit
+  Address sizes:          46 bits physical, 48 bits virtual
+  Byte Order:             Little Endian
+CPU(s):                   20
+  On-line CPU(s) list:    0-19
+Vendor ID:                GenuineIntel
+  Model name:             13th Gen Intel(R) Core(TM) i7-1370P
+    CPU family:           6
+    Model:                186
+    Thread(s) per core:   2
+    Core(s) per socket:   10
+    Socket(s):            1
+    Stepping:             2
+```
+
+In this example, the CPU has 20 cores, with 2 threads per core.
+
+## Some References
 
 * [The coded message](https://www.thecodedmessage.com/)
 * [Rust: A Better C++ Than C++](https://www.thecodedmessage.com/rust-c-book/)

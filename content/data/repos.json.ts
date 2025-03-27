@@ -16,6 +16,7 @@ const data = await fetchRepos([
   "mgeier/rtrb",
   "agerasev/ringbuf",
   "erenon/cueue",
+  "Elzair/core_affinity_rs",
 ]);
 const dataMap = data.reduce((acc, repo) => {
   acc[repo.full_name] = repo;

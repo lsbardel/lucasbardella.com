@@ -42,7 +42,7 @@ export const GihubRepoLink = ({ repo }) => {
   return (
     <a href={repo.html_url} target="_blank" style={{"textDecoration": "none"}}>
       <div class="card">
-        <h2><GitHubButton data-color-scheme="dark" data-size="large">{repo.full_name} | {repo.stargazers_count}</GitHubButton></h2>
+        <h3><GitHubButton data-color-scheme="dark" data-size="large">{repo.full_name} | {repo.stargazers_count}</GitHubButton></h3>
         <h3>{repo.description}</h3>
         <h3>Last updated {formatDate(new Date(repo.updated_at))}</h3>
       </div>
