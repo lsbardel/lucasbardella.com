@@ -36,7 +36,7 @@ class Icons extends HTMLElement {
 
   flickr() {
     return `
-    <a class="icon" title="Luca on flickr" href="https://www.flickr.com/photos/lsbardel">
+    <a class="icon" title="Luca on flickr" href="https://www.flickr.com/photos/sbardella/">
     <svg fill="currentColor" width="${this.size}" height="${this.size}" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 	 viewBox="0 0 455 455" xml:space="preserve">
 <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M0,0v455h455V0H0z M140.599,297.5C101.601,297.5,70,266.158,70,227.517
