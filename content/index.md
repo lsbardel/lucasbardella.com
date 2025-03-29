@@ -2,7 +2,7 @@
 import "./components/icons.js";
 ```
 
-<div class="grid grid-cols-3">
+<div class="grid sm:grid-cols-3 grid-cols-1">
   <div class="col-span-2">
 
 # Luca Sbardella
