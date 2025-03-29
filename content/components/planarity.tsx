@@ -2,7 +2,9 @@
 import * as d3 from "npm:d3";
 import * as React from "npm:react";
 
-const randomNode = (node) => {
+const format = d3.format(",.2f");
+
+const randomNode = (node: number[] | null) => {
   var x = Math.random(),
     y = Math.random();
   if (node) {
@@ -96,35 +98,23 @@ const intersections = (links) => {
 };
 
 const planarity = (el, graph) => {
-  // Generates a random planar graph with *n* nodes.
-  const format = d3.format(",.2f");
-
-  graph.update = options.update ? options.update : graph.update;
-  if (graph.points.length !== options.nodes || options.restart) {
-    graph.nodes = options.nodes;
-    graph.points = [];
-    graph.links = [];
-    graph.start = new Date();
-    graph.moves = 0;
-    if (!graph.timer)
-      graph.timer = d3.timer(() => {
-        if (graph.crosses) {
-          graph.time = format((new Date() - graph.start) / 1000);
-          graph.update(graph);
-        }
-      });
-    for (let i = 0; i < graph.nodes; i++) graph.points.push(randomNode());
-    for (let i = 0; i < graph.nodes; i++)
-      addPlanarLink(
-        [graph.points[i], graph.points[Math.floor(Math.random() * graph.nodes)]],
-        graph.links
-      );
-    for (let i = 0; i < graph.nodes; i++)
-      for (let j = i + 1; j < graph.nodes; j++)
-        addPlanarLink([graph.points[i], graph.points[j]], graph.links);
-    scramble(graph);
-  }
-  // Set-up paper (first time only)
+  let moves = 0;
+  let time = "0";
+  const start = new Date();
+  graph.points = [];
+  graph.links = [];
+  for (let i = 0; i < graph.nodes; i++) graph.points.push(randomNode(null));
+  for (let i = 0; i < graph.nodes; i++)
+    addPlanarLink(
+      [graph.points[i], graph.points[Math.floor(Math.random() * graph.nodes)]],
+      graph.links,
+    );
+  for (let i = 0; i < graph.nodes; i++)
+    for (let j = i + 1; j < graph.nodes; j++)
+      addPlanarLink([graph.points[i], graph.points[j]], graph.links);
+  scramble(graph);
+  //
+  d3.select(el).selectAll("svg").remove();
   const g = d3.select(el).selectAll("svg").data([0]).enter().append("svg").append("g");
   g.append("g").attr("class", "links");
   g.append("g").attr("class", "nodes");
@@ -152,9 +142,8 @@ const planarity = (el, graph) => {
 
   const x = d3.scaleLinear().range([0, width - 2 * padding]);
   const y = d3.scaleLinear().range([0, height - 2 * padding]);
-  update(options.restart);
 
-  function update(transition) {
+  const update = (transition: boolean) => {
     graph.crosses = intersections(graph.links);
     const intersect = graph.highlightIntersections
       ? (d) => (d.intersection ? graph.interSectionColor : graph.linkColor)
@@ -203,45 +192,72 @@ const planarity = (el, graph) => {
             // Jitter to prevent coincident nodes.
             d[0] = Math.max(0, Math.min(1, x.invert(event.x))) + Math.random() * 1e-4;
             d[1] = Math.max(0, Math.min(1, y.invert(event.y))) + Math.random() * 1e-4;
-            update();
+            update(false);
           })
           .on("end", () => {
-            ++graph.moves;
-            options.update(graph);
-          })
+            ++moves;
+            update(false);
+          }),
       );
 
     if (transition) node = node.transition();
     node.attr("cx", (d) => x(d[0])).attr("cy", (d) => y(d[1]));
-    options.update(graph);
-  }
+  };
+
+  update(false);
+
+  const timer = d3.timer(() => {
+    if (graph.crosses) {
+      const now = new Date();
+      time = format((now.getTime() - start.getTime()) / 1000);
+    }
+    graph.setState({ time, crosses: graph.crosses, moves });
+  }, 10);
+
+  return () => {
+    timer.stop();
+  };
 };
 
-
-const Planarity = ({ nodes, radius }: {nodes: number, radius: number, aspectRatio: string}) => {
+const Planarity = ({
+  nodes,
+  radius,
+  replay,
+  aspectRatio,
+}: {
+  nodes: number;
+  radius: number;
+  replay: number;
+  aspectRatio: string;
+}) => {
   const ref = React.useRef(null);
-  const [state, setState] = React.useState(null);
+  const [state, setState] = React.useState({ time: "0", moves: 0, crosses: 0 });
   React.useEffect(() => {
-    setState({
+    return planarity(ref.current, {
       nodes,
       radius,
-      points: [],
-      links: [],
-      crosses: 0,
-      start: 0,
-      moves: 0,
-      time: 0,
       strokeWidth: 2,
       circleColor: "#4DA6FF",
       linkColor: "#555",
       interSectionColor: "#ff7600",
       highlightIntersections: true,
-      update() {},
+      setState,
     });
-  }, [nodes, radius]);
-  if (state) planarity(ref.current, state);
-  return <div ref={ref} />;
-}
-
+  }, [nodes, radius, replay]);
+  const style = { width: "100%", position: "relative", paddingTop: aspectRatio };
+  const styleInner = { position: "absolute", top: 0, left: 0, bottom: 0, right: 0 };
+  return (
+    <>
+      <div class="grid grid-cols-3">
+        <div><span>{state.time} seconds</span></div>
+        <div><span>{state.moves} moves</span></div>
+        <div><span>{state.crosses} crosses</span></div>
+      </div>
+      <div className="gol-container-outer" style={style}>
+        <div className="gol-container" ref={ref} style={styleInner}></div>
+      </div>
+    </>
+  );
+};
 
 export default Planarity;
