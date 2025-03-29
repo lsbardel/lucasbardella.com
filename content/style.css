@@ -25,12 +25,17 @@ p.description {
 }
 
 img.luca {
-  float: right;
-  margin: 20px;
-  width: 25%;
-  border-radius: 10%;
+  width: 60%;
 }
 
 a.no-deco {
   text-decoration: none !important;
+}
+
+
+a.icon {
+  display: inline-block;
+  margin: 0 5px;
+  color: var(--color-text);
+  transition: all 0.3s ease;
 }

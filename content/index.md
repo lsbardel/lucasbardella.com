@@ -1,9 +1,13 @@
-# Luca Sbardella
-
-### PhD - Quantitative Algo Trader
-```html
-<a data-flickr-embed="true" href="https://www.flickr.com/photos/sbardella/54413648095/in/dateposted/" title="Me"><img class="luca" src="https://live.staticflickr.com/65535/54413648095_d2fbc20bdb_w.jpg" alt="Me"/></a>
+```js
+import "./components/icons.js";
 ```
+
+<div class="grid grid-cols-3">
+  <div class="col-span-2">
+
+# Luca Sbardella
+### PhD - Quantitative Algo Trader
+
 Hi there! I'm a passionate tech lead working on
 quantitative-algo trading and real-time trading applications.
 
@@ -32,3 +36,12 @@ In terms of qualifications, I have
 - [Laurea](https://en.wikipedia.org/wiki/Laurea) in Aeronautical Engineering from Politecnico di Torino
 
 If you want to get in contact, [please do so](/contact).
+</div>
+<div class="p-[10px] justify-items-center">
+  <div>
+    <a data-flickr-embed="true" href="https://www.flickr.com/photos/sbardella/54413648095/in/dateposted/" title="Me">
+    <img class="rounded-3xl mb-[10px] w-full max-w-48" src="https://live.staticflickr.com/65535/54413648095_d2fbc20bdb_w.jpg" alt="Me"/></a>
+  </div>
+  <luca-icons size="24"/>
+</div>
+</div>
