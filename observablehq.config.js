@@ -44,7 +44,7 @@ export default {
       }
     };
     </script>
-    <link rel="icon" href="data/luca-32x32.png" type="image/png" sizes="32x32">'
+    <link rel="icon" href="data/luca-32x32.png" type="image/png" sizes="32x32">
   `,
 
   // The path to the source root.
