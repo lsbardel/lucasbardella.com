@@ -4,7 +4,7 @@ set -e
 ISORT_ARGS="-c"
 BLACK_ARG="--check"
 RUFF_ARG=""
-MODULES="data"
+MODULES="lspy content/data"
 
 if [ "$1" = "fix" ] ; then
     ISORT_ARGS=""

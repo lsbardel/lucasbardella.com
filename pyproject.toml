@@ -8,7 +8,7 @@ dependencies = [
     "aio-fluid[cli,http]>=1.5.0",
     "python-dotenv>=1.0.1",
     "qrcode[pil]>=8.0",
-    "quantflow[cli,data]>=0.3.1",
+    "quantflow[cli,data]>=0.3.2",
 ]
 
 [dependency-groups]
@@ -19,3 +19,20 @@ dev = [
     "ruff>=0.11.2",
     "types-qrcode>=8.0.0.20241004",
 ]
+
+
+[tool.isort]
+profile = "black"
+skip = [
+    "lspy/__main__.py",
+]
+
+[tool.ruff]
+lint.select = ["E", "F"]
+line-length = 88
+
+[[tool.mypy.overrides]]
+module = [
+    "pandas.*",
+]
+ignore_missing_imports = true

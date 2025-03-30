@@ -1,10 +1,12 @@
-import click
-import qrcode
-import qrcode.image.svg
-import dotenv
 import os
 
+import click
+import dotenv
+import qrcode
+import qrcode.image.svg
+
 dotenv.load_dotenv()
+
 
 @click.group()
 def cli():

@@ -1,4 +1,4 @@
-import ContentLoader from "../src/content";
+import ContentLoader from "../lsts/content";
 
 const blog = await ContentLoader.load({}, "lab");
 

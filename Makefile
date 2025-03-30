@@ -11,9 +11,9 @@ install-tex:		## Install texlive dependencies
 
 .PHONY: cv
 cv:			## build CV
-	@cd data/cv &&\
+	@cd cv &&\
 	pdflatex luca-sbardella-cv.tex &&\
-	mv luca-sbardella-cv.pdf ../../content/assets/luca-sbardella-cv.pdf
+	mv luca-sbardella-cv.pdf ../content/data/luca-sbardella-cv.pdf
 
 
 .PHONY: lint-py

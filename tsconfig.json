@@ -2,7 +2,7 @@
     "compilerOptions": {
       "baseUrl": ".", // Set the base URL for resolving paths
       "paths": {
-        "@ls/*": ["src/*"] // Define the alias
+        "@ls/*": ["lsts/*"] // Define the alias
       }
     }
   }

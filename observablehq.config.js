@@ -1,6 +1,6 @@
-import config from "./src/config";
-import ContentLoader from "./src/content";
-import footer from "./src/footer.js";
+import config from "@ls/config.js";
+import ContentLoader from "@ls/content.js";
+import footer from "@ls/footer.js";
 
 const blog = await ContentLoader.load(config, "blog");
 const coding = await ContentLoader.load(config, "coding");
@@ -21,7 +21,10 @@ export default {
       name: "market",
       path: "/market",
       open: true,
-      pages: [{ name: "heatmap", path: "/market/heatmap" }],
+      pages: [
+        { name: "heatmap", path: "/market/heatmap" },
+        { name: "fed", path: "/market/fed" },
+      ],
     },
     { name: "coding", path: "/coding", open: false, pages: coding.sidebar() },
     { name: "blog", path: "/blog", open: false, pages: blog.sidebar() },

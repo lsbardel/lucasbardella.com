@@ -1,3 +1,7 @@
+---
+theme: dashboard
+---
+
 ```ts
 const summary = FileAttachment("data/google-analytics/summary.csv").csv({ typed: true });
 ```

@@ -1,10 +1,10 @@
 import { parseArgs } from "util";
-import { emitContent } from "../../../src/content";
+import { emitContent } from "../../../lsts/content";
 
 const {
-  values: {slug, year}
+  values: { slug, year },
 } = parseArgs({
-  options: {slug: {type: "string"}, year: {type: "string"}}
+  options: { slug: { type: "string" }, year: { type: "string" } },
 });
 
 await emitContent("coding", slug);
