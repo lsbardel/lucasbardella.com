@@ -29,6 +29,10 @@ jobs:
       - name: build bundle
         env:
           GITHUB_RUN_ID: ${{ github.run_id }}
+          GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
+          GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
+          GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
+          GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
         run: npm i && npm run build
       - name: upload artifacts
         uses: actions/upload-pages-artifact@v3
@@ -42,9 +46,9 @@ jobs:
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      contents: read    # to read the artifact
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      contents: read # to read the artifact
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
 
       # Deploy to the github-pages environment
     environment:

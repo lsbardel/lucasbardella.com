@@ -1,7 +1,10 @@
 import click
 import qrcode
 import qrcode.image.svg
+import dotenv
+import os
 
+dotenv.load_dotenv()
 
 @click.group()
 def cli():
@@ -16,6 +19,17 @@ def qr():
     img.save("content/assets/luca-qr.svg")
     img = qrcode.make(context)
     img.save("content/assets/luca-qr.png")
+
+
+@cli.command()
+def ga_env() -> None:
+    """Show google analytics env variables"""
+    click.echo(os.getenv("GA_CLIENT_EMAIL"))
+    private_key = os.getenv("GA_PRIVATE_KEY")
+    # Replace escaped newlines with actual newlines
+    if private_key:
+        private_key = private_key.replace("\\n", "\n")
+    click.echo(private_key)
 
 
 cli()

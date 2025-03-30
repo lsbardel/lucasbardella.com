@@ -21,12 +21,12 @@ const footer = (config: Record<string, any>) => {
       <p>Last build © <a href=${buildUrl}>${buildTime} UTC</a></p>
       <p>Source code available on <a href="${fullUrl}">${fullUrl}</a></p>
       <p>© 2009-${date.getFullYear()} ${config.author}</p>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=${config.gtag}"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=${config.ga.measurementId}"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '${config.gtag}');
+        gtag('config', '${config.ga.measurementId}');
       </script>
     `;
   };

@@ -1,12 +1,7 @@
-import footer from "./src/footer.js";
+import config from "./src/config";
 import ContentLoader from "./src/content";
-import pkg from "./package.json" with { type: "json" };
+import footer from "./src/footer.js";
 
-
-const config = {
-  ...pkg,
-  gtag: "G-PXRMNC0X0N",
-};
 const blog = await ContentLoader.load(config, "blog");
 const coding = await ContentLoader.load(config, "coding");
 const lab = await ContentLoader.load(config, "lab");
@@ -20,14 +15,18 @@ export default {
   // all pages will be listed in alphabetical order. Listing pages explicitly
   // lets you organize them into sections and have unlisted pages.
   pages: [
-    {name: "cv", path: "/cv"},
-    {name: "contact", path: "/contact"},
-    {name: "market", path: "/market", open: true, pages: [
-      {name: "heatmap", path: "/market/heatmap"},
-    ]},
-    {name: "coding", path: "/coding",  open: false, pages: coding.sidebar()},
-    {name: "blog", path: "/blog", open: false, pages: blog.sidebar()},
-    {name: "lab", path: "/lab", open: false, pages: lab.sidebar()},
+    { name: "cv", path: "/cv" },
+    { name: "contact", path: "/contact" },
+    {
+      name: "market",
+      path: "/market",
+      open: true,
+      pages: [{ name: "heatmap", path: "/market/heatmap" }],
+    },
+    { name: "coding", path: "/coding", open: false, pages: coding.sidebar() },
+    { name: "blog", path: "/blog", open: false, pages: blog.sidebar() },
+    { name: "lab", path: "/lab", open: false, pages: lab.sidebar() },
+    { name: "analytics", path: "/analytics" },
   ],
 
   dynamicPaths: blog.paths(),

@@ -2,7 +2,7 @@
 @import url("observablehq:theme-near-midnight.css");
 
 
-h2 {
+main > h2 {
   border-top: 1px solid var(--theme-foreground-fainter);
   padding-top: 20px;
   color: #bdac5a;
@@ -10,7 +10,7 @@ h2 {
 
 h2.blog-list {
   font-size: 20px;
-  border: none;
+  color: #bdac5a;
 }
 
 p.date {
