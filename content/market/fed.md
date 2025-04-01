@@ -97,7 +97,7 @@ const plotCurve = (data, {width, height}) => {
 };
 ```
 
-<div class="grid grid-cols-2">
+<div class="grid md:grid-cols-2 grid-cols-1">
   <div class="card">
     <h2>Yield curve rates</h2>
     ${resize((width) => plotRates(flatRates, {width, domain: rateDomain}))}
