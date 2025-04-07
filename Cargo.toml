@@ -1,8 +1,5 @@
-[package]
-name = "lucasbardella-com"
-version = "0.1.0"
-edition = "2024"
-
+[workspace]
+resolver = "3"
 members = [
     "lsrs/*",
 ]
@@ -10,5 +7,13 @@ default-members = [
   "lsrs/*",
 ]
 
-[dependencies]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Luca Sbardella <luca@quantmind.com>"]
+edition = "2024"
+repository = "https://github.com/lsbardel/lucasbardella.com"
+
+
+[workspace.dependencies]
 rtrb = "0.3.2"

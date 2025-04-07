@@ -18,7 +18,10 @@ Several data sources exist on the price of allowances within the EU ETS. One sou
 
 This is the price of the EUA rolling nearer future contract:
 
-<trading-view symbol="ICEEUR:ECF1!" theme="auto" aspectratio="80%"></trading-view>
+```tsx
+import {TradingViewChart} from "../../components/tradingview.js";
+display(<TradingViewChart symbol="ICEEUR:ECF1!" theme="dark" aspectRatio="80%" />);
+```
 
 The problem is, as it stands, this price is too low to make a big difference.
 
