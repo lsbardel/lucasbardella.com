@@ -36,6 +36,7 @@ jobs:
           GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
           GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
           GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
         run: npm i && npm run build
       - name: upload artifacts
         uses: actions/upload-pages-artifact@v3
