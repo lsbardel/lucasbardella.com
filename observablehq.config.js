@@ -45,6 +45,7 @@ export default {
     };
     </script>
     <link rel="icon" href="data/luca-32x32.png" type="image/png" sizes="32x32">
+    <meta name="google-adsense-account" content="ca-pub-9518486636408101">
   `,
 
   // The path to the source root.
