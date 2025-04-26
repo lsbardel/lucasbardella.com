@@ -2,10 +2,13 @@
 name = "lucasbardella-com"
 version = "0.1.0"
 description = "Python tooling for lucasbardella.com"
+authors = [{ name = "Luca Sbardella", email = "luca@quantmind.com" }]
 readme = "readme.md"
 requires-python = ">=3.13"
 dependencies = [
-    "aio-fluid[cli,http]>=1.5.0",
+    "aio-fluid[cli,http]>=1.5.1",
+    "boto3>=1.38.3",
+    "pandas>=2.2.3",
     "python-dotenv>=1.0.1",
     "qrcode[pil]>=8.0",
     "quantflow[cli,data]>=0.3.2",
@@ -17,22 +20,22 @@ dev = [
     "isort>=6.0.1",
     "mypy>=1.15.0",
     "ruff>=0.11.2",
+    "types-boto3-lite[s3]>=1.38.3",
     "types-qrcode>=8.0.0.20241004",
 ]
+
+[tool.setuptools]
+packages = ["lspy"]
 
 
 [tool.isort]
 profile = "black"
-skip = [
-    "lspy/__main__.py",
-]
+skip = ["lspy/__main__.py"]
 
 [tool.ruff]
 lint.select = ["E", "F"]
 line-length = 88
 
 [[tool.mypy.overrides]]
-module = [
-    "pandas.*",
-]
+module = ["pandas.*"]
 ignore_missing_imports = true

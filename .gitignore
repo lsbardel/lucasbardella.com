@@ -18,7 +18,9 @@ content/.observablehq
 coverage
 dist
 .tmp
+.data
 content/phd
+content/local
 
 #
 # files
@@ -44,6 +46,7 @@ next-env.d.ts
 __pycache__
 *.pyc
 *.pyo
+*.egg-info
 
 
 # Added by cargo
