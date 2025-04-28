@@ -12,6 +12,7 @@ dependencies = [
     "python-dotenv>=1.0.1",
     "qrcode[pil]>=8.0",
     "quantflow[cli,data]>=0.3.2",
+    "requests>=2.32.3",
 ]
 
 [dependency-groups]
