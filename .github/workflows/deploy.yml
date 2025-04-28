@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
   schedule:
     - cron: "0 8 * * *"
   workflow_dispatch:
@@ -31,11 +28,6 @@ jobs:
           python-version: 3.13
       - name: install uv
         run: pip install uv
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: arn:aws:iam::337900243020:role/GithubActions
-          aws-region: eu-west-1
       - name: build bundle
         env:
           GITHUB_RUN_ID: ${{ github.run_id }}

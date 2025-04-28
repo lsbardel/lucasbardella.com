@@ -10,7 +10,7 @@ FILE_SYSTEM_BASE_PATH: Path = Path(
 )
 
 
-AWS_S3_BUCKET: str = os.getenv(
-    "AWS_S3_BUCKET",
-    "assets.metablock.io",
+TRADING_DATA_URL: str = os.getenv(
+    "TRADING_DATA_URL",
+    "",
 )
