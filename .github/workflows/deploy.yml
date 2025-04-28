@@ -36,6 +36,7 @@ jobs:
           GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
           GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          TRADING_DATA_URL: ${{ secrets.TRADING_DATA_URL }}
         run: npm i && npm run build
       - name: upload artifacts
         uses: actions/upload-pages-artifact@v3
