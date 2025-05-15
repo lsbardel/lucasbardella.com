@@ -1,19 +1,24 @@
-[workspace]
-resolver = "3"
-members = [
-    "lsrs/*",
-]
-default-members = [
-  "lsrs/*",
-]
-
-
-[workspace.package]
+[package]
+name = "lsrs"
 version = "0.1.0"
 authors = ["Luca Sbardella <luca@quantmind.com>"]
 edition = "2024"
 repository = "https://github.com/lsbardel/lucasbardella.com"
 
 
-[workspace.dependencies]
-rtrb = "0.3.2"
+[dependencies]
+chrono = "0.4.41"
+disruptor = "3.3.0"
+quanta = "0.12.5"
+ringbuf = "0.4.8"
+
+[dev-dependencies]
+average = "0.16.0"
+criterion = "0.5.1"
+
+[lib]
+bench = false
+
+[[bench]]
+name = "timestamp"
+harness = false

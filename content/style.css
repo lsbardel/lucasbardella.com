@@ -32,6 +32,10 @@ a.no-deco {
   text-decoration: none !important;
 }
 
+a.text-white {
+  color: #fff !important;
+}
+
 
 a.icon {
   display: inline-block;

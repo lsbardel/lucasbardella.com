@@ -6,7 +6,7 @@ const cvUrl = FileAttachment("data/luca-sbardella-cv.pdf").url();
 ```
 
 ```html
-<a href="${cvUrl}">Download CV</a>
+<a class="no-deco text-white focus:ring-blue-300 bg-blue-600 hover:bg-blue-800 rounded-lg px-5 py-2.5 font-medium" href="${cvUrl}">Download CV</a>
 ```
 
 **Web**: [lucasbardella.com](http://lucasbardella.com)<br>
