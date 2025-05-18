@@ -1,24 +1,18 @@
 import { csvFormat } from "d3-dsv";
-import { timeFormat } from "d3-time-format";
 import { runReport } from "./api.js";
-
-const formatInputDate = timeFormat("%Y-%m-%d");
-
-const startDate = new Date();
-startDate.setDate(startDate.getDate() - 28);
+import { formatDate, startDate, formatInputDate } from "./date.js";
 
 const response = await runReport({
   dateRanges: [{ startDate: formatInputDate(startDate), endDate: "today" }],
   dimensions: [{ name: "date" }],
   metrics: [
-    { name: "activeUsers" },
+    { name: "active28DayUsers" },
     { name: "engagementRate" },
     { name: "wauPerMau" },
     { name: "engagedSessions" },
   ],
-  orderBys: [{dimension: {dimensionName: "date"}}],
+  orderBys: [{ dimension: { dimensionName: "date" } }],
 });
-
 
 process.stdout.write(
   csvFormat(
@@ -31,7 +25,3 @@ process.stdout.write(
     })),
   ),
 );
-
-function formatDate(date) {
-  return `${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`;
-}
