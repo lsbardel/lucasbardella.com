@@ -1,6 +1,7 @@
 use quanta::Clock;
 use std::time::{SystemTime, UNIX_EPOCH};
 
+
 pub trait TimestampFactory {
     fn get_timestamp(&self) -> Timestamp;
 }
