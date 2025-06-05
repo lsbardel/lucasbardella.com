@@ -2,7 +2,7 @@
 title: Largest Area in Histogram
 date: 2020-08-05
 keywords: algorithms, histogram, stack
-description: On the back of an job interview question, I decided to create a visualization of the largest area in a histogram using a stack data structure.
+description: On the back of a job interview question, I created a visualization of the largest area in a histogram using a stack data structure
 ---
 
 

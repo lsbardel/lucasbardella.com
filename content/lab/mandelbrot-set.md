@@ -12,5 +12,7 @@ const mandelbrot = (x, y) => {
     if (zr * zr + zi * zi > 4) return n;
   }
 };
-display(Plot.raster({fill: mandelbrot, x1: -2, x2: 1, y1: -1.164, y2: 1.164}).plot({aspectRatio: 1}));
+display(
+  Plot.raster({ fill: mandelbrot, x1: -2, x2: 1, y1: -1.164, y2: 1.164 }).plot({ aspectRatio: 1 }),
+);
 ```

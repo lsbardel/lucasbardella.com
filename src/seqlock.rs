@@ -26,24 +26,24 @@ impl<T: Copy> SeqLock<T> {
 
     /// Reads the data from the lock.
     #[inline(never)]
-    pub fn read(&self, result: &mut T) {
+    pub fn read(&self) -> T {
         loop {
             let v1 = self.version.load(Ordering::Acquire);
             compiler_fence(Ordering::AcqRel);
-            *result = unsafe { *self.data.get() };
+            let result = unsafe { *self.data.get() };
             compiler_fence(Ordering::AcqRel);
             let v2 = self.version.load(Ordering::Acquire);
             if v1 == v2 && v1 & 1 == 0 {
-                return;
+                return result;
             }
         }
     }
 
     #[inline(never)]
-    pub fn write(&self, val: &T) {
+    pub fn write(&self, val: T) {
         let v = self.version.fetch_add(1, Ordering::Release);
         compiler_fence(Ordering::AcqRel);
-        unsafe { *self.data.get() = *val };
+        unsafe { *self.data.get() = val };
         compiler_fence(Ordering::AcqRel);
         self.version.store(v.wrapping_add(2), Ordering::Release);
     }
@@ -56,9 +56,8 @@ mod tests {
     use std::{sync::atomic::AtomicBool, time::{Duration, Instant}};
 
     fn consumer_loop<const N: usize>(lock: &SeqLock<[usize;N]>, done: &AtomicBool) {
-        let mut msg = [0usize; N];
         while !done.load(Ordering::Relaxed) {
-            lock.read(&mut msg);
+            let msg = lock.read();
             let first = msg[0];
             for i in msg {
                 assert_eq!(first, i);
@@ -72,7 +71,7 @@ mod tests {
         let mut msg = [0usize; N];
         while curt.elapsed() < Duration::from_secs(1) {
             msg.fill(count);
-            lock.write(&msg);
+            lock.write(msg);
             count = count.wrapping_add(1);
         }
         done.store(true, Ordering::Relaxed);
