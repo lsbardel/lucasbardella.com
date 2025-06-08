@@ -2,6 +2,7 @@
 title: Rust for HFT
 description: An introduction to High-frequency trading design patterns in Rust and practical considerations.
 date: 2025 March 25
+keywords: programming, rust, hft, high-frequency trading
 ---
 
 ```js
@@ -165,6 +166,10 @@ In this example, the CPU has 20 cores, with 2 threads per core.
 There are many other factors to consider when developing an HFT system, including network latency, market data feeds, order execution, and risk management. I won't go into details here, but it is important to carefully consider all of these factors when designing your system.
 
 There are several specialized libraries that can help you with these and other tasks, this is a list of some of them:
+
+```tsx
+display(<GihubRepoLink repo={repos["Amanieu/parking_lot"]} />);
+```
 
 ```tsx
 display(<GihubRepoLink repo={repos["metrics-rs/quanta"]} />);

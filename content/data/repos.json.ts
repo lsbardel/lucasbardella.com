@@ -13,6 +13,9 @@ const fetchRepos = async (repos: string[]) => {
 };
 
 const data = await fetchRepos([
+  "Amanieu/parking_lot",
+  "Amanieu/seqlock",
+  "nicholassm/disruptor-rs",
   "mgeier/rtrb",
   "agerasev/ringbuf",
   "erenon/cueue",

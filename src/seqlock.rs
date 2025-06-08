@@ -14,6 +14,7 @@ unsafe impl<T: Sync> Sync for SeqLock<T> {}
 
 /// A lock-free sequence lock is a reader-writer lock that
 /// * avoid the problem of writer starvation - a writer is never blocked by readers
+/// * reading is lock-free, meaning it does not block writers
 /// * allows multiple readers to read concurrently
 /// * allows a single writer to write at a time
 impl<T: Copy> SeqLock<T> {
@@ -39,6 +40,7 @@ impl<T: Copy> SeqLock<T> {
         }
     }
 
+    /// Writes the data to the lock.
     #[inline(never)]
     pub fn write(&self, val: T) {
         let v = self.version.fetch_add(1, Ordering::Release);
@@ -77,8 +79,7 @@ mod tests {
         done.store(true, Ordering::Relaxed);
     }
 
-    fn read_test<const N: usize>()
-    {
+    fn read_test<const N: usize>() {
         let lock = SeqLock::new([0usize; N]);
         let done = AtomicBool::new(false);
         std::thread::scope(|s| {

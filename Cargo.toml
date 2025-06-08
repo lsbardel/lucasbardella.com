@@ -8,7 +8,8 @@ repository = "https://github.com/lsbardel/lucasbardella.com"
 
 [dependencies]
 chrono = "0.4.41"
-disruptor = "3.3.0"
+disruptor = "3.4.0"
+parking_lot = "0.12.4"
 quanta = "0.12.5"
 ringbuf = "0.4.8"
 smol_str = "0.3.2"
