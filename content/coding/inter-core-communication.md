@@ -3,7 +3,7 @@ title: Inter-core Communication in Rust
 date: 2025-06-05
 description: Inter-core communication is a key component in multi-threading Rust applications, especially in high-frequency trading systems.
 keywords: programming, rust, seqlock
-draft: true
+private: true
 ---
 
 ```js
