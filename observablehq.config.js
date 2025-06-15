@@ -29,6 +29,7 @@ export default {
     { name: "coding", path: "/coding", open: false, pages: coding.sidebar() },
     { name: "blog", path: "/blog", open: false, pages: blog.sidebar() },
     { name: "lab", path: "/lab", open: false, pages: lab.sidebar() },
+    { name: "links", path: "/links" },
     { name: "analytics", path: "/analytics" },
     { name: "credits", path: "/credits" },
   ],
