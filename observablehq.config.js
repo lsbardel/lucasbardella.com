@@ -30,6 +30,7 @@ export default {
     { name: "blog", path: "/blog", open: false, pages: blog.sidebar() },
     { name: "lab", path: "/lab", open: false, pages: lab.sidebar() },
     { name: "analytics", path: "/analytics" },
+    { name: "credits", path: "/credits" },
   ],
 
   dynamicPaths: blog.paths(),

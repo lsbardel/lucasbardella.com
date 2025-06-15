@@ -5,6 +5,15 @@ description: Rust is a fast, safe, and concurrent systems programming language t
 keywords: programming, rust
 ---
 
+```js
+const images = FileAttachment("../../data/images.json").json();
+import { HeroImage } from "../../components/image.js";
+```
+
+```tsx
+display(<HeroImage urls={images.rust1} />);
+```
+
 Rust is a systems programming language that was designed to be fast, safe, multi-threaded and concurrent.
 In addition, it has a unique ownership and borrowing system that allows for efficient memory management without needing a garbage collector, which can reduce latencies and improve performance.
 
@@ -51,6 +60,7 @@ and expose them to Python for quick research/prototyping.
 ## Useful dev packages
 
 To install globally via
+
 ```bash
 cargo install <package>
 ```

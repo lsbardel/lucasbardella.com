@@ -1,4 +1,10 @@
+---
+title: Market Heatmap
+theme: dashboard
+toc: false
+---
 
+# Market Heatmap
 
 ```tsx
 import {TradingViewHeatmap} from "../components/tradingview.js";
