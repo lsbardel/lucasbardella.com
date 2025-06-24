@@ -1,42 +1,41 @@
 ---
-title: Potential Companies
+title: Job Hunding 2025
 private: true
 ---
 
+I spoke with several recruiters and applied to few companies so far
 
-## HF/trading firms
-
-
-## Crypto Companies
 
 * [Aneralabs](https://aneralabs.xyz/)
+  * introduction by Recruiter D
   * small startup
-  * cross chain liquidity layer
-  * fully remote
   * job spec for a Rust software engineer
-  * they are possibly interested in me but not sure if they can afford me
-  * First interview 09/06/25 - lasted 1h - chat again in one month
-  * trading systems are built in Rust
+  * First interview 09/06/25
+    * lasted 1h - chat again in one month
+    * trading systems are built in Rust
+
+* [Flowdesk](https://www.flowdesk.co/)
+  * introduction by Recruiter A
+  * crypto trading firm
+  * based in Paris
+  * they are looking for a Rust quants engineers in London
+  * First interview 09/06/25
+  * never heard back
 
 * [lo.tech](https://lo.tech/)
+  * introduction by Recruiter A - no feedback
   * small startup
   * market making as a service
+  * based in London
+
+* [Selini Capital](https://www.selinicapital.com/)
+  * introduction by Recruiter A - no feedback
+  * crypto trading firm
   * based in London
 
 * [Gattaca](https://www.gattaca.com/)
   * small startup
   * trading platform for decentralized finance
-  * based in London
-
-* [Flowdesk](https://www.flowdesk.co/)
-  * crypto trading firm
-  * based in Paris
-  * they are looking for a Rust quants engineers in London
-  * First interview 09/06/25
-  * HFT trading head is Dan Cook - based in Cyprus
-
-* [Selini Capital](https://www.selinicapital.com/)
-  * crypto trading firm
   * based in London
 
 * [Keyrock](https://www.keyrock.eu/)
@@ -53,19 +52,23 @@ private: true
   * AI suggestion while writing this
 
 * [Blockchain.com](https://www.blockchain.com/)
+  * introduction by Recruiter C on 10/06/25 - no feedback
   * exchange
   * proprietary trading
   * in Soho, 4 days a week in the office
-  * talked with recruiter on 10/06/25
   * shared CV and allowed him to share it with the hiring manager
+  * never heard back
+
+* [Kappa lab](https://www.kappa-lab.com/)
+  * introduction by recruiter E on 12/06/25
+  * feedback was - I'm too senior for the role (too expensive)
 
 * [Flow Traders](https://www.flowtraders.com/)
+  * introduction by Recruiter B on 10/06/25
   * global technology-enabled liquidity provider
   * based in Amsterdam
   * they have a London office
   * they are looking for a Rust engineer
-  * recruiter reached out to me on LinkedIn on 10/06/25
-  * shared CV and allowed him to share it with the hiring manager
   * first interview 13/06/25
     * My questions:
       * what is the team size?
@@ -77,3 +80,6 @@ private: true
       * peer coding interview - 1 hour
       * deep dive
       * culture fit
+  * second interview 24/06/25
+    * code pair interview
+    * design an order book in Rust
