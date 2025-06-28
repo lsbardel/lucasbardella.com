@@ -8,27 +8,40 @@ date: 2025-06-22
 
 The [Eurostat data browser](https://ec.europa.eu/eurostat/databrowser/explore/all/all_themes) is a great sources for all european statistics. But it is sometimes a bit difficult to use. This page loads its XML catalog and converts it to an easier csv format. Click on a specific dataset to create a data loader which returns a highly optimized parquet file.
 
-This page has been taken from [Fil/pangea](https://github.com/Fil/pangea) and slightly adapted to work with my Observable setup. All credits to [Fil](https://github.com/Fil).
+This page has been taken from [Fil/pangea](https://github.com/Fil/pangea) and slightly adapted to work with my Observable setup. All credits2709
+to [Fil](https://github.com/Fil).
 
 ```js
 const search = view(Inputs.search(catalogue));
 ```
 
 ```js
-const row = view(Inputs.table(search, {multiple: false}));
+const row = view(Inputs.table(search, { multiple: false }));
 ```
 
 ```js
 const code = row?.code;
 document.querySelector("#reveal").setAttribute("style", code ? null : "display:none");
 
-if (code)
+const dataUrl = (code) => `https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/${code}/?format=SDMX-CSV&compressed=true&i`;
+
+if (code) {
+  const href = dataUrl(code);
+  const data = Object.entries(row);
+  data.push({ 0: "url", 1: href });
   display(
-    Inputs.table(Object.entries(row), {
-      header: {0: "—", 1: "*"},
-      width: {0: 120, 1: 500}
-    })
+    Inputs.table(data, {
+      header: { 0: "", 1: "" },
+      width: { 0: 120, 1: 500 },
+      format: {
+        1: (v) => {
+          if (v === href) return html`<a href="${href}" target="_blank">download</a>`;
+          else return v;
+        }
+      }
+    }),
   );
+}
 ```
 
 ---
@@ -65,7 +78,7 @@ const catalogue = FileAttachment("/data/eurostat/catalogue.csv")
         row.count = +row.count;
       }),
       data
-    )
+    ),
   );
 ```
 

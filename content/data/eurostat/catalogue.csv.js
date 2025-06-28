@@ -22,9 +22,7 @@ const t = [...hierarchy]
       //type: d["@type"],
       code: d["nt:code"],
       path: d.path.join(" > "),
-      label_en: labels[0],
-      label_fr: labels[1],
-      label_de: labels[2],
+      label: labels[0],
       lastUpdate: fmt(d["nt:lastUpdate"]), //: "27.05.2021"
       lastModified: fmt(d["nt:lastModified"]), //: "03.01.2024"
       dataStart: d["nt:dataStart"], // 2009
