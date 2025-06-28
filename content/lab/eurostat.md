@@ -12,21 +12,30 @@ This page has been taken from [Fil/pangea](https://github.com/Fil/pangea) and sl
 to [Fil](https://github.com/Fil).
 
 ```js
+const dataUrl = (code) =>
+  `https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/${code}/?format=SDMX-CSV&compressed=true&i`;
+const htmlUrl = (code) => `https://ec.europa.eu/eurostat/databrowser/view/${code}/default/table`;
 const search = view(Inputs.search(catalogue));
 ```
 
 ```js
-const row = view(Inputs.table(search, { multiple: false }));
+const row = view(
+  Inputs.table(search, {
+    multiple: false,
+    format: {
+      code: (v) => html`<a href="${htmlUrl(v)}" target="_blank">${v}</a>`,
+    },
+  }),
+);
 ```
 
 ```js
 const code = row?.code;
 document.querySelector("#reveal").setAttribute("style", code ? null : "display:none");
 
-const dataUrl = (code) => `https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/${code}/?format=SDMX-CSV&compressed=true&i`;
-
 if (code) {
   const href = dataUrl(code);
+  const viewUrl = htmlUrl(code);
   const data = Object.entries(row);
   data.push({ 0: "url", 1: href });
   display(
@@ -35,10 +44,11 @@ if (code) {
       width: { 0: 120, 1: 500 },
       format: {
         1: (v) => {
-          if (v === href) return html`<a href="${href}" target="_blank">download</a>`;
+          if (v === code) return html`<a href="${viewUrl}" target="_blank">${code}</a>`;
+          else if (v === href) return html`<a href="${href}" target="_blank">download</a>`;
           else return v;
-        }
-      }
+        },
+      },
     }),
   );
 }
