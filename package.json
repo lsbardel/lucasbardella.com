@@ -24,6 +24,7 @@
     "d3-dsv": "^3.0.1",
     "d3-time-format": "^4.1.0",
     "dotenv": "^16.4.7",
+    "eurostat-map": "^4.2.6",
     "glob": "^11.0.1",
     "octokit": "^4.1.2",
     "tailwindcss": "4.1.10"
