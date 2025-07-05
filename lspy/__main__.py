@@ -4,6 +4,7 @@ import click
 import dotenv
 import qrcode
 import qrcode.image.svg
+from lspy import hide
 
 dotenv.load_dotenv()
 
@@ -32,6 +33,20 @@ def ga_env() -> None:
     if private_key:
         private_key = private_key.replace("\\n", "\n")
     click.echo(private_key)
+
+
+@cli.command()
+@click.option(
+    "--value",
+    "-v",
+    type=str,
+    default="Luca Sbardella",
+    help="Value to encode",
+)
+def encode_hex(value: str) -> None:
+    """Encode a string to base64."""
+    result = hide.encode_hex(value)
+    click.echo(result)
 
 
 cli()

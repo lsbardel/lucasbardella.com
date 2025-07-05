@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Python tooling for lucasbardella.com"
 authors = [{ name = "Luca Sbardella", email = "luca@quantmind.com" }]
 readme = "readme.md"
-requires-python = ">=3.13"
+requires-python = ">=3.13,<4.0"
 dependencies = [
     "aio-fluid[cli,http]>=1.5.1",
     "boto3>=1.38.3",
@@ -24,6 +24,9 @@ dev = [
     "types-boto3-lite[s3]>=1.38.3",
     "types-qrcode>=8.0.0.20241004",
 ]
+
+[tool.poetry]
+packages = [{ include = "lspy" }]
 
 [tool.setuptools]
 packages = ["lspy"]

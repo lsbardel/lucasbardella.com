@@ -1,14 +1,15 @@
 import asyncio
-import sys
 import json
+import sys
+
 from fluid.utils import log
 from fluid.utils.http_client import AioHttpClient
-
 
 PHOTOS = (
     ("rust1", "unsplash", "PEy4qZCLXss"),
     ("rust2", "pixabay", "3397227"),
 )
+
 
 async def fetch_data() -> None:
     results = {}
