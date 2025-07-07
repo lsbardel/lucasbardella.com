@@ -21,6 +21,9 @@ async def fetch_data() -> None:
                     dict(timestamp=timestamp, spot=str(vs.spot.mid)),
                 )
                 a.add_csv(f"{currency}-ts.csv", ts)
+                vs.bs()
+                ops = vs.disable_outliers(0.95).options_df()
+                a.add_csv(f"{currency}-ops.csv", ops)
 
 
 if __name__ == "__main__":
