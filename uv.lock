@@ -465,9 +465,9 @@ requires-dist = [
     { name = "aio-fluid", extras = ["cli", "http"], specifier = ">=1.5.1" },
     { name = "boto3", specifier = ">=1.38.3" },
     { name = "pandas", specifier = ">=2.2.3" },
-    { name = "python-dotenv", specifier = ">=1.0.1" },
+    { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "qrcode", extras = ["pil"], specifier = ">=8.0" },
-    { name = "quantflow", extras = ["cli", "data"], specifier = ">=0.3.2" },
+    { name = "quantflow", extras = ["cli", "data"], specifier = ">=0.4.1" },
     { name = "requests", specifier = ">=2.32.3" },
 ]
 
@@ -875,11 +875,11 @@ wheels = [
 
 [[package]]
 name = "python-dotenv"
-version = "1.1.0"
+version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/88/2c/7bb1416c5620485aa793f2de31d3df393d3686aa8a8506d11e10e13c5baf/python_dotenv-1.1.0.tar.gz", hash = "sha256:41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5", size = 39920 }
+sdist = { url = "https://files.pythonhosted.org/packages/f6/b0/4bc07ccd3572a2f9df7e6782f52b0c6c90dcbb803ac4a167702d7d0dfe1e/python_dotenv-1.1.1.tar.gz", hash = "sha256:a8a6399716257f45be6a007360200409fce5cda2661e3dec71d23dc15f6189ab", size = 41978 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1e/18/98a99ad95133c6a6e2005fe89faedf294a748bd5dc803008059409ac9b1e/python_dotenv-1.1.0-py3-none-any.whl", hash = "sha256:d7c01d9e2293916c18baf562d95698754b0dbbb5e74d457c45d4f6561fb9d55d", size = 20256 },
+    { url = "https://files.pythonhosted.org/packages/5f/ed/539768cf28c661b5b068d66d96a2f155c4971a5d55684a514c1a0e0dec2f/python_dotenv-1.1.1-py3-none-any.whl", hash = "sha256:31f23644fe2602f88ff55e1f5c79ba497e01224ee7737937930c448e4d0e24dc", size = 20556 },
 ]
 
 [[package]]
@@ -922,7 +922,7 @@ pil = [
 
 [[package]]
 name = "quantflow"
-version = "0.3.2"
+version = "0.4.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ccy" },
@@ -931,9 +931,9 @@ dependencies = [
     { name = "python-dotenv" },
     { name = "scipy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f8/a3/f6d92b506f63a52dc0511e8e1981a7a514858be4780a5fdac558c8409c66/quantflow-0.3.2.tar.gz", hash = "sha256:f581d26603a79ac0e1a9833e241c97127d88066798e88e357fc2e880c60225b3", size = 44114 }
+sdist = { url = "https://files.pythonhosted.org/packages/19/c7/1fba9749834475899fc4ea53231580a91c97406776c722889b235a540f8d/quantflow-0.4.1.tar.gz", hash = "sha256:6f3c85122bc3a2c57cf449c35cff56cb63b69ca84c1ecc0016965d2b31967628", size = 45473 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/08/1c/91d24a06b2b361ea58649500ff079bd6d933656e49127119a739869bb7b6/quantflow-0.3.2-py3-none-any.whl", hash = "sha256:db0dfd179d17528b417b2fe681c9ac09b20a846892bd67bc26861d5195686fbf", size = 64129 },
+    { url = "https://files.pythonhosted.org/packages/e1/4c/0d0048415daf6fbeec1fd98817a0f480cbed6672b1096d362dabfff70602/quantflow-0.4.1-py3-none-any.whl", hash = "sha256:4e8cba16c6698af5054b7645266fa002b1f3359443a0cd85197afd276571ab73", size = 66075 },
 ]
 
 [package.optional-dependencies]

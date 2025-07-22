@@ -25,30 +25,30 @@ const cvUrl = FileAttachment("data/luca-sbardella-cv.pdf").url();
 
 <hr>
 
-### Lead Algo Trading - [Onyx Capital](https://onyxcapitalgroup.com/)
+### Owner - [Quantmind](https://quantmind.com)
 
-**October 2023 - Present** London, UK
+**November 2008 - Present (Intermittent Consulting Engagements)** London, UK
 
-I lead a high-performance team of engineers and quants that develop and manage the algorithmic trading strategies for a commodities market making house.
-The main focus is on development of the OTC/single dealer platform and the hedging strategies
-associated with it.
+Provides independent consulting for project-based roles in **trading technology** and **algorithmic trading**,
+leveraging expertise in Rust, Python, quantitative finance and cloud computing.
 
-**Specialities**: commodity derivatives, algorithmic trading, quantitative finance, low-latency, OTC/single dealer platform<br>
+**Specialities**: algorithmic trading, quantitative finance, low-latency, machine learning<br>
 **Coding**: Rust, Python, TypeScript<br>
-**Technologies**: PostgreSQL, Redis, Kafka, Azure Cloud, Kubernetes, Docker
+**Technologies**: PostgreSQL, Redis, Kafka, AWS Cloud, Kubernetes, Docker
 
 <hr>
 
-### Owner - [Quantmind](https://quantmind.com)
+### Lead Algo Trading - [Onyx Capital](https://onyxcapitalgroup.com/)
 
-**November 2008 - Present** London, UK
+**October 2023 - July 2025** London, UK
 
-Consultant specialising in algo-trading, quantitative finance, data analysis,
-and full stack technological solutions.
+Led a high performance team in designing, deploying, and managing scalable, low-latency infrastructure
+for commodity electronic trading. Successfully delivered a **single dealer platform**
+enabling internalization of hedging and external trading with clients.
 
-**Specialities**: algorithmic trading, quantitative finance, machine learning<br>
-**Coding**: Rust, Python, TypeScript<br>
-**Technologies**: PostgreSQL, Redis, Kafka, AWS Cloud, Kubernetes, Docker
+**Specialities**: commodity derivatives, algorithmic trading, quantitative finance, low-latency, OTC/single dealer platform<br>
+**Coding**: Rust, Python<br>
+**Technologies**: PostgreSQL, Redis, Kafka, Azure Cloud, Kubernetes, Docker
 
 <hr>
 
@@ -56,7 +56,7 @@ and full stack technological solutions.
 
 **August 2022 - May 2023** London, UK
 
-I developed and managed the technology stack and trading strategies for a crypto market-making desk.
+Designed and implemented systematic trading technology for crypto exchanges, including market-making algorithms and risk management strategies. Built Rust-based exchange connectivity services and a high-performance trading engine, utilizing Python for post-trade data analysis. Led a small team of quant developers.
 
 **Specialities**: algo trading, quantitative finance, infrastructure, web applications<br>
 **Coding**: Rust, Python, TypeScript<br>
@@ -68,7 +68,8 @@ I developed and managed the technology stack and trading strategies for a crypto
 
 **August 2020 - July 2022** London, UK
 
-I managed a team responsible for crypto OTC trading technologies.
+Led a team responsible for the OTC platform consisting of rest APIs,
+backend data, streaming services, customers market risk and post-trade analysis.
 
 **Coding**: Python, Rust, TypeScript<br>
 **Technology**: PostgreSQL, Redis, Kafka, AWS, Kubernetes, Docker
