@@ -23,6 +23,7 @@ I did not apply to all of them, infact very few of them, but I discussed them wi
 * [Keyrock](https://www.keyrock.eu/)
 * [lo.tech](https://lo.tech/)
 * [Selini Capital](https://www.selinicapital.com/)
+* [Wintermute](https://www.wintermute.com/)
 
 It is difficult to keep recruiters at bay, they just want to fill positions.
 
