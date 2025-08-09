@@ -467,7 +467,7 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "qrcode", extras = ["pil"], specifier = ">=8.0" },
-    { name = "quantflow", extras = ["cli", "data"], specifier = ">=0.4.1" },
+    { name = "quantflow", extras = ["cli", "data"], specifier = ">=0.4.2" },
     { name = "requests", specifier = ">=2.32.3" },
 ]
 
@@ -922,7 +922,7 @@ pil = [
 
 [[package]]
 name = "quantflow"
-version = "0.4.1"
+version = "0.4.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ccy" },
@@ -931,9 +931,9 @@ dependencies = [
     { name = "python-dotenv" },
     { name = "scipy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/19/c7/1fba9749834475899fc4ea53231580a91c97406776c722889b235a540f8d/quantflow-0.4.1.tar.gz", hash = "sha256:6f3c85122bc3a2c57cf449c35cff56cb63b69ca84c1ecc0016965d2b31967628", size = 45473 }
+sdist = { url = "https://files.pythonhosted.org/packages/16/4c/ce50cdad89f08dc4959a7991b24b07972496a3a44334bceadd2da96aafb3/quantflow-0.4.2.tar.gz", hash = "sha256:e4bcdbf41f3695cb98b731d2c12364ef2e9892a4b8988fb12ccd5f508d3c5240", size = 45474 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e1/4c/0d0048415daf6fbeec1fd98817a0f480cbed6672b1096d362dabfff70602/quantflow-0.4.1-py3-none-any.whl", hash = "sha256:4e8cba16c6698af5054b7645266fa002b1f3359443a0cd85197afd276571ab73", size = 66075 },
+    { url = "https://files.pythonhosted.org/packages/61/80/92c528786387a571a2edf3dba4ab4bcab2d5c9293d5f93d5ec8456629748/quantflow-0.4.2-py3-none-any.whl", hash = "sha256:e881e1013c6add1d87d509c620330d507da2638ff641088041be161d038e63ea", size = 66072 },
 ]
 
 [package.optional-dependencies]

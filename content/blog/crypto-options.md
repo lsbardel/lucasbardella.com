@@ -1,18 +1,19 @@
 ---
 title: Pricing Crypto Options
-description: Learn how to price crypto options using QuantFlow's powerful tools.
-theme: dashboard
+date: 2025-08-09
+description: Learn how to price crypto options using python QuantFlow's powerful tools and Deribit API.
+keywords: crypto, options, pricing, quantflow, python
 ---
 
 ```js
-import { sparkbar } from "../components/sparkbar.js";
-import { OptionRow } from "../components/OptionTable.js";
-const btc = FileAttachment("../data/options/btc-ts.csv").csv({ typed: true });
-const btcSpot = FileAttachment("../data/options/btc-spot.json").json();
-const btcOps = FileAttachment("../data/options/btc-ops.csv").csv({ typed: true });
-const eth = FileAttachment("../data/options/eth-ts.csv").csv({ typed: true });
-const ethSpot = FileAttachment("../data/options/eth-spot.json").json();
-const ethOps = FileAttachment("../data/options/eth-ops.csv").csv({ typed: true });
+import { sparkbar } from "../../components/sparkbar.js";
+import { OptionRow } from "../../components/OptionTable.js";
+const btc = FileAttachment("../../data/options/btc-ts.csv").csv({ typed: true });
+const btcSpot = FileAttachment("../../data/options/btc-spot.json").json();
+const btcOps = FileAttachment("../../data/options/btc-ops.csv").csv({ typed: true });
+const eth = FileAttachment("../../data/options/eth-ts.csv").csv({ typed: true });
+const ethSpot = FileAttachment("../../data/options/eth-spot.json").json();
+const ethOps = FileAttachment("../../data/options/eth-ops.csv").csv({ typed: true });
 ```
 
 # Pricing Crypto Options
@@ -137,6 +138,7 @@ const minY = minRate - (maxRate - minRate) * 0.2;
 ```js
 display(
   Plot.plot({
+    width,
     title: `Implied annualized rate for ${asset}`,
     marks: [
       Plot.frame(),
@@ -217,24 +219,26 @@ const filteredOps =
 const ops = filteredOps.map(({ moneyness, ...keep }) => keep);
 ```
 
-
 ```js
 const maxVolume = d3.max(ops, (d) => d.volume);
-const radius = d3.scaleSqrt([0, maxVolume], [2, 20]);
+const radius = d3.scaleSqrt([0, maxVolume], [2, 30]);
 
 display(
   Plot.plot({
+    width,
       title: `Implied Volatility Smile for ${
         selectedMaturity === "All" ? "All Maturities" : formatDate(new Date(selectedMaturity))
       }`,
       x: {
         label: "Moneyness",
         grid: true,
+        labelFontSize: 14,
       },
       y: {
         label: "Implied Volatility",
         tickFormat: (v) => d3.format(".0%")(v),
         grid: true,
+        labelFontSize: 14,
       },
       color: {
         legend: true,
@@ -266,6 +270,8 @@ display(
     })
 );
 ```
+
+The size of the dots is proportional to the volume of the options, which gives an idea of the liquidity of the options at different strikes and maturities.
 
 ```js
 const row = view(

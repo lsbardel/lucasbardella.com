@@ -11,7 +11,7 @@ dependencies = [
     "pandas>=2.2.3",
     "python-dotenv>=1.1.1",
     "qrcode[pil]>=8.0",
-    "quantflow[cli,data]>=0.4.1",
+    "quantflow[cli,data]>=0.4.2",
     "requests>=2.32.3",
 ]
 

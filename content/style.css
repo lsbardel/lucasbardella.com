@@ -4,7 +4,8 @@
 
 main > h2 {
   border-top: 1px solid var(--theme-foreground-fainter);
-  padding-top: 20px;
+  padding-top: 25px;
+  padding-bottom: 15px;
   color: #bdac5a;
 }
 
@@ -42,4 +43,8 @@ a.icon {
   margin: 0 5px;
   color: var(--color-text);
   transition: all 0.3s ease;
+}
+
+.option-row {
+  background-color: rgb(10, 63, 124);
 }
