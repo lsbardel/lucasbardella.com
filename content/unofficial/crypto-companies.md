@@ -83,3 +83,14 @@ I spoke with several recruiters and applied to few companies so far
   * second interview 24/06/25
     * code pair interview
     * design an order book in Rust
+
+* [Backpack](https://backpack.exchange/)
+  * crypto exchange: spot and futures
+  * Chat with recruiter - was good
+  * First chat with CEO - went well
+  * Second chat with CTO
+    * what are the current challenges you are facing?
+    * what is the tech stack & cloud provider?
+    * what is the team size?
+    * what is the work culture like?
+    * Do you have a dedicated devops team?

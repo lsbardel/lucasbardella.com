@@ -2,6 +2,12 @@ import { utcFormat } from "d3-time-format";
 
 const formatDate = utcFormat("%B %d, %Y %H:%M:%S");
 
+const groups = new Set([
+  "lab",
+  "blog",
+  "coding",
+]);
+
 
 const footer = (config: Record<string, any>) => {
 
@@ -9,7 +15,7 @@ const footer = (config: Record<string, any>) => {
     const date = new Date();
     let fullPath = `${path}.md`;
     const bits = path.split("/").filter((v) => v!=="");
-    if (bits[0] === "lab" || bits[0] == "blog") {
+    if (groups.has(bits[0])) {
       fullPath = `/${bits[0]}/${bits[2]}.md`;
     }
     const fullUrl = `${config.homepage}/blob/main/content${fullPath}`;

@@ -23,25 +23,22 @@ You can download the CV pdf from there if you prefer.
 
 Please, don't share my CV with anyone without my permission.
 
-<hr/>
-
 ## My Current Situation
 
-I'm still working at Onyx as of now ${nowTxt}.
+I left Onyx on July 14th.
+I have a non-compete clause that prevents me from working for a competitor for an additional 6 months. These competitors are well-defined and only include the major commodity trading houses, so let's avoid those.
+I can work for anyone else immediately either via my Limited company or as an employee.
 
-My notice period is 3 months, and I have a non-compete clause that prevents me from working for a competitor for an additional 6 months after I leave. These competitors are well-defined and only include the major commodity trading houses, so let's avoid those.
+## Why I left Onyx?
 
-<hr/>
+* I set out to build a trading platform for OTC commodity derivatives, and I did that.
+* The OTC platform saved the company around 1.5mil in fees for the first 6 months
+* The company is now moving in a direction that doesn't fully align with my interests
+* We left in good terms and I can go back there as consultant if I want to
+* I'm looking to work in a company where technology is a way of thinking and not just a tool - at Onyx technology wasn't really part of the culture
+* I'm looking to actively work in trading technology, algo trading and low-latency trading, which is my passion
+* I'm currently working on my crypto trading engine, event-driven and volatility arbitrage strategies
 
-## Why am I looking for a new role?
-
-I am looking for a new role because I am looking for a new challenge.
-
-I have been working at Onyx since October 2023, where I assembled a small team and I developed the trading platform for OTC commodity derivatives, including their hedging strategies. The platform is built with Rust, Python and Typescript.
-
-The platform has been live for almost a year now, and although there are still things to do, I feel that I have accomplished what I set out to do, and the time is right to move on, given the current direction of the company doesn't fully align with my interests.
-
-<hr/>
 
 ## What am I looking for?
 
@@ -55,19 +52,16 @@ The platform has been live for almost a year now, and although there are still t
 * In London or remote (UK or EU time zone)
 
 
-<hr/>
-
 ## What can I offer?
 
-* I have over 20 years of experience in quantitative finance
-* I have over 8 years of experience in the algo trading space
-* I started coding Python in 2006 and never stopped
-* I started coding Rust in 2018, and I'm loving it
-* I have experience in leading engineers and quants since 2015
-* Knowledge of the commodities, fixed-income, FX and crypto markets
+* Over 20 years of experience in quantitative finance
+* Over 8 years of experience in the algo trading space
+* Started coding Python in 2006 and never stopped
+* Started coding Rust in 2018, and I'm loving it
+* Experience in leading engineers and quants since 2015
+* Experience in building single-dealer (OTC) trading platforms
+* Knowledge of crypto, commodities, fixed-income & FX markets
 
-
-<hr/>
 
 ## What are my expectations?
 
