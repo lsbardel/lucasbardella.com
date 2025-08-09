@@ -1,6 +1,6 @@
 ---
 title: Pricing Crypto Options
-date: 2025-08-09
+date: 2025 Aug 09
 description: Learn how to price crypto options using python QuantFlow's powerful tools and Deribit API.
 keywords: crypto, options, pricing, quantflow, python
 ---
@@ -226,48 +226,49 @@ const radius = d3.scaleSqrt([0, maxVolume], [2, 30]);
 display(
   Plot.plot({
     width,
-      title: `Implied Volatility Smile for ${
-        selectedMaturity === "All" ? "All Maturities" : formatDate(new Date(selectedMaturity))
-      }`,
-      x: {
-        label: "Moneyness",
-        grid: true,
-        labelFontSize: 14,
-      },
-      y: {
-        label: "Implied Volatility",
-        tickFormat: (v) => d3.format(".0%")(v),
-        grid: true,
-        labelFontSize: 14,
-      },
-      color: {
-        legend: true,
-        domain: ["Bid", "Ask"],
-        range: ["#228435ff", "#af1a06ff"],
-        label: "Option Type",
-      },
-      marks: [
-        Plot.dot(ops, {
+    height: 500,
+    title: `Implied Volatility Smile for ${
+      selectedMaturity === "All" ? "All Maturities" : formatDate(new Date(selectedMaturity))
+    }`,
+    x: {
+      label: "Moneyness",
+      grid: true,
+      labelFontSize: 14,
+    },
+    y: {
+      label: "Implied Volatility",
+      tickFormat: (v) => d3.format(".0%")(v),
+      grid: true,
+      labelFontSize: 14,
+    },
+    color: {
+      legend: true,
+      domain: ["Bid", "Ask"],
+      range: ["#228435ff", "#af1a06ff"],
+      label: "Option Type",
+    },
+    marks: [
+      Plot.dot(ops, {
+        x: "moneyness_ttm",
+        y: "implied_vol",
+        r: (d) => radius(d.volume),
+        fill: (d) => d.side === "bid" ? "#228435ff" : "#af1a06ff",
+      }),
+      Plot.tip(
+        ops,
+        Plot.pointer({
           x: "moneyness_ttm",
           y: "implied_vol",
-          r: (d) => radius(d.volume),
-          fill: (d) => d.side === "bid" ? "#228435ff" : "#af1a06ff",
+          channels: {
+            Moneyness: { value: "moneyness_ttm", format: ",.3f" },
+            IV: { value: "implied_vol", format: ".2%" },
+            Volume: { value: "volume", format: ",.0f" },
+          },
+          fontSize: 14,
         }),
-        Plot.tip(
-          ops,
-          Plot.pointer({
-            x: "moneyness_ttm",
-            y: "implied_vol",
-            channels: {
-              Moneyness: { value: "moneyness_ttm", format: ",.3f" },
-              IV: { value: "implied_vol", format: ".2%" },
-              Volume: { value: "volume", format: ",.0f" },
-            },
-            fontSize: 14,
-          }),
-        ),
-      ],
-    })
+      ),
+    ],
+  })
 );
 ```
 
@@ -290,6 +291,14 @@ const row = view(
       ttm: (v) => ttm(v),
       moneyness: (v) => fwd(v),
       implied_vol: (v) => d3.format(".2%")(v),
+      open_interest: sparkbar(
+        d3.max(ops, (d) => d.open_interest),
+        "#457b9d",
+      ),
+      volume: sparkbar(
+        d3.max(ops, (d) => d.volume),
+        "#9b2226",
+      ),
     },
     height: 400,
     multiple: false,
