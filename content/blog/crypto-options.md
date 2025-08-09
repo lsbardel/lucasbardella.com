@@ -16,8 +16,6 @@ const ethSpot = FileAttachment("../../data/options/eth-spot.json").json();
 const ethOps = FileAttachment("../../data/options/eth-ops.csv").csv({ typed: true });
 ```
 
-# Pricing Crypto Options
-
 Options are financial derivatives that give the holder the right, but not the obligation, to buy or sell an underlying asset at a predetermined price, called strike, before or at a specified expiration date.
 Options can be used to hedge against price volatility or speculate on future price movements.
 
