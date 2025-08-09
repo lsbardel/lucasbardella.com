@@ -33,6 +33,7 @@ content/local
 *.dvi
 *.fls
 *.gz
+*.lof
 *.aux
 *.fdb_latexmk
 __latexindent_temp.tex

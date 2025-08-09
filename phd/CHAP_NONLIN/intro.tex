@@ -1,0 +1,98 @@
+%
+%
+%
+%
+%
+\section{Introduction}
+\label{intro_nonlinear.sec}
+\headb{Nonlinear Navier-Stokes solver}{Introduction}
+%
+ Over the last decade, significant advances have been made
+ in the area of turbulent-viscous simulations using unstructured
+ grids.
+ However, compared with their structured counterparts,
+ standard unstructured grid solvers have lower computational
+ efficiency in terms of speed and storage.
+ Unstructured grids often use tetrahedral elements only,
+ an approach which often leads to numerical problems when the region to be
+ discretised has a preferred direction such as the boundary layer for a
+ high-Reynolds number flow. However, there are no fundamental difficulties in 
+ extending tetrahedral meshes to include further element types such as triangular prisms, 
+ pentahedra and hexahedra.  
+ Although both the discretisation of the computational domain and the flow solver
+ will become more complex,  such a mixed-element approach will offer
+ a better, more efficient approximation than using tetrahedral elements only.
+ For instance, hexahedral elements will handle boundary layer flows much better
+ than tetrahedral elements because they can be made very slender without
+ creating excessively small internal angles. 
+ In order to handle mixed-element meshes, the spatial discretisation
+ of the governing equations needs to be formulated in such a way
+ that the numerical algorithms can be applied in a uniform way to all
+ element types.
+ A relatively simple way of achieving such consistent numerical treatment
+ is to employ an edge-based data structure, which can be obtained
+ from either a finite volume (FV) or a finite element (FE) formulation
+ if the mesh consists of tetrehedral elements only. In this particular case, 
+ all nodes are connected directly without any internal diagonals.
+ However, quadrilaterals in 2D and hexahedrals in 3D have not only
+ edges but also diagonal links. Therefore, to create an edge-based
+ data structure from mixed meshes, one cannot use a FE technique
+ because of the non-zero shape function contributions from the
+ diagonally-opposed nodes for which there are no direct edges.
+ Consequently, we will use a FV technique to obtain an edge-based
+ data structure from mixed element meshes but, as reported by
+ Barth \citeyear{Barth:4}, Parthasarathy et al. \citeyear{Kallinderis:2},
+ Mavriplis \& Venkatakrishnan \citeyear{Mavriplis:3}
+ for unstructured meshes of tetrahedra, 
+ the discretisation of the viscous terms, remains a major problem. 
+ The FV edge-based data structure is usually obtained by
+ discretising the viscous terms in two sequential  loops, the so-called
+ two-loop approach. The first loop is used to construct the gradients
+ at all points, and the second one forms the second derivatives from
+ the computed gradient information.
+ Using such a technique, 
+ the viscous fluxes are treated in an analogous manner to
+ the inviscid ones and no extra storage is required.
+ However, this strategy, used by several authors
+ (see Peraire et al. \citeyearNP{Peiro:2}, Vahdati \& Imregun \citeyearNP{Mehdi:3})
+ has at least three serious drawbacks.
+ First, the {\em odd-even decoupling} can destabilize
+ the numerical scheme in regions where the viscous effects are
+ important, e.g. the boundary layer.
+ Second, for a 1D mesh of spacing $h$, the scheme will reduce to a second
+ difference on a stencil of $2h$, a feature which will lower numerical
+ accuracy.  Since packing enough points into the viscous layer
+ is one of the main difficulties associated with viscous flow
+ computations, a scheme that operates on every other point is highly
+ undesirable.
+ The third problem is the difficulty of implementing a viscous Jacobian which
+ becomes important if an implicit time integration scheme is employed.
+
+ An alternative approach, based on Galerkin
+ finite element (GFE) approximation where velocity
+ and temperature are made dependent variables,  is the derivation of the six node-pair
+ coefficients for the Hessian matrix (Mavriplis \citeyearNP{Mavriplis:4},
+ Selmin \& Formaggia \citeyearNP{Formaggia}).
+ Each coefficient  is associated with  two nodes only, hence the term "node-pair GFE". 
+ As mentioned earlier, such a formulation is not edge-based for non-tetrehedral meshes because 
+ of the possible diagonal links between the nodes of a hexahedral element.
+ On the other hand, the final discrete viscous
+ terms of such a GFE formulation form a nearest neighbour stencil.
+ Therefore, using the  Hessian node-pair
+ coefficients, six second derivatives can be calculated for each node.
+ Since the viscous terms can be expressed as a summation of the product
+ of the node-pair coefficients and the unknowns,
+ the construction of a viscous Jacobian becomes straightforward by explicit
+ differentiation. Furthermore, the odd-even decoupling is avoided and the accuracy is improved.
+ Unfortunately, this approach needs additional storage for the six node-pair
+ coefficients and its applicability is restricted to triangular/tetrahedral
+ elements if an edge-based data structure needs be employed.
+
+ In summary, when dealing with mixed-element meshes, FV formulations can
+ yield edge-based data structures but viscous flux discretisation
+ remains problematic. On the other hand, GFE formulations are more
+ efficient but the edge-based data structure cannot be preserved for non tetrahedral elements.  
+ Therefore, the discretisation of the viscous fluxes
+ can be improved by combining  the
+ storage efficiency of the two-loop FV approach  with the
+ numerical efficiency of the node-pair GFE method in an edge-based FV framework.

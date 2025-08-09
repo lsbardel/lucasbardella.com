@@ -1,0 +1,229 @@
+%
+%
+%
+%
+\chapter{Conclusions and Raccomendations for Further Work}
+\label{conclusion.chap}
+\heada{Conclusions}
+%
+ A unified flow solver for the solution of the steady-state, non-linear
+ time-marching and linearised unsteady Favre averaged Navier-Stokes equations
+ on 2D and 3D turbomachinery passages has been presented,
+ analysed and implemented.
+ The spatial discretisation has been obtained using a finite volume scheme
+ on mixed element meshes, consisting of triangles and quadrilaterals in 2D,
+ and of tetrahedra, pyramids, triangular prisms and hexahedra in 3D.
+ The resulting finite volume method is a node centered edge-based algorithm
+ which is applied in a uniform way to all element types.
+ An important feature of the method is the derivation of an edge-based coefficient
+ for the discretisation of the Laplacian operator, which results in a nearest
+ neighbour stencils.
+ The time relaxation for both the steady state and the linearised unsteady
+ version of the code has been obtained using the same preconditioned
+ Runge Kutta time stepping algorithm. This multistage time-integration technique
+ has been used as the smoother for a full approximation storage
+ agglomeration multigrid method.
+ For non-linear unsteady aerodynamics a dual time stepping technique
+ has been implemented. The scheme is fully implicit and uses the same preconditioned
+ multigrid algorithm developed for steady-state predictions, in order to iteratively
+ invert the equations at each physical time step.
+ The numerical procedure has been tested and compared with available analytical and
+ experimental data in order to assess the validity, the accuracy and the efficiency
+ of the method.
+
+ The three different numerical flow representations have been used for
+ a detailed computational analysis of a stator-rotor interaction in a typical
+ high pressure turbine stage. Steady state nd unsteady results have been
+ compared with the experimental data obtained at Osney Laboratory.
+ Also comparison between linear and non-linear unsteady results has been
+ reported in order to assess the range of applicability of the linear
+ method.
+%
+%
+%
+\paragraph{Highlights of the numerical procedure}
+
+~\newline
+~\newline
+%
+(i)
+ The semi-structured mesh generator presented in Chapter \ref{mesh.chap}
+ combines together the advantages of both structured and unstructured grids.
+ Particular feature of the blade passage, such as leading- and trailing-edges,
+ wake region are discretized without generating superfluous points.
+ Moreover complex geometric feature such as tip-gap are handled in a straightforward
+ way.
+
+~\newline
+ (ii)
+ The use of hybrid grids improves standard unstructured schemes in terms of
+ accuracy, speed and storage. Accuracy is improved by using quadrilateral/hexahedral
+ elements in regions where highly stretched cells are necessessary to resolve
+ steep directional gradients (i.e. boundary layer regions). In these regions, standard
+ triangular/tetrahedral elements would produce angles which are virtually zero.
+ In such situations a finite-volume discretisation may suffer an accuracy degradation
+ due to the irregular shape of the resulting median-dual control volume.
+ Another advantage of hybrid grids, over standard unstructured grids,
+ is a decreased cost of the discretisation itself. For a given distribution of
+ vertices, a tetrahedral mesh discretisation is roughly twice as expensive to
+ evaluate as a hexahedral mesh discretisation. A decreased number of edges in the mesh
+ is the reason for this difference.
+ 
+~\newline
+ (iii)
+ A further advantage of the hybrid grid solver presented is its
+ flexibility in handling structured grids, block structured grids, unstructured
+ grids or combination of thereof without any modifications.
+
+~\newline
+ (iv)
+ The viscous fluxes are split into two components: Laplacian terms and
+ mixed derivative terms. The former terms contain Laplacian operators
+ only and they are discretized using a side-data Laplacian weight which
+ results in a nearest neighbour stencils. The mixed derivative terms
+ are evaluated from the gradient informations and thus their discretisation
+ does not result in a compact stencil.
+ The compact stencil of the Laplacian terms is of paramount importance in
+ the boundary layer region, avoiding even-odd decoupling and allowing
+ a stronger diagonal dominance in the preconditioner matrix employed in the
+ relaxation algorithm.
+
+~\newline
+ (v)
+ The time relaxation algorithm uses an agglomeration multigrid method.
+ The coarse grid levels are constructed
+ automatically from the fine grid by agglomerating fine grid control
+ volumes together. Since the coarse grid control volumes may have arbitrary
+ polygonal shapes, the type of elements constituting the fine grid is
+ irrelevant. In this way the discrete equations on coarse grid levels
+ are assembled automatically without the explicit creation of a coarse grid.
+
+~\newline
+ (vi)
+ The multigrid smoother consists of a preconditioned
+ point- or line-Jacobi Runge Kutta relaxation algorithm, which guarantees
+ efficient damping of high frequency error modes on highly stretched grids.
+ The line-Jacobi preconditioner is used for viscous flow calculation
+ which use a no-slip conditions at solid walls.
+ The point-Jacobi preconditioner is used for calculation which
+ use a flow-tangency condition at solid walls.
+%
+%
+%
+%
+\paragraph{Importance of linearised unsteady viscous representations}
+
+~\newline
+~\newline
+ (i)
+ A linearised unsteady Navier-Stokes representations 
+ offers the possibility of predicting unsteady flows at
+ off-design conditions where viscous
+ effects are not limited to the boundary layer.
+ 
+~\newline
+ (ii) Steady-state viscous effects are often important even at design conditions.
+ In fact, Navier-Stokes simulations are used in order to predict secondary flow
+ effects, correct mass flow in compressor passages where the adverse pressure gradient
+ cause a thicker boundary layer, tip-leakage flow, losses caused by the trailing-edge
+ base flow in turbine blades, etc.
+ Using a linearised unsteady Navier-Stokes representations means
+ that the same computational mesh can be used for both calculating the steady
+ base flow and the unsteady perturbations.
+ Interpolation of the steady-state unknown from viscous grids into inviscid ones
+ are avoided and no additional numerical smoothing is needed.
+ 
+~\newline
+ (iii)
+ The linearisation of the turbulence model may play an important role in
+ situation were viscous effect are not confined to the boundary layer
+ region. When there are not such effects, the frozen turbulence approach
+ should produce very similar results.
+ 
+~\newline
+ (iv)
+ When a steady viscous flow calculation, which uses the law of the wall in order
+ to compute the wall shear stresses, is performed,
+ the issue a linearisation of the wall function arises.
+ Such a linearisation has been attempted during the research project.
+ However, the results obtained using a linearised wall function and
+ the ones obtained neglecting unsteady wall shear stresses were
+ similar. Moreover the linearisation of the wall function
+ required the use of the linearised turbulence mode since
+ wall shear stresses and eddy viscosity are related in the Spalart Allmaras
+ model.
+ For this reason the unsteady wall shear stresses were neglected
+ with no need of a linearised law of the wall.
+%
+%
+%
+%
+\paragraph{Applicability of linear methods for forced response prediction}
+ 
+~\newline
+~\newline
+ To establish boundaries, which effectively define
+ when linear methods should produce accurate results, is not a simple task.
+ This is mainly  due to the large number of parameters which influence the unsteady
+ flows caused by relative blade motion.
+ Comparisons between linear and non-linear results should be made for
+ all type of flow regimes as well as different size of stator-rotor axial spacing
+ and different stator-to-rotor pitch ratios. Also,
+ 3D effects need to be explored in more details.
+ 
+ From the results obtained in Chapter \ref{rt27.chap}, the following conclusion
+ are drawn.
+ 
+~\newline
+ (ii) The wake-rotor interaction is strong in the crown of the blade. In this region,
+ the computed results show that non-linearities are negligible.
+
+~\newline
+ (i) High unsteady pressure fluctuations, mainly caused by the upstream potential flow field,
+ are located at the leading-edge of the blade. In this region non-linearities may
+ play an important role even though the linearised results follow a correct trend.
+ Furthermore, such discrepancies are more evident for the blade passing frequency then
+ higher mode number. For this reason, the linear method should still produce
+ meaningful results for interactions in where shock waves are moving in the region
+ between the stator and rotor bladerows\footnote{The presence of shock waves increase
+ the amplitude of Fourier modes with higher frequencies then the blade passing frequency.}.
+
+~\newline
+ (iii) Localised non-linearities are located in region where the steady-state flow
+ differs from the time-average flow. This is often the case when non-linear features,
+ such as shock waves, are present.
+
+~\newline
+ (iv) High unsteady pressure fluctuations are placed across the suction side legs
+ of the horseshoe vortex at both hub and tip end walls. These suction side legs,
+ of the horseshoe vortex,
+ travel from the end walls towards mid section because of the rotation of the
+ passage vortecies thus unsteadiness present a pronounce 3D behaviour.
+%
+%
+%
+%
+%
+\paragraph{Further Work}
+
+~\newline
+~\newline
+ (i) The preconditioned agglomeration multigrid needs to be improved in order to
+ enhance both performance and robustness. A more accurate prolongation operator
+ need to be developed. This task is non-trivial because of the absence
+ of an underlying grid. The preconditioner may cause some instabilities
+ at stagnation points, where large variations of the flow angle appear
+ at significant velocity values. This loss of robustness can be attributed to
+ a flow-angle sensitivity thus improvement in this direction should be made.
+
+~\newline
+ (ii) Further testing of the linearised unsteady method needs to be undertaken for
+ real 3D geometries. In addition the inclusion of the quadratic source
+ terms (QST) (Giles \citeyearNP{Giles:13}) in the linearised frequency-domain equations
+ should be implemented.
+ The magnitude of such terms is a quadratic function of the level of unsteadiness.
+ In this way after a first linearised calculation, the unsteadiness are used to evaluate
+ the QST which are then used as source terms for a second linearised analysis.
+ Such method should take into account for the differences between the steady-state flow
+ and the time-average flow.
+%

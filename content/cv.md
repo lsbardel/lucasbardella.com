@@ -174,8 +174,7 @@ Quantitative analyst/trader in propriety trading group. Researching and trading 
 
 PhD, Applied Mathematics, Computational Fluid Dynamics.
 
-**PhD Thesis**: [Simulation of Unsteady Turbomachinery Flows for Forced Response Predictions](http://goo.gl/cMCbwm)
-<small class='visible-print-block'>(online at http://goo.gl/cMCbwm)</small>
+**PhD Thesis**: [Simulation of Unsteady Turbomachinery Flows for Forced Response Predictions](/phd-thesis.pdf)
 
 **Coding**: FORTRAN, C++
 

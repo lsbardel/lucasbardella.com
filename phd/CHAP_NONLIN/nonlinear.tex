@@ -1,0 +1,177 @@
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Hybrid Grid Solver for Turbulent Viscous Flow}
+\label{flow_model.chap}
+\heada{Hybrid Grid Solver for Turbulent Viscous Flow}
+\setcounter{footnote}{0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+ This chapter presents a method for solving steady and unsteady, compressible,
+ turbulent viscous flows for 2D and 3D turbomachinery blades.
+ The flow model is based on the Favre-averaged Navier-Stokes equations,
+ together with a one equation turbulence model.
+ The space discretisation uses a node-centered finite volume scheme
+ on unstructured mixed element grids, consisting
+ of triangles and quadrilaterals in 2D, and of tetrahedra, pyramids, 
+ triangular prisms and hexahedra in 3D. 
+ The important features of the present approach are the 
+ discretisation of the domain via a single, unified {\em edge-data structure}
+ for mixed-element meshes and the use of a Laplacian weight
+ which results in nearest neighbour stencils.
+ The Laplacian weight is evaluated using an approximation of the
+ Galerkin finite element method.
+ In order to allow a straightforward implementation of fluid-structure
+ coupling, the numerical solution is based on the Arbitrary
+ Lagrangian-Eulerian method in which the grid points may be moved
+ in an arbitrary but specified way.
+ The pseudo time integration for steady-state problems is obtained using a
+ preconditioned agglomeration multigrid method designed for highly
+ anisotropic unstructured hybrid grids.
+ In order to use the same preconditioned multigrid
+ algorthim employed in the steady-state cases,
+ a dual time-stepping technique is used for unsteady computations.
+%
+%
+\input{CHAP_NONLIN/intro}
+%
+%
+\section{Favre Averaged Navier-Stokes Equations}
+\label{mathematical_model.sec}
+\headb{Nonlinear Navier-Stokes solver}{Flow equations}
+%
+ The system of Navier-Stokes equations constitute the most complete
+ description of viscous, heat-conducting flows and represents the highest
+ level of approximation for continuous fluids.
+ However, from the point of view of computational fluid dynamics,
+ the vast majority of flow situations occurring in engineering
+ applications enter into a particular form of instability, called
+ {\em turbulence}.
+ This occurs in most flow situations when the inertial forces
+ exceed the viscous forces by more than four orders of magnitude
+ (the ratio of these two forces is called {\em Reynolds number}).
+ This form of instability can be represented by statistical
+ fluctuations of the flow quantities around mean or averaged values.
+ Moreover, the space scale of these fluctuations is so small that their
+ direct calculation is beyond the reach of computational capabilities
+ for engineering applications.
+
+ Therefore, time-averaged Navier-Stokes equations need to be considered
+ in most situations.
+ In the case of compressible flow equations, this averaging
+ is called Favre averaging (Wilcox \citeyearNP{Wilcox}).
+ Because of the non-linearity of the Navier-Stokes equations, this
+ procedure generates additional unknowns which will be solved using a
+ suitable turbulence model. 
+ In this work, the Spalart Allmaras \citeyear{Spalart:1} one equation
+ turbulence model has been used (Appendix \ref{turbulence.chap}).
+%
+%
+%
+%
+\subsection{Mean flow equations}
+\label{conservative_formulation.subsec}
+\input{CHAP_NONLIN/navsto}
+%
+\subsection{Boundary conditions}
+\label{boundary_conditions_nonlinear.subsec}
+\input{CHAP_NONLIN/bcond}
+%
+\input{CHAP_NONLIN/space}
+%
+\input{CHAP_NONLIN/time}
+%
+%
+%
+\section{Test Cases}
+\label{exemples_nonlinear.sec}
+\headb{Nonlinear Navier-Stokes solver}{Test cases}
+%
+ The numerical procedure described up to now can be utilize to analyse
+ steady and unsteady flow at various levels of approximation.
+ Obviously, the computational cost in terms of CPU time and memory increases
+ with the complexity of the modelling from simple 2D steady flows to 3D
+ unsteady multi-passage analyses.
+ Four examples of the code application to turbomachinery and external flow
+ field prediction will be presented in this Section along with
+ discussion in order to show the capabilities and limits of the
+ procedure.
+ The first example deals with the steady-state flow prediction of
+ turbomachinery flow for a 2D geometry. The remaining three
+ test cases illustrate the use of the dual-time-stepping code
+ for predicting unsteady flows for which analytical or experimental
+ data is available in the literature.
+
+ For these computation the preconditioned agglomeration multigrid described
+ in Appendix \ref{multigrid.chap} has been used.
+ In the boundary layer, agglomerated grids are obtained by coarsening in
+ the normal direction with a fine-to-coarse cell ratio of 4:1. A line-implicit
+ Jacobi preconditioner has been used for all four test cases presented.
+%
+%
+\input{CHAP_NONLIN/vki}
+%
+%\input{CHAP_NONLIN/rotor37}
+%
+\input{CHAP_NONLIN/stokes}
+%
+\input{CHAP_NONLIN/cylind}
+%
+\input{CHAP_NONLIN/arc}
+%
+%
+\section{Concluding Remarks}
+\headb{Nonlinear Navier-Stokes solver}{Concluding remarks}
+%
+\begin{itemize}
+%
+ \item
+ A FV scheme for the solution of the Favre averaged
+ Navier-Stokes equations has been presented. The method employs an edge-based
+ data structure as well as  a nearest-neighbour stencil for the discretisation of
+ the Laplacian operator. The method enables the use of 2D and 3D
+ unstructured, structured or block structured mixed-element grids without any modifications
+ to the numerical scheme.
+% 
+\item
+ A drawback of this approach is the need to evaluate the mixed
+ derivative terms of the viscous fluxes by using a standard FV method which does not yield
+ a nearest neighbour stencil.
+ However, in cases where the viscous effects are in the boundary layer
+ only, such terms are
+ very small and hence the method is expected to be well suited to
+ engineering applications.
+%
+\item
+ The same time relaxation multigrid algorithm has been applied to both
+ steady and unsteady time-marching aerodynamics. The benefit of unconditional
+ stability has been demonstrated by computing unsteady
+ viscous flow with time-steps corresponding to CFL numbers on the
+ range 1000 - 10,000.
+%
+\item
+ The multigrid technique efficiently performs for steady-state flow
+ computations even though its robustness needs to be improved for 3D
+ turbulent flow simulations.
+ For time-marching unsteady flows, the multigrid technique does not
+ perform as well. Convergence histories similar to the one
+ shown in Fig. \ref{flat_impul.fig}b represents the best result
+ obtained. The reason for such a break down is not clear. However
+ the stability restriction in (\ref{local_time_step_2.eq}) could
+ play and important part near the far-field boundaries.
+%
+\item
+ For unsteady computations, an attractive way forward could be the
+ implementation of an adaptive scheme which select different
+ time-marching techniques in different zones depending on the
+ local situation.
+%
+\item
+ The scheme produces good and stable results for highly distorted
+ meshes as demonstrated by Sbardella \& Imregun \citeyear{Luca:11}. 
+%
+\end{itemize}
+%

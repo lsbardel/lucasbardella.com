@@ -1,0 +1,54 @@
+%
+%
+%
+%
+%
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{\hspace{5mm} Preface}
+%
+ The flow through the various stages of turbomachines is inherently unsteady,
+ primarily due to the relative motion between adjacent stator and rotor
+ blade rows, though other factors such as aerodynamic mistuning, temperature
+ distortions due to blocked burners may also become significant. The
+ unsteadiness can persist through several stages and may excite either a
+ structural or an acoustic mode and such resonances can cause  severe
+ vibration problems.  The overall picture is further complicated because of
+ other events such as surge, stall and rotating stall. In any case, such
+ unstable phenomena are increasingly becoming limiting factors in developing
+ improved-efficiency designs, especially when flexible,
+ slender and unshrouded blades are used.
+ From an industrial prospective, it is clear that there is a
+ pressing need for formulating validated predictive models to reduce
+ the design cycle and, consequently, cost.
+
+ Such is the aim of the present
+ work and two different methods of simulating 3D viscous unsteady
+ turbomachinery flows were developed: non-linear time marching and
+ frequency linearised method. The contributions to CFD modelling include an
+ efficient discretisation of the viscous terms, the linearisation of the
+ turbulence model and the development of a multigrid methodology for viscous
+ unsteady flows. Although both the non-linear and linearised methods can use
+ general unstructured meshes, a novel semi-structured mesh generator was
+ developed  for computational efficiency. Over standard structured meshes,
+ such a route provides a significant improvement
+ both in the smoothness of the grid-spacing and in resolving
+ particular aspects of the blade passage geometry. Leading-
+ and trailing-edge regions are discretised without generating
+ superfluous points, while wakes and shocks can be
+ captured using local refinement techniques.
+ A particular feature of the methodology is the use of mixed element grids,
+ consisting of triangles
+ and quadrilaterals in 2D, and of tetrahedra, pyramids, triangular
+ prisms and hexahedra in 3D.
+
+ The final part of the thesis presents a detailed unsteady flow analysis
+ for forced response prediction of a 3D transonic turbine stage.
+ The main aim is to compare the performance of the non-linear
+ time-marching and linearised flow simulation methods when predicting
+ the unsteadiness due to stator-rotor interactions.
+ The results obtained with the two method were found to be quantitatively
+ similar although non-linearities are evident in the leading-edge
+ region where the potential flow interaction is dominant.
+
+ Finally, an analysis of the different unsteady effects caused by potential flow
+ and wake-blade interactions was also made.

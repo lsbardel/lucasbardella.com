@@ -1,0 +1,139 @@
+%
+%
+%
+ For convection dominated phenomena, such as those described by the 
+ compressible Navier-Stokes equations, the formulation of correct boundary
+ conditions is extremely important and its impact on the numerical scheme
+ is often dominating.
+ The reason for this strong influence can be traced back to the physical nature of
+ the convection propagation phenomena (Hirsh \citeyearNP{Hirsch:1}).
+ If all the variables were known at a boundary from the knowledge of the
+ physical input, there would be no difficulty; however this is generally not the
+ case with hyperbolic systems of partial differential equations.
+ The number of physical
+ variables that can be freely imposed at a boundary is dependent on the propagation
+ properties of the system and, in particular, on the information propagated from
+ the boundary towards the inside of the flow region. These are known as
+ {\em physical boundary conditions}. The remaing variables will depend on the
+ details of the flow and are, therefore, part of the solution. However
+ from a numerical point of view, information about all variables
+ is required  at the boundary. This additional information gives rise to
+ {\em numerical boundary conditions} (Hirsch \citeyearNP{Hirsch:1}).
+ 
+ The presence of viscosity and heat conduction
+ transforms the conservation laws of momentum and energy into second-order
+ partial differential equations.
+ The system of Navier Stokes equations is therefore an hybrid system consisting of
+ parabolic momentum and energy equations and of a hyperbolic continuity equation.
+ A direct consequence is the need for a greater number
+ of physical boundary conditions when dealing with viscous flows instead of
+ inviscid flows.
+%
+%
+\paragraph{Flow-tangency.}
+%
+ Also known as the inviscid wall condition, this boundary condition at the solid walls
+ is expressed by the requirement that there is no flow through the surface
+ of the moving wall. Only one physical boundary condition can be imposed
+ at this boundary because only the forward travelling acoustic wave is entering
+ the domain. Mathematically, this condition is expressed by the vanishing of the
+ velocity normal to the wall.
+
+%
+\beq
+  \vec{u}\cdot\vec{n} = 0
+  \label{flow_tangency1.eq}
+\eeq
+%
+ Expressed in a {\em week sense}, i.e. through the fluxes, (\ref{flow_tangency1.eq})
+ becomes:
+
+%
+\beq
+ \oint\sm{wall}\vec{\bf F}d{\cal S} =
+ \oint\sm{wall}\vec{\bf F}{\scriptstyle p}d{\cal S} =
+ \left[
+ \begin{array}{c}
+ 0 \\ p\ n\sm{1} d{\cal S}\\
+      p\ n\sm{2} d{\cal S}\\
+      p\ n\sm{3} d{\cal S}\\
+      p\ \left(\vec{\Omega}\times\vec{x}+\frac{d \vec{x}}{d t}\right)\cdot\vec{n}d{\cal S}
+ \end{array}
+ \right]
+  \label{flow_tangency2.eq}
+\eeq
+%
+\paragraph{No-slip condition.}
+%
+%
+ The no-slip condition at the solid walls is expressed by the requirement that the
+ fluid velocity relative to the moving wall must be zero.
+ Mathematically this can be expressed as:
+
+%
+\beq
+  \vec{u} = \vec{v} - \vec{\Omega}\times\vec{x} - \frac{d \vec{x}}{d t} = 0
+  \label{no_slip1.eq}
+\eeq
+%
+ In addition to (\ref{no_slip1.eq}), an additional information is required
+ due to the presence of the second derivative terms in the Navier-Stokes
+ equations\footnote{The no-slip condition is valid for viscous flow only.}.
+ Here this additional information is for an adiabatic wall
+
+%
+\beq
+  \vec{n}\cdot\nabl T = 0
+  \label{no_slip2.eq}
+\eeq
+%
+%
+\paragraph{Inflow and outflow boundaries.} 
+%
+ The quasi-3D non-reflecting boundary
+ conditions developed by Saxer \& Giles \citeyear{Giles:7} are used
+ for steady-state computations.
+ These boundary conditions are obtained from a Fourier mode analysis
+ of the linearised Euler equations at the far-field boundaries.
+ Implemented in a turbomachinery environment, the approach assumes
+ that the solution at the boundary is circumferentially decomposed into Fourier modes,
+ the $0\se{th}$ mode corresponding to the averaged solution.
+ The $0\se{th}$ mode is treated according to the standard 
+ 1D boundary condition (Thompson \citeyearNP{Thompson:1,Thompson:2})
+ which allows the user to specify certain physical quantities at the boundaries.
+ Such averaged quantities are:
+%
+\begin{itemize}
+ \item
+  {\bf Inflow:} stagnation temperature, stagnation pressure and flow angles.
+ \item
+  {\bf Outflow:} static pressure.
+\end{itemize}
+%
+ The remaining part of the solution, represented by the sum of the harmonics,
+ is treated according to the exact\footnote{The term exact refers to the
+ solution of the linear problem. Since the linear problem is itself an approximation
+ to the nonlinear one, there will be errors which are proportional to the square
+ of the amplitude of the non-uniformities at the far-field boundaries.}
+ 2D theory of Giles \citeyear{Giles:5,Giles:6}.
+ Since this method considers radial flow variations in the $0\se{th}$ mode only, it is
+ called quasi-3D non-reflecting boundary conditions. In the absence of any radial
+ variations, the boundary conditions are exact within
+ the 2D linear theory.
+
+ The  standard 1D characteristic boundary conditions of
+ Thompson \citeyear{Thompson:1,Thompson:2} are used for 
+ unsteady time-marching aerodynamics.
+%
+%
+% 
+\paragraph{Periodic boundaries.}
+%
+ Taking advantage of the edge-based data structure, the periodicity is handled in 
+ a straightforward way as long as the points in the two periodic
+ boundaries are located at same axial and radial coordinates.
+%
+\beq
+  {\bf U}_{\theta_0 + \Delta \theta} = {\bf U}_{\theta_0}
+\eeq
+%

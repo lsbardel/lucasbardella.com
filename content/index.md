@@ -13,7 +13,7 @@ quantitative-algo trading and real-time trading applications.
 
 Over the last twenty plus years I have worked as
 
-- Research assistant at Imperial College London where I got my PhD and [published several papers](https://scholar.google.com/citations?user=jV80M7QAAAAJ&hl=en)
+- Research assistant at Imperial College London where I got my [PhD](./phd-thesis.pdf) and [published several papers](https://scholar.google.com/citations?user=jV80M7QAAAAJ&hl=en)
 - Quantitative analyst/trader at major investment banks and hedge funds
 - Software consultant via [quantmind](https://quantmind.com)
 - CTO at Fintech & crypto start-ups/scale-ups

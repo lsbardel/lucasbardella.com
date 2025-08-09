@@ -1,0 +1,88 @@
+%
+%
+%
+%
+\chapter{Non-Dimensional Variables}
+\label{nondim.chap}
+\headc{Non-dimensional variables}
+\setcounter{footnote}{0}
+%
+ All the physical quantities reported in the thesis are
+ considered in their dimensionless form. This Appendix
+ illustrates how these dimensionless quantity are evaluated.
+ The process start defining three reference values for the pressure,
+ temperature and length scale:
+%
+\beq
+\begin{array}{lll}
+  p\sm{ref} &\ \ \ \ & \left[\mbox{Pa}\right]\\
+  T\sm{ref} &\ \ \ \ & \left[\mbox{K}\right]\\
+  l\sm{ref} &\ \ \ \ & \left[\mbox{m}\right]
+\end{array}
+\eeq
+%
+ The dimensionless pressure and temperature are calculated from their
+ dimensionalised and reference counterparts as:
+
+%
+\beq
+  p &=& \frac{p\sm{dim}}{p\sm{ref}}
+  \label{pnondim.eq}\\
+  T &=& \frac{T\sm{dim}}{T\sm{ref}}
+  \label{tnondim.eq}
+\eeq
+%
+ Density, velocity and time are non-dimensionalised using the
+ following reference quantities:
+
+%
+\beq
+  \rho\sm{ref} &=& \frac{p\sm{ref}}{R T\sm{ref}} \ \ \left[\mbox{Kg}/\mbox{m}\se{3}\right]
+ \nonumber\\
+  v\sm{ref} &=& \sqrt{R T\sm{ref}} \ \ \left[\mbox{m}/\mbox{s}\right]\\
+ \label{rnondim.eq}\\
+  t\sm{ref} &=& \frac{l\sm{ref}}{\sqrt{R T\sm{ref}}} \ \ \left[\mbox{s}\right]
+ \nonumber
+\eeq
+%
+ In (\ref{rnondim.eq}) $R$ indicates the gas constant
+ ($R = 287 \left[\mbox{m}\se{2}/\mbox{s}\se{2}\mbox{K}\right]$).
+%
+ The dimensionless perfect gas relations become:
+
+%
+\beq
+  p &=& \rho T\\
+  c &=& \sqrt{\gamma T} = \sqrt{\gamma\frac{p}{\rho}}
+\eeq
+
+ The reduced frequency $\omega$ is obtained from the dimensional frequency $f$
+ $\left[\mbox{Hz}\right]$ via the following relation:
+
+%
+\beq
+  \omega = 2\pi f t\sm{ref} 
+  \label{reduced_frequency.eq}
+\eeq
+%
+ The reference Reynolds number is given by
+
+%
+\beq
+  Re = \frac{l\sm{ref} \rho\sm{ref} v\sm{ref}}{\mu\sm{ref}}
+\eeq
+%
+ where $\mu\sm{ref}$ is evaluated from $T\sm{ref}$ using the Sutherland's formula
+
+%
+\beq
+  \mu\sm{ref} = \frac{1.45\,T\sm{ref}\se{3/2}}{T\sm{ref}+110} 10\se{-6}
+\eeq
+%
+ The dimensionless dynamic viscosity is evaluated by:
+
+%
+\beq
+  \mu = \frac{T\sm{ref} + 110}{T\sm{ref} T + 110} T\se{3/2}
+  \label{nondim_suther.eq}
+\eeq

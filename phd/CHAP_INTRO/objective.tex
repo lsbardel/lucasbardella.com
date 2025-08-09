@@ -1,0 +1,172 @@
+%
+%
+%
+%
+%
+\section{Objectives}
+\headb{Introduction}{Objectives}
+\label{objective.sec}
+%
+ This thesis deals with the development and application of a numerical
+ tool for the simulation of unsteady turbomachinery flows for forced response
+ predictions. The main goal is not only to produce a method suitable
+ for industrial design but also to explore its bounds of applicability to
+ practical cases.
+ Both linear and non-linear time-marching unsteady flow models 
+ have been implemented using an advanced finite volume algorithm on
+ unstructured meshes.
+ The research code, called ALiNNS (Advanced Linear-Nonlinear Navier-Stokes code),
+ uses state-of-the-art CFD techniques for both spatial discretisation and temporal
+ integration of the governing flow equations. The main features
+ of the methodology are the use of mixed-element grids (also called hybrid grids)
+ and a preconditioned agglomeration multigrid.
+ Moreover a semi-unstructured mesh generator, LEVMAP (LEVel MAPping), was developed in order
+ to exploit the optimum discretisation features of such an approach on 3D
+ turbomachinery passages.
+ LEVMAP and ALiNNS were used to predict the unsteady pressure fluctuations,
+ due to relative blade rotation, on a typical HP turbine stage.
+ The analysis was carried out using both linearised and non-linear aerodynamics.
+ Comparisons with experimental data were made
+ in order to assess the validity and the range of applicability of the linear
+ method.
+
+ The main objectives of the research project can be summarised as follow:
+%
+\begin{itemize}
+%
+\item
+ The development of a semi-structured mesh generator for an efficient representation
+ of 3D turbomachinery blades.
+%
+\item
+ The development of an efficient viscous flux discretisation algorithm for
+ mixed element grids and of a preconditioned agglomeration multigrid for
+ efficient time integration.
+%
+\item
+ The development of a 3D linearised viscous unsteady flow model.
+%
+\item
+ The application of the developed non-linear and linearised flow models
+ to a representative case in order to asses the applicability bounds
+ of the linearised methodology.
+%
+\end{itemize}
+%
+%
+\section{Contributions of the Thesis}
+\headb{Introduction}{Contributions of the thesis}
+\label{contributions.sec}
+%
+\subsection{CFD methods}
+ The main contributions are summarised below.
+%
+\paragraph{Semi-structured meshes.}
+%
+ The discretisation methodology uses a combination of structured and unstructured meshes,
+ the former in the radial direction and the latter in the axial and tangential
+ directions in order to exploit the fact that blade-like structures
+ are not strongly 3D since the radial variation
+ is usually small. Such a formulation was found to
+ have a number of advantages over its structured counterparts.
+ There is a significant improvement
+ in the smoothness of the grid-spacing and in capturing
+ particular aspects of the blade passage geometry. It was also found that
+ the leading- and trailing-edge regions could be  discretised without generating
+ superfluous points in the far field and that further refinements of the mesh  
+ to capture wake and shock effects were relatively easy to implement.
+ The methodology is reported by Sbardella at al. \citeyear{Luca:3,Luca:9}
+ and Sbardella \citeyear{Luca:5}. A detailed description is given in
+ Chapter \ref{mesh.chap}.
+%
+\paragraph{Hybrid-grid flow-solver.}
+%
+ Compared with their structured counterparts, standard unstructured grid
+ solvers have lower computational efficiency in terms of speed and storage.
+ Unstructured grids often use tetrahedral elements only,
+ an approach which often leads to numerical problems when the region to be discretised
+ has a preferred direction such as the boundary layer for a
+ high-Reynolds number flow. However, there are no fundamental difficulties in 
+ extending tetrahedral meshes to include further element types such as triangular prisms,
+ pentahedra and hexahedra.
+ Although both the discretisation of the computational domain and the flow solver
+ will become more complex,  such a mixed-element approach will offer
+ a better, more efficient approximation than using tetrahedral elements only.
+ For instance, hexahedral elements will handle boundary layer flows much better
+ than tetrahedral elements because they can be made very slender without
+ creating excessively small or large internal angles. 
+ In order to handle mixed-element meshes, the spatial discretisation
+ of the governing equations needs to be formulated in such a way
+ that the numerical algorithms can be applied in a uniform way to all
+ element types.
+ Chapter \ref{flow_model.chap} describes the development and application
+ of a finite volume scheme for the solution of the
+ Favre-averaged Navier-Stokes equations on mixed-element grids, consisting
+ of triangles and quadrilaterals in 2D, and of tetrahedra, pyramids, 
+ triangular prisms and hexahedra in 3D.
+ Some of the findings have already been reported in
+ Sayma et al. \citeyear{Luca:10}.
+%
+%
+\paragraph{Edge-data Laplacian weight.}
+%
+ A novel feature of the spatial discretisation employed in
+ the ALiNNS flow solver is the use of a edge-data based Laplacian weight.
+ This Laplacian weight is used to compute the Laplacian terms of the
+ viscous fluxes and it results in a nearest neighbour stencils.
+ Chapter \ref{flow_model.chap} describes how to evaluate the Laplacian weight
+ for mixed-element meshes using an approximation of the
+ Galerkin finite volume {\em node-pair} formula.
+ The findings are also reported in Sbardella \& Imregun \citeyear{Luca:7,Luca:11}.
+%
+%
+\paragraph{Preconditioned Multigrid.}
+%
+ A preconditioned directional-implicit agglomeration multigrid method
+ has been developed for the solution of the linear and non-linear
+ Navier-Stokes equations on highly anisotropic 2D and 3D unstructured hybrid grids.
+ The coarse grid levels are constructed
+ automatically from the fine grid by agglomerating fine grid control
+ volumes together. Since the coarse grid control volumes may have arbitrary
+ polygonal shapes, the type of elements constituting the fine grid is
+ irrelevant. The discrete equations on coarse grid levels
+ are assembled automatically without the explicit creation of a coarse grid.
+ The multigrid smoother consists of a preconditioned
+ point- or line-Jacobi Runge-Kutta relaxation algorithm, which guarantees
+ efficient damping of high-frequency error modes on highly stretched grids.
+ Appendix \ref{multigrid.chap} gives a literature review of preconditioned
+ multigrid methods and describes the actual multigrid algorithm that is
+ implemented in ALiNNS.
+%
+% 
+%
+\subsection{Understanding of unsteady flows}
+%
+ Chapter \ref{rt27.chap} presents a detailed  numerical analysis of a stator-rotor
+ interaction in the case of typical HP turbine stage
+ using both linear and non linear unsteady flow representations.
+ The main contributions are summarised below.
+%
+\begin{itemize}
+%
+\item
+ Detailed analysis of the rotor steady-state flow with discussion
+ of secondary and tip leakage flow.
+%
+\item
+ Calculation of the aerodynamic forcing functions from the
+ stator outlet steady-state solution. These forcing functions
+ are obtained splitting the non-linear steady-state flow
+ into potential and vortical components using the theory
+ reported in Appendix \ref{waves.chap}.
+%
+\item
+ Analysis of the distinct influence of potential and vortical forcing functions
+ on the rotor unsteady aerodynamics using a time-linearised approach.
+%
+\item
+ Assessment of the predicted results by comparing them with
+ experimental data and predicted non-linear results.
+%
+\end{itemize}
+%

@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": ".dev/node-run tsx node_modules/.bin/observable build",
-    "postbuild": "cp content/CNAME dist/",
+    "postbuild": "cp content/CNAME dist/ && cp phd/thesis.pdf dist/phd-thesis.pdf",
     "dev": ".dev/node-run tsx node_modules/.bin/observable preview"
   },
   "dependencies": {

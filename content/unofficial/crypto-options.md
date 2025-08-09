@@ -172,6 +172,16 @@ There are different ways to define moneyness, but the most common one is defined
 where ${tex`K`} is the strike price, ${tex`F`} is the forward price of the underlying asset and ${tex`T`} is the time to maturity in years.
 
 ```js
+const maturities = ["All", ...new Set(data.ops.map((d) => d.maturity))].sort();
+const selectedMaturity = view(
+  Inputs.select(maturities, {
+    label: "Maturity",
+    format: (v) => (v === "All" ? "All" : formatDate(new Date(v))),
+  }),
+);
+```
+
+```js
 const ops = data.ops.map(({ moneyness, ...keep }) => keep);
 const row = view(
   Inputs.table(ops, {
@@ -212,3 +222,22 @@ Volume and open interest are two important metrics in trading that provide insig
 - **Volume** refers to the total number of contracts traded during a specific period, typically a day. It indicates the level of activity and interest in a particular option. It is closely linked to the
   [liquidity](https://en.wikipedia.org/wiki/Market_liquidity) of the market, as higher volume generally means more participants are trading the contract, making it easier to enter and exit positions.
 - **Open Interest** refers to the total number of outstanding contracts that are held by market participants. In essence, it tracks the number of open positions in the market.
+
+
+While both metrics measure market activity, they tell different stories:
+
+- **Volume** is a measure of turnover. It can be high even if open interest is low, for example, if the same contracts are being traded back and forth frequently within a day (day trading).
+- **Open Interest** is a measure of the total number of active positions. It tells us how much money is committed to a particular option for future.
+
+The real power comes from analyzing volume and open interest together. Their relationship can provide strong clues about the market's conviction and the potential for a trend to continue or reverse.
+
+Here’s a simple guide to interpreting the four possible scenarios:
+
+| Volume | Open Interest | Interpretation                                                                                                                            |
+| :----- | :------------ | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Up** | **Up**        | **Strong Trend:** New money is flowing into the market, creating new positions. This is a healthy sign that the current price trend is strong and likely to continue. |
+| **Up** | **Down**      | **Potential Reversal:** High volume shows lots of activity, but falling open interest means traders are closing their existing positions. This often signals the end of a trend, as participants are taking profits or cutting losses. |
+| **Down** | **Up**        | **Stalling Market:** New positions are being opened, but with little volume or conviction. The market may be consolidating or losing momentum. |
+| **Down** | **Down**      | **Weakening Trend:** Low volume and closing positions indicate that traders are losing interest. The current trend is likely weakening and becoming exhausted. |
+
+By monitoring both volume and open interest, traders can gain a deeper understanding of market dynamics, confirm the strength of a trend, and be better prepared for potential reversals.

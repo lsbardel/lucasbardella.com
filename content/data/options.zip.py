@@ -13,14 +13,19 @@ async def fetch_data() -> None:
     with ZipArchive() as a:
         async with Deribit() as deribit:
             for currency in currencies:
+                # get the folatility loader
                 loader = await deribit.volatility_surface_loader(currency)
+                # build the volatility surface
                 vs = loader.surface()
-                ts = vs.term_structure()
+                # add spot/perpetual price
                 a.add_json(
                     f"{currency}-spot.json",
                     dict(timestamp=timestamp, spot=str(vs.spot.mid)),
                 )
+                # get the forward term structure
+                ts = vs.term_structure()
                 a.add_csv(f"{currency}-ts.csv", ts)
+                # evaluate black-scholes implied volatilities
                 vs.bs()
                 ops = vs.disable_outliers(0.95).options_df()
                 a.add_csv(f"{currency}-ops.csv", ops)

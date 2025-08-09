@@ -1,0 +1,1368 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{{Abarbanel, S., Gottlieb, D. and Hesthaven,
+  J.S.}}{{Abarbanel, S., Gottlieb, D. and Hesthaven, J.S.}}{1999}]{Hesthaven:2}
+{Abarbanel, S., Gottlieb, D. and Hesthaven, J.S.} (1999).
+\newblock {Well-posed Perfectly Matched Layer for Advective Acoustics}.
+\newblock {\em Journal of Computational Physics\/}~{\em 154}, 266--283.
+
+\bibitem[\protect\citeauthoryear{{Adamczyk, J.J., Stevans, W. and Jutras,
+  R.}}{{Adamczyk, J.J., Stevans, W. and Jutras, R.}}{1982}]{Adamczyk:1}
+{Adamczyk, J.J., Stevans, W. and Jutras, R.} (1982).
+\newblock {Supersonic Stall Flutter of High-Speed Fans}.
+\newblock {\em Journal of Engineering for Power\/}~{\em 104\/}(3), 675--682.
+
+\bibitem[\protect\citeauthoryear{{Aftosmis, M., Gaitonde, D. and Tavares,
+  T.S.}}{{Aftosmis, M., Gaitonde, D. and Tavares, T.S.}}{1994}]{Aftosmis:1}
+{Aftosmis, M., Gaitonde, D. and Tavares, T.S.} (1994).
+\newblock {On the Accuracy, Stability and Monotonicity of Various
+  Reconstruction Algorithms for Unstructured Meshes}.
+\newblock AIAA Paper 91-0610.
+
+\bibitem[\protect\citeauthoryear{{Anderson, J.D.Jr.}}{{Anderson,
+  J.D.Jr.}}{1990}]{Anderson:2}
+{Anderson, J.D.Jr.} (1990).
+\newblock {\em {Modern Compressible Flow}}.
+\newblock McGraw-Hill Inc.
+
+\bibitem[\protect\citeauthoryear{{Anderson, W.K. and Bonhaus, D.L.}}{{Anderson,
+  W.K. and Bonhaus, D.L.}}{1994}]{Anderson:1}
+{Anderson, W.K. and Bonhaus, D.L.} (1994).
+\newblock {An Implicit Upwind Algorithm for Computing Turbulent Flows on
+  Unstructured Grids}.
+\newblock {\em Computers and Fluids\/}~{\em 23\/}(1), 1--21.
+
+\bibitem[\protect\citeauthoryear{{Arnone, A.}}{{Arnone, A.}}{1995}]{Arnone:1}
+{Arnone, A.} (1995).
+\newblock {Multigrid Methods for Turbomachinery Navier-Stokes Calculations}.
+\newblock In {\em Solution techniques for large-scale CFD problems}, pp.\
+  293--332. John Wiley \& Sons.
+
+\bibitem[\protect\citeauthoryear{{Arnone, A. and Swanson, R.C.}}{{Arnone, A.
+  and Swanson, R.C.}}{1993}]{Arnone:2}
+{Arnone, A. and Swanson, R.C.} (1993).
+\newblock {A Navier-Stokes Solver for Turbomachinery Applications}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 115}, 305--313.
+
+\bibitem[\protect\citeauthoryear{{Atassi, H.M. and Golubev, V.V.}}{{Atassi,
+  H.M. and Golubev, V.V.}}{1997}]{Atassi:1}
+{Atassi, H.M. and Golubev, V.V.} (1997).
+\newblock {Unsteady Disturbances in Swirling Turbomachinery Flows}.
+\newblock In {\em $8th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Stockholm, pp.\  131--146.
+
+\bibitem[\protect\citeauthoryear{{Baker, T.J.}}{{Baker, T.J.}}{1990}]{Delaunay}
+{Baker, T.J.} (1990).
+\newblock {Unstructured Mesh Generation by a Generalized Delaunay Algorithm}.
+\newblock Technical Report 464, AGARD.
+
+\bibitem[\protect\citeauthoryear{{Barth, T.J.}}{{Barth, T.J.}}{1990}]{Barth:4}
+{Barth, T.J.} (1990).
+\newblock On unstructured grid solvers.
+\newblock Technical Report Lecture series VKI-LS 1990-03, Von Karman Institute
+  of Fluid Dynamics.
+
+\bibitem[\protect\citeauthoryear{{Barth, T.J.}}{{Barth, T.J.}}{1991}]{Barth:2}
+{Barth, T.J.} (1991).
+\newblock {Numerical Aspects of Computing High Reynolds Number Flows on
+  Unstructured Meshes}.
+\newblock AIAA Paper 91-0721.
+
+\bibitem[\protect\citeauthoryear{{Barth, T.J.}}{{Barth, T.J.}}{1993}]{Barth:3}
+{Barth, T.J.} (1993).
+\newblock {Recent Developments in High Order k-Exact Reconstruction on
+  Unstructured Meshes}.
+\newblock AIAA Paper 93-0668.
+
+\bibitem[\protect\citeauthoryear{{Barth, T.J. and Jespersen, D.C.}}{{Barth,
+  T.J. and Jespersen, D.C.}}{1989}]{Barth:1}
+{Barth, T.J. and Jespersen, D.C.} (1989).
+\newblock {The design and Applications of Upwind Schemes on Unstructured
+  Meshes}.
+\newblock AIAA Paper 89-0366.
+
+\bibitem[\protect\citeauthoryear{{Beam, R.M. and Warming, R.F.}}{{Beam, R.M.
+  and Warming, R.F.}}{1976}]{Beam:1}
+{Beam, R.M. and Warming, R.F.} (1976).
+\newblock {An Implicit-Difference Algorithm for Hyperbolic System in
+  Conservation Law Form}.
+\newblock {\em Journal of Computational Physics\/}~{\em 22}, 87--109.
+
+\bibitem[\protect\citeauthoryear{{Bendiksen, O.O.}}{{Bendiksen,
+  O.O.}}{1991}]{Bendiksen:1}
+{Bendiksen, O.O.} (1991).
+\newblock {A New Approach to Computational Aeroelasticity}.
+\newblock AIAA Paper 91-0939.
+
+\bibitem[\protect\citeauthoryear{{Brackbill, J.U., and Saltzman,
+  J.S.}}{{Brackbill, J.U., and Saltzman, J.S.}}{1982}]{Ellipt3}
+{Brackbill, J.U., and Saltzman, J.S.} (1982).
+\newblock {Adaptative Zoning for Singular Problems in two Dimensions}.
+\newblock {\em Journal of Computational Physics\/}~{\em 46}, 442--368.
+
+\bibitem[\protect\citeauthoryear{{Brenneis, A. and Eberle, A.}}{{Brenneis, A.
+  and Eberle, A.}}{1990}]{Brenneis:1}
+{Brenneis, A. and Eberle, A.} (1990).
+\newblock {Application of an Implicit Relaxation Method Solving the Euler
+  Equations for Time-Accurate Unsteady Problems}.
+\newblock {\em Journal of Fluids Engineering\/}~{\em 112}, 510--520.
+
+\bibitem[\protect\citeauthoryear{{Cebeci, T.}}{{Cebeci, T.}}{1977}]{Cebeci:1}
+{Cebeci, T.} (1977).
+\newblock {Calculation of Unsteady Two-Dimensional Laminar and Turbulent
+  Boundary Layers with Fluctuations in External Velocity}.
+\newblock {\em Royal Society (London)\/}~{\em A 355}, 225--238.
+
+\bibitem[\protect\citeauthoryear{{Choi, Y.H. and Merkle, C.L.}}{{Choi, Y.H. and
+  Merkle, C.L.}}{1993}]{Choi:1}
+{Choi, Y.H. and Merkle, C.L.} (1993).
+\newblock {The Application of Preconditioning in Viscous Flows}.
+\newblock {\em Journal of Computational Physics\/}~{\em 105}, 207--223.
+
+\bibitem[\protect\citeauthoryear{{Cicarelli, G. and Sieverding,
+  C.H.}}{{Cicarelli, G. and Sieverding, C.H.}}{1996}]{Sieverding:2}
+{Cicarelli, G. and Sieverding, C.H.} (1996).
+\newblock {The Effects of Vortex Shedding on the Unsteady Pressure Distribution
+  around the Trailing Edge of a Turbine Cascade}.
+\newblock ASME Paper 96-GT-356.
+
+\bibitem[\protect\citeauthoryear{{Cizmas, P.G.A. and Hall, K.C.}}{{Cizmas,
+  P.G.A. and Hall, K.C.}}{1995}]{Hall:7}
+{Cizmas, P.G.A. and Hall, K.C.} (1995).
+\newblock {A Viscous-Inviscid Model of Unsteady Small-Disturbance Flows in
+  Cascades}.
+\newblock AIAA Paper 95-2655.
+
+\bibitem[\protect\citeauthoryear{{Clark, W.S. and Hall, K.C.}}{{Clark, W.S. and
+  Hall, K.C.}}{1999}]{Hall:8}
+{Clark, W.S. and Hall, K.C.} (1999).
+\newblock {A Time-Linearized Navier-Stokes Analysis of Stall Flutter}.
+\newblock ASME Paper 99-GT-383.
+
+\bibitem[\protect\citeauthoryear{{Collar, A.R.}}{{Collar,
+  A.R.}}{1946}]{Collar:1}
+{Collar, A.R.} (1946).
+\newblock {The Expanding Domain of Aeroelasticity}.
+\newblock {\em Journal of Royal Aeronautical Society\/}~{\em 51}, 613--636.
+
+\bibitem[\protect\citeauthoryear{{Cumpsty, N.A.}}{{Cumpsty,
+  N.A.}}{1989}]{Cumpsty:1}
+{Cumpsty, N.A.} (1989).
+\newblock {\em Compressor Aerodynamics}.
+\newblock Longman Scientific \& Technical.
+
+\bibitem[\protect\citeauthoryear{{Dawes, W.N.}}{{Dawes, W.N.}}{1988}]{Dawes:1}
+{Dawes, W.N.} (1988).
+\newblock {Development of a Three-dimensional Navier-Stokes Solver for
+  Application to all Types of Turbomachinery}.
+\newblock ASME paper 88-GT-70.
+
+\bibitem[\protect\citeauthoryear{{Dawes, W.N.}}{{Dawes, W.N.}}{1990}]{Dawes:4}
+{Dawes, W.N.} (1990).
+\newblock {Towards Improved Throughflow Capability: The Use of 3D Viscous Flow
+  Solvers in a Multistage environment}.
+\newblock ASME paper 90-GT-18.
+
+\bibitem[\protect\citeauthoryear{{Dawes, W.N.}}{{Dawes, W.N.}}{1992}]{Dawes:2}
+{Dawes, W.N.} (1992).
+\newblock {The Extension of a Solution-Adaptative 3D Navier-Stokes Solver
+  towards Geometries of Arbitrary Complexity}.
+\newblock ASME paper 92-GT-363.
+
+\bibitem[\protect\citeauthoryear{{Dawes, W.N.}}{{Dawes, W.N.}}{1993}]{Dawes:3}
+{Dawes, W.N.} (1993).
+\newblock {Simulating Unsteady Turbomachinery Flows on Unstructured Meshes
+  which Adapt both in Time and Space}.
+\newblock ASME paper 93-GT-104.
+
+\bibitem[\protect\citeauthoryear{{Denton, J.D.}}{{Denton,
+  J.D.}}{1983}]{Denton:3}
+{Denton, J.D.} (1983).
+\newblock {An Improved Time Marching Method for Turbomachinery Flow
+  Calculation}.
+\newblock {\em Journal of Engineering for Power\/}~{\em 105}, 514--524.
+
+\bibitem[\protect\citeauthoryear{{Denton, J.D.}}{{Denton,
+  J.D.}}{1990}]{Denton:1}
+{Denton, J.D.} (1990).
+\newblock {The Calculation of Three Dimensional Viscous Flow through Multistage
+  Turbomachines}.
+\newblock ASME paper 90-GT-19.
+
+\bibitem[\protect\citeauthoryear{{Denton, J.D.}}{{Denton,
+  J.D.}}{1993}]{Denton:2}
+{Denton, J.D.} (1993).
+\newblock {Loss Mechanism in Turbomachines}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 115}, 621--656.
+
+\bibitem[\protect\citeauthoryear{{Donea, J., Giuliani, S. and Halleux,
+  J.P.}}{{Donea, J., Giuliani, S. and Halleux, J.P.}}{1982}]{Donea}
+{Donea, J., Giuliani, S. and Halleux, J.P.} (1982).
+\newblock {An Arbitrary Lagrangian-Eulerian Finite Element Method for Transient
+  Dynamic Fluid-Structure Interactions}.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering\/}~{\em
+  33}, 689--723.
+
+\bibitem[\protect\citeauthoryear{{Dowell, E.H., Curtiss, H.C.Jr., Scanlan, R.H.
+  and Sisto, F.}}{{Dowell, E.H., Curtiss, H.C.Jr., Scanlan, R.H. and Sisto,
+  F.}}{1989}]{Sisto:3}
+{Dowell, E.H., Curtiss, H.C.Jr., Scanlan, R.H. and Sisto, F.} (1989).
+\newblock {\em {A Modern Course in Aeroelasticity}\/} (Second ed.).
+\newblock Kluwer Academic Publishers.
+
+\bibitem[\protect\citeauthoryear{{Emmons, H.W., Pearson, C.E. and Grant,
+  H.P.}}{{Emmons, H.W., Pearson, C.E. and Grant, H.P.}}{1955}]{Emmons:1}
+{Emmons, H.W., Pearson, C.E. and Grant, H.P.} (1955).
+\newblock {Compressor Surge and Stall Propagation}.
+\newblock {\em ASME Transaction\/}~{\em 27}, 455--469.
+
+\bibitem[\protect\citeauthoryear{{Enfeldt, B.}}{{Enfeldt,
+  B.}}{1988}]{Einfeldt:1}
+{Enfeldt, B.} (1988).
+\newblock {On Godunov-Type Methods for Gas Dynamics}.
+\newblock {\em SIAM Journal of Numerical Analysis\/}~{\em 25}, 294--318.
+
+\bibitem[\protect\citeauthoryear{{Enfeldt, B.}}{{Enfeldt,
+  B.}}{1991}]{Einfeldt:2}
+{Enfeldt, B.} (1991).
+\newblock {On Godunov-Type Methods Near Low Densities}.
+\newblock {\em Journal of Computational Physics\/}~{\em 92}, 273--295.
+
+\bibitem[\protect\citeauthoryear{{Engquist, B. and Gustafsson, B.}}{{Engquist,
+  B. and Gustafsson, B.}}{1987}]{Engquist:2}
+{Engquist, B. and Gustafsson, B.} (1987).
+\newblock {Steady State Computations for Wave Propagation Problems}.
+\newblock {\em Mathematics of Computation\/}~{\em 49}, 39--64.
+
+\bibitem[\protect\citeauthoryear{{Engquist, B. and Majda, A.}}{{Engquist, B.
+  and Majda, A.}}{1977}]{Engquist:1}
+{Engquist, B. and Majda, A.} (1977).
+\newblock {Absorbing Boundary Conditions for the Numerical Simulation of
+  Waves}.
+\newblock {\em Mathematics of Computation\/}~{\em 31}, 629--651.
+
+\bibitem[\protect\citeauthoryear{{Erdos, J.I., Alzner, E. and McNally,
+  W.}}{{Erdos, J.I., Alzner, E. and McNally, W.}}{1977}]{Erdos:1}
+{Erdos, J.I., Alzner, E. and McNally, W.} (1977).
+\newblock {Numerical Solution of Periodic Transonic Flow through a Fan Stage}.
+\newblock {\em AIAA Journal\/}~{\em 15}, 1559--1568.
+
+\bibitem[\protect\citeauthoryear{{Essers, J.A., Delanaye, M. and Rogiest,
+  P.}}{{Essers, J.A., Delanaye, M. and Rogiest, P.}}{1995}]{Essers:1}
+{Essers, J.A., Delanaye, M. and Rogiest, P.} (1995).
+\newblock {Upwind-Biased Finite-Volume Technique Solving Navier-Stokes
+  Equations on Irregular Meshes}.
+\newblock {\em AIAA Journal\/}~{\em 33\/}(5), 833--842.
+
+\bibitem[\protect\citeauthoryear{{Ewins, D.J.}}{{Ewins, D.J.}}{1974}]{Ewins:1}
+{Ewins, D.J.} (1974).
+\newblock {Vibration Modes of Mistuned Bladed Disks}.
+\newblock {\em Journal of Engineering for Power\/}~{\em 98\/}(3), 349--354.
+
+\bibitem[\protect\citeauthoryear{{Feiereisen, J.M., Montgomery, M.D. and
+  Fleeter, S.}}{{Feiereisen, J.M., Montgomery, M.D. and Fleeter,
+  S.}}{1994}]{Feiereisen:1}
+{Feiereisen, J.M., Montgomery, M.D. and Fleeter, S.} (1994).
+\newblock {Unsteady Aerodynamic Forcing Functions: A Comparison Between Linear
+  Theory and Experiment}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 116}, 676--685.
+
+\bibitem[\protect\citeauthoryear{{Ferm, L.}}{{Ferm, L.}}{1995}]{Ferm:1}
+{Ferm, L.} (1995).
+\newblock {Non-Reflecting Boundary Conditions for the Steady Euler Equations}.
+\newblock {\em Journal of Computational Physics\/}~{\em 122}, 307--316.
+
+\bibitem[\protect\citeauthoryear{{Fleeter, S.}}{{Fleeter,
+  S.}}{1979}]{Fleeter:1}
+{Fleeter, S.} (1979).
+\newblock {Aeroelasticity Research for Turbomachinery Applications}.
+\newblock {\em Journal of Aircraft\/}~{\em 16\/}(5), 320--326.
+
+\bibitem[\protect\citeauthoryear{{Fransson, T.H., J{\"{o}}cker, M.,
+  B{\"{o}}lcs, A. and Ott, P.}}{{Fransson, T.H., J{\"{o}}cker, M., B{\"{o}}lcs,
+  A. and Ott, P.}}{1998}]{Bolcs:2}
+{Fransson, T.H., J{\"{o}}cker, M., B{\"{o}}lcs, A. and Ott, P.} (1998).
+\newblock {Viscous and Inviscid Linear/Nonlinear Calculations versus quasi 3D
+  Experimental Cascade Data for a new Aeroelastic Turbine Standard
+  Configuration}.
+\newblock ASME Paper 98-GT-490.
+
+\bibitem[\protect\citeauthoryear{{Frink, N.T.}}{{Frink, N.T.}}{1992}]{Frink:2}
+{Frink, N.T.} (1992).
+\newblock {Upwind Scheme for Solving the Euler Equations on Unstructured
+  Tetrahedral Meshes}.
+\newblock {\em AIAA Journal\/}~{\em 30}, 70--77.
+
+\bibitem[\protect\citeauthoryear{{Frink, N.T.}}{{Frink, N.T.}}{1996}]{Frink:1}
+{Frink, N.T.} (1996).
+\newblock {Assessment of an Unstructured-Grid Method for Predicting 3-D
+  Turbulent Viscous Flows}.
+\newblock AIAA Paper 96-0292.
+
+\bibitem[\protect\citeauthoryear{{Gerolymos, G.A.}}{{Gerolymos,
+  G.A.}}{1992}]{Gerolymos:1}
+{Gerolymos, G.A.} (1992).
+\newblock {Coupled 3D Aeroelasticity Analysis of Bladed Disks}.
+\newblock ASME Paper 92-GT-171.
+
+\bibitem[\protect\citeauthoryear{{Giles, M.B.}}{{Giles, M.B.}}{1987}]{Giles:2}
+{Giles, M.B.} (1987).
+\newblock {Calculation of Unsteady Wake/Rotor Interaction}.
+\newblock AIAA Paper 87-0006.
+
+\bibitem[\protect\citeauthoryear{{Giles, M.B.}}{{Giles, M.B.}}{1988}]{Giles:5}
+{Giles, M.B.} (1988).
+\newblock {Non-Reflecting Boundary Conditions for the Euler Equations}.
+\newblock Technical Report TR-88-1, MIT,Computational fluid Dynamics Lab.
+
+\bibitem[\protect\citeauthoryear{{Giles, M.B.}}{{Giles, M.B.}}{1990a}]{Giles:6}
+{Giles, M.B.} (1990a).
+\newblock {Non-Reflecting Boundary Conditions for the Euler Equations
+  Calculations}.
+\newblock {\em AIAA Journal\/}~{\em 28\/}(12), 2050--2058.
+
+\bibitem[\protect\citeauthoryear{{Giles, M.B.}}{{Giles, M.B.}}{1990b}]{Giles:3}
+{Giles, M.B.} (1990b).
+\newblock {Stator/Rotor Interaction in a Transonic Turbine}.
+\newblock {\em AIAA Journal of Propulsion and Power\/}~{\em 6\/}(5), 621--627.
+
+\bibitem[\protect\citeauthoryear{{Giles, M.B.}}{{Giles, M.B.}}{1991}]{Giles:4}
+{Giles, M.B.} (1991).
+\newblock {UNSFLO: A numerical method for the calculation of unsteady flow in
+  Turbomachinery}.
+\newblock Technical Report 205, MIT, Gas Turbine Laboratory.
+
+\bibitem[\protect\citeauthoryear{{Giles, M.B.}}{{Giles, M.B.}}{1992}]{Giles:13}
+{Giles, M.B.} (1992).
+\newblock {An Approach for Multi-Stage Calculations Incorporating
+  Unsteadiness}.
+\newblock ASME Paper 92-GT-282.
+
+\bibitem[\protect\citeauthoryear{{Givoli, D.}}{{Givoli, D.}}{1991}]{Givoli:1}
+{Givoli, D.} (1991).
+\newblock {Non-reflecting Boundary Conditions}.
+\newblock {\em Journal of Computational Physics\/}~{\em 94}, 1--29.
+
+\bibitem[\protect\citeauthoryear{{Godunov, S.K.}}{{Godunov,
+  S.K.}}{1959}]{Godunov:1}
+{Godunov, S.K.} (1959).
+\newblock {A Difference Method for the Numerical Calculation of Discontinuous
+  Solutions of the Hydrodynamic Equations}.
+\newblock {\em Matematicheskii Sbornik\/}~{\em 47}, 271--290.
+
+\bibitem[\protect\citeauthoryear{{Goldstein, M.E.}}{{Goldstein,
+  M.E.}}{1978}]{Goldstein:1}
+{Goldstein, M.E.} (1978).
+\newblock {Unsteady Vortical and Entropic Distortions of Potential Flows Round
+  Arbitrary Obstacles}.
+\newblock {\em Journal of Fluid Mechanics\/}~{\em 89}, 433--468.
+
+\bibitem[\protect\citeauthoryear{{Golub, G.H. and Van Loan, C.F.}}{{Golub, G.H.
+  and Van Loan, C.F.}}{1991}]{Golub:1}
+{Golub, G.H. and Van Loan, C.F.} (1991).
+\newblock {\em {Matrix Computations}}.
+\newblock The Johns Hopkins University Press.
+
+\bibitem[\protect\citeauthoryear{{Gregory-Smith, D.G.}}{{Gregory-Smith,
+  D.G.}}{1997}]{Gregory:1}
+{Gregory-Smith, D.G.} (1997).
+\newblock {Physics of Secondary Flows}.
+\newblock In {\em {Secondary and Tip-clearance Flows in Axial Turbines}},
+  Lecture Series VKI LS 1997-01.
+
+\bibitem[\protect\citeauthoryear{{Greitzer, E.M.}}{{Greitzer,
+  E.M.}}{1976a}]{Greitzer:1}
+{Greitzer, E.M.} (1976a).
+\newblock {Surge and Rotating Stall in Axial Flow Compressor, Part I:
+  Theoretical Compression System Model}.
+\newblock {\em Journal of Engineering for Power\/}~{\em 98}, 190--198.
+
+\bibitem[\protect\citeauthoryear{{Greitzer, E.M.}}{{Greitzer,
+  E.M.}}{1976b}]{Greitzer:2}
+{Greitzer, E.M.} (1976b).
+\newblock {Surge and Rotating Stall in Axial Flow Compressor, Part II:
+  Experimental Results and Comparison with Theory}.
+\newblock {\em Journal of Engineering for Power\/}~{\em 98}, 199--217.
+
+\bibitem[\protect\citeauthoryear{{Grosclaude, T., Br\'{e}ard, C. and Sayma,
+  A.I.}}{{Grosclaude, T., Br\'{e}ard, C. and Sayma, A.I.}}{1999}]{Luca:8}
+{Grosclaude, T., Br\'{e}ard, C. and Sayma, A.I.} (1999).
+\newblock {Extension of the LEVMAP Mesh Generator to Radial-Flow Blades}.
+\newblock Technical Report VUTC/AP/99005, Imperial College, London.
+
+\bibitem[\protect\citeauthoryear{{Gustafsson, B.}}{{Gustafsson,
+  B.}}{1988}]{Gustafsson:1}
+{Gustafsson, B.} (1988).
+\newblock {Far-Field Boundary Conditions For Time-Dependent Hyperbolic
+  Systems}.
+\newblock {\em SIAM Journal on Scientific and Statistical Computing\/}~{\em
+  9\/}(5), 812--828.
+
+\bibitem[\protect\citeauthoryear{{Hall, K.C. and Clark, W.S.}}{{Hall, K.C. and
+  Clark, W.S.}}{1991}]{Hall:4}
+{Hall, K.C. and Clark, W.S.} (1991).
+\newblock {Prediction of Unsteady Aerodynamic Loads in Cascades Using the
+  Linearized Euler Equations on Deforming Grids}.
+\newblock AIAA Paper 91-3378.
+
+\bibitem[\protect\citeauthoryear{{Hall, K.C. and Clark, W.S.}}{{Hall, K.C. and
+  Clark, W.S.}}{1993}]{Hall:6}
+{Hall, K.C. and Clark, W.S.} (1993).
+\newblock {Linearized Euler Predictions of Unsteady Aerodynamic Loads in
+  Cascades}.
+\newblock {\em AIAA Journal\/}~{\em 31\/}(3), 540--550.
+
+\bibitem[\protect\citeauthoryear{{Hall, K.C. and Crawley, E.F.}}{{Hall, K.C.
+  and Crawley, E.F.}}{1989}]{Hall:1}
+{Hall, K.C. and Crawley, E.F.} (1989).
+\newblock {Calculation of Unsteady Flows in Turbomachinery Using the Linearized
+  Euler Equations}.
+\newblock {\em AIAA Journal\/}~{\em 27}, 777--787.
+
+\bibitem[\protect\citeauthoryear{{Hall, K.C. and Lorence, C.B.}}{{Hall, K.C.
+  and Lorence, C.B.}}{1993}]{Hall:2}
+{Hall, K.C. and Lorence, C.B.} (1993).
+\newblock {Calculation of Three-Dimensional Unsteady Flows in Turbomachinery
+  Using the Linearized Harmonic Euler Equations}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 115}, 800--809.
+
+\bibitem[\protect\citeauthoryear{{Hall, K.C., Clark, W.S. and Lorence
+  C.B.}}{{Hall, K.C., Clark, W.S. and Lorence C.B.}}{1994}]{Hall:3}
+{Hall, K.C., Clark, W.S. and Lorence C.B.} (1994).
+\newblock {A Linearized Euler Analysis of Unsteady Transonic Flows in
+  Turbomachinery}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 116}, 477--488.
+
+\bibitem[\protect\citeauthoryear{{Hall, K.C., Lorence, C.B. and Clark,
+  W.S.}}{{Hall, K.C., Lorence, C.B. and Clark, W.S.}}{1993}]{Hall:5}
+{Hall, K.C., Lorence, C.B. and Clark, W.S.} (1993).
+\newblock {Nonreflecting Boundary Conditions for Linearized Unsteady
+  Aerodynamic Calculations}.
+\newblock AIAA Paper 93-0882.
+
+\bibitem[\protect\citeauthoryear{{Harten, A.}}{{Harten, A.}}{1983a}]{Harten:1}
+{Harten, A.} (1983a).
+\newblock {High Resolution Schemes for Hyperbolic conservation Laws}.
+\newblock {\em Journal of Computational Physics\/}~{\em 49}, 357--393.
+
+\bibitem[\protect\citeauthoryear{{Harten, A.}}{{Harten, A.}}{1983b}]{Harten:2}
+{Harten, A.} (1983b).
+\newblock {On Upstream Differencing and Godunov-Type Schemes for Hyperbolic
+  Conservation Laws}.
+\newblock {\em SIAM Review\/}~{\em 25}, 35--61.
+
+\bibitem[\protect\citeauthoryear{{He, L.}}{{He, L.}}{1990}]{He:1}
+{He, L.} (1990).
+\newblock {An Euler solution for unsteady flows around oscillating blades}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 112}, 714--722.
+
+\bibitem[\protect\citeauthoryear{{He, L. and Denton, J.D.}}{{He, L. and Denton,
+  J.D.}}{1991a}]{He:2}
+{He, L. and Denton, J.D.} (1991a).
+\newblock {Inviscid-Viscous Coupled Solution for Unsteady Flows through
+  Vibrating Blades: Parts 1}.
+\newblock ASME Paper 91-GT-125.
+
+\bibitem[\protect\citeauthoryear{{He, L. and Denton, J.D.}}{{He, L. and Denton,
+  J.D.}}{1991b}]{He:3}
+{He, L. and Denton, J.D.} (1991b).
+\newblock {Inviscid-Viscous Coupled Solution for Unsteady Flows through
+  Vibrating Blades: Parts 2}.
+\newblock ASME Paper 91-GT-126.
+
+\bibitem[\protect\citeauthoryear{{Hedstrom, G.W.}}{{Hedstrom,
+  G.W.}}{1979}]{Hedstrom:1}
+{Hedstrom, G.W.} (1979).
+\newblock {Nonreflecting Boundary Conditions for Nonlinear Hyperbolic Systems}.
+\newblock {\em Journal of Computational Physics\/}~{\em 30}, 222--237.
+
+\bibitem[\protect\citeauthoryear{{Hesthaven, J.S.}}{{Hesthaven,
+  J.S.}}{1998}]{Hesthaven:1}
+{Hesthaven, J.S.} (1998).
+\newblock {On the Analysis and Construction of Perfectly Matched Layers for the
+  Linearized Euler Equations}.
+\newblock {\em Journal of Computational Physics\/}~{\em 142}, 129--147.
+
+\bibitem[\protect\citeauthoryear{{Higdon, R.L.}}{{Higdon,
+  R.L.}}{1986a}]{Higdon:2}
+{Higdon, R.L.} (1986a).
+\newblock {Absorbing Boundary Conditions for Difference Approximations to the
+  Multi-Dimensional Wave Equations}.
+\newblock {\em Mathematics of Computation\/}~{\em 47\/}(176), 437--459.
+
+\bibitem[\protect\citeauthoryear{{Higdon, R.L.}}{{Higdon,
+  R.L.}}{1986b}]{Higdon:1}
+{Higdon, R.L.} (1986b).
+\newblock {Initial-Boundary Value Problems for Linear Hyperbolic Systems}.
+\newblock {\em SIAM Review\/}~{\em 28\/}(2), 177--217.
+
+\bibitem[\protect\citeauthoryear{{Higdon, R.L.}}{{Higdon,
+  R.L.}}{1987}]{Higdon:3}
+{Higdon, R.L.} (1987).
+\newblock {Numerical Absorbing Boundary Conditions for the Wave Equations}.
+\newblock {\em Mathematics of Computation\/}~{\em 49\/}(179), 65--90.
+
+\bibitem[\protect\citeauthoryear{{Hirsch, C.}}{{Hirsch, C.}}{1990}]{Hirsch:1}
+{Hirsch, C.} (1990).
+\newblock {\em {Numerical Computation of Internal and External Flows}}, Volume
+  1-2.
+\newblock John Wiley \& Sons.
+
+\bibitem[\protect\citeauthoryear{{Hixon, R., Shih, S.H. and Mankbadi,
+  R.R.}}{{Hixon, R., Shih, S.H. and Mankbadi, R.R.}}{1995}]{Hixon:1}
+{Hixon, R., Shih, S.H. and Mankbadi, R.R.} (1995).
+\newblock {Evaluation of Boundary Conditions for Computational Aeroacoustics}.
+\newblock {\em AIAA Journal\/}~{\em 33\/}(11), 201--219.
+
+\bibitem[\protect\citeauthoryear{{Hodson, H.P.}}{{Hodson,
+  H.P.}}{1985}]{Hodson:1}
+{Hodson, H.P.} (1985).
+\newblock {An Inviscid Blade-to-Blade Prediction of a Wake-Generated Unsteady
+  Flow}.
+\newblock {\em Journal of Engineering for Gas Turbine and Power\/}~{\em 107},
+  337--343.
+
+\bibitem[\protect\citeauthoryear{{Holmes, D.G., Mitchell, B.E. and Lorence
+  C.B.}}{{Holmes, D.G., Mitchell, B.E. and Lorence C.B.}}{1997}]{Holmes:1}
+{Holmes, D.G., Mitchell, B.E. and Lorence C.B.} (1997).
+\newblock {Three Dimensional Linearized Navier-Stokes Calculations for Flutter
+  and Forced Response}.
+\newblock In {\em $8th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Stockholm, pp.\  211--224.
+
+\bibitem[\protect\citeauthoryear{{Hu, F.Q.}}{{Hu, F.Q.}}{1996}]{Hu:1}
+{Hu, F.Q.} (1996).
+\newblock {On Absorbing Boundary Conditions for Linearized Euler Equations by a
+  Perfectly Matched Layer}.
+\newblock {\em Journal of Computational Physics\/}~{\em 129}, 201--219.
+
+\bibitem[\protect\citeauthoryear{{Jameson, A.}}{{Jameson, A.}}{1985}]{Jame:4}
+{Jameson, A.} (1985).
+\newblock {Multigrid Algorithms for Compressible Flow Calculations}.
+\newblock Technical Report MAE 1743.
+
+\bibitem[\protect\citeauthoryear{{Jameson, A.,}}{{Jameson, A.,}}{1991}]{Jame:6}
+{Jameson, A.,} (1991).
+\newblock {Time Dependent Calculations Using Multigrid, with Applications to
+  Unsteady Flows Past Airfoils and Wings}.
+\newblock AIAA Paper 91-1596.
+
+\bibitem[\protect\citeauthoryear{{Jameson, A.}}{{Jameson, A.}}{1993}]{Jame:2}
+{Jameson, A.} (1993).
+\newblock {Artificial Diffusion, Upwind Biasing, Limiters and their Effect on
+  Accuracy and Multigrid Convergence in Transonic and Hypersonic Flows}.
+\newblock AIAA Paper 93-3359.
+
+\bibitem[\protect\citeauthoryear{{Jameson, A.}}{{Jameson, A.}}{1995}]{Jame:7}
+{Jameson, A.} (1995).
+\newblock {Positive Schemes and Shock Modelling for Compressible Flows}.
+\newblock {\em International Journal for Numerical Methods in Fluids\/}~{\em
+  20}, 743--776.
+
+\bibitem[\protect\citeauthoryear{{Jameson, A., Schmidt, W. and Turkel,
+  E.}}{{Jameson, A., Schmidt, W. and Turkel, E.}}{1981}]{Jame:1}
+{Jameson, A., Schmidt, W. and Turkel, E.} (1981).
+\newblock {Numerical Simulation of the Euler Equations by Finite Volume Methods
+  using Runge-Kutta Time Stepping Schemes}.
+\newblock AIAA Paper 81-1259.
+
+\bibitem[\protect\citeauthoryear{{Jay, R.L. and Fleeter, S.}}{{Jay, R.L. and
+  Fleeter, S.}}{1987}]{Fleeter:2}
+{Jay, R.L. and Fleeter, S.} (1987).
+\newblock {Unsteady Aerodynamics Measurements in Forced Vibration Research}.
+\newblock In {\em AGARD Manual on Aeroelasticity in Axial-Flow Turbomachines,
+  Unsteady Turbomachinery Aerodynamics}, Volume~1, pp.\  9.1 -- 1.38.
+  AGARD-AG-297.
+
+\bibitem[\protect\citeauthoryear{{Jorgenson, P.C. and Turkel, E.}}{{Jorgenson,
+  P.C. and Turkel, E.}}{1993}]{Turkel:2}
+{Jorgenson, P.C. and Turkel, E.} (1993).
+\newblock {Central Difference TVD Schemes for Time Dependent and Steady State
+  Problems}.
+\newblock {\em Journal of Computational Physics\/}~{\em 107}, 297--308.
+
+\bibitem[\protect\citeauthoryear{{Jorgenson, P.C.E. and Chima,
+  R.V.}}{{Jorgenson, P.C.E. and Chima, R.V.}}{1989}]{Chima:1}
+{Jorgenson, P.C.E. and Chima, R.V.} (1989).
+\newblock {Explicit Runge-Kutta Method for Unsteady Rotor/Stator Interaction}.
+\newblock {\em AIAA Journal\/}~{\em 27}, 743--749.
+
+\bibitem[\protect\citeauthoryear{{Kallinderis, Y. and Ward, S.}}{{Kallinderis,
+  Y. and Ward, S.}}{1992}]{Kallinderis:1}
+{Kallinderis, Y. and Ward, S.} (1992).
+\newblock {Prismatic Grid Generation with an Efficient Algebraic Method for
+  Aircraft Configurations}.
+\newblock AIAA Paper 92-2721.
+
+\bibitem[\protect\citeauthoryear{{Kerrebrock, J.L.}}{{Kerrebrock,
+  J.L.}}{1977}]{Kerrebrock:1}
+{Kerrebrock, J.L.} (1977).
+\newblock {Small Disturbances in Turbomachine Annuli with Swirl}.
+\newblock {\em AIAA Journal\/}~{\em 15}, 794--803.
+
+\bibitem[\protect\citeauthoryear{{Kiock, R., Lehthaus, F., Baines, N.C. and
+  Sieverding, C.H.}}{{Kiock, R., Lehthaus, F., Baines, N.C. and Sieverding,
+  C.H.}}{1986}]{Kiock:1}
+{Kiock, R., Lehthaus, F., Baines, N.C. and Sieverding, C.H.} (1986).
+\newblock {The Transonic Flow through a Plane Turbine Cascade as Measured in
+  Four European Wind Tunnels}.
+\newblock {\em Journal of Engineering for Gas Turbines and Power\/}~{\em 108},
+  277--285.
+
+\bibitem[\protect\citeauthoryear{{Korakianitis, T.}}{{Korakianitis,
+  T.}}{1992a}]{Kora:1}
+{Korakianitis, T.} (1992a).
+\newblock {On the Prediction of Unsteady Forces on Gas Turbine Blades: Part 1 -
+  Description of the Approach}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 114}, 114--122.
+
+\bibitem[\protect\citeauthoryear{{Korakianitis, T.}}{{Korakianitis,
+  T.}}{1992b}]{Kora:2}
+{Korakianitis, T.} (1992b).
+\newblock {On the Prediction of Unsteady Forces on Gas Turbine Blades: Part 2 -
+  Analysis of the Results}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 114}, 123--131.
+
+\bibitem[\protect\citeauthoryear{{Korakianitis, T.}}{{Korakianitis,
+  T.}}{1993}]{Kora:3}
+{Korakianitis, T.} (1993).
+\newblock {On the Propagation of Viscous Wakes and Potential Flow in
+  Axial-Turbine Cascades}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 115}, 118--127.
+
+\bibitem[\protect\citeauthoryear{{Lane, F.}}{{Lane, F.}}{1956}]{Lane:1}
+{Lane, F.} (1956).
+\newblock {System Mode Shapes in the Flutter of Compressor Blade Rows}.
+\newblock {\em Journal of the Aeronautical Science\/}~{\em 23\/}(1), 54--66.
+
+\bibitem[\protect\citeauthoryear{{Lax, P.}}{{Lax, P.}}{1973}]{Lax:1}
+{Lax, P.} (1973).
+\newblock {\em {Hyperbolic Systems of Conservation Laws and the Mathematical
+  Theory of Shock Waves}}, Volume~11.
+\newblock SIAM Regional Series and Applied Mathematics.
+
+\bibitem[\protect\citeauthoryear{{Leveque, R.}}{{Leveque,
+  R.}}{1985}]{Leveque:1}
+{Leveque, R.} (1985).
+\newblock {A Large Time Step Generalization of Godunov's Method for Systems of
+  Conservation Laws}.
+\newblock {\em SIAM Journal of Numerical Analysis\/}~{\em 22}, 1051--1073.
+
+\bibitem[\protect\citeauthoryear{{Lighthill, M.J.}}{{Lighthill,
+  M.J.}}{1954}]{Lighthill:1}
+{Lighthill, M.J.} (1954).
+\newblock {The Response of Laminar Skin Friction and Heat Transfer to
+  Fluctuations in the Stream Velocity}.
+\newblock {\em Royal Society (London)\/}~{\em A 224}, 1--23.
+
+\bibitem[\protect\citeauthoryear{{Lindquist, D.R. and Giles, M.B.}}{{Lindquist,
+  D.R. and Giles, M.B.}}{1991}]{Giles:1}
+{Lindquist, D.R. and Giles, M.B.} (1991).
+\newblock {On the Validity of Linearized Unsteady Euler Equations with Shock
+  Capturing}.
+\newblock AIAA Paper 91-1598-CP.
+
+\bibitem[\protect\citeauthoryear{{Liou, M.}}{{Liou, M.}}{1996}]{Liou:2}
+{Liou, M.} (1996).
+\newblock {A Sequel to AUSM: AUSM+}.
+\newblock {\em Journal of Computational Physics\/}~{\em 129}, 364--382.
+
+\bibitem[\protect\citeauthoryear{{Liou, M. and Steffen, C.}}{{Liou, M. and
+  Steffen, C.}}{1993}]{Liou:1}
+{Liou, M. and Steffen, C.} (1993).
+\newblock {A New Flux Splitting Scheme}.
+\newblock {\em Journal of Computational Physics\/}~{\em 107}, 23--39.
+
+\bibitem[\protect\citeauthoryear{{Magagnato, F.}}{{Magagnato,
+  F.}}{1999}]{Magagnato:1}
+{Magagnato, F.} (1999).
+\newblock {Unsteady Flow Past a Turbine Blade Using Non-Linear Two-Equation
+  turbulence models}.
+\newblock In {\em IMECHE Conference Transactions. Turbomachinery: Fluid
+  Dynamics and Thermodynamics}, Volume Volume A, pp.\  221--230.
+
+\bibitem[\protect\citeauthoryear{{Manwaring, S.R. and Kirkeng,
+  K.L.}}{{Manwaring, S.R. and Kirkeng, K.L.}}{1997}]{Manwaring:2}
+{Manwaring, S.R. and Kirkeng, K.L.} (1997).
+\newblock {Forced Response Vibrations of a Low Pressure Turbine due to
+  Circumferential Temperature Distortions}.
+\newblock In {\em $8th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Stockholm, pp.\  379--392.
+
+\bibitem[\protect\citeauthoryear{{Manwaring, S.R. and Wisler,
+  D.C.}}{{Manwaring, S.R. and Wisler, D.C.}}{1993}]{Manwaring:1}
+{Manwaring, S.R. and Wisler, D.C.} (1993).
+\newblock {Unsteady Aerodynamic and Gust Response in Compressor and Turbines}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 115}, 724--740.
+
+\bibitem[\protect\citeauthoryear{{Marshall, J.G. and Giles, M.B.}}{{Marshall,
+  J.G. and Giles, M.B.}}{1997}]{Giles:8}
+{Marshall, J.G. and Giles, M.B.} (1997).
+\newblock {Some Applications of a Time-Linearized Euler Method to Flutter and
+  Forced Response in Turbomachinery}.
+\newblock In {\em $8th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Stockholm, pp.\  225--240.
+
+\bibitem[\protect\citeauthoryear{{Marshall, J.G. and Imregun, M.}}{{Marshall,
+  J.G. and Imregun, M.}}{1996}]{Imregun:1}
+{Marshall, J.G. and Imregun, M.} (1996).
+\newblock {A Review of Aeroelasticity Methods with Emphasis on Turbomachinery
+  Applications}.
+\newblock {\em Journal of Fluids and Structures\/}~{\em 10}, 237--267.
+
+\bibitem[\protect\citeauthoryear{{Mattioli, E.}}{{Mattioli,
+  E.}}{1989}]{Mattioli:1}
+{Mattioli, E.} (1989).
+\newblock {\em {Aerodinamica}}.
+\newblock Levrotto \& Bella, Torino.
+
+\bibitem[\protect\citeauthoryear{{Mavriplis, D.J.}}{{Mavriplis,
+  D.J.}}{1995a}]{Mavriplis:4}
+{Mavriplis, D.J.} (1995a).
+\newblock {Three-Dimensional Multigrid Reynolds-Averaged Navier-Stokes Solver
+  for Unstructured Meshes}.
+\newblock {\em AIAA Journal\/}~{\em 3}, 445--453.
+
+\bibitem[\protect\citeauthoryear{{Mavriplis, D.J.}}{{Mavriplis,
+  D.J.}}{1995b}]{Mavriplis:2}
+{Mavriplis, D.J.} (1995b).
+\newblock {Unstructured Mesh Generation and Adaptivity}.
+\newblock Technical Report 95-26, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Mavriplis, D.J.}}{{Mavriplis,
+  D.J.}}{1998a}]{Mavriplis:7}
+{Mavriplis, D.J.} (1998a).
+\newblock {Directional Agglomeration Multigrid Techniques for High-Reynolds
+  Number Viscous Flows}.
+\newblock Technical Report 98-7, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Mavriplis, D.J.}}{{Mavriplis,
+  D.J.}}{1998b}]{Mavriplis:6}
+{Mavriplis, D.J.} (1998b).
+\newblock {Multigrid Strategies for Viscous Flow Solvers on Anisotropic
+  Meshes}.
+\newblock Technical Report 98-6, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Mavriplis, D.J.}}{{Mavriplis,
+  D.J.}}{1998c}]{Mavriplis:5}
+{Mavriplis, D.J.} (1998c).
+\newblock {On Convergence Acceleration Techniques for Unstructured Meshes}.
+\newblock Technical Report 98-44, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Mavriplis, D.J., and Martinelli,
+  L.}}{{Mavriplis, D.J., and Martinelli, L.}}{1994}]{Mavriplis:1}
+{Mavriplis, D.J., and Martinelli, L.} (1994).
+\newblock {Multigrid Solution of Compressible Turbulent Flow on Unstructured
+  Meshes Using a Two-Equation Model}.
+\newblock {\em International Journal for Numerical Method in Fluids\/}~{\em
+  18}, 887--914.
+
+\bibitem[\protect\citeauthoryear{{Mavriplis, D.J. and Venkatakrishnan,
+  V.}}{{Mavriplis, D.J. and Venkatakrishnan, V.}}{1995a}]{Mavriplis:3}
+{Mavriplis, D.J. and Venkatakrishnan, V.} (1995a).
+\newblock {A Unified Multigrid Solver for the Navier-Stokes Equation on Mixed
+  Element Meshes}.
+\newblock Technical Report 95-53, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Mavriplis, D.J. and Venkatakrishnan,
+  V.}}{{Mavriplis, D.J. and Venkatakrishnan, V.}}{1995b}]{Mavriplis:8}
+{Mavriplis, D.J. and Venkatakrishnan, V.} (1995b).
+\newblock {Agglomeration Multigrid for the Three-Dimensional Euler Equations}.
+\newblock {\em AIAA Journal\/}~{\em 33\/}(4), 633--640.
+
+\bibitem[\protect\citeauthoryear{{McDevitt, J.B., Lionel, L.L.Jr. and Deiwert,
+  G.S.}}{{McDevitt, J.B., Lionel, L.L.Jr. and Deiwert,
+  G.S.}}{1976}]{McDevitt:1}
+{McDevitt, J.B., Lionel, L.L.Jr. and Deiwert, G.S.} (1976).
+\newblock {Transonic Flow about Thick Circular-Arc Airfoil}.
+\newblock {\em AIAA Journal\/}~{\em 13\/}(5), 606--613.
+
+\bibitem[\protect\citeauthoryear{{Melson, N.D., Sanetrik, M.D. and Atkins,
+  H.L.}}{{Melson, N.D., Sanetrik, M.D. and Atkins, H.L.}}{1993}]{Melson:1}
+{Melson, N.D., Sanetrik, M.D. and Atkins, H.L.} (1993).
+\newblock {Time-Accurate Navier-Stokes Calculations with Multigrid
+  Acceleration}.
+\newblock In {\em Proceedings of the Sixth Copper Mountain Conference on
+  Multigrid Methods}, Copper Mountain, CO.
+
+\bibitem[\protect\citeauthoryear{{Moinier, P., M\"{u}ller J. and Giles,
+  M.B.}}{{Moinier, P., M\"{u}ller J. and Giles, M.B.}}{1999}]{Giles:9}
+{Moinier, P., M\"{u}ller J. and Giles, M.B.} (1999).
+\newblock {Edge-based Multigrid and Preconditioning for Hybrid Grids}.
+\newblock AIAA Paper 99-3339.
+
+\bibitem[\protect\citeauthoryear{{Montgomery, M.D. and Verdon,
+  J.M.}}{{Montgomery, M.D. and Verdon, J.M.}}{1997a}]{Verdon:3}
+{Montgomery, M.D. and Verdon, J.M.} (1997a).
+\newblock {A 3D Linearized Euler Analysis for Blade Rows. Part 1: Aerodynamic
+  and Numerical Formulations}.
+\newblock In {\em $8th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Stockholm, pp.\  427--444.
+
+\bibitem[\protect\citeauthoryear{{Montgomery, M.D. and Verdon,
+  J.M.}}{{Montgomery, M.D. and Verdon, J.M.}}{1997b}]{Verdon:4}
+{Montgomery, M.D. and Verdon, J.M.} (1997b).
+\newblock {A 3D Linearized Euler Analysis for Blade Rows. Part 2: Unsteady
+  Aerodynamic Response}.
+\newblock In {\em $8th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Stockholm, pp.\  445--464.
+
+\bibitem[\protect\citeauthoryear{{Morgan, K., Peraire, J. and Peir\'{o},
+  J.}}{{Morgan, K., Peraire, J. and Peir\'{o}, J.}}{1992}]{Peiro:1}
+{Morgan, K., Peraire, J. and Peir\'{o}, J.} (1992).
+\newblock {Unstructured Grid Methods for Compressible Flows}.
+\newblock Technical Report 787, AGARD.
+
+\bibitem[\protect\citeauthoryear{{Moss, R.W., Ainsworth, R.W., Sheldrake, C.D.
+  and Miller, R.}}{{Moss, R.W., Ainsworth, R.W., Sheldrake, C.D. and Miller,
+  R.}}{1997}]{Moss:1}
+{Moss, R.W., Ainsworth, R.W., Sheldrake, C.D. and Miller, R.} (1997).
+\newblock {The Unsteady Pressure Field over a Turbine Blade Surface:
+  Visualization and Interpretation of Experimental Data}.
+\newblock ASME Paper 97-GT-474.
+
+\bibitem[\protect\citeauthoryear{{Mulder, W.A.}}{{Mulder,
+  W.A.}}{1989}]{Mulder:1}
+{Mulder, W.A.} (1989).
+\newblock {A new Multigrid Approach to Convection Problems}.
+\newblock {\em Journal of Computational Physics\/}~{\em 83}, 303--323.
+
+\bibitem[\protect\citeauthoryear{{Mulder, W.A.}}{{Mulder,
+  W.A.}}{1992}]{Mulder:2}
+{Mulder, W.A.} (1992).
+\newblock {A High Resolution Euler Solver Based on Multigrid Semi-coarsening
+  and defect Correction}.
+\newblock {\em Journal of Computational Physics\/}~{\em 100}, 91--104.
+
+\bibitem[\protect\citeauthoryear{{Ni, R.H. and Sisto F.}}{{Ni, R.H. and Sisto
+  F.}}{1975}]{Ni:1}
+{Ni, R.H. and Sisto F.} (1975).
+\newblock {Numerical Computation of Non-stationary Aerodynamics of Flat Plate
+  Cascades in Compressible Flows}.
+\newblock ASME Paper 75-GT-5.
+
+\bibitem[\protect\citeauthoryear{{Osher, S.}}{{Osher, S.}}{1984}]{Osher:1}
+{Osher, S.} (1984).
+\newblock {Riemann Solvers, the Entropy Conditions, and Difference
+  Approximation}.
+\newblock {\em SIAM Journal of Numerical Analysis\/}~{\em 21}, 217--235.
+
+\bibitem[\protect\citeauthoryear{{Osher, S. and Chakravarthy, S.}}{{Osher, S.
+  and Chakravarthy, S.}}{1984}]{Osher:2}
+{Osher, S. and Chakravarthy, S.} (1984).
+\newblock {High Resolution schemes and the Entropy Conditions}.
+\newblock {\em SIAM Journal of Numerical Analysis\/}~{\em 21}, 955--984.
+
+\bibitem[\protect\citeauthoryear{{Pandolfi, M.}}{{Pandolfi,
+  M.}}{1984}]{Pandolfi}
+{Pandolfi, M.} (1984).
+\newblock {A Contribution to the Numerical Prediction of Unsteady Flows}.
+\newblock {\em AIAA Journal\/}~{\em 22}, 602--610.
+
+\bibitem[\protect\citeauthoryear{{Parthasarathy, V., Kallinderis, Y. and
+  Nakajima, K.}}{{Parthasarathy, V., Kallinderis, Y. and Nakajima,
+  K.}}{1995}]{Kallinderis:2}
+{Parthasarathy, V., Kallinderis, Y. and Nakajima, K.} (1995).
+\newblock {Hybrid Adaptation Method and Directional Viscous Multigrid with
+  Prismatic-Tetrahedral Meshes}.
+\newblock AIAA Paper 95-0670.
+
+\bibitem[\protect\citeauthoryear{{Peraire, J., Morgan, K., Vahdati, M. and
+  Peir\'{o}, J.}}{{Peraire, J., Morgan, K., Vahdati, M. and Peir\'{o},
+  J.}}{1992}]{Peiro:2}
+{Peraire, J., Morgan, K., Vahdati, M. and Peir\'{o}, J.} (1992).
+\newblock {The Construction and Behaviour of Some Unstructured Grid Algorithms
+  for Compressible Flows}.
+\newblock In {\em ICFD Conference on Numerical Methods for Fluid Dynamics}.
+  Oxford University Press.
+
+\bibitem[\protect\citeauthoryear{{Peraire, J., Peir\'{o}, J. and Morgan,
+  K.}}{{Peraire, J., Peir\'{o}, J. and Morgan, K.}}{1992}]{Peiro:3}
+{Peraire, J., Peir\'{o}, J. and Morgan, K.} (1992).
+\newblock {A 3D Finite-Element Multigrid Solver for the Euler Equations}.
+\newblock AIAA Paper 92-0449.
+
+\bibitem[\protect\citeauthoryear{{Pierce, N.A. and Giles, M.B.}}{{Pierce, N.A.
+  and Giles, M.B.}}{1997}]{Giles:10}
+{Pierce, N.A. and Giles, M.B.} (1997).
+\newblock {Preconditioning Multigrid Methods for Compressible Flow Calculations
+  on Stretched Meshes}.
+\newblock {\em Journal of Computational Physics\/}~{\em 136}, 425--445.
+
+\bibitem[\protect\citeauthoryear{{Pierce, N.A., Giles, M.B., Jameson, A. and
+  Martinelli, L.}}{{Pierce, N.A., Giles, M.B., Jameson, A. and Martinelli,
+  L.}}{1997}]{Giles:11}
+{Pierce, N.A., Giles, M.B., Jameson, A. and Martinelli, L.} (1997).
+\newblock {Accelerating Three-Dimensional Navier-Stokes Calculations}.
+\newblock AIAA Paper 97-1850.
+
+\bibitem[\protect\citeauthoryear{{Platzer, M.F.}}{{Platzer,
+  M.F.}}{1982}]{Platzer:1}
+{Platzer, M.F.} (1982).
+\newblock {Transonic Blade Flutter: A Survey of New Developments}.
+\newblock {\em Shock and Vibration Digest\/}~{\em 14\/}(7), 3--8.
+
+\bibitem[\protect\citeauthoryear{{Prendergast, K.H. and Xu, K.}}{{Prendergast,
+  K.H. and Xu, K.}}{1994}]{Prendergast:1}
+{Prendergast, K.H. and Xu, K.} (1994).
+\newblock {Numerical Navier-Stokes Solutions from Gas Kinetic Theory}.
+\newblock {\em Journal of Computational Physics\/}~{\em 114}, 9--17.
+
+\bibitem[\protect\citeauthoryear{{Rai, M.M.}}{{Rai, M.M.}}{1987}]{Rai:1}
+{Rai, M.M.} (1987).
+\newblock {Navier-Stokes Simulations of Rotor/Stator Interaction Using Patched
+  and Overlaid Grids}.
+\newblock {\em AIAA Journal of propulsion and power\/}~{\em 3\/}(5), 387--396.
+
+\bibitem[\protect\citeauthoryear{{Rai, M.M. and Madavan, N.K.}}{{Rai, M.M. and
+  Madavan, N.K.}}{1990}]{Rai:2}
+{Rai, M.M. and Madavan, N.K.} (1990).
+\newblock {Multi-Airfoil Navier-Stokes Simulations of Turbine Rotor-Stator
+  Interaction}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 112}, 377--384.
+
+\bibitem[\protect\citeauthoryear{{Roe, P.}}{{Roe, P.}}{1981}]{Roe:1}
+{Roe, P.} (1981).
+\newblock {Approximate Riemann solvers, parameter vectors and difference
+  schemes}.
+\newblock {\em Journal of Computational Physics\/}~{\em 43}, 357--372.
+
+\bibitem[\protect\citeauthoryear{{Roe, P.}}{{Roe, P.}}{1986}]{Roe:2}
+{Roe, P.} (1986).
+\newblock {Characteristic-Based Schemes for the Euler Equations}.
+\newblock {\em Annual Review of Fluid Mechanics\/}~{\em 18}, 337--365.
+
+\bibitem[\protect\citeauthoryear{{Saad, Y. and Schultz, M.H.}}{{Saad, Y. and
+  Schultz, M.H.}}{1986}]{Saad:1}
+{Saad, Y. and Schultz, M.H.} (1986).
+\newblock {GMRES: A Generalized Minimal Residual Algorithm for Solving
+  Nonsymmetric Linear Systems}.
+\newblock {\em SIAM Journal on Scientific and Statistical Computing\/}~{\em 7},
+  856--869.
+
+\bibitem[\protect\citeauthoryear{{Saxer, A.P. and Felici, H.M.}}{{Saxer, A.P.
+  and Felici, H.M.}}{1996}]{Saxer:1}
+{Saxer, A.P. and Felici, H.M.} (1996).
+\newblock {Numerical Analysis of Three-Dimensional Unsteady Hot Streak
+  Migration and Shock Interaction in a Turbine Stage}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 118}, 268--277.
+
+\bibitem[\protect\citeauthoryear{{Saxer, A.P. and Giles, M.B.}}{{Saxer, A.P.
+  and Giles, M.B.}}{1993}]{Giles:7}
+{Saxer, A.P. and Giles, M.B.} (1993).
+\newblock {Quasi-Three-Dimensional Nonreflecting Boundary Conditions for Euler
+  Equations Calculations}.
+\newblock {\em AIAA Journal of Propulsion and Power\/}~{\em 9\/}(2), 263--271.
+
+\bibitem[\protect\citeauthoryear{{Sayma, A.I.}}{{Sayma, A.I.}}{1998}]{Mehdi:4}
+{Sayma, A.I.} (1998).
+\newblock {Low Engine Order Excitation Mechanism in Turbine Blades - A
+  Preliminary Study}.
+\newblock Technical Report VUTC/C/97023, Imperial College, London.
+
+\bibitem[\protect\citeauthoryear{{Sayma, A.I., Mehdi, V. and Imregun,
+  M.}}{{Sayma, A.I., Mehdi, V. and Imregun, M.}}{2000}]{Mehdi:7}
+{Sayma, A.I., Mehdi, V. and Imregun, M.} (2000).
+\newblock {Turbine Forced Response Prediction Using an Integrated Non-linear
+  Analysis}.
+\newblock {\em Proc Instn Mech Engrs\/}~{\em 214\/}(Part K), 45--60.
+
+\bibitem[\protect\citeauthoryear{{Sayma, A.I., Vahdati, M. and Imregun,
+  M.}}{{Sayma, A.I., Vahdati, M. and Imregun, M.}}{1999}]{Mehdi:6}
+{Sayma, A.I., Vahdati, M. and Imregun, M.} (1999).
+\newblock {Fan Forced response Predictions Due to Inlet Distortions and
+  Excitation from Inlet Guide Vanes at High Deflection}.
+\newblock In {\em $4th$ National Turbine Engine High Cycle Fatigue (HCF)
+  Conference}.
+
+\bibitem[\protect\citeauthoryear{{Sayma, A.I., Vahdati, M., Green J.S. and
+  Imregun, M.}}{{Sayma, A.I., Vahdati, M., Green J.S. and Imregun,
+  M.}}{1997}]{Mehdi:5}
+{Sayma, A.I., Vahdati, M., Green J.S. and Imregun, M.} (1997).
+\newblock {Whole-Assembly Flutter Analysis of a Low Pressure Turbine Blade}.
+\newblock In {\em $8th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Stockholm, pp.\  347--359.
+
+\bibitem[\protect\citeauthoryear{{Sayma, A.I., Vahdati, M., Sbardella, L. and
+  Imregun, M.}}{{Sayma, A.I., Vahdati, M., Sbardella, L. and Imregun,
+  M.}}{2000}]{Luca:10}
+{Sayma, A.I., Vahdati, M., Sbardella, L. and Imregun, M.} (2000).
+\newblock {Modelling of Three-dimensional Viscous Compressible Turbomachinery
+  Flows using Unstructured Hybrid Grids}.
+\newblock {\em AIAA Journal\/}~{\em 38\/}(3), 569--584.
+
+\bibitem[\protect\citeauthoryear{{Sbardella, L.}}{{Sbardella,
+  L.}}{1997}]{Luca:2}
+{Sbardella, L.} (1997).
+\newblock {CFD Analysis of Noise Propagation}.
+\newblock Technical Report VUTC/C/97004, Imperial College, London.
+
+\bibitem[\protect\citeauthoryear{{Sbardella, L.}}{{Sbardella,
+  L.}}{1998}]{Luca:5}
+{Sbardella, L.} (1998).
+\newblock {LEVMAP 2.0, a Mesh Generator for the CFD Modelling of Turbomachinery
+  Blades: User Guide}.
+\newblock Technical Report VUTC/C/97022, Imperial College, London.
+
+\bibitem[\protect\citeauthoryear{{Sbardella, L. and Imregun, M.}}{{Sbardella,
+  L. and Imregun, M.}}{1999}]{Luca:7}
+{Sbardella, L. and Imregun, M.} (1999).
+\newblock {Turbulent Viscous Flow Simulations using Hybrid Grids}.
+\newblock AIAA Paper 99-0781.
+
+\bibitem[\protect\citeauthoryear{{Sbardella, L. and Imregun, M.}}{{Sbardella,
+  L. and Imregun, M.}}{2000}]{Luca:11}
+{Sbardella, L. and Imregun, M.} (2000).
+\newblock {An Efficient Discretisation of Viscous Fluxes on Unstructured
+  Mixed-Element Grids}.
+\newblock {\em Communications in Numerical Methods in Engineering\/}, To
+  appear.
+
+\bibitem[\protect\citeauthoryear{{Sbardella, L. and Peir\'{o}, J.}}{{Sbardella,
+  L. and Peir\'{o}, J.}}{1997}]{Luca:1}
+{Sbardella, L. and Peir\'{o}, J.} (1997).
+\newblock {Numerical Simulation of Stator-Rotor Interaction in a Transonic
+  Turbine Stage}.
+\newblock In {\em International Forum on Aeroelasticity and Structural
+  Dynamics}, Rome.
+
+\bibitem[\protect\citeauthoryear{{Sbardella, L., Sayma, A.I. and Imregun,
+  M.}}{{Sbardella, L., Sayma, A.I. and Imregun, M.}}{1997}]{Luca:3}
+{Sbardella, L., Sayma, A.I. and Imregun, M.} (1997).
+\newblock {Semi-Unstructured Mesh Generator for Flow Calculations in Axial
+  Turbomachinery Blading}.
+\newblock In {\em $8th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Stockholm, pp.\  541--554.
+
+\bibitem[\protect\citeauthoryear{{Sbardella, L., Sayma, A.I. and Imregun,
+  M.}}{{Sbardella, L., Sayma, A.I. and Imregun, M.}}{2000}]{Luca:9}
+{Sbardella, L., Sayma, A.I. and Imregun, M.} (2000).
+\newblock {Semi-structured Meshes for Axial Turbomachinery Blades}.
+\newblock {\em International Journal for Numerical Methods in Fluids\/}~{\em
+  32}, 569--584.
+
+\bibitem[\protect\citeauthoryear{{Schlichting, H.}}{{Schlichting,
+  H.}}{1979}]{Schlichting}
+{Schlichting, H.} (1979).
+\newblock {\em {Boundary-Layer Theory}}.
+\newblock McGraw-Hill, Inc.
+
+\bibitem[\protect\citeauthoryear{{Selmin, V. and Formaggia, L.}}{{Selmin, V.
+  and Formaggia, L.}}{1996}]{Formaggia}
+{Selmin, V. and Formaggia, L.} (1996).
+\newblock {Unified Construction of Finite Element and Finite Volume
+  Discretisation for Compressible Flows}.
+\newblock {\em International Journal for Numerical Method in
+  Engineering\/}~{\em 39}, 1--32.
+
+\bibitem[\protect\citeauthoryear{{Sharma, O.P., Pickett, G.F. and Ni,
+  R.H.}}{{Sharma, O.P., Pickett, G.F. and Ni, R.H.}}{1992}]{Sharma:1}
+{Sharma, O.P., Pickett, G.F. and Ni, R.H.} (1992).
+\newblock {Assessment of Unsteady Flows in Turbines}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 114}, 79--90.
+
+\bibitem[\protect\citeauthoryear{{Sieverding, C.H.}}{{Sieverding,
+  C.H.}}{1985}]{Sieverding:1}
+{Sieverding, C.H.} (1985).
+\newblock {Recent Progress in the Understanding of Basics Aspects of Secondary
+  Flows in Turbine Blade Passages}.
+\newblock {\em Journal of Engineering for Gas Turbines and Power\/}~{\em 107},
+  248--257.
+
+\bibitem[\protect\citeauthoryear{{Sisto, F.}}{{Sisto, F.}}{1953}]{Sisto:4}
+{Sisto, F.} (1953).
+\newblock {Stall Flutter in Cascades}.
+\newblock {\em Journal of the Aeronautical Science\/}~{\em 20\/}(9), 598--604.
+
+\bibitem[\protect\citeauthoryear{{Sisto, F.}}{{Sisto, F.}}{1987a}]{Sisto:1}
+{Sisto, F.} (1987a).
+\newblock {Introduction and Overview}.
+\newblock In {\em AGARD Manual on Aeroelasticity in Axial-Flow Turbomachines,
+  Unsteady Turbomachinery Aerodynamics}, Volume~1, pp.\  1.1 -- 1.13.
+  AGARD-AG-297.
+
+\bibitem[\protect\citeauthoryear{{Sisto, F.}}{{Sisto, F.}}{1987b}]{Sisto:2}
+{Sisto, F.} (1987b).
+\newblock {Stall Flutter}.
+\newblock In {\em AGARD Manual on Aeroelasticity in Axial-Flow Turbomachines,
+  Unsteady Turbomachinery Aerodynamics}, Volume~1, pp.\  7.1 -- 7.11.
+  AGARD-AG-297.
+
+\bibitem[\protect\citeauthoryear{{Sjolander, S.A. and Amrud, K.K.}}{{Sjolander,
+  S.A. and Amrud, K.K.}}{1987}]{Sjolander:1}
+{Sjolander, S.A. and Amrud, K.K.} (1987).
+\newblock {Effects of Tip Clearance on Blading Loading in a Planar Cascade of
+  Turbine Blades}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 109}, 237--244.
+
+\bibitem[\protect\citeauthoryear{{Slack, D.C., Whitaker, D.L. and Walters,
+  R.W.}}{{Slack, D.C., Whitaker, D.L. and Walters, R.W.}}{1994}]{Slack:1}
+{Slack, D.C., Whitaker, D.L. and Walters, R.W.} (1994).
+\newblock {Time Integration Algorithms for the Two-Dimensional Euler Equations
+  on Unstructured Meshes}.
+\newblock {\em AIAA Journal\/}~{\em 32\/}(6), 1158--1166.
+
+\bibitem[\protect\citeauthoryear{{Smith, S.N.}}{{Smith, S.N.}}{1972}]{Smith:1}
+{Smith, S.N.} (1972).
+\newblock {Discrete frequency sound generation in axial flow Turbomachines}.
+\newblock Technical Report 3709, University Engineering Department, Cambridge.
+
+\bibitem[\protect\citeauthoryear{{Spalart, P.R. and Allmaras, S.R.}}{{Spalart,
+  P.R. and Allmaras, S.R.}}{1992}]{Spalart:1}
+{Spalart, P.R. and Allmaras, S.R.} (1992).
+\newblock {A One-Equation Turbulence Model for Aerodynamic Flows}.
+\newblock AIAA Paper 92-0439.
+
+\bibitem[\protect\citeauthoryear{{Stager, J.L. and Warming, R.F.}}{{Stager,
+  J.L. and Warming, R.F.}}{1981}]{Stager:1}
+{Stager, J.L. and Warming, R.F.} (1981).
+\newblock {Flux Vector Splitting of the Inviscid Gas-Dynamic Equations with
+  Applications to Finite Difference Methods}.
+\newblock {\em Journal of Computational Physics\/}~{\em 40}, 263--293.
+
+\bibitem[\protect\citeauthoryear{{Steger, J.L. and Chaussee, D.S.}}{{Steger,
+  J.L. and Chaussee, D.S.}}{1980}]{Ellipt4}
+{Steger, J.L. and Chaussee, D.S.} (1980).
+\newblock {Generation of Body-Fitted Coordinates Using Hyperbolic Partial
+  Differential Equations}.
+\newblock {\em SIAM Journal on Scientific and Statistical Computing\/}~{\em 4},
+  431--437.
+
+\bibitem[\protect\citeauthoryear{{Steger, J.L. and Sorenson, R.L.}}{{Steger,
+  J.L. and Sorenson, R.L.}}{1979}]{Ellipt2}
+{Steger, J.L. and Sorenson, R.L.} (1979).
+\newblock {Automatic Mesh-Point Clustering Near a Boundary in Grid Generation
+  with Elliptic Partial Differential Equations}.
+\newblock {\em Journal of Computational Physics\/}~{\em 33}, 405--410.
+
+\bibitem[\protect\citeauthoryear{{Suddhoo, A., Giles, M.B. and Stow,
+  P.}}{{Suddhoo, A., Giles, M.B. and Stow, P.}}{1991}]{Giles:12}
+{Suddhoo, A., Giles, M.B. and Stow, P.} (1991).
+\newblock {Simulation of Inviscid Blade Row Interaction Using a linear and a
+  non-linear method}.
+\newblock ISABE Conference.
+
+\bibitem[\protect\citeauthoryear{{Swanson, R.C. and Turkel, E.}}{{Swanson, R.C.
+  and Turkel, E.}}{1992}]{Turkel:1}
+{Swanson, R.C. and Turkel, E.} (1992).
+\newblock {On Central-Difference and Upwind Schemes}.
+\newblock {\em Journal of Computational Physics\/}~{\em 101}, 292--306.
+
+\bibitem[\protect\citeauthoryear{{Swanson, R.C., Radespiel, R. and Turkel,
+  E.}}{{Swanson, R.C., Radespiel, R. and Turkel, E.}}{1997}]{Turkel:3}
+{Swanson, R.C., Radespiel, R. and Turkel, E.} (1997).
+\newblock {Comparison of Several Dissipation Algorithm for Central-Difference
+  Schemes}.
+\newblock Technical Report 97-40, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Sweby, P.K.}}{{Sweby, P.K.}}{1984}]{Sweby:1}
+{Sweby, P.K.} (1984).
+\newblock {High Resolution Schemes using Flux Limiters for Hyperbolic
+  Conservation Laws}.
+\newblock {\em SIAM Journal of Numerical Analysis\/}~{\em 21\/}(5), 995--1010.
+
+\bibitem[\protect\citeauthoryear{{Tam, C.K. and Webb, J.C.}}{{Tam, C.K. and
+  Webb, J.C.}}{1993}]{Tam:1}
+{Tam, C.K. and Webb, J.C.} (1993).
+\newblock {Dispersion-Relation-Preserving Finite Difference Schemes for
+  Computational Acoustics}.
+\newblock {\em Journal of Computational Physics\/}~{\em 107}, 262--281.
+
+\bibitem[\protect\citeauthoryear{{Thompson, J.F., Thames, F.C. and Mastin,
+  C.W.}}{{Thompson, J.F., Thames, F.C. and Mastin, C.W.}}{1974}]{Ellipt1}
+{Thompson, J.F., Thames, F.C. and Mastin, C.W.} (1974).
+\newblock {Automatic Numerical Generation of Body-Fitted Curvilinear
+  Coordinates System for Field Containing any Number of Arbitrary
+  Two-Dimensional Bodies}.
+\newblock {\em Journal of Computational Physics\/}~{\em 15}, 299--319.
+
+\bibitem[\protect\citeauthoryear{{Thompson, K.W.}}{{Thompson,
+  K.W.}}{1987}]{Thompson:1}
+{Thompson, K.W.} (1987).
+\newblock {Time Dependent Boundary Conditions for Hyperbolic Systems}.
+\newblock {\em Journal of Computational Physics\/}~{\em 68}, 1--24.
+
+\bibitem[\protect\citeauthoryear{{Thompson, K.W.}}{{Thompson,
+  K.W.}}{1990}]{Thompson:2}
+{Thompson, K.W.} (1990).
+\newblock {Time Dependent Boundary Conditions for Hyperbolic Systems, II}.
+\newblock {\em Journal of Computational Physics\/}~{\em 89}, 439--461.
+
+\bibitem[\protect\citeauthoryear{{Tidriri, M.D.}}{{Tidriri,
+  M.D.}}{1995}]{Tidriri:1}
+{Tidriri, M.D.} (1995).
+\newblock {Krylov Methods for Compressible Flows}.
+\newblock Technical Report 95-48, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Turkel, E.}}{{Turkel, E.}}{1987}]{Turkel:4}
+{Turkel, E.} (1987).
+\newblock {Preconditioned Methods for Solving the Incompressible and Low Speed
+  Compressible Equations}.
+\newblock {\em Journal of Computational Physics\/}~{\em 72}, 277--298.
+
+\bibitem[\protect\citeauthoryear{{Turkel, E.}}{{Turkel, E.}}{1993}]{Turkel:5}
+{Turkel, E.} (1993).
+\newblock {Review of Preconditioning Methods for Fluid Dynamics}.
+\newblock {\em Applied Numerical Mathematics\/}~{\em 12}, 257--284.
+
+\bibitem[\protect\citeauthoryear{{Turkel, E., Vatsa, V.N. and Radespiel,
+  R.}}{{Turkel, E., Vatsa, V.N. and Radespiel, R.}}{1996}]{Turkel:7}
+{Turkel, E., Vatsa, V.N. and Radespiel, R.} (1996).
+\newblock {Preconditioning Methods for Low-Speed Flows}.
+\newblock Technical Report 96-57, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Vahdati, M. and Imregun, M.}}{{Vahdati, M.
+  and Imregun, M.}}{1995}]{Mehdi:3}
+{Vahdati, M. and Imregun, M.} (1995).
+\newblock {Non-linear Aeroelasticity Analyses Using Unstructured Dynamic
+  Meshes}.
+\newblock In {\em $7th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Fukuoka, pp.\  177--190.
+
+\bibitem[\protect\citeauthoryear{{Vahdati, M., Sayma, A.I., Sbardella, L.,
+  Marshall, J.G. and Imregun, M.}}{{Vahdati, M., Sayma, A.I., Sbardella, L.,
+  Marshall, J.G. and Imregun, M.}}{2000}]{Luca:12}
+{Vahdati, M., Sayma, A.I., Sbardella, L., Marshall, J.G. and Imregun, M.}
+  (2000).
+\newblock {Ranking of Numerical Methods for Fan Flutter Prediction}.
+\newblock In {\em $9th$ International Symposium on Unsteady Aerodynamics and
+  Aeroelasticity of Turbomachines (ISUAAT)}, Lyon.
+
+\bibitem[\protect\citeauthoryear{{Van Leer, B.}}{{Van Leer, B.}}{1974}]{Leer:1}
+{Van Leer, B.} (1974).
+\newblock {Towards the Ultimate Conservative Difference Scheme. II.
+  Monotonicity and Conservation Combined in a Second-Order Scheme}.
+\newblock {\em Journal of Computational Physics\/}~{\em 14}, 361--370.
+
+\bibitem[\protect\citeauthoryear{{Van Leer, B.}}{{Van Leer,
+  B.}}{1977a}]{Leer:2}
+{Van Leer, B.} (1977a).
+\newblock {Towards the Ultimate Conservative Difference Scheme. III.
+  Upstream-Centered Finite-Difference Schemes for Ideal Compressible Flows}.
+\newblock {\em Journal of Computational Physics\/}~{\em 23}, 263--275.
+
+\bibitem[\protect\citeauthoryear{{Van Leer, B.}}{{Van Leer,
+  B.}}{1977b}]{Leer:3}
+{Van Leer, B.} (1977b).
+\newblock {Towards the Ultimate Conservative Difference Scheme. IV. A new
+  Approach to Numerical Convection}.
+\newblock {\em Journal of Computational Physics\/}~{\em 23}, 276--299.
+
+\bibitem[\protect\citeauthoryear{{Van Leer, B.}}{{Van Leer, B.}}{1979}]{Leer:4}
+{Van Leer, B.} (1979).
+\newblock {Towards the Ultimate Conservative Difference Scheme. V. A Second
+  Order Sequel to Godunov's Method}.
+\newblock {\em Journal of Computational Physics\/}~{\em 32}, 101--136.
+
+\bibitem[\protect\citeauthoryear{{Van Leer, B.}}{{Van Leer, B.}}{1982}]{Leer:5}
+{Van Leer, B.} (1982).
+\newblock {Flux Vector Splitting for the Euler Equations}.
+\newblock In {\em $8^{th}$ International Conference on Numerical Methods in
+  Fluid Dynamics}, Berlin. Springer Verlag.
+
+\bibitem[\protect\citeauthoryear{{Van Leer, B., Lee, W.Z. and Roe, P.}}{{Van
+  Leer, B., Lee, W.Z. and Roe, P.}}{1991}]{Leer:6}
+{Van Leer, B., Lee, W.Z. and Roe, P.} (1991).
+\newblock {Characteristic Time-Stepping of Local Preconditioning of the Euler
+  Equations}.
+\newblock AIAA Paper 91-1552 CP.
+
+\bibitem[\protect\citeauthoryear{{Van Leer, B., Tai, C.H. and Powell,
+  K.G.}}{{Van Leer, B., Tai, C.H. and Powell, K.G.}}{1989}]{Leer:7}
+{Van Leer, B., Tai, C.H. and Powell, K.G.} (1989).
+\newblock {Design of Optimally-Smoothing Multi-Stage Schemes for the Euler
+  Equations}.
+\newblock AIAA Paper 89-1933.
+
+\bibitem[\protect\citeauthoryear{{Venkatakrishnan, V.}}{{Venkatakrishnan,
+  V.}}{1995a}]{Venkata:1}
+{Venkatakrishnan, V.} (1995a).
+\newblock {A Prospective on Unstructured Grid Flow Solvers}.
+\newblock Technical Report 95-3, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Venkatakrishnan, V.}}{{Venkatakrishnan,
+  V.}}{1995b}]{Vankata:3}
+{Venkatakrishnan, V.} (1995b).
+\newblock {Implicit Schemes and Parallel Computing in Unstructured Grid CFD}.
+\newblock Technical Report 95-28, ICASE.
+
+\bibitem[\protect\citeauthoryear{{Venkatakrishnan, V. and Barth,
+  T.J.}}{{Venkatakrishnan, V. and Barth, T.J.}}{1989}]{Venkata:5}
+{Venkatakrishnan, V. and Barth, T.J.} (1989).
+\newblock {Application of Direct Solvers to Unstructured Meshes for the Euler
+  and Navier-Stokes Equations Using Upwind Schems}.
+\newblock AIAA Paper 89-0364.
+
+\bibitem[\protect\citeauthoryear{{Verdon, J.M.}}{{Verdon,
+  J.M.}}{1987}]{Verdon:5}
+{Verdon, J.M.} (1987).
+\newblock {Linearized Unsteady Aerodynamic Theory}.
+\newblock In {\em AGARD Manual on Aeroelasticity in Axial-Flow Turbomachines,
+  Unsteady Turbomachinery Aerodynamics}, Volume~1, pp.\  2.1 -- 2.31.
+  AGARD-AG-297.
+
+\bibitem[\protect\citeauthoryear{{Verdon, J.M.}}{{Verdon,
+  J.M.}}{1993}]{Verdon:2}
+{Verdon, J.M.} (1993).
+\newblock {Review of Unsteady Aerodynamics Methods For Turbomachinery
+  Aeroelastic and Aeroacoustic Applications}.
+\newblock {\em AIAA Journal\/}~{\em 31}, 235--250.
+
+\bibitem[\protect\citeauthoryear{{Verdon, J.M. and Caspar, J.R.}}{{Verdon, J.M.
+  and Caspar, J.R.}}{1984}]{Verdon:1}
+{Verdon, J.M. and Caspar, J.R.} (1984).
+\newblock {A Linearized Unsteady Aerodynamic Analysis for Transonic Cascades}.
+\newblock {\em Journal of fluid mechanics\/}~{\em 149}, 403--429.
+
+\bibitem[\protect\citeauthoryear{{Wesseling, P.}}{{Wesseling,
+  P.}}{1992}]{Wesseling:1}
+{Wesseling, P.} (1992).
+\newblock {\em {An Introduction to Multigrid Methods}}.
+\newblock John Wiley \& Sons.
+
+\bibitem[\protect\citeauthoryear{{White, F.M.}}{{White, F.M.}}{1991}]{White:1}
+{White, F.M.} (1991).
+\newblock {\em {Viscous Fluid Flow}}.
+\newblock McGraw-Hill, Inc.
+
+\bibitem[\protect\citeauthoryear{{Whitehead, D.S.}}{{Whitehead,
+  D.S.}}{1987}]{Whitehead:1}
+{Whitehead, D.S.} (1987).
+\newblock {Classical Two-dimensional Methods}.
+\newblock In {\em AGARD Manual on Aeroelasticity in Axial-Flow Turbomachines,
+  Unsteady Turbomachinery Aerodynamics}, Volume~1, pp.\  3.1 -- 3.30.
+  AGARD-AG-297.
+
+\bibitem[\protect\citeauthoryear{{Wilcox, D.C.}}{{Wilcox, D.C.}}{1993}]{Wilcox}
+{Wilcox, D.C.} (1993).
+\newblock {\em {Turbulence Modeling for CFD}}.
+\newblock DCW Industries, Inc.
+
+\bibitem[\protect\citeauthoryear{{Wilson, D.G.}}{{Wilson,
+  D.G.}}{1989}]{Wilson:1}
+{Wilson, D.G.} (1989).
+\newblock {\em {The Design of High-Efficiency Turbomachinery and Gas
+  Turbines}}.
+\newblock The MIT Press.
+
+\bibitem[\protect\citeauthoryear{{Woodward, P. and Colella, P.}}{{Woodward, P.
+  and Colella, P.}}{1984}]{Colella:1}
+{Woodward, P. and Colella, P.} (1984).
+\newblock {The numerical Simulation of Two-dimensional Fluid Flow with Strong
+  Shocks}.
+\newblock {\em Journal of Computational Physics\/}~{\em 54}, 115--173.
+
+\bibitem[\protect\citeauthoryear{{Yamamoto, A.}}{{Yamamoto,
+  A.}}{1988}]{Yamamoto:1}
+{Yamamoto, A.} (1988).
+\newblock {Interaction Mechanism Between Tip Leakage Flow and the Passage
+  Vortex in a Linear Turbine Rotor Cascade}.
+\newblock {\em Journal of Turbomachinery\/}~{\em 110}, 329--338.
+
+\bibitem[\protect\citeauthoryear{{Zienkiewicz, O.C. and Morgan,
+  K.}}{{Zienkiewicz, O.C. and Morgan, K.}}{1983}]{Zienk:1}
+{Zienkiewicz, O.C. and Morgan, K.} (1983).
+\newblock {\em {Finite Elements and Approximation}}.
+\newblock John Wiley \& Sons.
+
+\end{thebibliography}
