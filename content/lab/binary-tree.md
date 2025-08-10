@@ -1,14 +1,16 @@
+---
 title: Red-Black Binary Tree
 description: A visualisation of insertions in a self-balancing red-black binary tree
-author: Luca Sbardella
-image: {{ assetUrl }}/lab/red-black.png
-hero_photo: unsplash-h3kuhYUCE9A
-hero_opacity: 0.1
-date: 9/July/2020
-
+date: 2020-07-09
+theme: dashboard
 ---
 
-<module-component src="{{ bundleUrl }}/lab/binarytree/index.js" aspectratio="70%"></module-component>
+```js
+import "../../components/binary-tree.js";
+```
+```html
+<binary-tree-animation aspect-ratio="70%"></binary-tree-animation>
+```
 
 A visualisation of insertions in a self-balancing red-black binary tree, originally from one of my [blocks](https://bl.ocks.org/lsbardel).
 

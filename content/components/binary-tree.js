@@ -1,19 +1,51 @@
-export default (notebook, el) => {
-  notebook
-    .require("d3-selection", "d3-quant@0.5.1", "d3-scale", "d3-timer", "d3-force", "d3-random")
-    .then((d3) => {
-      state.draw(el, d3);
-    });
-};
 
-const state = {
-  radius: 0.01,
-  dropRadiusScale: 1.5,
-  c1: 0.5,
-  c2: 0.3,
-  draw(el, d3) {
+import * as d3 from "npm:d3";
+import {binaryTree} from "d3-quant";
+
+class BinaryTreeAnimation extends HTMLElement {
+  constructor() {
+    super();
+    this.aspectRatio = this.getAttribute("aspect-ratio") || "70%";
+    this.c1 = this.getAttribute("c1") || 0.5;
+    this.c2 = this.getAttribute("c2") || 0.3;
+    this.radius = this.getAttribute("radius") || 0.01;
+    this.dropRadiusScale = this.getAttribute("drop-radius-scale") || 1.5;
+    this.colours = {
+      black: "#4e4e53ff",
+      red: "#e40000ff",
+      input: "#f5f103ff"
+    };
+  }
+
+  connectedCallback() {
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `
+      <style>
+        .container {
+          width: 100%;
+          position: relative;
+          padding-top: ${this.aspectRatio};
+        }
+        .inner {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+      </style>
+      <div class="container">
+        <div class="inner"></div>
+      </div>
+    `;
+    const el = shadow.querySelector(".inner");
+    this.draw(el);
+  }
+
+  draw(el) {
     const width = el.offsetWidth,
       height = el.offsetHeight,
+      colours = this.colours,
       dim = Math.min(width, height),
       radius = Math.max(1, this.radius * dim),
       x = d3.scaleLinear().range([0, width]),
@@ -25,9 +57,14 @@ const state = {
       .selectAll("svg")
       .data([0])
       .enter()
-      .append("svg")
-      .style("background-color", "#999");
+      .append("svg");
     const paper = d3.select(el).select("svg").attr("width", width).attr("height", height);
+
+    const defs = [
+      { id: "depth", color: colours.black },
+      { id: "red", color: colours.red },
+      { id: "black", color: colours.black },
+    ];
 
     paper
       .selectAll("g.legend")
@@ -37,15 +74,15 @@ const state = {
       .attr("transform", "translate(50, 50)")
       .classed("legend", true)
       .selectAll("g")
-      .data(["depth", "red", "black"])
+      .data(defs)
       .enter()
       .append((d, index) => {
         const g = d3
           .select(document.createElement("g"))
           .attr("transform", `translate(0, ${2 * radius * index})`);
-        if (d === "depth") g.append("text").text("Depth").style("fill", "black");
-        else g.append("circle").style("fill", d).attr("cx", 0).attr("cy", 0).attr("r", radius);
-        g.append("text").text("0").classed(d, true).style("fill", d);
+        if (d.id === "depth") g.append("text").text("Depth").style("fill", d.color);
+        else g.append("circle").style("fill", d.color).attr("cx", 0).attr("cy", 0).attr("r", radius);
+        g.append("text").text("0").classed(d.id, true).style("fill", d.color);
         return g.node();
       });
 
@@ -67,8 +104,8 @@ const state = {
       .append("g")
       .classed("circle", true)
       .append("circle")
-      .style("stroke", "black")
-      .style("fill", "yellow")
+      .style("stroke", colours.input)
+      .style("fill", colours.input)
       .attr("r", this.dropRadiusScale * radius);
 
     // live circles
@@ -89,7 +126,7 @@ const state = {
     if (!this.tree) {
       const { c1, c2 } = this;
       this.node = {};
-      this.tree = binaryTree();
+      this.tree = createBinaryTree();
       this.generator = d3.randomUniform(0, 1);
       this.simulation = d3
         .forceSimulation()
@@ -157,8 +194,8 @@ const state = {
       }
     }
 
-    function binaryTree() {
-      const tree = d3.binaryTree();
+    function createBinaryTree() {
+      const tree = binaryTree();
       const insert = tree.insert;
       const doInsert = (node) => {
         insert.call(tree, node, (nd) => d3.timeout(() => addNode(nd)));
@@ -188,16 +225,16 @@ const state = {
       var circles = paper.select("g.tree").selectAll("circle").data(simulation.nodes()),
         lines = paper.select("g.links").selectAll("line").data(simulation.force("links").links());
 
-      plinks = lines.enter().append("line").style("stroke", "black").merge(lines);
+      plinks = lines.enter().append("line").style("stroke", colours.black).merge(lines);
 
       pnodes = circles
         .enter()
         .append("circle")
         .attr("r", radius)
-        .style("stroke", "black")
+        .style("stroke", colours.black)
         .merge(circles)
         .style("fill", function (d) {
-          return d.red ? "red" : "black";
+          return d.red ? colours.red : colours.black;
         });
     }
 
@@ -246,5 +283,8 @@ const state = {
     function updateNode() {
       circle.attr("cx", x(node.x)).attr("cy", y(node.y));
     }
-  },
+  }
 };
+
+
+customElements.define("binary-tree-animation", BinaryTreeAnimation);

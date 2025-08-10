@@ -22,6 +22,7 @@
     "@observablehq/framework": "1.13.3",
     "d3": "^7.9.0",
     "d3-dsv": "^3.0.1",
+    "d3-quant": "^0.5.1",
     "d3-time-format": "^4.1.0",
     "dotenv": "^16.4.7",
     "eurostat-map": "^4.2.6",
