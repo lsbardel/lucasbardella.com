@@ -27,9 +27,5 @@ clean:			## Remove observable cache files
 	@rm -rf dist
 
 .PHONY: phd
-phd:			## Build phd thesis
-	@cd phd &&\
-	pdflatex thesis.tex &&\
-	mv thesis.pdf temp_thesis.pdf &&\
-	pdftk temp_thesis.pdf cat 2-end output thesis.pdf &&\
-	rm temp_thesis.pdf
+phd:			## Download phd thesis
+	curl -L -o dist/phd-thesis.pdf https://raw.githubusercontent.com/lsbardel/phd/main/thesis/thesis.pdf

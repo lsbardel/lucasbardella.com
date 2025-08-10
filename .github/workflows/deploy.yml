@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "0 8 * * *"
+    - cron: "0 10 * * *"
   workflow_dispatch:
 
 jobs:
@@ -38,6 +38,8 @@ jobs:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           TRADING_DATA_URL: ${{ secrets.TRADING_DATA_URL }}
         run: npm i && npm run build
+      - name: Download thesis
+        run: make phd
       - name: upload artifacts
         uses: actions/upload-pages-artifact@v3
         with:
