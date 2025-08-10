@@ -16,15 +16,19 @@ I did not apply to all of them, infact very few of them, but I discussed them wi
 * [Aneralabs](https://aneralabs.xyz/)
 * [Backpack](https://backpack.exchange/)
 * [Blockchain.com](https://www.blockchain.com/)
+* [Caladan](https://caladan.xyz/)
 * [Flow Traders](https://www.flowtraders.com/)
 * [Flowdesk](https://www.flowdesk.co/)
 * [Gattaca](https://www.gattaca.com/)
+* [GSR](https://gsr.io/)
 * [Kappa lab](https://www.kappalab.io/)
 * [Keyrock](https://www.keyrock.eu/)
 * [lo.tech](https://lo.tech/)
+* [Pinely](https://pinely.com/)
+* [Pulsar](https://pulsar.com/)
 * [Selini Capital](https://www.selinicapital.com/)
 * [Wintermute](https://www.wintermute.com/)
 
-It is difficult to keep recruiters at bay, they just want to fill positions.
+It is difficult to keep recruiters at bay, they just want to fill positions, understandably.
 
-So, when you talking to them, keep this in mind, only apply to what makes sense to you and not what they say.
+So, when you are talking to them, keep this in mind, only apply to what makes sense to you and not what they say.
