@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -e
+
+ISORT_ARGS="-c"
+BLACK_ARG="--check"
+RUFF_ARG=""
+MODULES="lspy content/data"
+
+if [ "$1" = "fix" ] ; then
+    ISORT_ARGS=""
+    BLACK_ARG=""
+    RUFF_ARG="--fix"
+fi
+
+echo isort
+isort ${MODULES} ${ISORT_ARGS}
+echo "run black"
+black ${MODULES} ${BLACK_ARG}
+echo "run ruff"
+ruff check ${MODULES} ${RUFF_ARG}
+echo "run mypy"
+mypy ${MODULES}
