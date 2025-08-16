@@ -1,6 +1,6 @@
 use std::{
     cell::UnsafeCell,
-    sync::atomic::{compiler_fence, AtomicUsize, Ordering},
+    sync::atomic::{AtomicUsize, Ordering, compiler_fence},
 };
 
 #[derive(Default)]
@@ -51,13 +51,15 @@ impl<T: Copy> SeqLock<T> {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::{sync::atomic::AtomicBool, time::{Duration, Instant}};
+    use std::{
+        sync::atomic::AtomicBool,
+        time::{Duration, Instant},
+    };
 
-    fn consumer_loop<const N: usize>(lock: &SeqLock<[usize;N]>, done: &AtomicBool) {
+    fn consumer_loop<const N: usize>(lock: &SeqLock<[usize; N]>, done: &AtomicBool) {
         while !done.load(Ordering::Relaxed) {
             let msg = lock.read();
             let first = msg[0];
@@ -67,7 +69,7 @@ mod tests {
         }
     }
 
-    fn producer_loop<const N: usize>(lock: &SeqLock<[usize;N]>, done: &AtomicBool) {
+    fn producer_loop<const N: usize>(lock: &SeqLock<[usize; N]>, done: &AtomicBool) {
         let curt = Instant::now();
         let mut count = 0;
         let mut msg = [0usize; N];

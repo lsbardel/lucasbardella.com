@@ -16,10 +16,13 @@ cv:			## build CV
 	mv luca-sbardella-cv.pdf ../content/data/luca-sbardella-cv.pdf
 
 
-.PHONY: lint-py
-lint-py:		## Lint python code
-	@uv run .dev/lint-py fix
+.PHONY: py-lint
+py-lint:		## Lint python code
+	@uv run .dev/py-lint fix
 
+.PHONY: rs-lint
+rs-lint:		## Lint rust code
+	@uv run .dev/rs-lint fix
 
 .PHONY: clean
 clean:			## Remove observable cache files

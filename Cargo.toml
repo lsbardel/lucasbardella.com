@@ -12,6 +12,7 @@ disruptor = "3.4.0"
 parking_lot = "0.12.4"
 quanta = "0.12.5"
 ringbuf = "0.4.8"
+rust_decimal = { version = "1.37.2", features = ["maths"] }
 smol_str = "0.3.2"
 
 [dev-dependencies]
@@ -27,4 +28,8 @@ harness = false
 
 [[bench]]
 name = "string"
+harness = false
+
+[[bench]]
+name = "decimal"
 harness = false
