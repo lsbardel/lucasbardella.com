@@ -1,0 +1,9 @@
+rag:
+  - name: Haystack
+    github: deepset-ai/haystack
+    description: an open-source framework for building RAG pipelines, supporting document retrieval, question answering, and more.
+
+mcp:
+  - name: fastapi_mcp
+    github: tadata-org/fastapi_mcp
+    description: Expose your FastAPI endpoints as Model Context Protocol (MCP) tools
