@@ -51,18 +51,28 @@ const spreads = zoomed.flatMap(d => {
   const date = d.date;
   const data = [];
   if (!d.year_10) return [];
-  if (d.year_2) data.push({ date, maturity: "10Y-2Y", rate: d.year_10 - d.year_2 });
-  if (d.year_5) data.push({ date, maturity: "10Y-5Y", rate: d.year_10 - d.year_5 });
-  if (d.year_30) data.push({ date, maturity: "30Y-10Y", rate: d.year_30 - d.year_10 });
+  if (d.year_2) data.push({ date, maturity: "10Y-2Y", rate: 100*(d.year_10 - d.year_2) });
+  if (d.year_5) data.push({ date, maturity: "10Y-5Y", rate: 100*(d.year_10 - d.year_5) });
+  if (d.year_30) data.push({ date, maturity: "30Y-10Y", rate: 100*(d.year_30 - d.year_10) });
   return data;
 });
 
-const plotRates = (flat, {width, height, domain}) => {
+const flies = zoomed.flatMap(d => {
+  const date = d.date;
+  const data = [];
+  if (!d.year_10 || !d.year_5) return [];
+  if (d.year_2) data.push({ date, maturity: "10Y-5Y-2Y", rate: -100 * (d.year_10 - 2*d.year_5 + d.year_2) });
+  if (d.year_30) data.push({ date, maturity: "30Y-10Y-5Y", rate: -100 * (d.year_30 - 2*d.year_10 + d.year_5) });
+  return data;
+});
+
+const plotRates = (flat, {width, height, domain, label}) => {
   return Plot.plot({
     width,
     height,
     color: { legend: true, domain },
     y: {
+      label,
       grid: true
     },
     marks: [
@@ -96,22 +106,27 @@ const plotCurve = (data, {width, height}) => {
   });
 };
 ```
-
+<div class="grid">
+  <div class="card">
+    ${resize((width) => tsZoom({height: 80, width, initialStartEnd, setStartEnd, marks: rateMarks(allFlatRates)}))}
+  </div>
+</div>
 <div class="grid md:grid-cols-2 grid-cols-1">
   <div class="card">
     <h2>Yield curve rates</h2>
-    ${resize((width) => plotRates(flatRates, {width, domain: rateDomain}))}
+    ${resize((width) => plotRates(flatRates, {width, domain: rateDomain, label: "Rate (%)"}))}
   </div>
   <div class="card">
-    <h2>Yield curve spreads</h2>
-    ${resize((width) => plotRates(spreads, {width}))}
+    <h2>Yield curve spreads (bps)</h2>
+    ${resize((width) => plotRates(spreads, {width, label: "Spread (bps)"}))}
   </div>
   <div class="card">
     <h2>Yield curves at three dates in the zoom window</h2>
     ${resize((width) => plotCurve(curveData, {width}))}
   </div>
   <div class="card">
-    ${tsZoom({height: 100, initialStartEnd, setStartEnd, marks: rateMarks(allFlatRates)})}
+    <h2>Yield curve butterflies (bps)</h2>
+    ${resize((width) => plotRates(flies, {width, label: "Butterfly (bps)"}))}
   </div>
 </div>
 
