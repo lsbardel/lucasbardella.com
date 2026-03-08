@@ -3,7 +3,7 @@ title: Game of Life
 date: 2023-01-28
 keywords: game, d3
 description: The famous Conway's Game of Life!
-private: true
+toc: false
 ---
 
 ```tsx
@@ -28,7 +28,7 @@ display(<GameOfLife aspectRatio="60%" pattern={pulsar} speed={500}/>);
 The most common period-2 oscillator.
 
 ```tsx
-display(<GameOfLife aspectRatio="40%" pattern={gosper} speed={500}/>);
+display(<GameOfLife aspectRatio="40%" pattern={beacon} speed={500}/>);
 ```
 
 ## Gosper

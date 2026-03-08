@@ -74,8 +74,11 @@ const GameOfLife = ({speed, delta, theme, aspectRatio, pattern}: GameOfLifeInput
   const styleInner = {position: "absolute", top: 0, left: 0, bottom: 0, right: 0};
 
   React.useEffect(() => {
-    const width = paper.current.offsetWidth;
-    const height = paper.current.offsetHeight;
+    if (!pattern || !paper.current) return;
+    const el = paper.current;
+    el.innerHTML = "";
+    const width = el.offsetWidth;
+    const height = el.offsetHeight;
     const state = {
       speed,
       delta: delta || 10,
@@ -83,15 +86,16 @@ const GameOfLife = ({speed, delta, theme, aspectRatio, pattern}: GameOfLifeInput
       width,
       height,
       squares: new Map(),
-      Ny: Math.floor(height / delta),
-      Nx: Math.floor(width / delta),
+      Ny: Math.floor(height / (delta || 10)),
+      Nx: Math.floor(width / (delta || 10)),
     };
-    const timer = animateLife(paper.current, state, pattern);
+    const timer = animateLife(el, state, pattern);
 
     return () => {
       timer.stop();
+      el.innerHTML = "";
     };
-  });
+  }, [speed, delta, theme, pattern]);
 
   return (
     <div className="gol-container-outer" style={style}>
