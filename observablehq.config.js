@@ -30,7 +30,6 @@ export default {
       pages: [
         { name: "heatmap", path: "/market/heatmap" },
         { name: "fed", path: "/market/fed" },
-        { name: "boe", path: "/market/boe" },
       ],
     },
     { name: "coding", path: "/coding", open: false, pages: coding.sidebar() },
@@ -41,7 +40,7 @@ export default {
     { name: "credits", path: "/credits" },
   ],
 
-  dynamicPaths: blog.paths(),
+  dynamicPaths: [...blog.paths(), ...lab.paths(), ...coding.paths()],
 
   // Content to add to the head of the page, e.g. for a favicon:
   head: `
@@ -60,7 +59,7 @@ export default {
   // The path to the source root.
   root: "content",
 
-  style: "style.css",
+  style: "themes/dark.css",
   // Some additional configuration options and their defaults:
   // theme: "default", // try "light", "dark", "slate", etc.
   // header: "", // what to show in the header (HTML)

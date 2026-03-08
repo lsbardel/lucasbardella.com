@@ -1,18 +1,18 @@
 ---
 title: Flow Field
-description: Perlin noise flow field — thousands of particles tracing the invisible currents of a turbulent vector field.
+description: Perlin noise flow field visualization — thousands of particles tracing the invisible currents of a turbulent vector field.
 date: 2026-03-08
+toc: false
 keywords: art, generative, perlin, flow field, fluid dynamics
 ---
+
 
 ```tsx
 import FlowField from "../../components/flow-field.js";
 import {schemes} from "../../components/palettes.js";
 ```
 
-# Flow Field
-
-Thousands of particles drift through a two-dimensional vector field driven by layered Perlin noise. Each particle follows the local angle of the field, leaving a faint trail — the aggregate of countless invisible forces made visible over time.
+Each particle follows the local angle of the field, leaving a faint trail — the aggregate of countless invisible forces made visible over time.
 
 This was my first visualization done with the help of the [lab-skill](https://github.com/lsbardel/lucasbardella.com/tree/main/.github/instructions/lab-instructions.md) for
 AI agents.

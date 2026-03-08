@@ -59,13 +59,26 @@ const FlowField = ({
   aspectRatio = "75%",
 }: FlowFieldProps) => {
   const ref = React.useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = React.useState({ w: 0, h: 0 });
 
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const observer = new ResizeObserver(() => {
+      const w = el.offsetWidth;
+      const h = el.offsetHeight;
+      if (w && h) setDimensions({ w, h });
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
-    const W = el.offsetWidth || 900;
-    const H = el.offsetHeight || 675;
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el || !dimensions.w || !dimensions.h) return;
+
+    const W = dimensions.w;
+    const H = dimensions.h;
 
     const canvas = document.createElement("canvas");
     canvas.width = W;
@@ -154,7 +167,7 @@ const FlowField = ({
 
     frame();
     return () => cancelAnimationFrame(animId);
-  }, [particleCount, speed, noiseScale, trailFade, colors, background, seed]);
+  }, [particleCount, speed, noiseScale, trailFade, colors, background, seed, dimensions]);
 
   const outerStyle: React.CSSProperties = { width: "100%", position: "relative", paddingTop: aspectRatio };
   const innerStyle: React.CSSProperties = { position: "absolute", top: 0, left: 0, bottom: 0, right: 0 };
