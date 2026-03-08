@@ -15,7 +15,7 @@ An interactive canvas rendering of the [Mandelbrot set](https://en.wikipedia.org
 **Scroll** to zoom, **drag** to pan, **double-click** to reset.
 
 ```js
-const palette = view(Inputs.select(Object.keys(schemes), {value: "Magma", label: "Palette"}));
+const palette = view(Inputs.select(Object.keys(schemes), {value: "Turbo", label: "Palette"}));
 ```
 
 ```tsx
