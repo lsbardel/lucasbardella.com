@@ -1,5 +1,6 @@
 import { timeFormat } from "d3-time-format";
 import fs from "fs/promises";
+import { watch } from "fs";
 import { basename, join } from "path";
 import compileOptions from "./options";
 
@@ -57,6 +58,20 @@ class ContentLoader {
 
   paths() {
     return this.pages.map((p) => p.path);
+  }
+
+  watch() {
+    const sourceDir = join(postsDirectory, this.content);
+    const loaderPath = join(postsDirectory, this.content, "[year]", "[slug].md.ts");
+    watch(sourceDir, async (_, filename) => {
+      if (!filename?.endsWith(".md")) return;
+      const now = new Date();
+      try {
+        await fs.utimes(loaderPath, now, now);
+      } catch {
+        // loader file may not exist
+      }
+    });
   }
 
   emitList(title: string) {
