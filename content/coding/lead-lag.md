@@ -1,4 +1,7 @@
-
+---
+title: Lead-lag
+private: true
+---
 
 In financial markets, a "lead-lag" effect occurs when the price movements of one asset are followed by corresponding movements in another asset
 after a certain time delay.
