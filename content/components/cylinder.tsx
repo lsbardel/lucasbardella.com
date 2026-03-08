@@ -8,6 +8,7 @@ interface Props {
   nx?: number;
   color?: string;
   nParticles?: number;
+  particleRadius?: number;
   palette?: string;
   aspectRatio?: string;
 }
@@ -33,7 +34,8 @@ const drawCylinder = (
   el: HTMLDivElement,
   props: Required<Omit<Props, "aspectRatio">>,
 ): () => void => {
-  const { radius, ny, nx, color, nParticles, palette } = props;
+  const { radius, ny, nx, color, nParticles, particleRadius, palette } = props;
+  const dpr = window.devicePixelRatio || 1;
   const width = el.offsetWidth;
   const height = el.offsetHeight;
 
@@ -41,15 +43,21 @@ const drawCylinder = (
   const sm = (0.5 * height) / width;
   const dy = sm / ny;
 
+  const pw = width * dpr, ph = height * dpr;
+
   const scalex = d3.scaleLinear().range([0, width]).domain([-0.5, 0.5]);
   const scaley = d3.scaleLinear().range([0, height]).domain([-sm, sm]);
   const scaler = d3.scaleLinear().range([0, width]).domain([0, 1]);
 
   // --- Layer 1: pressure field on canvas (drawn once, pixel-perfect cylinder cutout) ---
   const pressureCanvas = document.createElement("canvas");
-  pressureCanvas.width = width;
-  pressureCanvas.height = height;
-  Object.assign(pressureCanvas.style, { position: "absolute", top: "0px", left: "0px" });
+  pressureCanvas.width = pw;
+  pressureCanvas.height = ph;
+  pressureCanvas.style.width = `${width}px`;
+  pressureCanvas.style.height = `${height}px`;
+  pressureCanvas.style.position = "absolute";
+  pressureCanvas.style.top = "0px";
+  pressureCanvas.style.left = "0px";
   el.appendChild(pressureCanvas);
   const pCtx = pressureCanvas.getContext("2d")!;
 
@@ -62,26 +70,24 @@ const drawCylinder = (
     const c = d3.rgb(interpolate(i / (LUT - 1)));
     lut[i * 3] = c.r; lut[i * 3 + 1] = c.g; lut[i * 3 + 2] = c.b;
   }
-
-  const imageData = pCtx.createImageData(width, height);
+  const imageData = pCtx.createImageData(pw, ph);
   const px_data = imageData.data;
   const alpha = Math.round(0.45 * 255);
 
-  for (let py = 0; py < height; py++) {
-    for (let px = 0; px < width; px++) {
-      const x = -0.5 + px / (width - 1);
-      const y = sm * (1 - 2 * py / (height - 1));
+  for (let py = 0; py < ph; py++) {
+    for (let px = 0; px < pw; px++) {
+      const x = -0.5 + px / (pw - 1);
+      const y = sm * (1 - 2 * py / (ph - 1));
       const r2 = x * x + y * y;
       if (r2 > a2) {
         const [vx, vy] = velocity(x, y, a2);
         const cp = Math.max(CP_MIN, Math.min(CP_MAX, 1 - vx * vx - vy * vy));
         const ti = Math.round((cp - CP_MIN) / (CP_MAX - CP_MIN) * (LUT - 1));
-        const idx = (py * width + px) * 4;
+        const idx = (py * pw + px) * 4;
         px_data[idx]     = lut[ti * 3];
         px_data[idx + 1] = lut[ti * 3 + 1];
         px_data[idx + 2] = lut[ti * 3 + 2];
         px_data[idx + 3] = alpha;
-        // pixels inside cylinder stay transparent (alpha = 0)
       }
     }
   }
@@ -132,15 +138,16 @@ const drawCylinder = (
 
   svg.append("circle")
     .attr("cx", scalex(0)).attr("cy", scaley(0)).attr("r", scaler(radius))
-    .attr("fill", "#61A0FF");
+    .attr("fill", "#020202");
 
   // --- Layer 3: animated particles canvas ---
   const partCanvas = document.createElement("canvas");
-  partCanvas.width = width;
-  partCanvas.height = height;
-  Object.assign(partCanvas.style, { position: "absolute", top: "0px", left: "0px", pointerEvents: "none" });
+  partCanvas.width = pw;
+  partCanvas.height = ph;
+  partCanvas.style.cssText = `width:${width}px;height:${height}px;position:absolute;top:0;left:0;pointer-events:none`;
   el.appendChild(partCanvas);
   const ctx = partCanvas.getContext("2d")!;
+  ctx.scale(dpr, dpr); // all subsequent draw calls use logical CSS pixel coordinates
 
   const speedColor = d3.scaleSequential(d3.interpolateYlOrRd).domain([0, 2.5]);
   const particles: Particle[] = Array.from({ length: nParticles }, () => ({
@@ -161,8 +168,11 @@ const drawCylinder = (
       if (p.x > 0.52 || p.x < -0.52 || Math.abs(p.y) > sm + 0.02 || r2 < a2 * 1.05) {
         Object.assign(p, randomInlet(sm));
       }
+      // snap to whole logical pixels to avoid sub-pixel antialiasing blur
+      const cx = Math.round(scalex(p.x));
+      const cy = Math.round(scaley(p.y));
       ctx.beginPath();
-      ctx.arc(scalex(p.x), scaley(p.y), 2, 0, 2 * Math.PI);
+      ctx.arc(cx, cy, particleRadius, 0, 2 * Math.PI);
       ctx.fillStyle = speedColor(speed);
       ctx.fill();
     }
@@ -175,16 +185,16 @@ const drawCylinder = (
 
 const Cylinder = ({
   radius = 0.1, ny = 30, nx = 20, color = "#999999",
-  nParticles = 300, palette = "Spectral", aspectRatio = "70%",
+  nParticles = 300, particleRadius = 3, palette = "Spectral", aspectRatio = "70%",
 }: Props) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const cleanup = drawCylinder(el, { radius, ny, nx, color, nParticles, palette });
+    const cleanup = drawCylinder(el, { radius, ny, nx, color, nParticles, particleRadius, palette });
     return () => { cleanup(); el.innerHTML = ""; };
-  }, [radius, ny, nx, color, nParticles, palette]);
+  }, [radius, ny, nx, color, nParticles, particleRadius, palette]);
 
   const style = { width: "100%", position: "relative" as const, paddingTop: aspectRatio };
   const innerStyle = { position: "absolute" as const, top: 0, left: 0, bottom: 0, right: 0 };

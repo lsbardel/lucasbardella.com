@@ -20,15 +20,21 @@ The stream function has a closed form solution in polar coordinates:
 
 where *a* is the cylinder radius.
 
+<div class="grid grid-cols-2" style="row-gap: 0">
+
 ```js
 const radius = view(Inputs.range([0.05, 0.4], {step: 0.01, value: 0.1, label: "Cylinder radius"}));
 const ny = view(Inputs.range([5, 60], {step: 1, value: 30, label: "Streamlines"}));
-const nParticles = view(Inputs.range([100, 5000], {step: 10, value: 1000, label: "Particles"}));
 const palette = view(Inputs.select(Object.keys(schemes), {value: "RdBu", label: "Palette"}));
 ```
+```js
+const nParticles = view(Inputs.range([100, 5000], {step: 10, value: 1000, label: "Particles"}));
+const particleRadius = view(Inputs.range([1, 8], {step: 0.5, value: 3, label: "Particle radius"}));
+```
+</div>
 
 ```tsx
-display(<Cylinder radius={radius} ny={ny} nParticles={nParticles} palette={palette} />);
+display(<Cylinder radius={radius} ny={ny} nParticles={nParticles} particleRadius={particleRadius} palette={palette} />);
 ```
 
 The pressure field is obtained from Bernoulli's equation. The velocity components in polar coordinates are:
