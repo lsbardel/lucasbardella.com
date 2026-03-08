@@ -6,9 +6,11 @@ const blog = await ContentLoader.load(config, "blog");
 const coding = await ContentLoader.load(config, "coding");
 const lab = await ContentLoader.load(config, "lab");
 
-blog.watch();
-coding.watch();
-lab.watch();
+if (process.argv.includes("preview")) {
+  blog.watch();
+  coding.watch();
+  lab.watch();
+}
 
 // See https://observablehq.com/framework/config for documentation.
 export default {
