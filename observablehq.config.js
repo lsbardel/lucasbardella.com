@@ -6,6 +6,10 @@ const blog = await ContentLoader.load(config, "blog");
 const coding = await ContentLoader.load(config, "coding");
 const lab = await ContentLoader.load(config, "lab");
 
+blog.watch();
+coding.watch();
+lab.watch();
+
 // See https://observablehq.com/framework/config for documentation.
 export default {
   // The app’s title; used in the sidebar and webpage titles.
@@ -24,6 +28,7 @@ export default {
       pages: [
         { name: "heatmap", path: "/market/heatmap" },
         { name: "fed", path: "/market/fed" },
+        { name: "boe", path: "/market/boe" },
       ],
     },
     { name: "coding", path: "/coding", open: false, pages: coding.sidebar() },

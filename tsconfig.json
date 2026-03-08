@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+      "jsx": "react",
       "baseUrl": ".", // Set the base URL for resolving paths
       "paths": {
         "@ls/*": ["lsts/*"] // Define the alias

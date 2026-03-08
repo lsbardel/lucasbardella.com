@@ -1,0 +1,3 @@
+---
+applyTo: "content/components/*,
+---
