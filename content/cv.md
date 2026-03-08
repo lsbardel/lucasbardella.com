@@ -35,6 +35,7 @@ const cvUrl = FileAttachment("data/luca-sbardella-cv.pdf").url();
 
 Provides independent consulting for project-based roles in **trading technology** and **algorithmic trading**,
 leveraging expertise in Rust, Python, quantitative finance and cloud computing.
+See [what I'm working on now](/now).
 
 **Specialities**: algorithmic trading, quantitative finance, low-latency, machine learning<br>
 **Coding**: Rust, Python, TypeScript<br>

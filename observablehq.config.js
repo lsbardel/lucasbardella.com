@@ -21,6 +21,7 @@ export default {
   // all pages will be listed in alphabetical order. Listing pages explicitly
   // lets you organize them into sections and have unlisted pages.
   pages: [
+    { name: "now", path: "/now" },
     { name: "cv", path: "/cv" },
     { name: "contact", path: "/contact" },
     {
