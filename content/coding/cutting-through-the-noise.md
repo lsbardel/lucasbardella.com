@@ -12,36 +12,6 @@ In high-frequency trading (HFT), filtering techniques are essential for extracti
 First, let's load the financial data we'll use for our analysis:
 
 ```js
-// Load the financial data archive
-const financialData = FileAttachment("data/cutting-through-noise.zip");
+const prices = await FileAttachment("../../data/cutting-through-noise.zip").zip()
+  .then(z => z.file("prices.csv").csv({typed: true}));
 ```
-
-```js
-// Extract stock price data for major tech companies
-const stockSymbols = ["AAPL", "GOOGL", "MSFT", "AMZN", "META", "TSLA", "NVDA"];
-const stockPrices = {};
-
-for (const symbol of stockSymbols) {
-  stockPrices[symbol] = financialData.csv(`${symbol}-prices.csv`, {typed: true});
-}
-```
-
-```js
-// Load market indices for comparison
-const indices = {
-  sp500: financialData.csv("GSPC-prices.csv", {typed: true}),
-  nasdaq: financialData.csv("IXIC-prices.csv", {typed: true}),
-  vix: financialData.csv("VIX-prices.csv", {typed: true})
-};
-```
-
-```js
-// Load fundamental ratios for analysis
-const fundamentalData = {};
-
-for (const symbol of stockSymbols) {
-  fundamentalData[symbol] = financialData.csv(`${symbol}-ratios.csv`, {typed: true});
-}
-```
-
-Now we have access to comprehensive financial data including historical prices and fundamental ratios for our filtering analysis.

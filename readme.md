@@ -10,6 +10,13 @@ Local development:
 npm run dev
 ```
 
+## Python
+
+To develop with python tooling, install uv and sync:
+
+```bash
+uv sync --extra dev
+```
 
 ## Latex
 

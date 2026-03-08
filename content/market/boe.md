@@ -2,6 +2,7 @@
 title: UK Interest Rates
 theme: dashboard
 toc: false
+private: true
 ---
 
 ```js
