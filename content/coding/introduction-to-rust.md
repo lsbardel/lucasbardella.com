@@ -2,17 +2,10 @@
 title: Introduction to Rust
 date: 2023-01-07
 description: Rust is a fast, safe, and concurrent systems programming language that is quickly gaining popularity in the high frequency trading (HFT) community.
+heroImage: rust2
+heroOpacity: "0.5"
 keywords: programming, rust
 ---
-
-```js
-const images = FileAttachment("../../data/images.json").json();
-import { HeroImage } from "../../components/image.js";
-```
-
-```tsx
-display(<HeroImage urls={images.rust1} />);
-```
 
 Rust is a systems programming language that was designed to be fast, safe, multi-threaded and concurrent.
 In addition, it has a unique ownership and borrowing system that allows for efficient memory management without needing a garbage collector, which can reduce latencies and improve performance.

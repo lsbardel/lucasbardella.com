@@ -12,17 +12,14 @@ toc: false
 
 Building out [Quantmind](https://quantmind.com) — a consulting platform for quantitative finance and algorithmic trading.
 
-I'm currently working on
+Currently leading a team of 5 (engineers and researchers), focused on liquidity provision for a fast-growing centralized exchange (CEX):
 
-- Liquidity provision for a fast-growing centralized exchange (CEX)
-- Building and maintaining the infrastructure and trading strategies for providing liquidity on several venues
-  - Orderbook
-  - RFQs
-  - Backstop Liquidity Provision (BLP)
-- I'm responsible for algorithmic trading strategy design, software architecture, technology stack, and risk management
-- Constant research for new alphas signals to improve the market making strategies
-- Lead a team of 5 between engineers and researchers
+- Market making across orderbook, RFQs, and Backstop Liquidity Provision (BLP)
+- Infrastructure and trading strategy development across multiple venues
+- Algorithmic strategy design, software architecture, and risk management
+- Ongoing research into new alpha signals to improve market making performance
+- Tech stack: Rust for low-latency execution, Python for research and data analysis
 
 ## Running
 
-Targeting **1,200 km** for 2026. Tracking on [Strava](https://www.strava.com/athletes/2280052) — follow along if you want to keep me honest.
+Targeting **1,100 km** for 2026. Tracking on [Strava](https://www.strava.com/athletes/2280052)

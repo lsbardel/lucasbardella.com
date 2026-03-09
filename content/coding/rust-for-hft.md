@@ -2,10 +2,13 @@
 title: Rust for HFT
 description: An introduction to High-frequency trading design patterns in Rust and practical considerations.
 date: 2025 March 25
+heroImage: rust1
+heroOpacity: "0.2"
+heroBlur: blur-sm
 keywords: programming, rust, hft, high-frequency trading
 ---
 
-```js
+```tsx
 import {FileAttachment} from "observablehq:stdlib";
 import {GihubRepoLink} from "../../components/github.js";
 const repos = FileAttachment("../../data/repos.json").json();

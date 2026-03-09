@@ -1,6 +1,6 @@
 import { timeFormat } from "d3-time-format";
-import fs from "fs/promises";
 import { watch } from "fs";
+import fs from "fs/promises";
 import { basename, join } from "path";
 import compileOptions from "./options";
 
@@ -93,21 +93,57 @@ class ContentLoader {
 }
 
 
+const heroFields = new Set(["heroImage", "heroOpacity", "heroBlur"]);
+
+const textHeader = (entry: Page): string => {
+  const title = entry.options.title || entry.name;
+  const date = formatDate(entry.date);
+  const description = entry.description || "";
+  return [`# ${title}`, `<p class="date">${date}</p>`, `<p class="description">${description}</p>`].join("\n");
+};
+
+const heroHeader = (entry: Page): string => {
+  const title = entry.options.title || entry.name;
+  const description = entry.description || "";
+  const heroImage = entry.options.heroImage;
+  const opacityProp = entry.options.heroOpacity !== undefined ? ` opacity={${entry.options.heroOpacity}}` : "";
+  const blurProp = entry.options.heroBlur ? ` blur="${entry.options.heroBlur}"` : "";
+  const subtitleProp = description ? ` subtitle={${JSON.stringify(description)}}` : "";
+  const ratio = entry.options.heroAspectRatio || "35%";
+  return [
+    `<div class="outer-placeholder" style="padding-top: ${ratio};">`,
+    `<div class="inner-placeholder">`,
+    "",
+    "```tsx",
+    `import {FileAttachment} from "observablehq:stdlib";`,
+    `import {PageHeader} from "../../components/image.js";`,
+    `const __images = FileAttachment("../../data/images.json").json();`,
+    "```",
+    "",
+    "```tsx",
+    `display(<PageHeader title={${JSON.stringify(title)}}${subtitleProp} urls={__images.${heroImage}}${opacityProp}${blurProp} />);`,
+    "```",
+    "</div>",
+    "</div>",
+  ].join("\n");
+};
+
 export const emitContent = async (content: string, slug: string | undefined) => {
   if (!slug) return;
   const entry = await ContentLoader.loadPage(content, slug);
   if (entry) {
-    const headers = Object.keys(entry.options).map((o) => `${o}: ${entry.options[o]}`);
-    const title = entry.options.title || entry.name;
-    const date = formatDate(entry.date);
-    const description = entry.description || "";
-    let body = [`# ${title}`, `<p class="date">${date}</p>`,  `<p class="description">${description}</p>`, entry.body].join("\n");
+    const headers = Object.keys(entry.options).filter((o) => !heroFields.has(o)).map((o) => `${o}: ${entry.options[o]}`);
+    const titleBlock = entry.options.heroImage ? heroHeader(entry) : textHeader(entry);
+    let body = [titleBlock, entry.body].join("\n");
     if (headers.length > 0) {
       body = `---\n${headers.join("\n")}\n---\n${body}`;
     }
     process.stdout.write(body);
   }
 }
+
+
+
 
 
 const compileContent = async (sourcePath, content): Promise<Page | undefined> => {

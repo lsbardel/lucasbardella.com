@@ -44,3 +44,18 @@ a.icon {
 .option-row {
   background-color: rgb(10, 63, 124);
 }
+
+
+div.outer-placeholder {
+  position: relative;
+  width: 100%;
+}
+
+div.outer-placeholder .inner-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #1a1a1a;
+}
