@@ -31,6 +31,7 @@ export default {
       pages: [
         { name: "heatmap", path: "/market/heatmap" },
         { name: "fed", path: "/market/fed" },
+        { name: "boe", path: "/market/boe" },
       ],
     },
     { name: "coding", path: "/coding", open: false, pages: coding.sidebar() },
