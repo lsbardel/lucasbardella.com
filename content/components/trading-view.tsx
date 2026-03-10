@@ -19,27 +19,37 @@ export interface SymbolDef {
 interface TradingViewChartProps {
   data: any[];
   symbols: SymbolDef[];
+  displaySymbols?: SymbolDef[];
+  colors?: string[];
   chartStyle?: ChartStyle;
+  aspectRatio?: number;
+  visibleBars?: number;
 }
 
 /**
  * A React component to display time-series data (like BOE rates)
  * using the TradingView Charting Library.
  */
-export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbols, chartStyle = 2 }) => {
+export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbols, displaySymbols, colors = [], chartStyle = 2, aspectRatio = 16 / 9, visibleBars }) => {
+  const plotSymbols = displaySymbols ?? symbols;
   const chartContainerRef = React.useRef<HTMLDivElement>(null);
   const widgetRef = React.useRef<any>(null);
+  const allBarsRef = React.useRef<Record<string, { time: number }[]>>({});
   const [isScriptReady, setIsScriptReady] = React.useState(false);
 
   // Load TradingView script
   React.useEffect(() => {
-    if (document.querySelector(`script[src="${TRADING_VIEW_URL}"]`)) {
+    if (typeof TradingView !== "undefined") {
       setIsScriptReady(true);
+      return;
+    }
+    const existing = document.querySelector(`script[src="${TRADING_VIEW_URL}"]`);
+    if (existing) {
+      existing.addEventListener("load", () => setIsScriptReady(true));
       return;
     }
     const script = document.createElement("script");
     script.src = TRADING_VIEW_URL;
-    script.type = "text/javascript";
     script.async = true;
     script.onload = () => setIsScriptReady(true);
     script.onerror = () => console.error("Failed to load TradingView charting library.");
@@ -50,6 +60,21 @@ export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbol
   const multiSeriesDatafeed = React.useMemo(() => {
     const symbolMap = Object.fromEntries(symbols.map(s => [s.symbol, s]));
     const seriesData = transformData(data, symbols.map(s => s.symbol));
+
+    // Pre-compute bars for all symbols so getBars doesn't recompute on every call
+    const allBarsMap: Record<string, { time: number; open: number; high: number; low: number; close: number; volume: number }[]> = {};
+    for (const symbol of symbols.map(s => s.symbol)) {
+      allBarsMap[symbol] = (seriesData[symbol] || []).map((row: any) => ({
+        time: new Date(row.date).getTime(),
+        close: row.value,
+        open: row.value,
+        high: row.value,
+        low: row.value,
+        volume: 0,
+      }));
+    }
+    allBarsRef.current = allBarsMap;
+
     return {
       onReady: (cb: any) => {
         setTimeout(() => cb({ supported_resolutions: ["1D"] }), 0);
@@ -80,18 +105,14 @@ export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbol
           });
         }, 0);
       },
-      getBars: (symbolInfo: any, resolution: string, periodParams: any, onResult: any, onError: any) => {
+      getBars: (symbolInfo: any, _resolution: string, periodParams: any, onResult: any, _onError: any) => {
         const { from, to } = periodParams;
-        const allBars = (seriesData[symbolInfo.name] || []).map((row: any) => ({
-          time: new Date(row.date).getTime(),
-          close: row.value,
-          open: row.value,
-          high: row.value,
-          low: row.value,
-          volume: 0,
-        }));
-        const bars = allBars.filter((b: any) => b.time >= from * 1000 && b.time < to * 1000);
-        onResult(bars, { noData: bars.length === 0 });
+        const allBars = allBarsMap[symbolInfo.name] || [];
+        const bars = allBars.filter((b) => b.time >= from * 1000 && b.time < to * 1000);
+        // Only signal noData when from is at or before the earliest bar — prevents TV from
+        // stopping historical data requests just because a range has no bars (e.g. weekends).
+        const firstBarTime = allBars.length > 0 ? allBars[0].time : Infinity;
+        onResult(bars, { noData: from * 1000 <= firstBarTime });
       },
       subscribeBars: () => {},
       unsubscribeBars: () => {},
@@ -107,10 +128,23 @@ export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbol
       widgetRef.current = null;
     }
 
-    const mainSymbol = symbols[0]?.symbol;
+    const mainSymbol = plotSymbols[0]?.symbol;
     if (!mainSymbol) return;
+
+    let timeframe: { from: number; to: number } | undefined;
+    if (visibleBars) {
+      const bars = allBarsRef.current[mainSymbol] ?? [];
+      if (bars.length >= visibleBars) {
+        timeframe = {
+          from: bars[bars.length - visibleBars].time / 1000,
+          to: bars[bars.length - 1].time / 1000,
+        };
+      }
+    }
+
     widgetRef.current = new TradingView.widget({
       symbol: mainSymbol,
+      ...(timeframe ? { timeframe } : {}),
       datafeed: multiSeriesDatafeed,
       interval: "1D",
       container: chartContainerRef.current,
@@ -127,20 +161,26 @@ export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbol
       theme: "dark",
       overrides: {
         "mainSeriesProperties.style": chartStyle,
+        ...(colors[0] ? { "mainSeriesProperties.lineStyle.color": colors[0] } : {}),
       },
       studies_overrides: {},
-      onChartReady: function() {
-        if (symbols.length > 1 && widgetRef.current) {
-          const chart = widgetRef.current.activeChart();
-          for (let i = 1; i < symbols.length; ++i) {
-            chart.createStudy('Compare', false, false, { symbol: symbols[i].symbol });
-          }
-        }
-      }
     });
-  }, [isScriptReady, multiSeriesDatafeed, symbols]);
+    widgetRef.current.onChartReady(() => {
+      const chart = widgetRef.current.activeChart();
+      const studyPromises = plotSymbols.slice(1).map((s, i) =>
+        chart.createStudy('Compare', false, false, { symbol: s.symbol, source: 'close' }, colors[i + 1] ? { "plot.color": colors[i + 1] } : undefined)
+      );
+      Promise.all(studyPromises).then(() => {
+        chart.getPanes()[0].getRightPriceScales()[0].setMode(0); // 0 = Normal (absolute values, no percentage)
+      });
+    });
+  }, [isScriptReady, multiSeriesDatafeed, plotSymbols]);
 
-  return <div ref={chartContainerRef} style={{ width: "100%", height: "500px" }} />;
+  return (
+    <div style={{ width: "100%", position: "relative", paddingTop: `${(1 / aspectRatio) * 100}%` }}>
+      <div ref={chartContainerRef} style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }} />
+    </div>
+  );
 };
 
 

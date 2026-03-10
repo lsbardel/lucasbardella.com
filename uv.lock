@@ -81,6 +81,15 @@ wheels = [
 ]
 
 [[package]]
+name = "aioshutil"
+version = "1.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d3/bd/dcea5abb1792269e70cc75d5f9ae9adbdfba0f0d08a207eb788ec3b469b6/aioshutil-1.6.tar.gz", hash = "sha256:9eae342b9a4cacc2c2c5877877a2d2f7a2b66c62aa1ab57d7e95c8cfd4ede507", size = 7843, upload-time = "2025-10-21T08:42:23.742Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/68/92/7020e67ad83095ecc2ce751c24a63df332fb9a34ebfe14bc12a6b21b8f58/aioshutil-1.6-py3-none-any.whl", hash = "sha256:e0711de25ade421b70094b2a27c69bef6356127013744fec05f019f36732c1bd", size = 4705, upload-time = "2025-10-21T08:42:22.892Z" },
+]
+
+[[package]]
 name = "aiosignal"
 version = "1.3.2"
 source = { registry = "https://pypi.org/simple" }
@@ -283,6 +292,21 @@ wheels = [
 ]
 
 [[package]]
+name = "foamlib"
+version = "1.5.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aioshutil" },
+    { name = "multicollections" },
+    { name = "numpy" },
+    { name = "rich" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/02/e0/d8fc29c278e0d4fa214c66d72edf4fdfb7fcb0ac697178c094837529736a/foamlib-1.5.7.tar.gz", hash = "sha256:3b63ba20ffebcbbb0f23aeb4ef8021faac7575e5f857e89e07df7e151c889cdc", size = 65549, upload-time = "2026-03-02T16:50:39.818Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/88/fa/0b820b90a6430bab3835672b655a256b1f16bf5b1e2593c8662749de5b57/foamlib-1.5.7-py3-none-any.whl", hash = "sha256:9320613ae71c7d5e684886a812989a7b637f6148668cf59c5ca17249001ae3a2", size = 76826, upload-time = "2026-03-02T16:50:38.859Z" },
+]
+
+[[package]]
 name = "frozenlist"
 version = "1.6.0"
 source = { registry = "https://pypi.org/simple" }
@@ -446,6 +470,9 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
+cfd = [
+    { name = "foamlib" },
+]
 dev = [
     { name = "black" },
     { name = "isort" },
@@ -460,6 +487,7 @@ requires-dist = [
     { name = "aio-fluid", extras = ["cli", "http"], specifier = ">=1.7.0" },
     { name = "black", marker = "extra == 'dev'", specifier = ">=26.3.0" },
     { name = "boto3", specifier = ">=1.38.3" },
+    { name = "foamlib", marker = "extra == 'cfd'", specifier = ">=1.5.7" },
     { name = "isort", marker = "extra == 'dev'", specifier = ">=8.0.1" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.15.0" },
     { name = "pandas", specifier = ">=3.0.1" },
@@ -471,7 +499,7 @@ requires-dist = [
     { name = "types-boto3-lite", extras = ["s3"], marker = "extra == 'dev'", specifier = ">=1.38.3" },
     { name = "types-qrcode", marker = "extra == 'dev'", specifier = ">=8.0.0.20241004" },
 ]
-provides-extras = ["dev"]
+provides-extras = ["dev", "cfd"]
 
 [[package]]
 name = "markdown-it-py"
@@ -492,6 +520,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba", size = 8729, upload-time = "2022-08-14T12:40:10.846Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8", size = 9979, upload-time = "2022-08-14T12:40:09.779Z" },
+]
+
+[[package]]
+name = "multicollections"
+version = "1.0.8"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/1a/9a/b0993de2190d9dff89f930cba923b1071cd53f8343052bfb97de238a2ae6/multicollections-1.0.8.tar.gz", hash = "sha256:aaeb7b2c1f4a54a508867935068569229a67f9be33fa93dbc182221e27b6976a", size = 11716, upload-time = "2025-12-10T20:08:46.235Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3e/71/4023e325e969c5b592c900bc722ad5bba18060b2e3a00218fb91c0835eca/multicollections-1.0.8-py3-none-any.whl", hash = "sha256:535e121559e93cb44c50992014bb7790d4cfc04d6c4d01b17a92c9b1edba3794", size = 14025, upload-time = "2025-12-10T20:08:46.989Z" },
 ]
 
 [[package]]

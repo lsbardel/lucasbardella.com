@@ -15,6 +15,9 @@ cv:			## build CV
 	pdflatex luca-sbardella-cv.tex &&\
 	mv luca-sbardella-cv.pdf ../content/data/luca-sbardella-cv.pdf
 
+.PHONY: py-install
+py-install:		## Install python dependencies
+	@uv sync --all-extras
 
 .PHONY: py-lint
 py-lint:		## Lint python code

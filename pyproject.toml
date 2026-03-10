@@ -24,6 +24,9 @@ dev = [
     "types-boto3-lite[s3]>=1.38.3",
     "types-qrcode>=8.0.0.20241004",
 ]
+cfd = [
+    "foamlib>=1.5.7",
+]
 
 [tool.setuptools]
 packages = [ "lspy" ]
