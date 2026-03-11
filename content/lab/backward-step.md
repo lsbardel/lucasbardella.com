@@ -4,6 +4,7 @@ description: OpenFOAM simulation of turbulent flow over a backward-facing step â
 date: 2026-03-11
 keywords: cfd, openfoam, fluid-dynamics, turbulence, k-epsilon, simpleFoam, foamlib
 toc: false
+private: true
 ---
 
 ```tsx

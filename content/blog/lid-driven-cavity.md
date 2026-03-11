@@ -3,6 +3,7 @@ title: Cavity Flow with OpenFOAM
 description: A step-by-step walkthrough of the classic lid-driven cavity CFD tutorial using OpenFOAM, foamlib, and Python.
 date: 2026 Mar 11
 keywords: cfd, openfoam, fluid-dynamics, python, foamlib
+private: true
 ---
 
 The [lid-driven cavity](https://www.openfoam.com/documentation/tutorial-guide/2-incompressible-flow/2.1-lid-driven-cavity-flow) is the "Hello, World" of computational fluid dynamics. A square box of fluid, sealed on all sides, with the top lid sliding at constant velocity. No inlets, no outlets — just recirculating flow driven by viscous shear. Despite its simplicity, it exhibits rich physics: a primary vortex that fills most of the cavity, and smaller counter-rotating vortices in the corners.
