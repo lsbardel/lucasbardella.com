@@ -1,0 +1,14 @@
+services:
+  openfoam:
+    image: microfluidica/openfoam:2412
+    working_dir: /case/case/cavity
+    volumes:
+      - ./cfd:/case
+    command: ["tail", "-f", "/dev/null"]
+
+  openfoam-step:
+    image: microfluidica/openfoam:2412
+    working_dir: /case/case/backward_step
+    volumes:
+      - ./cfd:/case
+    command: ["tail", "-f", "/dev/null"]

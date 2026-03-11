@@ -6,9 +6,11 @@ authors = [ { name = "Luca Sbardella", email = "luca@quantmind.com" } ]
 readme = "readme.md"
 requires-python = ">=3.13,<3.14"
 dependencies = [
-    "aio-fluid[cli,http]>=1.7.0",
+    "aio-fluid[cli,http]>=1.8.2",
     "boto3>=1.38.3",
+    "ipython[cfd]>=9.11.0",
     "pandas>=3.0.1",
+    "pyhumps>=3.8.0",
     "python-dotenv>=1.1.1",
     "qrcode[pil]>=8.2",
     "quantflow[cli,data]>=0.4.4",
