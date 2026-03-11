@@ -7,6 +7,7 @@ from fluid.utils.http_client import AioHttpClient
 
 PHOTOS = (
     ("rust1", "unsplash", "PEy4qZCLXss"),
+    ("gold", "unsplash", "jrA2l3JjD5k"),
     ("rust2", "pixabay", "3397227"),
 )
 

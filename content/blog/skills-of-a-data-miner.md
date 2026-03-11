@@ -2,6 +2,9 @@
 title: Skills of a Data Miner
 date: 2009 October 09
 description: The sexy job in the next ten years will be statisticians
+heroImage: gold
+heroOpacity: "0.1"
+heroTextColor: "#ffe865"
 keywords: data
 ---
 

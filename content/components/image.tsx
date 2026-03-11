@@ -43,12 +43,14 @@ export const HeroImage = ({ urls, blur, opacity = 0.7, children }: { urls: Image
 interface PageHeaderProps {
   title: string;
   subtitle?: string;
+  date?: string;
   urls: ImageUrls | undefined;
   blur?: string;
   opacity?: number;
+  textColor?: string;
 }
 
-export const PageHeader = ({ title, subtitle, urls, blur, opacity }: PageHeaderProps) => {
+export const PageHeader = ({ title, subtitle, date, urls, blur, opacity, textColor = "#fff" }: PageHeaderProps) => {
   const innerStyle = { position: "absolute" as const, top: 0, left: 0, bottom: 0, right: 0 };
   const textStyle = {
     ...innerStyle,
@@ -62,12 +64,17 @@ export const PageHeader = ({ title, subtitle, urls, blur, opacity }: PageHeaderP
   return (
     <HeroImage urls={urls} blur={blur} opacity={opacity}>
       <div style={textStyle}>
-        <h1 style={{ color: "#fff", margin: 0, fontSize: "clamp(1.4rem, 4vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2 }}>
+        <h1 style={{ color: textColor, margin: 0, fontSize: "clamp(1.4rem, 4vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2 }}>
           {title}
         </h1>
         {subtitle && (
-          <p style={{ color: "rgba(255,255,255,0.85)", margin: "0.6rem 0 0", fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>
+          <p style={{ color: textColor, opacity: 0.85, margin: "0.6rem 0 0", fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>
             {subtitle}
+          </p>
+        )}
+        {date && (
+          <p style={{ color: textColor, opacity: 0.7, margin: "0.4rem 0 0", fontSize: "clamp(0.75rem, 1.5vw, 1rem)" }}>
+            {date}
           </p>
         )}
       </div>

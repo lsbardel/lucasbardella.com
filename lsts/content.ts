@@ -93,7 +93,7 @@ class ContentLoader {
 }
 
 
-const heroFields = new Set(["heroImage", "heroOpacity", "heroBlur"]);
+const heroFields = new Set(["heroImage", "heroOpacity", "heroBlur", "heroTextColor"]);
 
 const textHeader = (entry: Page): string => {
   const title = entry.options.title || entry.name;
@@ -109,6 +109,8 @@ const heroHeader = (entry: Page): string => {
   const opacityProp = entry.options.heroOpacity !== undefined ? ` opacity={${entry.options.heroOpacity}}` : "";
   const blurProp = entry.options.heroBlur ? ` blur="${entry.options.heroBlur}"` : "";
   const subtitleProp = description ? ` subtitle={${JSON.stringify(description)}}` : "";
+  const dateProp = entry.date ? ` date={${JSON.stringify(formatDate(entry.date))}}` : "";
+  const textColorProp = entry.options.heroTextColor ? ` textColor={${JSON.stringify(entry.options.heroTextColor)}}` : "";
   const ratio = entry.options.heroAspectRatio || "35%";
   return [
     `<div class="outer-placeholder" style="padding-top: ${ratio};">`,
@@ -121,7 +123,7 @@ const heroHeader = (entry: Page): string => {
     "```",
     "",
     "```tsx",
-    `display(<PageHeader title={${JSON.stringify(title)}}${subtitleProp} urls={__images.${heroImage}}${opacityProp}${blurProp} />);`,
+    `display(<PageHeader title={${JSON.stringify(title)}}${subtitleProp}${dateProp} urls={__images.${heroImage}}${opacityProp}${blurProp}${textColorProp} />);`,
     "```",
     "</div>",
     "</div>",
