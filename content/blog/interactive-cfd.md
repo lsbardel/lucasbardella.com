@@ -1,9 +1,9 @@
 ---
-title: Cavity Flow with OpenFOAM
-description: A step-by-step walkthrough of the classic lid-driven cavity CFD tutorial using OpenFOAM, foamlib, and Python.
+title: Interactive CFD
+description: How to set up, run, and visualize a lid-driven cavity CFD simulation with OpenFOAM, foamlib, and Observable Plot — including mesh grid, velocity field, contours, and streamlines.
 date: 2026 Mar 12
 
-keywords: cfd, openfoam, fluid-dynamics, python, foamlib
+keywords: cfd, openfoam, fluid-dynamics, python, foamlib, observable-plot, visualization, mesh, streamlines
 heroImage: vortex
 heroOpacity: "0.2"
 ---
@@ -67,7 +67,8 @@ const time = view(Inputs.range(
 </div>
 
 ```js
-const palette = view(Inputs.select(Object.keys(schemes), {value: "Inferno", label: "Palette"}));
+const defaultPalette = new URLSearchParams(location.search).get("palette") ?? "Inferno";
+const palette = view(Inputs.select(Object.keys(schemes), {value: defaultPalette, label: "Palette"}));
 const field = view(Inputs.radio(["U", "p"], {value: "U", label: "Field"}));
 const showGrid = view(Inputs.toggle({label: "Show grid", value: false}));
 const showContours = view(Inputs.toggle({label: "Show contours", value: false}));
@@ -79,10 +80,19 @@ const showStreamlines = view(Inputs.toggle({label: "Show streamlines", value: fa
 display(<Cavity mesh={activeMesh} times={activeTimes} time={time} nParticles={nParticles} particleRadius={particleRadius} palette={palette} field={field} showGrid={showGrid} showContours={showContours} showStreamlines={showStreamlines} aspectRatio="100%" />);
 ```
 
-The colour shows velocity magnitude (see legend). The **red** edge is the moving lid; **blue** edges are the fixed walls.
+## Visualization
 
-The visualisation is built with [Observable Plot](https://observablehq.com/plot) for the field raster and iso-contours, [D3](https://d3js.org) for the SVG boundary outlines and streamlines, and a Canvas 2D API for the animated particles. The velocity field is interpolated at arbitrary positions using inverse-distance weighting from the OpenFOAM cell centres, and streamlines are integrated with a 4th-order Runge-Kutta scheme.
+The colour shows velocity (U) or pressure (p) magnitude (see legend). The **red** edge is the moving lid; **blue** edges are the fixed walls.
 
+The visualisation is built with [Observable Plot](https://observablehq.com/plot) for the field raster and iso-contours, similar to the [Mandelbrot Set in labs](/lab/2023/mandelbrot-set).
+
+[D3](https://d3js.org) is used for the SVG boundary outlines and streamlines, and a Canvas 2D API for the animated particles. The velocity field is interpolated at arbitrary positions using inverse-distance weighting from the OpenFOAM cell centres, and streamlines are integrated with a 4th-order Runge-Kutta scheme.
+
+Use the **Time** slider to go through the simulation from the initial state to steady state. At Re = 100 the vortex snaps into place almost immediately, a quiet orderly swirl that barely changes after the first second.
+
+At Re = 1000 the story is richer: drag the slider slowly and watch the primary vortex gradually migrate from the upper-right corner toward the geometric centre of the cavity, while the two bottom corner eddies quietly grow into existence. There is something almost meditative about it, the fluid finding its equilibrium, all encoded in a palette of shifting colour.
+
+And, by the way, choose the **palette** that makes you happiest. I have a soft spot for `Inferno` myself, but the `Viridis` and `Magma` schemes are also excellent choices for perceptual uniformity and colourblind-friendliness.
 
 ## Analysis
 
@@ -119,3 +129,13 @@ The `Makefile` provides convenient targets to generate case files, start the con
 make cfd-build  # Build the CFD Docker image
 make cfd-cases  # Generate case files for Re = 100 and Re = 1000
 ```
+
+The `cfd-build` target assembles a Docker image from `cfd/dev/cfd.dockerfile`, layering the OpenFOAM installation with a Python virtual environment managed by [uv](https://github.com/astral-sh/uv). The `cfd-cases` target then runs the solver inside the container, mounting the local `cfd/` directory so that the generated mesh and field data are written back to the host and picked up by Observable Framework at build time. No local OpenFOAM installation is required.
+
+## What's Next
+
+The lid-driven cavity is a clean benchmark but an artificial one, there are no real engineering systems that look like it. The next step is something more physically meaningful: the **backward-facing step**.
+
+In that case, flow enters a channel and suddenly encounters a downward step in the floor. The abrupt expansion causes the flow to separate and form a recirculation zone just downstream of the step, a phenomenon that appears everywhere from combustion chambers to aircraft aerodynamics. Unlike the cavity, the reattachment length (how far downstream the flow reattaches to the lower wall) is a measurable quantity with well-established experimental data, making it an excellent validation case.
+
+Further down the line, I'll explore transonic/supersonic flow, something I'm much more familiar with from my PhD work.

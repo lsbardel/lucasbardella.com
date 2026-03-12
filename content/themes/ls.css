@@ -50,6 +50,10 @@ table {
   font-size: 1em;
 }
 
+:not(pre) > code {
+  color: #e07a30;
+}
+
 div.outer-placeholder {
   position: relative;
   width: 100%;
