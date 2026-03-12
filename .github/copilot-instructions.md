@@ -6,7 +6,13 @@ applyTo: "**"
 
 Instructions for development on the lucasbardella.com project
 
-The project uses a combination of Python, TypeScript, and Markdown for content. When contributing to the project, please adhere to the following guidelines:
+The project uses a combination of Python, TypeScript, and Markdown for content. When contributing to the project, please adhere to the following guidelines.
+
+## General Rules
+
+- Only modify code that was explicitly requested.
+- Do not refactor, rename, or "improve" anything that was not asked.
+- When adding something new, do not touch existing code unless strictly necessary.
 
 ## Languages and Conventions
 

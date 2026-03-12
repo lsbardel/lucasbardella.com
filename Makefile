@@ -1,3 +1,5 @@
+CFD_IMAGE=cfd
+
 .PHONY: help
 help:
 	@echo ======================================================================================
@@ -35,3 +37,32 @@ clean:			## Remove observable cache files
 .PHONY: phd
 phd:			## Download phd thesis
 	curl -L -o dist/phd-thesis.pdf https://raw.githubusercontent.com/lsbardel/phd/main/thesis/thesis.pdf
+
+.PHONY: cfd-build
+cfd-build:		## Build the CFD Docker image
+	@docker build -f cfd/dev/cfd.dockerfile -t $(CFD_IMAGE) .
+
+.PHONY: cfd-shell
+cfd-shell:		## Run a bash shell in the CFD Docker image
+	@docker run --rm -it \
+		-v $(PWD)/cfd:/workspace/cfd \
+		$(CFD_IMAGE) \
+		bash
+
+.PHONY: cfd-cases
+cfd-cases:		## Run CFD cases in the Docker image
+	@docker run --rm \
+		-v $(PWD)/cfd:/workspace/cfd \
+		$(CFD_IMAGE) \
+		/project/.venv/bin/python -m cfd.cli
+
+.PHONY: cfd-test-build
+cfd-test-build:		## Build the CFD test Docker image
+	@docker build -f cfd/dev/cfd-test.dockerfile -t $(CFD_IMAGE)-test .
+
+.PHONY: cfd-test
+cfd-test:		## Run CFD tests inside the Docker image
+	@docker run --rm \
+		-v $(PWD):/workspace \
+		$(CFD_IMAGE)-test \
+		pytest

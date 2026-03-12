@@ -46,6 +46,10 @@ a.icon {
 }
 
 
+table {
+  font-size: 1em;
+}
+
 div.outer-placeholder {
   position: relative;
   width: 100%;
