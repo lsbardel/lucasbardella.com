@@ -5,3 +5,7 @@
 @.github/instructions/python-instructions.md
 @.github/instructions/typescript-instructions.md
 @.github/instructions/lab-instructions.md
+
+## Skills
+
+@skills/images/SKILL.md
