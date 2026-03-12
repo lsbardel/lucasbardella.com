@@ -6,7 +6,10 @@ from .models import CFDModel
 
 def cases_map() -> dict[str, CFDModel]:
     cases = {}
-    for test_case in (Cavity(end_time=5), Cavity(end_time=25, nu=0.001)):
+    for test_case in (
+        Cavity(end_time=5),
+        Cavity(end_time=25, nu=0.001),
+    ):
         cases[test_case.case_name] = test_case
     return cases
 
