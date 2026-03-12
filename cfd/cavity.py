@@ -6,8 +6,12 @@ from .models import CFDModel
 
 class Cavity(CFDModel):
     nu: float = 0.01
-    end_time: float = 0.5
+    end_time: float = 1.0
     n_cells: int = 50
+
+    @property
+    def case_name(self) -> str:
+        return super().case_name + f"_{int(1/self.nu)}"
 
     def control_dict(self, case: FoamCase) -> None:
         with case.control_dict as f:

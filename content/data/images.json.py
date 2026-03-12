@@ -9,6 +9,7 @@ PHOTOS = (
     ("rust1", "unsplash", "PEy4qZCLXss"),
     ("gold", "unsplash", "jrA2l3JjD5k"),
     ("mario", "unsplash", "_R95VMWyn7A"),
+    ("vortex", "unsplash", "BhZBnHzUQ7o"),
     ("rust2", "pixabay", "3397227"),
 )
 

@@ -8,7 +8,7 @@ requires-python = ">=3.13,<3.14"
 dependencies = [
     "aio-fluid[cli,http]>=1.8.2",
     "boto3>=1.38.3",
-    "ipython[cfd]>=9.11.0",
+    "ipython>=9.11.0",
     "pandas>=3.0.1",
     "pyhumps>=3.8.0",
     "python-dotenv>=1.1.1",
@@ -22,6 +22,7 @@ dev = [
     "black>=26.3.0",
     "isort>=8.0.1",
     "mypy>=1.15.0",
+    "pytest>=9.0.2",
     "ruff>=0.11.2",
     "types-boto3-lite[s3]>=1.38.3",
     "types-qrcode>=8.0.0.20241004",
@@ -30,8 +31,12 @@ cfd = [
     "foamlib>=1.5.7",
 ]
 
+[tool.pytest.ini_options]
+testpaths = [ "cfd/tests" ]
+pythonpath = [ "." ]
+
 [tool.setuptools]
-packages = [ "lspy" ]
+packages = [ "lspy", "cfd" ]
 
 [tool.isort]
 profile = "black"

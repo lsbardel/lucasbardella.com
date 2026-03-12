@@ -6,7 +6,7 @@ WORKDIR /project
 
 COPY pyproject.toml uv.lock ./
 
-RUN uv sync --extra cfd --no-install-project --frozen
+RUN uv sync --extra cfd --no-install-project
 
 ENV PATH="/project/.venv/bin:$PATH"
 

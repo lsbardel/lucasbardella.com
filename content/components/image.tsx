@@ -8,12 +8,14 @@ interface ImageUrls {
 }
 
 export const HeroImage = ({ urls, blur, opacity = 0.7, children }: { urls: ImageUrls | undefined; blur?: string; opacity?: number; children?: React.ReactNode }) => {
+  const thumbnailRef = React.useRef<HTMLImageElement>(null);
+  const regularRef = React.useRef<HTMLImageElement>(null);
   const [thumbnailLoaded, setThumbnailLoaded] = React.useState(false);
   const [regularLoaded, setRegularLoaded] = React.useState(false);
 
   React.useEffect(() => {
-    setThumbnailLoaded(false);
-    setRegularLoaded(false);
+    setThumbnailLoaded(thumbnailRef.current?.complete ?? false);
+    setRegularLoaded(regularRef.current?.complete ?? false);
   }, [urls]);
 
   const imgStyle = { position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundPosition: "center center" };
@@ -21,6 +23,7 @@ export const HeroImage = ({ urls, blur, opacity = 0.7, children }: { urls: Image
     <>
       {urls && <>
           <img
+            ref={thumbnailRef}
             src={urls.thumbnail}
             alt="Image"
             className={`object-cover${blur ? ` ${blur}` : ""}`}
@@ -28,6 +31,7 @@ export const HeroImage = ({ urls, blur, opacity = 0.7, children }: { urls: Image
             onLoad={() => setThumbnailLoaded(true)}
           />
           <img
+            ref={regularRef}
             src={urls.regular}
             alt="Image"
             className="object-cover"

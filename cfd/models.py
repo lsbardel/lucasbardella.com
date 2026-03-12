@@ -11,11 +11,12 @@ import numpy as np
 from foamlib import FoamCase, FoamFile
 from pydantic import BaseModel
 
-CASE_DIR = Path(__file__).parent / "case"
+CASE_DIR = Path(__file__).parent / "cases"
 
 
 class CFDModel(BaseModel):
     """Base class for CFD models."""
+
     delta_t: float = 0.005
     write_interval: int = 20
 
@@ -70,8 +71,13 @@ class CFDModel(BaseModel):
     def initial_conditions(self, case: FoamCase):
         """Write initial condition files for U and p."""
 
-    def get_cell_centres(self) -> np.ndarray:
-        """Compute cell centres from the mesh geometry."""
+    def build_mesh(self) -> None:
+        """Run blockMesh to build the mesh."""
+        case = self.foam_case()
+        case.block_mesh()
+
+    def get_cell_centers(self) -> np.ndarray:
+        """Compute cell centers from the mesh geometry."""
         return self.foam_case()[0].cell_centers().internal_field  # type: ignore
 
     def get_fields(self) -> list[Fields]:
@@ -80,8 +86,8 @@ class CFDModel(BaseModel):
 
         For each time step returns:
         - time: simulation time
-        - U: list of [ux, uy] velocity vectors at each cell centre
-        - p: list of pressure values at each cell centre
+        - U: list of [ux, uy] velocity vectors at each cell center
+        - p: list of pressure values at each cell center
         """
         times = []
         for t in self.foam_case()[1:]:
@@ -96,6 +102,12 @@ class CFDModel(BaseModel):
             )
         return times
 
+    def export_results(self) -> None:
+        """Export mesh and fields data as a zip file on disk."""
+        zip_path = self.case_path / f"{self.case_name}_results.zip"
+        with open(zip_path, "wb") as f:
+            f.write(self.zip_data())
+
     def zip_data(self) -> bytes:
         """Export mesh and fields data as a zip file in memory."""
         buf = BytesIO()
@@ -106,14 +118,20 @@ class CFDModel(BaseModel):
             )
         return buf.getvalue()
 
+    def read_zip_data(self) -> bytes:
+        """Read the zip data from disk."""
+        zip_path = self.case_path / f"{self.case_name}_results.zip"
+        with open(zip_path, "rb") as f:
+            return f.read()
+
 
 class Mesh(BaseModel):
     points: list[list[float]]  # list of [x, y, z] vertex coordinates
     faces: list[list[int]]  # list of face vertex-index lists
     boundary: dict  # dict of patch name -> {type, startFace, nFaces}
-    centres: list[
+    centers: list[
         list[float]
-    ]  # list of [x, y, z] cell centre coordinates (one per cell)
+    ]  # list of [x, y, z] cell center coordinates (one per cell)
 
     @classmethod
     def from_foam_path(cls, path: Path) -> Mesh:
@@ -129,11 +147,11 @@ class Mesh(BaseModel):
             points=points.tolist(),
             faces=faces,
             boundary=boundary,
-            centres=FoamCase(path)[0].cell_centers().internal_field.tolist(),
+            centers=FoamCase(path)[0].cell_centers().internal_field.tolist(),
         )
 
 
 class Fields(BaseModel):
     time: float
-    U: list[list[float]]  # list of [ux, uy] velocity vectors at each cell centre
-    p: list[float]  # list of pressure values at each cell centre
+    U: list[list[float]]  # list of [ux, uy, uz] velocity vectors at each cell center
+    p: list[float]  # list of pressure values at each cell center
