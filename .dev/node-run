@@ -4,4 +4,4 @@ export PYTHONPATH=${PWD}:${PYTHONPATH}
 #touch ${ENV_FILE}
 #export $(grep -v '^#' ${ENV_FILE} | xargs)
 
-uv run "$@"
+uv run --extra cfd "$@"
