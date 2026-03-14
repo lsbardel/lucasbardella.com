@@ -17,6 +17,7 @@ PHOTOS = (
     ("gold", ImageProvider.UNSPLASH, "jrA2l3JjD5k"),
     ("mario", ImageProvider.UNSPLASH, "_R95VMWyn7A"),
     ("vortex", ImageProvider.UNSPLASH, "BhZBnHzUQ7o"),
+    ("thanks", ImageProvider.UNSPLASH, "NHDZEGauCig"),
     ("rust2", ImageProvider.PIXABAY, "3397227"),
     ("bwcharts", ImageProvider.PIXABAY, "1863880")
 )

@@ -127,6 +127,7 @@ const heroHeader = (entry: Page): string => {
     "```",
     "</div>",
     "</div>",
+    `<h1 class="sr-only">${title}</h1>`, // for accessibility and SEO since the title is visually hidden in the hero
   ].join("\n");
 };
 

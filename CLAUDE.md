@@ -9,3 +9,4 @@
 ## Skills
 
 @skills/images/SKILL.md
+@skills/lab/SKILL.md

@@ -34,7 +34,7 @@ export const HeroImage = ({ urls, blur, opacity = 0.7, children }: { urls: Image
             ref={regularRef}
             src={urls.regular}
             alt="Image"
-            className="object-cover"
+            className={`object-cover${blur ? ` ${blur}` : ""}`}
             style={{ ...imgStyle, transition: "opacity 0.5s", opacity: regularLoaded ? opacity : 0 }}
             onLoad={() => setRegularLoaded(true)}
           />
