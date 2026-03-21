@@ -10,3 +10,10 @@
 
 @skills/images/SKILL.md
 @skills/lab/SKILL.md
+@skills/blog/SKILL.md
+@skills/nodash/SKILL.md
+@skills/seo/SKILL.md
+
+## Memory
+
+Store project memory in `.claude/memory/` within this repository.

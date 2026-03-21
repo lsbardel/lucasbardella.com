@@ -12,7 +12,7 @@ When creating or modifying content files in the `content/` directory, please fol
 - Use clear and concise language to enhance readability.
 - Optimize images and media for web performance.
 - Validate all links to ensure they are functional and point to the correct resources.
-- Don't use dashes to separate sentences, use proper punctuation and formatting.
+- **Never use dashes (em dashes or hyphens) to connect or separate clauses.** Use a comma, a full stop, or a conjunction instead.
 - For code snippets, use appropriate syntax highlighting and ensure they are properly formatted for readability.
 
 
