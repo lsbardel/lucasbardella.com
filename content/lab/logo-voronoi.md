@@ -4,7 +4,7 @@ description: Free interactive SVG logo generator built with D3.js. Design geomet
 date: 2026-03-13
 toc: false
 keywords: art, generative, logo, d3, svg, voronoi, delaunay, geometry, design
-private: true
+private: false
 ---
 
 ```tsx
