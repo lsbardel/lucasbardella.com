@@ -9,6 +9,16 @@ The AI coding tools landscape is moving at a speed that makes even seasoned deve
 
 I use three of them daily: [GitHub Copilot](https://github.com/features/copilot), [Claude Code](https://docs.anthropic.com/en/docs/claude-code), and [OpenAI Codex](https://openai.com/index/openai-codex/). Each has distinct strengths, distinct frustrations, and a distinct philosophy about how AI should integrate into the development process. Meanwhile, open source projects are closing the gap fast, offering comparable capabilities without vendor lock-in or per-seat subscriptions.
 
+## How AI Changed My Workflow as a Quant
+
+I work as a quantitative trader. My day used to be split between two activities: researching trading strategies and writing the production code to implement them. The research is where the value lives. The coding was necessary but secondary, a bottleneck that slowed the path from idea to deployed system.
+
+AI coding tools have fundamentally changed that balance. I no longer write most of the production code myself. Instead, I direct one or more agents to work in parallel on different parts of a system while I focus on the logic that actually matters: the strategy, the risk model, the signal. What was once a serial process (research, then code, then test, then deploy) has become a parallel one where multiple agents handle implementation simultaneously while I stay focused on the quantitative problem.
+
+The area where AI helps me the most is test harness development. Writing comprehensive test suites for trading systems is tedious, detail-heavy work. Edge cases around market data gaps, order fills, position reconciliation, and time zone handling require hundreds of test scenarios. AI agents are remarkably good at generating these exhaustively and correctly. I describe the invariants I care about, and the agent produces a thorough test suite that would have taken me days to write manually.
+
+The net result is that I spend more time on what actually differentiates my work (business logic and research) and less time on the technicalities of writing battle-tested production code. The code quality has not suffered. If anything, it has improved because the test coverage is more comprehensive than what I would have written by hand under time pressure.
+
 ```js
 const marketData = [
   {tool: "GitHub Copilot", share: 42, category: "paid"},
@@ -196,4 +206,6 @@ There is no single best tool. The right choice depends on your workflow, your pr
 
 The AI coding tools market has fragmented in the best possible way. Competition is driving rapid improvement across every dimension: speed, accuracy, autonomy, privacy, and cost. The commercial tools are excellent and getting better monthly. But the open source alternatives are no longer second-class citizens. Projects like Pi, Aider, and OpenCode deliver capabilities that would have been exclusive to enterprise products a year ago.
 
-The developers who benefit most are those willing to experiment. Try multiple tools. Use Copilot for inline completions, Claude Code for complex refactoring, and an open source agent for privacy-sensitive work. The landscape will look different again in six months, and the tools you rely on today may not be the ones you rely on tomorrow.
+For me as a quantitative trader, the shift has been transformative. I run multiple agents in parallel on different modules of a system, review their output, and focus my own time on the research and strategy that no AI can do for me yet. The test suites are better, the code ships faster, and I spend my cognitive budget where it counts. That is the real promise of these tools: not replacing developers, but letting them concentrate on the work that requires human judgment.
+
+Try multiple tools. Use Copilot for inline completions, Claude Code for complex refactoring, and an open source agent for privacy-sensitive work. The landscape will look different again in six months, and the tools you rely on today may not be the ones you rely on tomorrow.
