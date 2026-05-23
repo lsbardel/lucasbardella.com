@@ -1,6 +1,6 @@
 ---
 title: AI Coding Tools Compared, From Copilot to Open Source
-description: A hands-on comparison of GitHub Copilot, Claude Code, Codex and the fast-growing open source alternatives reshaping how developers write code in 2026.
+description: A hands-on comparison of the best AI coding tools in 2026, from GitHub Copilot and Claude Code to open source alternatives reshaping how developers write code.
 date: 2026-05-23
 keywords: ai coding tools, github copilot, claude code, codex, open source coding agents, aider, opencode, pi, cline
 ---
@@ -171,7 +171,7 @@ The most exciting development in 2026 is the maturity of open source coding agen
 
 [Continue](https://continue.dev) is a plugin for VS Code and JetBrains that lets you use any model, including local ones through Ollama, for chat and autocomplete. [Tabby](https://github.com/TabbyML/tabby) takes a different approach: it is a self-hosted code completion server designed for teams that need full data sovereignty.
 
-## Feature Comparison
+## AI Coding Tools Feature Comparison
 
 The heatmap below scores each tool across six dimensions on a 1–5 scale. The open source tools dominate on model choice, privacy, and cost, while commercial tools lead on IDE integration polish.
 
