@@ -5,7 +5,7 @@ from .models import CFDModel
 
 
 def cases_map() -> dict[str, CFDModel]:
-    cases = {}
+    cases: dict[str, CFDModel] = {}
     for test_case in (
         Cavity(end_time=5),
         Cavity(end_time=25, nu=0.001),
@@ -18,7 +18,7 @@ def cases_map() -> dict[str, CFDModel]:
 @click.option(
     "--case",
     "-c",
-    type=click.Choice(cases_map()),
+    type=click.Choice(tuple(cases_map())),
     help="Name of the case to run. If not specified, runs the default case.",
 )
 def cli(case: str | None = None):
@@ -28,9 +28,9 @@ def cli(case: str | None = None):
     else:
         cases = (case,)
     for case_name in cases:
-        case = all_cases[case_name]
-        case.foam_case(clean=True).run()
-        case.export_results()
+        cfd_case = all_cases[case_name]
+        cfd_case.foam_case(clean=True).run()
+        cfd_case.export_results()
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ authors = [ { name = "Luca Sbardella", email = "luca@quantmind.com" } ]
 readme = "readme.md"
 requires-python = ">=3.13,<3.14"
 dependencies = [
-    "aio-fluid[cli,http]>=1.8.2",
+    "aio-fluid[cli,http]>=2.2.6",
     "boto3>=1.38.3",
     "ipython>=9.11.0",
     "pandas>=3.0.1",
@@ -17,19 +17,29 @@ dependencies = [
     "requests>=2.32.3",
 ]
 
+[project.scripts]
+ls = "lspy.cli:cli"
+
 [project.optional-dependencies]
 dev = [
     "black>=26.3.0",
     "isort>=8.0.1",
-    "mypy>=1.15.0",
+    "mypy>=2.1.0",
     "pytest>=9.0.2",
     "ruff>=0.11.2",
     "types-boto3-lite[s3]>=1.38.3",
     "types-qrcode>=8.0.0.20241004",
+    "types-requests>=2.32.0",
 ]
 cfd = [
     "foamlib>=1.5.7",
 ]
+
+[build-system]
+requires = [
+    "setuptools>=68",
+]
+build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
 testpaths = [ "cfd/tests" ]

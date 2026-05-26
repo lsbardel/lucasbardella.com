@@ -10,12 +10,12 @@ When creating or modifying content files in the `content/` directory, please fol
 - Ensure all content is well-structured with appropriate headings and subheadings.
 - Include relevant metadata such as title, author, date, and tags at the beginning of each file.
 - Use clear and concise language to enhance readability.
+- **Headings must use title case** (capitalize the first letter of each significant word). For example: `## The Real Takeaway`, not `## The real takeaway`.
 - Optimize images and media for web performance.
 - Validate all links to ensure they are functional and point to the correct resources.
 - **Never use dashes (em dashes or hyphens) to connect or separate clauses.** Use a comma, a full stop, or a conjunction instead.
+- **Never fabricate data, statistics, or claims.** If you do not have a verified source for a number, do not include it. Ask the user for the source or omit the data entirely. Making up plausible-sounding numbers is strictly forbidden.
 - For code snippets, use appropriate syntax highlighting and ensure they are properly formatted for readability.
-
-
 
 ## Hero Images
 
@@ -34,8 +34,8 @@ Pages can have a hero image set via frontmatter fields
 ## Data Fetching
 
 - Data fetching scripts should be placed in the `content/data/` directory.
-- Use Python for data fetching when possible, following the [Python Coding Conventions and Best Practices](./python.instructions.md).
+- Use Python for data fetching when possible, following the [Python Coding Conventions and Best Practices](./python-instructions.md).
 - When using python, try to use [quantflow](https://github.com/quantmind/quantflow) library for data fetching, use pandas and numpy for data manipulation.
 - If quanflow does not provide a data fetcher, write a new one in the `lspy` python project in this repository and follow the [lspy Development Guidelines](./instructions/python-instructions.md).
-- You can also use typeScript for data fetching (javascript is deprecated and will convert all javscript files to typescript) following best practices for that language.
+- You can also use TypeScript for data fetching (JavaScript is deprecated and will convert all JavaScript files to TypeScript) following best practices for that language.
 - **Note**: Do not manually run data fetching scripts - the Observable framework automatically handles data loading and execution of these scripts when the content is built or served.

@@ -1,10 +1,17 @@
 import os
+import stat
+from pathlib import Path
+from string import Template
 
 import click
 import dotenv
 import qrcode
 import qrcode.image.svg
+
 from lspy import hide
+
+TEMPLATES_DIR = Path(__file__).resolve().parent.parent / ".dev" / "templates"
+BIN_DIR = Path.home() / "bin"
 
 dotenv.load_dotenv()
 
@@ -49,4 +56,16 @@ def encode_hex(value: str) -> None:
     click.echo(result)
 
 
-cli()
+@cli.command()
+def install_bin() -> None:
+    """Render templates from .dev/templates into ~/bin as executable scripts."""
+    BIN_DIR.mkdir(parents=True, exist_ok=True)
+    env = os.environ
+    for template_path in sorted(TEMPLATES_DIR.iterdir()):
+        if not template_path.is_file():
+            continue
+        rendered = Template(template_path.read_text()).safe_substitute(env)
+        target = BIN_DIR / template_path.name
+        target.write_text(rendered)
+        target.chmod(target.stat().st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
+        click.echo(f"wrote {target}")
