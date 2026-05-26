@@ -8,7 +8,11 @@ import requests
 PACKAGES = [
     {"provider": "OpenAI", "npm": "openai", "pypi": "openai"},
     {"provider": "Anthropic", "npm": "@anthropic-ai/sdk", "pypi": "anthropic"},
-    {"provider": "Google", "npm": "@google/generative-ai", "pypi": "google-generativeai"},
+    {
+        "provider": "Google",
+        "npm": "@google/generative-ai",
+        "pypi": "google-generativeai",
+    },
     {"provider": "Mistral", "npm": "@mistralai/mistralai", "pypi": "mistralai"},
     {"provider": "Groq", "npm": "groq-sdk", "pypi": "groq"},
 ]
@@ -16,10 +20,26 @@ PACKAGES = [
 GITHUB_REPOS = [
     {"provider": "OpenAI", "repo": "openai/openai-python", "language": "Python"},
     {"provider": "OpenAI", "repo": "openai/openai-node", "language": "JavaScript"},
-    {"provider": "Anthropic", "repo": "anthropics/anthropic-sdk-python", "language": "Python"},
-    {"provider": "Anthropic", "repo": "anthropics/anthropic-sdk-typescript", "language": "JavaScript"},
-    {"provider": "Google", "repo": "google-gemini/generative-ai-python", "language": "Python"},
-    {"provider": "Google", "repo": "google-gemini/generative-ai-js", "language": "JavaScript"},
+    {
+        "provider": "Anthropic",
+        "repo": "anthropics/anthropic-sdk-python",
+        "language": "Python",
+    },
+    {
+        "provider": "Anthropic",
+        "repo": "anthropics/anthropic-sdk-typescript",
+        "language": "JavaScript",
+    },
+    {
+        "provider": "Google",
+        "repo": "google-gemini/generative-ai-python",
+        "language": "Python",
+    },
+    {
+        "provider": "Google",
+        "repo": "google-gemini/generative-ai-js",
+        "language": "JavaScript",
+    },
     {"provider": "Mistral", "repo": "mistralai/client-python", "language": "Python"},
     {"provider": "Mistral", "repo": "mistralai/client-ts", "language": "JavaScript"},
     {"provider": "Groq", "repo": "groq/groq-python", "language": "Python"},
@@ -111,7 +131,14 @@ def main() -> None:
     for r in GITHUB_REPOS:
         try:
             stars = fetch_github(r["repo"])
-            github_rows.append({"provider": r["provider"], "language": r["language"], "repo": r["repo"], "stars": stars})
+            github_rows.append(
+                {
+                    "provider": r["provider"],
+                    "language": r["language"],
+                    "repo": r["repo"],
+                    "stars": stars,
+                }
+            )
         except Exception as e:
             print(f"github {r['repo']}: {e}", file=sys.stderr)
 

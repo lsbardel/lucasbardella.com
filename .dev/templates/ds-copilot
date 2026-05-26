@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+export COPILOT_PROVIDER_TYPE=anthropic
+export COPILOT_PROVIDER_BASE_URL=https://api.deepseek.com/anthropic
+export COPILOT_PROVIDER_API_KEY=${DEEPSEEK_API_KEY}
+export COPILOT_MODEL=deepseek-v4-pro
+
+copilot

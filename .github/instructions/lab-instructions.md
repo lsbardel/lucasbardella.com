@@ -103,7 +103,6 @@ export default MyComponent;
 - `invalidation` — a Promise that resolves when the cell is re-run; use for cleanup in plain `js` blocks
 - `FileAttachment("path")` — loads a file (CSV, JSON, etc.) as a reactive data dependency
 
-
 ## CFD Specific Guidelines
 
 * Typescript components must be located inside the `content/components/cfd` directory

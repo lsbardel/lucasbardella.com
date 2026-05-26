@@ -9,7 +9,7 @@ def cavity() -> Cavity:
 
 
 def test_cavity_cell_centers(cavity: Cavity):
-    centers = cavity.get_cell_centres()
+    centers = cavity.get_cell_centers()
     assert centers.shape == (2500, 3)
 
 

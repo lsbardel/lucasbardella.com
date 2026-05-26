@@ -147,7 +147,7 @@ class Mesh(BaseModel):
             points=points.tolist(),
             faces=faces,
             boundary=boundary,
-            centers=FoamCase(path)[0].cell_centers().internal_field.tolist(),
+            centers=FoamCase(path)[0].cell_centers().internal_field.tolist(),  # type: ignore[union-attr]
         )
 
 
