@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/lsbardel
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://lucasbardella.com
+  * I am lsbardel (https://keybase.io/lsbardel) on keybase.
+  * I have a public key ASCJz4Kqc6dXGqTCGQXv9E3ILs-1uhcCZH2ZkmmRRbildAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101f91593b6d2783ba65514067db2b5fca4f5809aab635d8c7b952616adeba162f30a",
+      "host": "keybase.io",
+      "kid": "012089cf82aa73a7571aa4c21905eff44dc82ecfb5ba1702647d9992699145b8a5740a",
+      "uid": "66e63433f6ca3b42a3c6fcc38b601a19",
+      "username": "lsbardel"
+    },
+    "merkle_root": {
+      "ctime": 1783961891,
+      "hash": "16496d1736b6a2eba6619689da8d3c21dc60b57dfb08f913f464c265787d518322b640e398b54f7f93c8898f6aef81dbb80e5d7b369e4380e4f92afbdd1e48da",
+      "hash_meta": "88cf1649511dd20770ced9c6a0f0b69675fa26970a510e84ab0bb1851b54a445",
+      "seqno": 27677829
+    },
+    "service": {
+      "entropy": "YwVXjSQVjVBMPT4FrrYZ+/RY",
+      "hostname": "lucasbardella.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.6.3"
+  },
+  "ctime": 1783961997,
+  "expire_in": 504576000,
+  "prev": "8b34a94ed8cb09b8182a3ed4e58a6df686e4674d41aaad20e823d95424106db6",
+  "seqno": 53,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgic+CqnOnVxqkwhkF7/RNyC7PtboXAmR9mZJpkUW4pXQKp3BheWxvYWTESpcCNcQgizSpTtjLCbgYKj7U5Ypt9obkZ01Bqq0g6CPZVCQQbbbEIO04F1qa30AQRFiqsavq4hsED6rnIc/Hyg7UOYNzXUfiAgHCo3NpZ8RAq2um3whoEblLinFU2OGZouJMNwi8hFye/z9UnKltxOnCgoZlDiJ/Rqi+EvkWT+H1naC3i+6QJqw0+sL3doavB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIFWSg2i0UUSWMW1MaqTi7Zg1am7PcglFUXUM8HN7oSFpo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/lsbardel
+
+==================================================================
