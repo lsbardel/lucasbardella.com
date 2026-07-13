@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cp content/CNAME dist/
+cp content/keybase.txt dist/
+cp content/robots.txt dist/
