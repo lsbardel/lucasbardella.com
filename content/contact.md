@@ -6,6 +6,8 @@ Hello there! If you'd like to get in touch send me an e-mail at
 
 For encrypted mail, use my GPG public key [45A6 41A3 C15D 3FC6 5035  2E2B 92EB 6CF6 191C F74F](/pubkey.asc).
 
+If you are a recruiter, please read the [information for recruiters](/recruiters) page first.
+
 ## Website QR Code
 
 <div grid>
