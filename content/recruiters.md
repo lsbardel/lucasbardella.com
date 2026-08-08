@@ -18,17 +18,18 @@ For what I am currently working on, see my [now page](/now).
 
 I engage **exclusively as a consultant through [Quantmind](https://quantmind.com)**, contracted business to business.
 
-I am not considering employed positions.
+I am not considering employed positions at this time.
 
 ## Preferred Clients
 
 I work best with **scale-ups and established firms**: organisations with secured funding, a proven product, and a clear mandate for the work they need done.
 
-For startups, please provide runway and founder information upfront, as due diligence will be carried out before any engagement.
+For startups, please provide runway and founders information upfront, as due diligence will be carried out before any engagement.
 
 ## Remuneration
 
-For a commitment of five days per week, the expected remuneration is **€350,000 per year**. Part-time arrangements can be discussed on a pro-rata basis.
+For a commitment of five days per week the expected remuneration will be provided on request.
+Part-time arrangements can be discussed on a pro-rata basis.
 
 Bonus or performance-related remuneration is taken into consideration, depending on the company.
 

@@ -54,7 +54,21 @@ export default {
       }
     };
     </script>
-    <link rel="icon" href="data/luca-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/luca-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/luca-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/luca-48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/luca-64.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/luca-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/luca-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/luca-180.png">
+    <link rel="manifest" href="/assets/manifest.json">
+    <meta name="theme-color" content="#0C1018">
+    <meta property="og:image" content="https://lucasbardella.com/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://lucasbardella.com/assets/og-image.png">
     <meta name="google-adsense-account" content="ca-pub-9518486636408101">
   `,
 

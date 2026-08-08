@@ -3,3 +3,4 @@ cp content/CNAME dist/
 cp content/keybase.txt dist/
 cp content/pubkey.asc dist/
 cp content/robots.txt dist/
+cp -r content/assets dist/
