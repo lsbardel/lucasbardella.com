@@ -28,6 +28,8 @@ jobs:
           python-version: 3.13
       - name: install uv
         run: pip install uv
+      - name: python tests
+        run: make py-test
       - name: build CFD image
         run: make cfd-build
       - name: run CFD cases

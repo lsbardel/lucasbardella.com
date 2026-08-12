@@ -12,7 +12,7 @@ toc: false
 
 Building out [Quantmind](https://quantmind.com), a consulting platform for quantitative finance and algorithmic trading.
 
-My main engagement through Quantmind is with a fast-growing centralized exchange (CEX), where I lead a team of 5 engineers and researchers providing liquidity. I own both the business logic and the technical direction of the desk, from strategy through to the production systems that run it.
+My current engagement through Quantmind is with a fast-growing centralized exchange (CEX), where I lead a team of 5 engineers and researchers providing liquidity. I own both the business logic and the technical direction of the desk, from strategy through to the production systems that run it.
 
 ### What I Do
 

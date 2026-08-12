@@ -41,10 +41,15 @@ clean:			## Remove observable cache files
 	@rm -rf dist
 
 .PHONY: cv
-cv:			## Build CV
+cv: cv-sync		## Build CV pdf from content/cv.md
 	@cd cv &&\
-	pdflatex luca-sbardella-cv.tex &&\
+	pdflatex -interaction=batchmode luca-sbardella-cv.tex &&\
+	pdflatex -interaction=batchmode luca-sbardella-cv.tex &&\
 	mv luca-sbardella-cv.pdf ../content/data/luca-sbardella-cv.pdf
+
+.PHONY: cv-sync
+cv-sync:		## Generate the LaTeX CV sources from content/cv.md
+	@uv run ls cv-sync
 
 .PHONY: install-tex
 install-tex:		## Install texlive dependencies
@@ -61,6 +66,10 @@ py-install:		## Install python dependencies
 .PHONY: py-lint
 py-lint:		## Lint python code
 	@uv run .dev/py-lint fix
+
+.PHONY: py-test
+py-test:		## Run python tests (CFD tests run in docker via cfd-test)
+	@uv run --extra dev pytest lspy/tests
 
 .PHONY: rs-lint
 rs-lint:		## Lint rust code

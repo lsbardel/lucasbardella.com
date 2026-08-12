@@ -1,3 +1,35 @@
+/*
+ * Base typography.
+ * Observable Framework hardcodes `body { font: 17px/1.5 }`, which neither
+ * scales with the viewport nor respects the reader's browser font setting.
+ * The clamp grows the text with the window between 17px and 22px, and the
+ * rem component keeps the browser preference in play.
+ */
+body {
+  font-size: clamp(17px, 0.9rem + 0.35vw, 22px);
+}
+
+/* the framework caps prose at 640px, too narrow a ribbon on a wide screen */
+p,
+table,
+figure,
+figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.katex-display {
+  max-width: 760px;
+}
+
+blockquote,
+ol,
+ul {
+  max-width: 720px;
+}
+
 main > h2 {
   border-top: 1px solid var(--theme-foreground-fainter);
   padding-top: 25px;

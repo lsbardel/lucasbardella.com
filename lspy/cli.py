@@ -8,7 +8,7 @@ import dotenv
 import qrcode
 import qrcode.image.svg
 
-from lspy import hide
+from lspy import cv, hide
 
 TEMPLATES_DIR = Path(__file__).resolve().parent.parent / ".dev" / "templates"
 BIN_DIR = Path.home() / "bin"
@@ -29,6 +29,16 @@ def qr():
     img.save("content/assets/luca-qr.svg")
     img = qrcode.make(context)
     img.save("content/assets/luca-qr.png")
+
+
+@cli.command()
+def cv_sync() -> None:
+    """Generate the LaTeX CV sources from content/cv.md"""
+    written = cv.sync()
+    for path in written:
+        click.echo(f"wrote {path.relative_to(cv.ROOT)}")
+    if not written:
+        click.echo("LaTeX CV sources already up to date")
 
 
 @cli.command()
