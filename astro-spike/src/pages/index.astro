@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+
+const blog = await getCollection("blog");
+const lab = await getCollection("lab");
+---
+
+<Base title="Astro spike">
+  <p>Three ported pages, to measure the real migration cost.</p>
+  <h2>blog</h2>
+  <ul>{blog.map((e) => <li><a href={`/blog/${e.id}`}>{e.data.title ?? e.id}</a></li>)}</ul>
+  <h2>lab</h2>
+  <ul>{lab.map((e) => <li><a href={`/lab/${e.id}`}>{e.data.title ?? e.id}</a></li>)}</ul>
+  <h2>market</h2>
+  <ul><li><a href="/market/heatmap">Market Heatmap</a> &mdash; searchable dropdown over 213 markets</li></ul>
+</Base>

@@ -1,0 +1,21 @@
+---
+title: Plot as an island
+description: A spike page checking that Observable Plot renders in Astro with build time CSV parsing.
+date: 2026-09-11
+---
+
+import { csvParse, autoType } from "d3-dsv";
+import raw from "../../data/sample-power.csv?raw";
+import PriceChart from "../../components/PriceChart";
+
+export const data = csvParse(raw, autoType);
+
+The CSV is parsed here, in the page frontmatter, so parsing happens at build and
+the island receives plain data. This replaces `FileAttachment(...).csv({typed: true})`.
+
+**The numbers below are synthetic, generated for this spike. They are not market data.**
+
+<PriceChart client:visible data={data} />
+
+The chart is responsive through a `ResizeObserver`, which is what Observable's
+`resize((width) => ...)` helper was doing.

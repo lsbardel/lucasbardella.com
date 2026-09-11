@@ -1,0 +1,27 @@
+---
+import "katex/dist/katex.min.css";
+import "../styles/site.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  wide?: boolean;
+}
+const { title, description, wide = false } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body>
+    <nav><a href="/">astro spike</a> <a href="/market/heatmap">heatmap</a></nav>
+    <main class={wide ? "wide" : undefined}>
+      <h1>{title}</h1>
+      <slot />
+    </main>
+  </body>
+</html>

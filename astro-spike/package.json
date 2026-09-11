@@ -1,0 +1,32 @@
+{
+  "name": "astro-spike",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --port 4069",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^4.3.0",
+    "@observablehq/plot": "^0.6.17",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/d3": "^7.4.3",
+    "@types/d3-dsv": "^3.0.7",
+    "astro": "^5.13.0",
+    "d3": "^7.9.0",
+    "d3-dsv": "^3.0.1",
+    "katex": "^0.16.11",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
+    "tailwindcss": "^4.3.3",
+    "unist-util-visit": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0"
+  }
+}

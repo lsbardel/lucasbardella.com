@@ -1,0 +1,13 @@
+---
+title: Mandelbrot set
+description: An interactive zoomable plot of the Mandelbrot set rendered on canvas.
+date: 2023-01-08
+keywords: d3, mathematics, canvas
+---
+
+import MandelbrotDemo from "../../components/MandelbrotDemo";
+
+An interactive canvas rendering of the [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set).
+**Scroll** to zoom, **drag** to pan, **double-click** to reset.
+
+<MandelbrotDemo client:visible maxIter={256} />
