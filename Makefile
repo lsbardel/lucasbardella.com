@@ -51,6 +51,14 @@ cv: cv-sync		## Build CV pdf from content/cv.md
 cv-sync:		## Generate the LaTeX CV sources from content/cv.md
 	@uv run ls cv-sync
 
+.PHONY: heatmap-sources
+heatmap-sources:	## Refresh the TradingView market list for the heatmap page
+	@npm run heatmap-sources
+
+.PHONY: heatmap-validate
+heatmap-validate:	## Check which heatmap markets actually load (needs Chrome, slow)
+	@npm run heatmap-validate
+
 .PHONY: install-tex
 install-tex:		## Install texlive dependencies
 	@./extra/ubuntu-install

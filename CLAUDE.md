@@ -15,6 +15,7 @@
 @.claude/skills/blog/SKILL.md
 @.claude/skills/nodash/SKILL.md
 @.claude/skills/seo/SKILL.md
+@.claude/skills/heatmap-sources/SKILL.md
 
 ## Memory
 

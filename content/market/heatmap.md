@@ -7,9 +7,9 @@ toc: false
 # Market Heatmap
 
 ```tsx
-import {TradingViewHeatmap} from "../components/tradingview.js";
+import MarketHeatmap from "../components/market-heatmap.js";
 ```
 
 ```tsx
-display(<TradingViewHeatmap source="SPX500" theme="dark" blockSize="market_cap_basic" aspectRatio="100%" />);
+display(<MarketHeatmap aspectRatio="100%" />);
 ```

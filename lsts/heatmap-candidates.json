@@ -1,0 +1,1067 @@
+[
+ {
+  "value": "BCBAIMV",
+  "label": "S&P MERVAL Index",
+  "country": "Argentina"
+ },
+ {
+  "value": "AllAR",
+  "label": "All Argentinean companies",
+  "country": "Argentina"
+ },
+ {
+  "value": "AllAU",
+  "label": "All Australian companies",
+  "country": "Australia"
+ },
+ {
+  "value": "ASX200",
+  "label": "S&P/ASX 200 Index",
+  "country": "Australia"
+ },
+ {
+  "value": "BEL20",
+  "label": "BEL 20 Index",
+  "country": "Belgium"
+ },
+ {
+  "value": "AllBE",
+  "label": "All Belgian companies",
+  "country": "Belgium"
+ },
+ {
+  "value": "IBOV",
+  "label": "Bovespa Index",
+  "country": "Brazil"
+ },
+ {
+  "value": "IBXL",
+  "label": "Brazil 50 Index",
+  "country": "Brazil"
+ },
+ {
+  "value": "AllBR",
+  "label": "All Brazilian companies",
+  "country": "Brazil"
+ },
+ {
+  "value": "TSX",
+  "label": "S&P/TSX Composite index",
+  "country": "Canada"
+ },
+ {
+  "value": "AllCA",
+  "label": "All Canadian companies",
+  "country": "Canada"
+ },
+ {
+  "value": "BCSSPIPSA",
+  "label": "S&P IPSA Index",
+  "country": "Chile"
+ },
+ {
+  "value": "AllCL",
+  "label": "All Chilean companies",
+  "country": "Chile"
+ },
+ {
+  "value": "SZSE399001",
+  "label": "Shenzhen Component Index",
+  "country": "China"
+ },
+ {
+  "value": "AllCN",
+  "label": "All Chinese companies",
+  "country": "China"
+ },
+ {
+  "value": "BVCICAP",
+  "label": "MSCI COLCAP Index",
+  "country": "Colombia"
+ },
+ {
+  "value": "AllCO",
+  "label": "All Colombian companies",
+  "country": "Colombia"
+ },
+ {
+  "value": "CSECYALTE",
+  "label": "CSE Alternative Market Index",
+  "country": "Cyprus"
+ },
+ {
+  "value": "CSECYMAIN",
+  "label": "CSE Main Market Index",
+  "country": "Cyprus"
+ },
+ {
+  "value": "CSECYGEN",
+  "label": "CSE General Index",
+  "country": "Cyprus"
+ },
+ {
+  "value": "CSECYINVE",
+  "label": "CSE Investment Market Index",
+  "country": "Cyprus"
+ },
+ {
+  "value": "CSECYHOTEL",
+  "label": "CSE Hotels Index",
+  "country": "Cyprus"
+ },
+ {
+  "value": "CSECYFTSE20",
+  "label": "FTSE/CySE 20 Index",
+  "country": "Cyprus"
+ },
+ {
+  "value": "AllCY",
+  "label": "All Cyprus companies",
+  "country": "Cyprus"
+ },
+ {
+  "value": "OMXCOPOMXC25",
+  "label": "OMX Copenhagen 25 Index",
+  "country": "Denmark"
+ },
+ {
+  "value": "AllDK",
+  "label": "All Danish companies",
+  "country": "Denmark"
+ },
+ {
+  "value": "EGXEGX30",
+  "label": "EGX 30 Index",
+  "country": "Egypt"
+ },
+ {
+  "value": "AllEG",
+  "label": "All Egyptian companies",
+  "country": "Egypt"
+ },
+ {
+  "value": "OMXTSEOMXTGI",
+  "label": "OMX Tallinn Gross Index",
+  "country": "Estonia"
+ },
+ {
+  "value": "AllEE",
+  "label": "All Estonian companies",
+  "country": "Estonia"
+ },
+ {
+  "value": "SX5E",
+  "label": "STOXX 50",
+  "country": "Europe"
+ },
+ {
+  "value": "SXXP",
+  "label": "STOXX 600",
+  "country": "Europe"
+ },
+ {
+  "value": "AllEU",
+  "label": "All European companies",
+  "country": "Europe"
+ },
+ {
+  "value": "HELSINKI25",
+  "label": "OMX Helsinki 25 Index",
+  "country": "Finland"
+ },
+ {
+  "value": "AllFI",
+  "label": "All Finnish companies",
+  "country": "Finland"
+ },
+ {
+  "value": "CAC40",
+  "label": "CAC 40 Index",
+  "country": "France"
+ },
+ {
+  "value": "SBF120",
+  "label": "SBF 120 Index",
+  "country": "France"
+ },
+ {
+  "value": "AllFR",
+  "label": "All French companies",
+  "country": "France"
+ },
+ {
+  "value": "DAX",
+  "label": "DAX Index",
+  "country": "Germany"
+ },
+ {
+  "value": "MDAX",
+  "label": "MDAX Index",
+  "country": "Germany"
+ },
+ {
+  "value": "SDAX",
+  "label": "SDAX Index",
+  "country": "Germany"
+ },
+ {
+  "value": "TECDAX",
+  "label": "TecDAX Index",
+  "country": "Germany"
+ },
+ {
+  "value": "AllDE",
+  "label": "All German companies",
+  "country": "Germany"
+ },
+ {
+  "value": "ATHEXGD",
+  "label": "ATHEX Composite Index",
+  "country": "Greece"
+ },
+ {
+  "value": "ATHEXFTSEA",
+  "label": "FTSE/ATHEX Market Index",
+  "country": "Greece"
+ },
+ {
+  "value": "ATHEXFTSEM",
+  "label": "FTSE/ATHEX Mid Cap Index",
+  "country": "Greece"
+ },
+ {
+  "value": "ATHEXFTSE",
+  "label": "FTSE/ATHEX Large Cap Index",
+  "country": "Greece"
+ },
+ {
+  "value": "AllGRC",
+  "label": "All Greek companies",
+  "country": "Greece"
+ },
+ {
+  "value": "HSI",
+  "label": "Hang Seng Index",
+  "country": "Hong Kong"
+ },
+ {
+  "value": "AllHK",
+  "label": "All Hong Kong companies",
+  "country": "Hong Kong"
+ },
+ {
+  "value": "HSTECH",
+  "label": "Hang Seng Tech Index",
+  "country": "Hong Kong"
+ },
+ {
+  "value": "HSCEI",
+  "label": "Hang Seng China Enterprises Index",
+  "country": "Hong Kong"
+ },
+ {
+  "value": "BETBUX",
+  "label": "Budapest Stock Exchange Index",
+  "country": "Hungary"
+ },
+ {
+  "value": "AllHU",
+  "label": "All Hungarian companies",
+  "country": "Hungary"
+ },
+ {
+  "value": "OMXICEOMXI15",
+  "label": "OMX Iceland 15 Index",
+  "country": "Iceland"
+ },
+ {
+  "value": "AllIS",
+  "label": "All Icelandic companies",
+  "country": "Iceland"
+ },
+ {
+  "value": "NIFTY50",
+  "label": "Nifty 50 Index",
+  "country": "India"
+ },
+ {
+  "value": "SENSEX",
+  "label": "S&P BSE SENSEX Index",
+  "country": "India"
+ },
+ {
+  "value": "CNX500",
+  "label": "Nifty 500 Index",
+  "country": "India"
+ },
+ {
+  "value": "NIFTYJR",
+  "label": "Nifty Next 50 Index",
+  "country": "India"
+ },
+ {
+  "value": "AllIN",
+  "label": "All Indian companies",
+  "country": "India"
+ },
+ {
+  "value": "IDX30",
+  "label": "IDX 30 Index",
+  "country": "Indonesia"
+ },
+ {
+  "value": "IDXBUMN20",
+  "label": "IDX BUMN20 Index",
+  "country": "Indonesia"
+ },
+ {
+  "value": "SRIKEHATI",
+  "label": "SRI-KEHATI",
+  "country": "Indonesia"
+ },
+ {
+  "value": "IDXHIDIV20",
+  "label": "IDX High Dividend 20 Index",
+  "country": "Indonesia"
+ },
+ {
+  "value": "AllID",
+  "label": "All Indonesian companies",
+  "country": "Indonesia"
+ },
+ {
+  "value": "ISEQ",
+  "label": "ISEQ All Share Index",
+  "country": "Ireland"
+ },
+ {
+  "value": "ISE20",
+  "label": "ISEQ 20 Index",
+  "country": "Ireland"
+ },
+ {
+  "value": "AllIE",
+  "label": "All Irish companies",
+  "country": "Ireland"
+ },
+ {
+  "value": "TA35",
+  "label": "TA-35 Index",
+  "country": "Israel"
+ },
+ {
+  "value": "TA125",
+  "label": "TA-125 Index",
+  "country": "Israel"
+ },
+ {
+  "value": "AllIL",
+  "label": "All Israeli companies",
+  "country": "Israel"
+ },
+ {
+  "value": "FTSEMIB",
+  "label": "FTSE MIB Index",
+  "country": "Italy"
+ },
+ {
+  "value": "AllIT",
+  "label": "All Italian companies",
+  "country": "Italy"
+ },
+ {
+  "value": "NI225",
+  "label": "Japan 225 Index",
+  "country": "Japan"
+ },
+ {
+  "value": "AllJP",
+  "label": "All Japanese companies",
+  "country": "Japan"
+ },
+ {
+  "value": "AllKE",
+  "label": "All Kenyan companies",
+  "country": "Kenya"
+ },
+ {
+  "value": "KSEBKA",
+  "label": "Boursa Kuwait All Share Index",
+  "country": "Kuwait"
+ },
+ {
+  "value": "KSEBKM50",
+  "label": "Boursa Kuwait Main Market 50 Index",
+  "country": "Kuwait"
+ },
+ {
+  "value": "KSEBKM",
+  "label": "Boursa Kuwait Main Market Index",
+  "country": "Kuwait"
+ },
+ {
+  "value": "KSEBKP",
+  "label": "Boursa Kuwait Premier Market Index",
+  "country": "Kuwait"
+ },
+ {
+  "value": "AllKW",
+  "label": "All Kuwaiti companies",
+  "country": "Kuwait"
+ },
+ {
+  "value": "OMXRSEOMXRGI",
+  "label": "OMX Riga Gross Index",
+  "country": "Latvia"
+ },
+ {
+  "value": "AllLV",
+  "label": "All Latvian companies",
+  "country": "Latvia"
+ },
+ {
+  "value": "OMXVSEOMXVGI",
+  "label": "OMX Vilnius Gross Index",
+  "country": "Lithuania"
+ },
+ {
+  "value": "AllLT",
+  "label": "All Lithuanian companies",
+  "country": "Lithuania"
+ },
+ {
+  "value": "LUXG",
+  "label": "Lux General Index",
+  "country": "Luxembourg"
+ },
+ {
+  "value": "LUXX",
+  "label": "LuxX Price Index",
+  "country": "Luxembourg"
+ },
+ {
+  "value": "AllLU",
+  "label": "All Luxembourg companies",
+  "country": "Luxembourg"
+ },
+ {
+  "value": "AllMY",
+  "label": "All Malaysian companies",
+  "country": "Malaysia"
+ },
+ {
+  "value": "BMVME",
+  "label": "S&P/BMV IPC Index",
+  "country": "Mexico"
+ },
+ {
+  "value": "F4GBIVA",
+  "label": "FTSE4Good BIVA Index",
+  "country": "Mexico"
+ },
+ {
+  "value": "FTBIVA",
+  "label": "FTSE BIVA Index",
+  "country": "Mexico"
+ },
+ {
+  "value": "AllMX",
+  "label": "All Mexican companies",
+  "country": "Mexico"
+ },
+ {
+  "value": "CSEMAMASIE",
+  "label": "MASI (EURO) Index",
+  "country": "Morocco"
+ },
+ {
+  "value": "CSEMAMASID",
+  "label": "MASI (USD) Index",
+  "country": "Morocco"
+ },
+ {
+  "value": "CSEMAMASI",
+  "label": "MASI Index",
+  "country": "Morocco"
+ },
+ {
+  "value": "CSEMAMASIR",
+  "label": "MASI Return Gross Index",
+  "country": "Morocco"
+ },
+ {
+  "value": "CSEMAMASRN",
+  "label": "MASI Return Net Index",
+  "country": "Morocco"
+ },
+ {
+  "value": "AllMA",
+  "label": "All Moroccan companies",
+  "country": "Morocco"
+ },
+ {
+  "value": "AEX",
+  "label": "AEX Index",
+  "country": "Netherlands"
+ },
+ {
+  "value": "AllNL",
+  "label": "All Dutch companies",
+  "country": "Netherlands"
+ },
+ {
+  "value": "NZXNZ50G",
+  "label": "S&P/NZX 50 Gross Index",
+  "country": "New Zealand"
+ },
+ {
+  "value": "AllNZ",
+  "label": "All New Zealand companies",
+  "country": "New Zealand"
+ },
+ {
+  "value": "NSENGNGX30",
+  "label": "NGX 30 Index",
+  "country": "Nigeria"
+ },
+ {
+  "value": "AllNGA",
+  "label": "All Nigerian companies",
+  "country": "Nigeria"
+ },
+ {
+  "value": "AllNO",
+  "label": "All Norwegian companies",
+  "country": "Norway"
+ },
+ {
+  "value": "PSXBKTI",
+  "label": "PSX Banking Sector Tradable Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXJSMFI",
+  "label": "JS Momentum Factor Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXKMI30",
+  "label": "KMI 30 Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXKSE30",
+  "label": "KSE 30 Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXKSE100",
+  "label": "KSE 100 Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXKMIALLSHR",
+  "label": "PSX-KMI All Share Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXALLSHR",
+  "label": "KSE All Share Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXMZNPI",
+  "label": "Meezan Pakistan Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXNBPPGI",
+  "label": "NBP Pakistan Growth Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXNITPGI",
+  "label": "NIT Pakistan Gateway Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXOGTI",
+  "label": "PSX Oil & Gas Tradable Sector Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "PSXUPP9",
+  "label": "UBL Pakistan Enterprise Index",
+  "country": "Pakistan"
+ },
+ {
+  "value": "AllPK",
+  "label": "All Pakistani companies",
+  "country": "Pakistan"
+ },
+ {
+  "value": "BVLSPBLPGPT",
+  "label": "S&P/BVL Peru General Index",
+  "country": "Peru"
+ },
+ {
+  "value": "AllPE",
+  "label": "All Peruvian companies",
+  "country": "Peru"
+ },
+ {
+  "value": "AllPH",
+  "label": "All Philippine companies",
+  "country": "Philippines"
+ },
+ {
+  "value": "GPWWIG20",
+  "label": "WIG20 Index",
+  "country": "Poland"
+ },
+ {
+  "value": "AllPO",
+  "label": "All Polish companies",
+  "country": "Poland"
+ },
+ {
+  "value": "EURONEXTPSI20",
+  "label": "PSI Index",
+  "country": "Portugal"
+ },
+ {
+  "value": "AllPRT",
+  "label": "All Portuguese companies",
+  "country": "Portugal"
+ },
+ {
+  "value": "QSEGNRI",
+  "label": "QE Index",
+  "country": "Qatar"
+ },
+ {
+  "value": "AllQA",
+  "label": "All Qatar companies",
+  "country": "Qatar"
+ },
+ {
+  "value": "BVBBET",
+  "label": "Bucharest Exchange Trading Index",
+  "country": "Romania"
+ },
+ {
+  "value": "AllRO",
+  "label": "All Romanian companies",
+  "country": "Romania"
+ },
+ {
+  "value": "MOEXRUSSIA",
+  "label": "Russia Index",
+  "country": "Russia"
+ },
+ {
+  "value": "MOEXBROAD",
+  "label": "Broad Market Index",
+  "country": "Russia"
+ },
+ {
+  "value": "MOEXSMID",
+  "label": "SMID Index",
+  "country": "Russia"
+ },
+ {
+  "value": "RTS",
+  "label": "RTS Index",
+  "country": "Russia"
+ },
+ {
+  "value": "RTSBROAD",
+  "label": "RTS Broad Market Index",
+  "country": "Russia"
+ },
+ {
+  "value": "AllRU",
+  "label": "All Russian companies",
+  "country": "Russia"
+ },
+ {
+  "value": "TADAWULTBNI",
+  "label": "Tadawul Banks Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTCGI",
+  "label": "Tadawul Capital Goods Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTDAI",
+  "label": "Tadawul Consumer Durables & Apparel Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTENI",
+  "label": "Tadawul Energy Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTFBI",
+  "label": "Tadawul Food & Beverages Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTHEI",
+  "label": "Tadawul Health Care Equipment & Service Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTISI",
+  "label": "Tadawul Insurance Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTMTI",
+  "label": "Tadawul Materials Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTRMI",
+  "label": "Tadawul Real Estate Management & Development Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTRLI",
+  "label": "Tadawul Consumer Discretionary Distribution & Retail Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTASI",
+  "label": "Tadawul All Shares Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "TADAWULTTSI",
+  "label": "Tadawul Telecommunication Services Index",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "AllSA",
+  "label": "All Saudi Arabian companies",
+  "country": "Saudi Arabia"
+ },
+ {
+  "value": "BELEX15",
+  "label": "BELEX15",
+  "country": "Serbia"
+ },
+ {
+  "value": "BELEXLINE",
+  "label": "BELEXline",
+  "country": "Serbia"
+ },
+ {
+  "value": "AllRS",
+  "label": "All Serbian companies",
+  "country": "Serbia"
+ },
+ {
+  "value": "TVCSTI",
+  "label": "Straits Times Index",
+  "country": "Singapore"
+ },
+ {
+  "value": "AllSGP",
+  "label": "All Singapore companies",
+  "country": "Singapore"
+ },
+ {
+  "value": "SAX",
+  "label": "Slovak Share Index",
+  "country": "Slovakia"
+ },
+ {
+  "value": "AllSK",
+  "label": "All Slovak companies",
+  "country": "Slovakia"
+ },
+ {
+  "value": "SA40",
+  "label": "South Africa Top 40 Index",
+  "country": "South Africa"
+ },
+ {
+  "value": "AllZA",
+  "label": "All South African companies",
+  "country": "South Africa"
+ },
+ {
+  "value": "KOSPI",
+  "label": "KOSPI Composite Index",
+  "country": "South Korea"
+ },
+ {
+  "value": "KOSPI200",
+  "label": "KOSPI 200 Index",
+  "country": "South Korea"
+ },
+ {
+  "value": "KOSDAQ",
+  "label": "KOSDAQ Composite Index",
+  "country": "South Korea"
+ },
+ {
+  "value": "KOSDAQ150",
+  "label": "KOSDAQ 150 Index",
+  "country": "South Korea"
+ },
+ {
+  "value": "AllKR",
+  "label": "All South Korean companies",
+  "country": "South Korea"
+ },
+ {
+  "value": "IBEX35",
+  "label": "IBEX 35 Index",
+  "country": "Spain"
+ },
+ {
+  "value": "BMEIS",
+  "label": "IBEX Small Cap Index",
+  "country": "Spain"
+ },
+ {
+  "value": "BMEICC",
+  "label": "IBEX Medium Cap Index",
+  "country": "Spain"
+ },
+ {
+  "value": "BMEINDGRO15",
+  "label": "IBEX Growth Market 15 Index",
+  "country": "Spain"
+ },
+ {
+  "value": "BMEINDGROAS",
+  "label": "IBEX Growth Market All Share Index",
+  "country": "Spain"
+ },
+ {
+  "value": "AllES",
+  "label": "All Spanish companies",
+  "country": "Spain"
+ },
+ {
+  "value": "CSELKSPSL20",
+  "label": "S&P Sri Lanka 20 Index",
+  "country": "Sri Lanka"
+ },
+ {
+  "value": "AllLKA",
+  "label": "All Sri Lanka companies",
+  "country": "Sri Lanka"
+ },
+ {
+  "value": "OMXS30",
+  "label": "OMX Stockholm 30 Index",
+  "country": "Sweden"
+ },
+ {
+  "value": "AllSWE",
+  "label": "All Swedish companies",
+  "country": "Sweden"
+ },
+ {
+  "value": "SIXSMI",
+  "label": "Swiss Market Index",
+  "country": "Switzerland"
+ },
+ {
+  "value": "AllCHE",
+  "label": "All Swiss companies",
+  "country": "Switzerland"
+ },
+ {
+  "value": "GTSM50",
+  "label": "GreTai 50 Index",
+  "country": "Taiwan"
+ },
+ {
+  "value": "TW50",
+  "label": "FTSE TWSE Taiwan 50 Index",
+  "country": "Taiwan"
+ },
+ {
+  "value": "AllTW",
+  "label": "All Taiwan companies",
+  "country": "Taiwan"
+ },
+ {
+  "value": "SET50",
+  "label": "SET 50 Index",
+  "country": "Thailand"
+ },
+ {
+  "value": "SET100",
+  "label": "SET 100 Index",
+  "country": "Thailand"
+ },
+ {
+  "value": "AllTH",
+  "label": "All Thai companies",
+  "country": "Thailand"
+ },
+ {
+  "value": "BIST100",
+  "label": "BIST 100 Index",
+  "country": "Turkey"
+ },
+ {
+  "value": "BISTTUM",
+  "label": "BIST All Shares Index",
+  "country": "Turkey"
+ },
+ {
+  "value": "BIST30",
+  "label": "BIST 30 Index",
+  "country": "Turkey"
+ },
+ {
+  "value": "BISTBANK",
+  "label": "BIST Banks Index",
+  "country": "Turkey"
+ },
+ {
+  "value": "BISTTEK",
+  "label": "BIST Technology Index",
+  "country": "Turkey"
+ },
+ {
+  "value": "BISTELKT",
+  "label": "BIST Electricity Index",
+  "country": "Turkey"
+ },
+ {
+  "value": "BISTGIDA",
+  "label": "BIST Food Beverage Index",
+  "country": "Turkey"
+ },
+ {
+  "value": "ALLTR",
+  "label": "All Turkish companies",
+  "country": "Turkey"
+ },
+ {
+  "value": "ADXFADX15",
+  "label": "FTSE ADX 15 Index",
+  "country": "UAE"
+ },
+ {
+  "value": "DFMDFMGI",
+  "label": "DFM General Index",
+  "country": "UAE"
+ },
+ {
+  "value": "AllARE",
+  "label": "All UAE companies",
+  "country": "UAE"
+ },
+ {
+  "value": "UK100",
+  "label": "FTSE 100 Index",
+  "country": "United Kingdom"
+ },
+ {
+  "value": "AllUK",
+  "label": "All UK companies",
+  "country": "United Kingdom"
+ },
+ {
+  "value": "SPX500",
+  "label": "S&P 500 Index",
+  "country": "United States"
+ },
+ {
+  "value": "NASDAQ100",
+  "label": "NASDAQ 100 Index",
+  "country": "United States"
+ },
+ {
+  "value": "NASDAQCOMPOSITE",
+  "label": "NASDAQ Composite Index",
+  "country": "United States"
+ },
+ {
+  "value": "DJCA",
+  "label": "Dow Jones Composite Average Index",
+  "country": "United States"
+ },
+ {
+  "value": "DJDJI",
+  "label": "Dow Jones Industrial Average Index",
+  "country": "United States"
+ },
+ {
+  "value": "DJDJT",
+  "label": "Dow Jones Transportation Average Index",
+  "country": "United States"
+ },
+ {
+  "value": "DJDJU",
+  "label": "Dow Jones Utility Average Index",
+  "country": "United States"
+ },
+ {
+  "value": "NASDAQBKX",
+  "label": "KBW NASDAQ Bank Index",
+  "country": "United States"
+ },
+ {
+  "value": "TVCRUI",
+  "label": "Russell 1000 Index",
+  "country": "United States"
+ },
+ {
+  "value": "TVCRUT",
+  "label": "Russell 2000 Index",
+  "country": "United States"
+ },
+ {
+  "value": "TVCRUA",
+  "label": "Russell 3000 Index",
+  "country": "United States"
+ },
+ {
+  "value": "USATop1000",
+  "label": "1,000 largest US companies",
+  "country": "United States"
+ },
+ {
+  "value": "AllUSA",
+  "label": "All US companies",
+  "country": "United States"
+ },
+ {
+  "value": "BVCVIFINANCIE",
+  "label": "Financial Index",
+  "country": "Venezuela"
+ },
+ {
+  "value": "BVCVIBC",
+  "label": "IBC index",
+  "country": "Venezuela"
+ },
+ {
+  "value": "BVCVIINDUSTR",
+  "label": "Industrial Index",
+  "country": "Venezuela"
+ },
+ {
+  "value": "AllVE",
+  "label": "All Venezuelan companies",
+  "country": "Venezuela"
+ },
+ {
+  "value": "AllVN",
+  "label": "All Vietnamese companies",
+  "country": "Vietnam"
+ }
+]

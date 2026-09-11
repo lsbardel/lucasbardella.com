@@ -13,7 +13,9 @@ interface TradingViewInput extends TradingViewInputBase {
 interface TradingViewHeatmapInput extends TradingViewInputBase {
   source: string;
   blockSize: string;
+  // Legacy boolean toggle, superseded by `grouping` which takes precedence.
   group?: boolean
+  grouping?: string;
 };
 
 interface TradingViewTicketTapeInput {
@@ -59,10 +61,15 @@ export const TradingViewChart = ({symbol, aspectRatio, theme}: TradingViewInput)
 };
 
 
-export const TradingViewHeatmap = ({source, aspectRatio, theme, group, blockSize}: TradingViewHeatmapInput) => {
+export const TradingViewHeatmap = ({source, aspectRatio, theme, group, grouping, blockSize}: TradingViewHeatmapInput) => {
   const container = React.useRef();
   React.useEffect(() => {
-    const grouping = group ? "sector" : "no_group";
+    const groupBy = grouping ?? (group ? "sector" : "no_group");
+    const el = container.current;
+    if (!el) return;
+    // The widget script renders into its parent, so drop any previous render
+    // before adding a new one, otherwise changing a prop stacks two heatmaps.
+    el.replaceChildren();
     const script = document.createElement("script");
     script.src = "https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js";
     script.type = "text/javascript";
@@ -71,7 +78,7 @@ export const TradingViewHeatmap = ({source, aspectRatio, theme, group, blockSize
       {
         "exchanges": [],
         "dataSource": "${source}",
-        "grouping": "${grouping}",
+        "grouping": "${groupBy}",
         "blockSize": "${blockSize}",
         "blockColor": "change",
         "locale": "en",
@@ -85,16 +92,15 @@ export const TradingViewHeatmap = ({source, aspectRatio, theme, group, blockSize
         "width": "100%",
         "height": "100%"
       }`;
-    container.current.appendChild(script);
-  }, [source, theme, group, blockSize]);
+    el.appendChild(script);
+    return () => el.replaceChildren();
+  }, [source, theme, group, grouping, blockSize]);
 
   const style = {width: "100%", position: "relative", paddingTop: aspectRatio};
   const styleInner = {position: "absolute", top: 0, left: 0, bottom: 0, right: 0};
   return (
     <div className="tradingview-widget-container-outer" style={style}>
-      <div className="tradingview-widget-container" ref={container} style={styleInner}>
-        <div className="tradingview-widget-container__widget" />
-      </div>
+      <div className="tradingview-widget-container" ref={container} style={styleInner} />
     </div>
   );
 }

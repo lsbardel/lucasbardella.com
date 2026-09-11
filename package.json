@@ -15,7 +15,9 @@
   "scripts": {
     "build": ".dev/node-run tsx node_modules/.bin/observable build",
     "postbuild": ".dev/cp-files",
-    "dev": ".dev/node-run tsx node_modules/.bin/observable preview"
+    "dev": ".dev/node-run tsx node_modules/.bin/observable preview --port 4068",
+    "heatmap-sources": "tsx lsts/heatmap-sources.ts",
+    "heatmap-validate": "tsx lsts/heatmap-validate.ts"
   },
   "dependencies": {
     "@google-analytics/data": "^5.1.0",
