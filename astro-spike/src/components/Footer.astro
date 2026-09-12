@@ -1,0 +1,31 @@
+---
+import { site, sourceUrl } from "../lib/site";
+
+interface Props {
+  /** Repository relative path of the page source, when there is one. */
+  contentPath?: string;
+}
+const { contentPath } = Astro.props;
+
+const now = new Date();
+const buildTime = now.toISOString().replace("T", " ").slice(0, 19);
+const buildUrl = site.runId ? `${site.homepage}/actions/runs/${site.runId}` : undefined;
+const source = sourceUrl(contentPath);
+---
+
+<footer class="site-footer">
+  <hr />
+  <p>
+    Last build
+    {buildUrl
+      ? <a href={buildUrl} target="_blank" rel="noopener noreferrer">{buildTime} UTC</a>
+      : <span>{buildTime} UTC</span>}
+  </p>
+  {source && (
+    <p>
+      Source code available on
+      <a href={source} target="_blank" rel="noopener noreferrer">{source}</a>
+    </p>
+  )}
+  <p>&copy; {site.firstYear}&ndash;{now.getUTCFullYear()} {site.author}</p>
+</footer>

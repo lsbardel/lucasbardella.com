@@ -6,12 +6,7 @@ import Base from "../../layouts/Base.astro";
 <Base
   title="Market Heatmap"
   description="Ported to the Astro spike to try the searchable market dropdown."
-  wide
+  width="wide"
 >
-  <p>
-    The market, block size and grouping are kept in the query string, so the view
-    is shareable and back/forward navigates between views. Click the market field
-    and type to search 213 markets across 64 countries.
-  </p>
   <MarketHeatmap client:load aspectRatio="80%" />
 </Base>

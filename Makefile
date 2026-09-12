@@ -6,6 +6,23 @@ help:
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 	@echo ======================================================================================
 
+.PHONY: astro-build
+astro-build: astro-install	## Build the Astro spike into astro-spike/dist
+	@cd astro-spike && npm run build
+
+.PHONY: astro-dev
+astro-dev: astro-install	## Serve the Astro spike with hot reload on 4069 (not production output)
+	@cd astro-spike && npm run dev
+
+.PHONY: astro-install
+astro-install:		## Install the Astro spike dependencies
+	@test -d astro-spike || { echo "astro-spike/ is missing, it is an untracked spike"; exit 1; }
+	@cd astro-spike && npm install --no-audit --no-fund --silent
+
+.PHONY: astro-preview
+astro-preview: astro-build	## Serve the built Astro spike on 4069 (real page weights)
+	@cd astro-spike && npm run preview
+
 .PHONY: cfd-build
 cfd-build:		## Build the CFD Docker image
 	@docker build -f cfd/dev/cfd.dockerfile -t $(CFD_IMAGE) .
@@ -50,6 +67,10 @@ cv: cv-sync		## Build CV pdf from content/cv.md
 .PHONY: cv-sync
 cv-sync:		## Generate the LaTeX CV sources from content/cv.md
 	@uv run ls cv-sync
+
+.PHONY: dev
+dev:			## Serve the site with hot reload on 4068 (observable preview)
+	@npm run dev
 
 .PHONY: heatmap-sources
 heatmap-sources:	## Refresh the TradingView market list for the heatmap page

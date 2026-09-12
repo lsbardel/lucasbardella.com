@@ -1,0 +1,15 @@
+---
+interface Props {
+  size?: number;
+}
+const { size = 24 } = Astro.props;
+---
+
+{/* The <luca-icons> custom element needs to register in the browser, which a
+    plain .md page cannot arrange. An .astro component can, and Astro bundles
+    this script only for the pages that use it. */}
+<script>
+  import "./icons.js";
+</script>
+
+<luca-icons size={String(size)}></luca-icons>

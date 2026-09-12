@@ -1,15 +1,20 @@
 ---
 import { getCollection, render } from "astro:content";
 import Base from "../layouts/Base.astro";
+import { entryPath } from "../lib/entry-path";
 
-// Mirrors the existing content/<section>/[year]/[slug].md.ts dynamic routes.
+// Mirrors the Observable site's content/<section>/[year]/[slug].md.ts routes,
+// so the published URLs stay identical.
 export async function getStaticPaths() {
   const sections = ["blog", "lab"] as const;
   const paths = [];
   for (const section of sections) {
     const entries = await getCollection(section);
     for (const entry of entries) {
-      paths.push({ params: { slug: `${section}/${entry.id}` }, props: { entry } });
+      paths.push({
+        params: { slug: entryPath(section, entry.id, entry.data.date).slice(1) },
+        props: { entry },
+      });
     }
   }
   return paths;
@@ -19,6 +24,10 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<Base title={entry.data.title ?? entry.id} description={entry.data.description}>
+<Base
+  title={entry.data.title ?? entry.id}
+  description={entry.data.description}
+  contentPath={entry.filePath?.replace(/^src\/content\//, "content/")}
+>
   <Content />
 </Base>

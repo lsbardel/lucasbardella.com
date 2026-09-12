@@ -4,20 +4,21 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --port 4069",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "astro build && pagefind --site dist && rm -rf public/pagefind && cp -r dist/pagefind public/pagefind",
+    "preview": "astro preview --port 4069"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.0",
-    "@astrojs/react": "^4.3.0",
+    "@astrojs/markdown-remark": "^7.3.1",
+    "@astrojs/mdx": "^8.0.1",
+    "@astrojs/react": "^6.0.5",
     "@observablehq/plot": "^0.6.17",
     "@tailwindcss/vite": "^4.3.3",
     "@types/d3": "^7.4.3",
-    "@types/d3-dsv": "^3.0.7",
-    "astro": "^5.13.0",
+    "astro": "^7.3.2",
     "d3": "^7.9.0",
-    "d3-dsv": "^3.0.1",
-    "katex": "^0.16.11",
+    "fflate": "^0.8.3",
+    "htl": "^1.0.0",
+    "katex": "^0.18.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "rehype-katex": "^7.0.1",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
-    "@types/react-dom": "^19.1.0"
+    "@types/react-dom": "^19.1.0",
+    "pagefind": "^1.5.2"
   }
 }

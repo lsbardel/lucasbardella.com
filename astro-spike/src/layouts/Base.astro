@@ -1,13 +1,37 @@
 ---
 import "katex/dist/katex.min.css";
 import "../styles/site.css";
+import Sidebar from "../components/Sidebar.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+/**
+ * `width` replaces Observable's `theme: dashboard` frontmatter:
+ *   prose  reading column, the default for posts
+ *   wide   roomier, for pages with a couple of panels
+ *   full   edge to edge, for dashboards
+ */
+export type ContentWidth = "prose" | "wide" | "full";
 
 interface Props {
   title: string;
   description?: string;
-  wide?: boolean;
+  width?: ContentWidth;
+  /** Repository path of the page source, for the footer's source link. */
+  contentPath?: string;
+  showTitle?: boolean;
 }
-const { title, description, wide = false } = Astro.props;
+/**
+ * Props arrive directly from .astro pages, and inside `frontmatter` when an
+ * .md or .mdx page sets `layout:`. Accept both so either style works.
+ */
+const fm = (Astro.props as Record<string, any>).frontmatter ?? {};
+const title: string = Astro.props.title ?? fm.title;
+const description: string | undefined = Astro.props.description ?? fm.description;
+const width: ContentWidth = Astro.props.width ?? fm.width ?? "prose";
+const contentPath: string | undefined = Astro.props.contentPath ?? fm.contentPath;
+/** Pages with their own hero heading suppress the layout's h1. */
+const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
 ---
 
 <html lang="en">
@@ -16,12 +40,55 @@ const { title, description, wide = false } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    {/* Pagefind writes into public/ at build time, so dev serves it too. */}
+    <link rel="stylesheet" href="/pagefind/pagefind-component-ui.css" />
+    <script is:inline>
+      // Runs before first paint so the page never flashes the wrong theme.
+      // Three preferences (light, dark, system) resolve to two appearances.
+      // `data-theme` drives the site tokens and is absent for "system" so the
+      // prefers-color-scheme rules apply. Pagefind's component UI only honours
+      // data-pf-theme="dark" and has no system mode, so it gets the resolved value.
+      (() => {
+        const KEY = "ls.theme";
+        const media = window.matchMedia("(prefers-color-scheme: dark)");
+        const read = () => {
+          try { return localStorage.getItem(KEY) ?? "system"; } catch { return "system"; }
+        };
+        const apply = (preference) => {
+          const root = document.documentElement;
+          if (preference === "system") root.removeAttribute("data-theme");
+          else root.setAttribute("data-theme", preference);
+          const dark = preference === "dark" || (preference === "system" && media.matches);
+          if (dark) root.setAttribute("data-pf-theme", "dark");
+          else root.removeAttribute("data-pf-theme");
+          for (const button of document.querySelectorAll("[data-set-theme]")) {
+            button.setAttribute("aria-pressed", String(button.dataset.setTheme === preference));
+          }
+        };
+        window.__setTheme = (preference) => {
+          try { localStorage.setItem(KEY, preference); } catch {}
+          apply(preference);
+        };
+        media.addEventListener("change", () => { if (read() === "system") apply(read()); });
+        apply(read());
+        // The buttons do not exist yet on the first run, so mark them once they do.
+        document.addEventListener("DOMContentLoaded", () => apply(read()));
+      })();
+    </script>
   </head>
   <body>
-    <nav><a href="/">astro spike</a> <a href="/market/heatmap">heatmap</a></nav>
-    <main class={wide ? "wide" : undefined}>
-      <h1>{title}</h1>
-      <slot />
-    </main>
+    <Header />
+    <div class="shell">
+      {/* Checkbox toggle, the same trick Observable Framework uses, so
+          collapsing the sidebar needs no JavaScript at all. */}
+      <input id="sidebar-toggle" type="checkbox" aria-label="Collapse sidebar" />
+      <label class="sidebar-handle" for="sidebar-toggle" title="Toggle sidebar"></label>
+      <Sidebar />
+      <main class={`content-${width}`} data-pagefind-body>
+        {showTitle && <h1>{title}</h1>}
+        <slot />
+        <Footer contentPath={contentPath} />
+      </main>
+    </div>
   </body>
 </html>

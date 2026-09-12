@@ -10,6 +10,9 @@ export default defineConfig({
   integrations: [mdx(), react()],
   vite: { plugins: [tailwind()] },
   markdown: {
+    // Observable leaves `typographer` off, so straight quotes stay straight.
+    // With it on, smart quotes also corrupt attribute quotes in raw HTML.
+    smartypants: false,
     // remarkTexBlocks runs first so ```tex fences become math nodes,
     // which remark-math/rehype-katex then render like any $$ block.
     remarkPlugins: [remarkTexBlocks, remarkMath],

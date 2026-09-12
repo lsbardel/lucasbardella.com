@@ -1,21 +1,306 @@
-@import "tailwindcss";
+/*
+ * Tailwind without preflight.
+ *
+ * `@import "tailwindcss"` pulls in theme, preflight and utilities. Preflight
+ * resets headings to `font-size: inherit`, which flattens every h1 to body size
+ * in markdown content. The Observable site disables it for the same reason
+ * (`corePlugins: { preflight: false }`), so the port does too and keeps the
+ * browser defaults as a baseline.
+ */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
-:root { color-scheme: dark; }
+/*
+ * Three theme states. Light lives on bare :root so it is the fallback, the
+ * media query covers "system" (no data-theme set), and the explicit
+ * [data-theme] rules let the toggle win in both directions.
+ */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  --header-height: 3.5rem;
+  color-scheme: light;
+  --background: #ffffff;
+  --surface: #f3f4f6;
+  --foreground: #1f2937;
+  --foreground-alt: #111827;
+  --foreground-faint: #6b7280;
+  --foreground-fainter: #d1d5db;
+  --accent: #8a7724;
+  --link: #1d4ed8;
+  --measure: 760px;
+}
+
+:root:not([data-theme="light"]) {
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+    --background: #0c1018;
+    --surface: #111827;
+    --foreground: #e5e7eb;
+    --foreground-alt: #f3f4f6;
+    --foreground-faint: #9ca3af;
+    --foreground-fainter: #374151;
+    --accent: #bdac5a;
+    --link: #93c5fd;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0c1018;
+  --surface: #111827;
+  --foreground: #e5e7eb;
+  --foreground-alt: #f3f4f6;
+  --foreground-faint: #9ca3af;
+  --foreground-fainter: #374151;
+  --accent: #bdac5a;
+  --link: #93c5fd;
+}
+
+/*
+ * Body type mirrors content/themes/ls.css: it grows with the viewport between
+ * 17px and 22px, and the rem component keeps the reader's browser font setting
+ * in play rather than pinning a pixel size.
+ */
 body {
   margin: 0;
-  background: #0c1018;
-  color: #e5e7eb;
-  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(17px, 0.9rem + 0.35vw, 22px);
+  line-height: 1.5;
 }
-nav { padding: 1rem 2rem; border-bottom: 1px solid #1f2937; }
-nav a { color: #fde68a; text-decoration: none; margin-right: 1.5rem; }
-main { max-width: 46rem; margin: 0 auto; padding: 2rem 1rem 6rem; }
-a { color: #93c5fd; }
-h1, h2, h3 { line-height: 1.25; }
-pre { background: #111827; padding: 1rem; border-radius: 6px; overflow-x: auto; }
-code { font-size: 0.9em; }
-:not(pre) > code { background: #111827; padding: 0.1em 0.3em; border-radius: 3px; }
-label { display: block; margin-bottom: 1rem; font-size: 0.9rem; color: #9ca3af; }
-select { margin-left: 0.5rem; background: #1f2937; color: #e5e7eb; border: 1px solid #374151; border-radius: 4px; padding: 0.25rem 0.5rem; }
 
-main.wide { max-width: 72rem; }
+h1, h2, h3, h4, h5, h6 {
+  color: var(--foreground-alt);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  text-wrap: balance;
+}
+h1 { font-size: 2em; margin-bottom: 1rem; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1em; }
+
+/* Section rules, as on the live site: a hairline above each h2 in gold. */
+main > h2 {
+  border-top: 1px solid var(--foreground-fainter);
+  padding-top: 25px;
+  padding-bottom: 15px;
+  margin-top: 2rem;
+  color: var(--accent);
+}
+h2 + p, h3 + p, h4 + p, h2 + table, h3 + table, h4 + table { margin-top: 0; }
+h3 { margin-top: 1.75rem; }
+
+p { margin: 0 0 1rem; }
+
+/* The framework caps prose at 640px, too narrow a ribbon on a wide screen. */
+p, table, figure, figcaption, h1, h2, h3, h4, h5, h6, .katex-display { max-width: var(--measure); }
+blockquote, ol, ul { max-width: calc(var(--measure) - 40px); }
+
+a { color: var(--link); text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
+
+ul, ol { padding-left: 1.5rem; }
+li { margin: 0.25rem 0; }
+blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--foreground-fainter);
+  color: var(--foreground-faint);
+}
+hr { border: 0; border-top: 1px solid var(--foreground-fainter); margin: 2rem 0; }
+img { max-width: 100%; }
+
+pre { background: var(--surface); padding: 1rem; border-radius: 6px; overflow-x: auto; line-height: 1.5; }
+pre, code, tt { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; }
+:not(pre) > code { background: var(--surface); padding: 0.1em 0.3em; border-radius: 3px; }
+h1 code, h2 code, h3 code, h4 code { font-size: 90%; }
+
+p.date { font-style: italic; color: var(--foreground-faint); }
+p.description { color: var(--foreground-faint); }
+
+/* Page width, set by the `width` prop on the Base layout. */
+main { margin: 0; padding: 2rem 2rem 6rem; min-width: 0; }
+.content-prose { max-width: 54rem; }
+.content-wide { max-width: 76rem; }
+.content-full { max-width: none; }
+
+label { display: block; margin-bottom: 1rem; font-size: 0.9rem; color: var(--foreground-faint); }
+select { margin-left: 0.5rem; background: var(--surface); color: var(--foreground); border: 1px solid var(--foreground-fainter); border-radius: 4px; padding: 0.25rem 0.5rem; }
+
+/* Callouts, matching the four Observable Framework variants so ported posts
+   keep their meaning: note, tip, warning, caution. */
+.note, .tip, .warning, .caution {
+  border-left: 3px solid var(--callout, #6b7280);
+  background: color-mix(in srgb, var(--callout, #6b7280) 12%, transparent);
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+}
+.note    { --callout: #6b7280; }
+.tip     { --callout: #22c55e; }
+.warning { --callout: #eab308; }
+.caution { --callout: #ef4444; }
+.note > :first-child, .tip > :first-child,
+.warning > :first-child, .caution > :first-child { margin-top: 0; }
+.note > :last-child, .tip > :last-child,
+.warning > :last-child, .caution > :last-child { margin-bottom: 0; }
+
+/* Tables, used by the comparison in the port write up. */
+table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
+th, td { border-bottom: 1px solid var(--foreground-fainter); padding: 0.5rem 0.75rem; text-align: left; }
+th { color: var(--foreground-faint); font-weight: 600; }
+
+/* Shell: sidebar plus content, stacking on narrow screens. */
+.shell { display: flex; align-items: stretch; }
+
+/* The sidebar fills the viewport below the header and stays there while the
+   page scrolls, so its rule always reaches the bottom of the window. */
+.sidebar {
+  flex: 0 0 15rem;
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  padding: 1.5rem 0.5rem;
+  border-right: 1px solid var(--foreground-fainter);
+}
+
+/* Collapse handle: a full height strip you click to fold the sidebar away. */
+#sidebar-toggle { display: none; }
+.sidebar-handle {
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  flex: 0 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: e-resize;
+  background: var(--surface);
+  border-right: 1px solid var(--foreground-fainter);
+  color: var(--foreground-faint);
+  user-select: none;
+  transition: color 0.12s, background 0.12s;
+}
+.sidebar-handle::before { content: "\276E"; font-size: 1rem; line-height: 1; }
+.sidebar-handle:hover { color: var(--accent); background: var(--foreground-fainter); }
+#sidebar-toggle:checked ~ .sidebar-handle { cursor: w-resize; }
+#sidebar-toggle:checked ~ .sidebar-handle::before { content: "\276F"; }
+#sidebar-toggle:checked ~ .sidebar { display: none; }
+.sidebar { font-size: 1rem; }
+.sidebar a { color: var(--foreground); text-decoration: none; }
+.sidebar a:hover { background: var(--surface); color: var(--foreground-alt); }
+.sidebar a.current { background: var(--surface); color: var(--accent); }
+.sidebar summary { color: var(--foreground-faint); font-weight: 600; letter-spacing: 0.02em; }
+.sidebar summary::marker { color: var(--foreground-faint); }
+.shell > main { flex: 1 1 auto; min-width: 0; }
+@media (max-width: 720px) {
+  .shell { flex-direction: column; }
+  .sidebar-handle { display: none; }
+  .sidebar { position: static; flex: 1 1 auto; width: 100%; height: auto; border-right: 0; border-bottom: 1px solid var(--foreground-fainter); }
+}
+
+.draft {
+  margin-left: 0.5rem;
+  padding: 0 0.35rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--accent);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Top header: brand, search, theme toggle. */
+.site-header {
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--foreground-fainter);
+  background: var(--background);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+/* The brand absorbs the free space, so search and the toggle sit right. */
+.site-header .brand { color: var(--accent); font-weight: 600; text-decoration: none; white-space: nowrap; margin-right: auto; }
+.site-header .search { flex: 0 1 24rem; min-width: 0; }
+.search-missing { color: var(--foreground-faint); font-size: 0.85rem; }
+
+.theme-toggle { display: flex; border: 1px solid var(--foreground-fainter); border-radius: 6px; overflow: hidden; }
+.theme-toggle button {
+  background: transparent;
+  border: 0;
+  color: var(--foreground-faint);
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 0.35rem 0.6rem;
+}
+.theme-toggle button:hover { background: var(--surface); color: var(--foreground); }
+.theme-toggle button[aria-pressed="true"] { background: var(--surface); color: var(--accent); }
+
+
+@media (max-width: 720px) {
+  .site-header { flex-wrap: wrap; }
+  .site-header .search { order: 3; flex: 1 1 100%; }
+}
+
+/* Cards and grid, standing in for the Observable dashboard theme. */
+.card {
+  border: 1px solid var(--foreground-fainter);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background: var(--background);
+}
+.card h2 { font-size: 1rem; color: var(--foreground-faint); border: 0; padding: 0; margin: 0 0 0.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+@media (max-width: 900px) { .card-grid { grid-template-columns: 1fr; } }
+.muted { color: var(--foreground-faint); }
+.error { color: #ef4444; }
+
+/* Footer, mirroring the one lsts/footer.ts produces on the Observable site. */
+.site-footer {
+  margin-top: 4rem;
+  color: var(--foreground-faint);
+  font-size: 0.9rem;
+}
+.site-footer p { margin: 0.25rem 0; }
+.site-footer a { color: var(--foreground-faint); text-decoration: underline; }
+.site-footer a:hover { color: var(--link); }
+
+/* Hero header box, as used by the credits page. The outer element sets the
+   aspect ratio with padding-top and the inner one fills it. */
+.outer-placeholder { position: relative; width: 100%; overflow: hidden; }
+.inner-placeholder { position: absolute; inset: 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Section listing cards, mirroring the Observable list output. */
+a.no-deco { text-decoration: none; display: block; }
+a.no-deco:hover .card { border-color: var(--accent); }
+.card h2.blog-list { font-size: 1.25rem; color: var(--accent); border: 0; padding: 0; margin: 0 0 0.25rem; }
+.card h3.date { font-size: 0.85rem; font-style: italic; font-weight: 400; color: var(--foreground-faint); margin: 0 0 0.5rem; }
+.card p.description { color: var(--foreground); margin: 0; }

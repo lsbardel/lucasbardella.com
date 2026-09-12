@@ -1,0 +1,26 @@
+---
+import { navigation } from "../lib/nav";
+
+const sections = await navigation();
+const current = Astro.url.pathname.replace(/\/$/, "");
+const link = "block px-3 py-1 rounded no-underline";
+---
+
+<nav class="sidebar">
+  {sections.map((sect) => (
+    sect.pages && sect.pages.length > 0 ? (
+      <details open={sect.open || sect.pages.some((p) => p.path === current)}>
+        <summary class="px-3 py-1 cursor-pointer select-none">{sect.name}</summary>
+        <ul class="list-none pl-2 m-0">
+          {sect.pages.map((page) => (
+            <li>
+              <a href={page.path} class={`${link} ${page.path === current ? "current" : ""}`}>{page.name}{page.draft && <span class="draft">draft</span>}</a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    ) : (
+      <a href={sect.path} class={`${link} ${sect.path === current ? "current" : ""}`}>{sect.name}</a>
+    )
+  ))}
+</nav>
