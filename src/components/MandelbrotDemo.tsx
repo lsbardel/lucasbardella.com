@@ -18,15 +18,15 @@ interface Props {
  * of the conversion work for a page like this.
  *
  * Full screen keeps the palette control, floated over the set rather than
- * stacked above it, so the plot gets the whole viewport. Note that the zoom
+ * stacked above it. The set keeps its own 69% proportions. Note that the zoom
  * lives inside Mandelbrot's effect, which FullScreen remounts, so toggling
  * returns to the default view.
  */
 const MandelbrotDemo = ({ maxIter = 256 }: Props) => {
   const [palette, setPalette] = React.useState("Turbo");
   return (
-    <FullScreen label="Mandelbrot set">
-      {({ isFullScreen, aspectRatio }) => (
+    <FullScreen ratio={0.69} label="Mandelbrot set">
+      {({ isFullScreen }) => (
         <>
           <div
             className={
@@ -44,7 +44,7 @@ const MandelbrotDemo = ({ maxIter = 256 }: Props) => {
               </select>
             </label>
           </div>
-          <Mandelbrot maxIter={maxIter} palette={palette} aspectRatio={aspectRatio} />
+          <Mandelbrot maxIter={maxIter} palette={palette} />
         </>
       )}
     </FullScreen>

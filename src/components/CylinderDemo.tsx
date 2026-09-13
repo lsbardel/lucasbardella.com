@@ -9,7 +9,7 @@ import { schemes } from "./palettes";
  * laid out in the same two columns as the original `grid grid-cols-2` block.
  *
  * Full screen keeps the controls, floated over the plot rather than stacked
- * above it, so the flow itself gets the whole viewport.
+ * above it. The plot keeps its own 70% proportions and is scaled up to fit.
  */
 const CylinderDemo = () => {
   const [radius, setRadius] = React.useState(0.1);
@@ -19,8 +19,8 @@ const CylinderDemo = () => {
   const [particleRadius, setParticleRadius] = React.useState(3);
 
   return (
-    <FullScreen label="potential flow past a cylinder">
-      {({ isFullScreen, aspectRatio }) => (
+    <FullScreen ratio={0.7} label="potential flow past a cylinder">
+      {({ isFullScreen }) => (
         <>
           <div
             className={
@@ -47,7 +47,6 @@ const CylinderDemo = () => {
             nParticles={nParticles}
             particleRadius={particleRadius}
             palette={palette}
-            aspectRatio={aspectRatio}
           />
         </>
       )}

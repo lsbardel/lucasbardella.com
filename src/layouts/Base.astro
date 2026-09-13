@@ -51,7 +51,16 @@ const width: ContentWidth = Astro.props.width ?? fm.width ?? "prose";
 const contentPath: string | undefined = Astro.props.contentPath ?? fm.contentPath;
 const date: string | Date | undefined = Astro.props.date ?? fm.date;
 const heroImage: string | undefined = Astro.props.heroImage ?? fm.heroImage;
-const heroUrls = heroImage ? (images as Record<string, any>)[heroImage] : undefined;
+/**
+ * A heroImage is normally a name in the generated registry, which carries four
+ * sizes from the photo provider. A value that looks like a path is instead a
+ * file already in public/, so it stands in for all four.
+ */
+const heroUrls = heroImage
+  ? heroImage.startsWith("/")
+    ? { thumbnail: heroImage, small: heroImage, regular: heroImage, large: heroImage }
+    : (images as Record<string, any>)[heroImage]
+  : undefined;
 const heroOpacity = Astro.props.heroOpacity ?? fm.heroOpacity;
 const heroBlur: string | undefined = Astro.props.heroBlur ?? fm.heroBlur;
 const heroTextColor: string | undefined = Astro.props.heroTextColor ?? fm.heroTextColor;
