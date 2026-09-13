@@ -60,9 +60,18 @@ const LOADERS: Loader[] = [
 
 const force = process.argv.includes("--force");
 
-/** Python loaders need the project virtualenv, which is what `uv run` gives them. */
+/**
+ * Python loaders need the project virtualenv, which is what `uv run` gives them.
+ *
+ * The cfd extra is requested because the two CFD loaders import cfd.cavity, which
+ * imports foamlib at module level. They only read a zip that `make cfd-cases`
+ * already wrote, so nothing here talks to OpenFOAM, but the import still has to
+ * resolve. Without the extra a clean checkout fails on ModuleNotFoundError, which
+ * is invisible locally because the zip is usually already on disk and skipped.
+ */
 const command = (source: string): [string, string[]] => {
-  if (source.endsWith(".py")) return ["uv", ["run", "python", join("dataloaders", source)]];
+  if (source.endsWith(".py"))
+    return ["uv", ["run", "--extra", "cfd", "python", join("dataloaders", source)]];
   if (source.endsWith(".ts")) return ["npx", ["tsx", join("dataloaders", source)]];
   return ["node", [join("dataloaders", source)]];
 };
