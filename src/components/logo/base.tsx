@@ -61,13 +61,13 @@ export const LogoWrapper = ({ size = 300, strokeColor = "#10a37f", svgRef }: Log
 
   const btnStyle: React.CSSProperties = {
     margin: "8px 4px 0",
-    padding: "6px 16px",
+    padding: "3px 10px",
     cursor: "pointer",
     border: `1px solid ${strokeColor}`,
     borderRadius: "4px",
     background: "transparent",
     color: strokeColor,
-    fontSize: "13px",
+    fontSize: "11px",
   };
 
   return (

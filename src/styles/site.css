@@ -388,7 +388,10 @@ th { color: var(--foreground-faint); font-weight: 600; }
 }
 
 /* Section listing cards, mirroring the Observable list output. */
-a.no-deco { text-decoration: none; display: block; }
+a.no-deco { text-decoration: none; }
+/* Only the listing cards want the link to fill its row. Without the :has
+   the same class made the CV download button span the whole column. */
+a.no-deco:has(> .card) { display: block; }
 a.no-deco:hover .card { border-color: var(--accent); }
 .card h2.blog-list { font-size: 1.25rem; color: var(--accent); border: 0; padding: 0; margin: 0 0 0.25rem; }
 .card h3.date { font-size: 0.85rem; font-style: italic; font-weight: 400; color: var(--foreground-faint); margin: 0 0 0.5rem; }
