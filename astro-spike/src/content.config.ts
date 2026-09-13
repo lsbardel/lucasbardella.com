@@ -5,5 +5,6 @@ import { defineCollection } from "astro:content";
 // `date: 2014 November 6`, and a spike should not force them to be cleaned up.
 const blog = defineCollection({ loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }) });
 const lab = defineCollection({ loader: glob({ base: "./src/content/lab", pattern: "**/*.{md,mdx}" }) });
+const coding = defineCollection({ loader: glob({ base: "./src/content/coding", pattern: "**/*.{md,mdx}" }) });
 
-export const collections = { blog, lab };
+export const collections = { blog, lab, coding };

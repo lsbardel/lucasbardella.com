@@ -9,10 +9,10 @@ import { entryPath } from "../lib/entry-path";
  * ContentLoader.emitList(). Same card markup, same ordering (newest first),
  * same rule that drafts are left out.
  */
-const SECTIONS = ["blog", "lab"] as const;
+const SECTIONS = ["blog", "lab", "coding"] as const;
 
 export async function getStaticPaths() {
-  return ["blog", "lab"].map((section) => ({ params: { section } }));
+  return ["blog", "lab", "coding"].map((section) => ({ params: { section } }));
 }
 
 const { section } = Astro.params as { section: (typeof SECTIONS)[number] };

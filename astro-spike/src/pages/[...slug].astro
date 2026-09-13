@@ -6,7 +6,7 @@ import { entryPath } from "../lib/entry-path";
 // Mirrors the Observable site's content/<section>/[year]/[slug].md.ts routes,
 // so the published URLs stay identical.
 export async function getStaticPaths() {
-  const sections = ["blog", "lab"] as const;
+  const sections = ["blog", "lab", "coding"] as const;
   const paths = [];
   for (const section of sections) {
     const entries = await getCollection(section);

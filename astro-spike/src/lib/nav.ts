@@ -8,12 +8,12 @@ export interface NavItem {
 }
 
 /**
- * On the live site `private: true` removes a post from every listing. The spike
- * is a local evaluation, where a draft you cannot navigate to is worse than a
- * visible one, so drafts are listed and marked instead. A production port
- * should set this false so unfinished posts never ship.
+ * `private: true` keeps a post out of the listings, but the page is still built
+ * and reachable by URL, as on the live site. The sidebar shows drafts only in
+ * the dev server, so they are easy to reach while writing and never linked in
+ * a production build.
  */
-const SHOW_DRAFTS = true;
+const SHOW_DRAFTS = import.meta.env.DEV;
 
 export interface NavSection {
   name: string;
@@ -44,6 +44,7 @@ const BEFORE_COLLECTIONS: NavSection[] = [
     pages: [
       { name: "heatmap", path: "/market/heatmap" },
       { name: "fed", path: "/market/fed" },
+      { name: "boe", path: "/market/boe" },
     ],
   },
 ];
@@ -58,13 +59,16 @@ const AFTER_COLLECTIONS: NavSection[] = [
  * Reproduces ContentLoader.sidebar(): drop drafts, newest first, and label each
  * entry "<year> <name>" so the listing reads the same as the Observable site.
  */
-const section = async (name: "blog" | "lab"): Promise<NavSection> => {
+const section = async (name: "blog" | "lab" | "coding"): Promise<NavSection> => {
   const entries = (await getCollection(name)).filter(
     (entry) => SHOW_DRAFTS || entry.data.private !== true,
   );
   const pages = entries
     .map((entry) => ({
-      date: entry.data.date ? new Date(entry.data.date) : new Date(0),
+      // Undated entries sort as today, matching entryYear, which puts them
+      // in the current year's URL. Sorting them to the epoch instead listed
+      // them last under a label saying otherwise.
+      date: entry.data.date ? new Date(entry.data.date) : new Date(),
       title: `${entry.data.title ?? entry.id}`,
       path: entryPath(name, entry.id, entry.data.date),
       draft: entry.data.private === true,
@@ -76,6 +80,7 @@ const section = async (name: "blog" | "lab"): Promise<NavSection> => {
 
 export const navigation = async (): Promise<NavSection[]> => [
   ...BEFORE_COLLECTIONS,
+  await section("coding"),
   await section("blog"),
   await section("lab"),
   ...AFTER_COLLECTIONS,
