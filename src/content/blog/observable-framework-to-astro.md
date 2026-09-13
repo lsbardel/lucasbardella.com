@@ -4,6 +4,7 @@ description: What it took to move sixty pages, twenty five components and an int
 date: 2026-09-12
 keywords: observable framework, astro, site migration, react islands, static site generator, npm resolution, bundle size, mdx, tailwind
 private: true
+toc: true
 ---
 
 This site ran on [Observable Framework](https://observablehq.com/framework/) for several years and it was a good fit. Markdown pages with reactive code cells are a pleasant way to write technical posts, the data loader model is clean, and the reactive runtime removes wiring you would otherwise do by hand. It now runs on [Astro](https://astro.build), and the reason has nothing to do with any of that.

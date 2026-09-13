@@ -2,6 +2,7 @@
 title: AI World
 description: A journey through the modern AI world - Tools, Concepts, and Open Source Projects
 date: 2025 Aug 24
+toc: true
 ---
 
 **This is still a work in progress - I'm trying to get a better understanding of the landscape.**

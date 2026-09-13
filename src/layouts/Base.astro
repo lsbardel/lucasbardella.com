@@ -32,6 +32,13 @@ interface Props {
   heroTextColor?: string;
   heroAspectRatio?: string;
   showTitle?: boolean;
+  /**
+   * Table of contents in the right margin, the `toc` option on the old site.
+   * Off unless a page asks for it. Astro passes `headings` to .md pages that
+   * set a layout; collection entries get theirs from the route.
+   */
+  toc?: boolean;
+  headings?: { depth: number; slug: string; text: string }[];
 }
 /**
  * Props arrive directly from .astro pages, and inside `frontmatter` when an
@@ -51,6 +58,10 @@ const heroTextColor: string | undefined = Astro.props.heroTextColor ?? fm.heroTe
 const heroAspectRatio: string = Astro.props.heroAspectRatio ?? fm.heroAspectRatio ?? "35%";
 /** Canonical URL of this page, absolute, from `site` in astro.config.mjs. */
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
+const toc: boolean = Astro.props.toc ?? fm.toc ?? false;
+// Only the sections of the page: subsections would crowd the margin.
+const headings = (Astro.props.headings ?? []).filter((h) => h.depth === 2);
+const showToc = toc && headings.length > 0;
 /** Pages with their own hero heading suppress the layout's h1. */
 const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
 ---
@@ -191,14 +202,95 @@ const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
             </div>
           </div>
         )}
+        <div class={showToc ? "with-toc" : ""}>
         <div class="column">
         {showTitle && heroUrls && <h1 class="sr-only">{title}</h1>}
         {showTitle && !heroUrls && !date && <h1>{title}</h1>}
         <slot />
         <Footer contentPath={contentPath} />
         </div>
+        {showToc && (
+          <aside class="toc" aria-label="On this page">
+            <p class="toc-title">Contents</p>
+            <ul>
+              {headings.map((h) => (
+                <li class={`toc-h${h.depth}`}><a href={`#${h.slug}`}>{h.text}</a></li>
+              ))}
+            </ul>
+          </aside>
+        )}
+        </div>
       </main>
     </div>
+    <script>
+      // Highlight the contents entry for the section currently under the
+      // header: the last heading whose top has passed the header line.
+      const tocLinks = document.querySelectorAll(".toc a");
+      if (tocLinks.length > 0) {
+        const byId = new Map([...tocLinks].map((a) => [a.getAttribute("href").slice(1), a]));
+        const headings = [...document.querySelectorAll("main .column h2")]
+          .filter((h) => byId.has(h.id));
+        const rootSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        // Headings carry scroll-margin-top of header + 1.5rem, so a clicked
+        // heading lands exactly on this line. The slack keeps a sub-pixel
+        // landing from leaving the previous entry marked.
+        const line = 3.5 * rootSize + 1.5 * rootSize + 4;
+        let current = null;
+        let queued = false;
+
+        const mark = (heading) => {
+          if (heading === current) return;
+          current = heading;
+          for (const link of tocLinks) link.parentElement.classList.remove("current");
+          if (heading) byId.get(heading.id)?.parentElement.classList.add("current");
+        };
+
+        const update = () => {
+          queued = false;
+          // At the bottom of the document the last headings can never reach the
+          // line, so the final one wins.
+          if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) {
+            mark(headings[headings.length - 1] ?? null);
+            return;
+          }
+          let active = headings[0] ?? null;
+          for (const heading of headings) {
+            if (heading.getBoundingClientRect().top <= line) active = heading;
+            else break;
+          }
+          mark(active);
+        };
+
+        // A click is an explicit choice: mark it straight away and let the
+        // scroll it triggers settle before tracking again.
+        let ignoreUntil = 0;
+        for (const link of tocLinks) {
+          link.addEventListener("click", () => {
+            ignoreUntil = Date.now() + 700;
+            mark(headings.find((h) => h.id === link.getAttribute("href").slice(1)) ?? null);
+          });
+        }
+
+        addEventListener("scroll", () => {
+          if (queued || Date.now() < ignoreUntil) return;
+          queued = true;
+          requestAnimationFrame(update);
+        }, { passive: true });
+        update();
+
+        // The entry the address points at, set by a contents link, a shared
+        // link or the back button. It keeps its own mark while the reader
+        // scrolls away, so the section the URL names always stands out.
+        const markLinked = () => {
+          const id = decodeURIComponent(location.hash.slice(1));
+          for (const link of tocLinks) {
+            link.parentElement.classList.toggle("linked", link.getAttribute("href").slice(1) === id);
+          }
+        };
+        addEventListener("hashchange", markLinked);
+        markLinked();
+      }
+    </script>
     <script>
       // Observable Framework rendered ```mermaid fences as diagrams natively.
       // Astro highlights them as code instead, so swap each block for the

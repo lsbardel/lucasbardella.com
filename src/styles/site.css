@@ -83,6 +83,10 @@ body {
   line-height: 1.5;
 }
 
+/* The header is sticky, so an anchor jump would leave the heading underneath
+   it. Push the scroll position down by the header height plus a little air. */
+h1, h2, h3, h4, h5, h6 { scroll-margin-top: calc(var(--header-height) + 1.5rem); }
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--foreground-alt);
   font-weight: 700;
@@ -97,7 +101,10 @@ h3 { font-size: 1.2em; }
 h4 { font-size: 1em; }
 
 /* Section rules, as on the live site: a hairline above each h2 in gold. */
-main > h2 {
+/* Top level section headings: the gold rule the old site drew above each h2.
+   Scoped to .column, the content column, so an h2 inside a card or a chart
+   component is left alone. This was `main > h2` before the column existed. */
+.column > h2 {
   border-top: 1px solid var(--foreground-fainter);
   padding-top: 25px;
   padding-bottom: 15px;
@@ -140,7 +147,7 @@ main { margin: 0 auto; padding: 2rem 2rem 6rem; min-width: 0; }
 /* The hero spans this, 1440px as on the old site. The text does not: it
    sits in .column below, centred in the same space it had before. */
 .content-prose { max-width: 90rem; }
-.content-prose > .column { max-width: 54rem; margin: 0 auto; }
+.content-prose .column { max-width: 54rem; margin: 0 auto; }
 .content-wide { max-width: 76rem; }
 .content-full { max-width: none; }
 
@@ -176,6 +183,36 @@ select { margin-left: 0.5rem; background: var(--surface); color: var(--foregroun
 table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
 th, td { border-bottom: 1px solid var(--foreground-fainter); padding: 0.5rem 0.75rem; text-align: left; }
 th { color: var(--foreground-faint); font-weight: 600; }
+
+/* Table of contents in the right margin, opt in with `toc: true`. The content
+   column keeps its own width and the list sits beside it, sticky under the
+   header. Below 1100px there is no margin to spare, so it is dropped. */
+.with-toc { display: grid; grid-template-columns: minmax(0, 1fr) 13rem; column-gap: 2rem; align-items: start; }
+.toc {
+  position: sticky;
+  top: calc(var(--header-height) + 1.5rem);
+  font-size: 0.8em;
+  max-height: calc(100vh - var(--header-height) - 3rem);
+  overflow-y: auto;
+}
+.toc-title { color: var(--foreground-faint); font-weight: 600; margin: 0 0 0.5rem; }
+.toc ul { list-style: none; margin: 0; padding: 0; max-width: none; }
+.toc li { margin: 0.35rem 0; border-left: 2px solid transparent; padding-left: 0.6rem; }
+.toc a { color: var(--foreground-faint); text-decoration: none; }
+.toc a:hover { color: var(--accent); }
+/* The section the URL names, kept while the page scrolls. A background rather
+   than the accent, so it reads apart from the section under the header, and
+   both show when they are the same one. */
+.toc li.linked { background: var(--surface); border-radius: 0 0.25rem 0.25rem 0; }
+.toc li.linked > a { color: var(--foreground); }
+/* The section currently under the header. --accent carries the light and dark
+   values, so the marker follows the theme without a second rule. */
+.toc li.current { border-left-color: var(--accent); }
+.toc li.current > a { color: var(--accent); font-weight: 600; }
+@media (max-width: 1100px) {
+  .with-toc { display: block; }
+  .toc { display: none; }
+}
 
 /* Shell: sidebar plus content, stacking on narrow screens. */
 .shell { display: flex; align-items: stretch; }

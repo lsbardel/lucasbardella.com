@@ -3,6 +3,7 @@ title: My WSL2 Setup
 date: 2024-08-18
 description: How I set up my development environment on Windows WSL v2 for working with rust, python, node js and other tools, I no longer need to overpay for a Mac!
 keywords: dev, wsl, rust, python, nodejs
+toc: true
 ---
 
 

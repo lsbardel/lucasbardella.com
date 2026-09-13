@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 ---
 
 <Base
@@ -35,6 +35,8 @@ const { Content } = await render(entry);
   heroBlur={entry.data.heroBlur}
   heroTextColor={entry.data.heroTextColor}
   heroAspectRatio={entry.data.heroAspectRatio}
+  toc={entry.data.toc}
+  headings={headings}
 >
   <Content />
 </Base>

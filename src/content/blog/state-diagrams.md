@@ -3,6 +3,7 @@ title: State Diagrams with Mermaid
 date: 2023-03-25
 description: Transform markdown text into stunning diagrams with Mermaid javascript library and ask chatGPT to generate some for you!
 keywords: visualization
+toc: true
 heroImage: mermaid
 heroOpacity: "0.5"
 ---
