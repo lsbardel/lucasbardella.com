@@ -20,6 +20,8 @@ average = "0.16.0"
 criterion = "0.5.1"
 
 [lib]
+# The site owns src/, so the crate sources live in lsrs/.
+path = "lsrs/lib.rs"
 bench = false
 
 [[bench]]

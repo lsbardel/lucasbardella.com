@@ -1,5 +1,5 @@
 /**
- * Regenerates `content/components/heatmap-sources.ts`, the market list used by
+ * Regenerates `src/components/heatmap-sources.ts`, the market list used by
  * the market heatmap page.
  *
  * TradingView publishes no API and no documentation for the heatmap dataset
@@ -25,7 +25,7 @@ import { existsSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
 const EMBED_URL = "https://s.tradingview.com/embed-widget/stock-heatmap/?locale=en";
-const OUTPUT = join(process.cwd(), "content", "components", "heatmap-sources.ts");
+const OUTPUT = join(process.cwd(), "src", "components", "heatmap-sources.ts");
 
 /** Datasets with no single country, shown together under Europe. */
 const EUROPE = new Set(["SX5E", "SXXP", "AllEU"]);
