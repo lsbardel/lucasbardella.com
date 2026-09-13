@@ -34,6 +34,15 @@ jobs:
         run: make cfd-build
       - name: run CFD cases
         run: make cfd-cases
+      - name: run data loaders
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
+          GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
+          GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          TRADING_DATA_URL: ${{ secrets.TRADING_DATA_URL }}
+        run: npm i && make data
       - name: build bundle
         env:
           GITHUB_RUN_ID: ${{ github.run_id }}
@@ -43,7 +52,7 @@ jobs:
           GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           TRADING_DATA_URL: ${{ secrets.TRADING_DATA_URL }}
-        run: npm i && npm run build
+        run: npm run build
       - name: Download thesis
         run: make phd
       - name: upload artifacts

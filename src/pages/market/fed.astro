@@ -1,0 +1,20 @@
+---
+import FedRates from "../../components/FedRates";
+import Base from "../../layouts/Base.astro";
+---
+
+<Base
+  title="US Interest Rates"
+  description="Treasury yield curves, spreads and butterflies, ported from the Observable page."
+  width="full"
+>
+  <FedRates client:load />
+
+  <p>
+    Federal reserve interest rates are a key indicator of the health of the economy.
+    The yield curve is a plot of interest rates at different maturities, and is often
+    used to predict economic downturns. An inverted yield curve, where short-term rates
+    are higher than long-term rates, is often seen as a sign of an impending recession.
+    The Federal Reserve uses interest rates to control inflation and stabilize the economy.
+  </p>
+</Base>

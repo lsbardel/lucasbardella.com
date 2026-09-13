@@ -1,0 +1,39 @@
+---
+title: Mandelbrot set
+description: An interactive zoomable plot of the Mandelbrot set rendered on canvas.
+date: 2023-01-08
+keywords: d3, mathematics, canvas
+---
+
+import MandelbrotDemo from "../../components/MandelbrotDemo";
+
+An interactive canvas rendering of the [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set).
+**Scroll** to zoom, **drag** to pan, **double-click** to reset.
+
+<MandelbrotDemo client:load maxIter={256} />
+
+## How Far You Can Zoom
+
+The zoom is capped at ten billion times the opening view, set by `scaleExtent([1, 1e10])`
+on the d3 zoom behaviour. The initial window spans 3.5 units of the real axis, so at full
+magnification you are looking at a slice about 0.35 nanometres wide. If the first frame
+were a metre across, the deepest zoom would be roughly the width of an atom.
+
+Two things limit how deep it is worth going, and floating point arithmetic is not the
+first of them.
+
+**Iteration count.** The render stops at 256 iterations. Deep inside the boundary, points
+need far more than that to escape, so they are all painted as interior and the colour
+bands flatten into solid shapes. Detail washes out well before the arithmetic does.
+Raising `maxIter` buys more structure at the cost of render time, since cost scales with
+iterations times pixels.
+
+**Double precision.** JavaScript numbers are 64 bit floats carrying about 16 significant
+digits. At the cap, with a canvas around a thousand pixels wide, neighbouring pixels sit
+3.5e-13 apart in the complex plane, still almost three orders of magnitude above the
+4.4e-16 resolution of a double near the edge of the set. Precision would only start to
+grain up somewhere past 1e12, which is why the cap sits comfortably below it.
+
+Renderers that reach 1e100 and beyond abandon hardware floats entirely, using arbitrary
+precision arithmetic with perturbation theory, computing one high precision reference
+orbit and expressing nearby pixels as small offsets from it.

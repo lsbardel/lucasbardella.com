@@ -1,0 +1,324 @@
+---
+import "katex/dist/katex.min.css";
+import "../styles/site.css";
+import Sidebar from "../components/Sidebar.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { formatDate } from "../lib/date";
+import { pageTitle, site } from "../lib/site";
+import { PageHeader } from "../components/image";
+import images from "../data/images.json";
+
+/**
+ * `width` replaces Observable's `theme: dashboard` frontmatter:
+ *   prose  reading column, the default for posts
+ *   wide   roomier, for pages with a couple of panels
+ *   full   edge to edge, for dashboards
+ */
+export type ContentWidth = "prose" | "wide" | "full";
+
+interface Props {
+  title: string;
+  description?: string;
+  width?: ContentWidth;
+  /** Repository path of the page source, for the footer's source link. */
+  contentPath?: string;
+  /** Publication date of a blog or lab entry; pages without one show no date line. */
+  date?: string | Date;
+  /** Hero header, the `heroImage` family of frontmatter fields on the old site. */
+  heroImage?: string;
+  heroOpacity?: number | string;
+  heroBlur?: string;
+  heroTextColor?: string;
+  heroAspectRatio?: string;
+  showTitle?: boolean;
+  /**
+   * Table of contents in the right margin, the `toc` option on the old site.
+   * Off unless a page asks for it. Astro passes `headings` to .md pages that
+   * set a layout; collection entries get theirs from the route.
+   */
+  toc?: boolean;
+  headings?: { depth: number; slug: string; text: string }[];
+}
+/**
+ * Props arrive directly from .astro pages, and inside `frontmatter` when an
+ * .md or .mdx page sets `layout:`. Accept both so either style works.
+ */
+const fm = (Astro.props as Record<string, any>).frontmatter ?? {};
+const title: string = Astro.props.title ?? fm.title;
+const description: string | undefined = Astro.props.description ?? fm.description;
+const width: ContentWidth = Astro.props.width ?? fm.width ?? "prose";
+const contentPath: string | undefined = Astro.props.contentPath ?? fm.contentPath;
+const date: string | Date | undefined = Astro.props.date ?? fm.date;
+const heroImage: string | undefined = Astro.props.heroImage ?? fm.heroImage;
+const heroUrls = heroImage ? (images as Record<string, any>)[heroImage] : undefined;
+const heroOpacity = Astro.props.heroOpacity ?? fm.heroOpacity;
+const heroBlur: string | undefined = Astro.props.heroBlur ?? fm.heroBlur;
+const heroTextColor: string | undefined = Astro.props.heroTextColor ?? fm.heroTextColor;
+const heroAspectRatio: string = Astro.props.heroAspectRatio ?? fm.heroAspectRatio ?? "35%";
+/** Canonical URL of this page, absolute, from `site` in astro.config.mjs. */
+const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
+const toc: boolean = Astro.props.toc ?? fm.toc ?? false;
+// Only the sections of the page: subsections would crowd the margin.
+const headings = (Astro.props.headings ?? []).filter((h) => h.depth === 2);
+const showToc = toc && headings.length > 0;
+/** Pages with their own hero heading suppress the layout's h1. */
+const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle(title)}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+
+    {/* Open Graph and Twitter. The old site set only the image and the card
+        type site-wide, so every page shared the same preview text. Titles,
+        descriptions and urls are per page here. */}
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle(title)} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content={date ? "article" : "website"} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={site.ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle(title)} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={site.ogImage} />
+
+    {/* Icons, manifest and theme colour, the `head` block of observablehq.config.js. */}
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/luca-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/luca-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/luca-48.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/luca-64.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/luca-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/luca-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/luca-180.png" />
+    <link rel="manifest" href="/assets/manifest.json" />
+    <meta name="theme-color" content={site.themeColor} />
+    <meta name="google-adsense-account" content={site.adsenseAccount} />
+
+    {/* Google Analytics, the gtag pair lsts/footer.ts appended to every page.
+        Skipped when GA_MEASUREMENT_ID is unset, so local builds do not send
+        events, and so the old `?id=undefined` request cannot happen. */}
+    {site.gaMeasurementId && (
+      <>
+        <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${site.gaMeasurementId}`}></script>
+        <script is:inline define:vars={{ measurementId: site.gaMeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag("js", new Date());
+          gtag("config", measurementId);
+        </script>
+      </>
+    )}
+    {/* Pagefind writes into public/ at build time, so dev serves it too. */}
+    <link rel="stylesheet" href="/pagefind/pagefind-component-ui.css" />
+    <script is:inline>
+      // Runs before first paint so the page never flashes the wrong theme.
+      // Three preferences (light, dark, system) resolve to two appearances.
+      // `data-theme` drives the site tokens and is absent for "system" so the
+      // prefers-color-scheme rules apply. Pagefind's component UI only honours
+      // data-pf-theme="dark" and has no system mode, so it gets the resolved value.
+      (() => {
+        const KEY = "ls.theme";
+        const media = window.matchMedia("(prefers-color-scheme: dark)");
+        const read = () => {
+          try { return localStorage.getItem(KEY) ?? "system"; } catch { return "system"; }
+        };
+        const apply = (preference) => {
+          const root = document.documentElement;
+          if (preference === "system") root.removeAttribute("data-theme");
+          else root.setAttribute("data-theme", preference);
+          const dark = preference === "dark" || (preference === "system" && media.matches);
+          if (dark) root.setAttribute("data-pf-theme", "dark");
+          else root.removeAttribute("data-pf-theme");
+          for (const button of document.querySelectorAll("[data-set-theme]")) {
+            button.setAttribute("aria-pressed", String(button.dataset.setTheme === preference));
+          }
+        };
+        window.__setTheme = (preference) => {
+          try { localStorage.setItem(KEY, preference); } catch {}
+          apply(preference);
+        };
+        media.addEventListener("change", () => { if (read() === "system") apply(read()); });
+        apply(read());
+        // The buttons do not exist yet on the first run, so mark them once they do.
+        document.addEventListener("DOMContentLoaded", () => apply(read()));
+      })();
+    </script>
+  </head>
+  <body>
+    <Header />
+    <div class="shell">
+      {/* Checkbox toggle, the same trick Observable Framework uses, so
+          collapsing the sidebar needs no JavaScript at all. */}
+      <input id="sidebar-toggle" type="checkbox" aria-label="Collapse sidebar" />
+      <label class="sidebar-handle" for="sidebar-toggle" title="Toggle sidebar"></label>
+      <Sidebar />
+      <main class={`content-${width}`} data-pagefind-body>
+        {/* heroHeader() in lsts/content.ts: the title, description and date
+            move into the image overlay, and the real h1 stays for screen
+            readers and search engines. */}
+        {showTitle && heroUrls && (
+          <>
+            <div class="outer-placeholder" style={`padding-top: ${heroAspectRatio};`}>
+              <div class="inner-placeholder">
+                <PageHeader
+                  client:load
+                  title={title}
+                  subtitle={description}
+                  date={date ? formatDate(date) : undefined}
+                  urls={heroUrls}
+                  opacity={heroOpacity === undefined ? undefined : Number(heroOpacity)}
+                  blur={heroBlur}
+                  textColor={heroTextColor}
+                />
+              </div>
+            </div>
+          </>
+        )}
+        {/* An entry with no heroImage gets the same banner without a photo:
+            PageHeader renders its title, description and date over the plain
+            .inner-placeholder panel, so every entry has the same header
+            geometry. Pages with no date, the market dashboards and the section
+            listings, keep the bare h1 instead. */}
+        {showTitle && !heroUrls && date && (
+          <div class="outer-placeholder" style={`padding-top: ${heroAspectRatio};`}>
+            <div class="inner-placeholder no-image">
+              <PageHeader
+                client:load
+                title={title}
+                subtitle={description}
+                date={formatDate(date)}
+                urls={undefined}
+                textColor={heroTextColor}
+              />
+            </div>
+          </div>
+        )}
+        <div class={showToc ? "with-toc" : ""}>
+        <div class="column">
+        {showTitle && heroUrls && <h1 class="sr-only">{title}</h1>}
+        {showTitle && !heroUrls && !date && <h1>{title}</h1>}
+        <slot />
+        <Footer contentPath={contentPath} />
+        </div>
+        {showToc && (
+          <aside class="toc" aria-label="On this page">
+            <p class="toc-title">Contents</p>
+            <ul>
+              {headings.map((h) => (
+                <li class={`toc-h${h.depth}`}><a href={`#${h.slug}`}>{h.text}</a></li>
+              ))}
+            </ul>
+          </aside>
+        )}
+        </div>
+      </main>
+    </div>
+    <script>
+      // Highlight the contents entry for the section currently under the
+      // header: the last heading whose top has passed the header line.
+      const tocLinks = document.querySelectorAll(".toc a");
+      if (tocLinks.length > 0) {
+        const byId = new Map([...tocLinks].map((a) => [a.getAttribute("href").slice(1), a]));
+        const headings = [...document.querySelectorAll("main .column h2")]
+          .filter((h) => byId.has(h.id));
+        const rootSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        // Headings carry scroll-margin-top of header + 1.5rem, so a clicked
+        // heading lands exactly on this line. The slack keeps a sub-pixel
+        // landing from leaving the previous entry marked.
+        const line = 3.5 * rootSize + 1.5 * rootSize + 4;
+        let current = null;
+        let queued = false;
+
+        const mark = (heading) => {
+          if (heading === current) return;
+          current = heading;
+          for (const link of tocLinks) link.parentElement.classList.remove("current");
+          if (heading) byId.get(heading.id)?.parentElement.classList.add("current");
+        };
+
+        const update = () => {
+          queued = false;
+          // At the bottom of the document the last headings can never reach the
+          // line, so the final one wins.
+          if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) {
+            mark(headings[headings.length - 1] ?? null);
+            return;
+          }
+          let active = headings[0] ?? null;
+          for (const heading of headings) {
+            if (heading.getBoundingClientRect().top <= line) active = heading;
+            else break;
+          }
+          mark(active);
+        };
+
+        // A click is an explicit choice: mark it straight away and let the
+        // scroll it triggers settle before tracking again.
+        let ignoreUntil = 0;
+        for (const link of tocLinks) {
+          link.addEventListener("click", () => {
+            ignoreUntil = Date.now() + 700;
+            mark(headings.find((h) => h.id === link.getAttribute("href").slice(1)) ?? null);
+          });
+        }
+
+        addEventListener("scroll", () => {
+          if (queued || Date.now() < ignoreUntil) return;
+          queued = true;
+          requestAnimationFrame(update);
+        }, { passive: true });
+        update();
+
+        // The entry the address points at, set by a contents link, a shared
+        // link or the back button. It keeps its own mark while the reader
+        // scrolls away, so the section the URL names always stands out.
+        const markLinked = () => {
+          const id = decodeURIComponent(location.hash.slice(1));
+          for (const link of tocLinks) {
+            link.parentElement.classList.toggle("linked", link.getAttribute("href").slice(1) === id);
+          }
+        };
+        addEventListener("hashchange", markLinked);
+        markLinked();
+      }
+    </script>
+    <script>
+      // Observable Framework rendered ```mermaid fences as diagrams natively.
+      // Astro highlights them as code instead, so swap each block for the
+      // rendered SVG. The library is a large dependency, hence the dynamic
+      // import behind the guard: pages without a diagram never load it.
+      const blocks = document.querySelectorAll('pre[data-language="mermaid"]');
+      if (blocks.length > 0) {
+        const root = document.documentElement;
+        const dark = root.dataset.theme
+          ? root.dataset.theme === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const { default: mermaid } = await import("mermaid");
+        mermaid.initialize({ startOnLoad: false, securityLevel: "loose", look: "classic", theme: dark ? "dark" : "neutral" });
+        for (const [index, pre] of [...blocks].entries()) {
+          const source = pre.querySelector("code")?.textContent ?? "";
+          try {
+            const { svg } = await mermaid.render(`mermaid-${index}`, source);
+            const figure = document.createElement("figure");
+            figure.className = "mermaid";
+            figure.innerHTML = svg;
+            pre.replaceWith(figure);
+          } catch (error) {
+            // A diagram that fails to parse keeps its code block rather than
+            // taking the rest of the page down with it.
+            console.error("mermaid:", error);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+---
+import BoeRates from "../../components/BoeRates";
+import Base from "../../layouts/Base.astro";
+---
+
+<Base
+  title="UK Interest Rates"
+  description="UK yield curve rates and spreads from the Bank of England, charted with the TradingView charting library."
+  width="full"
+>
+  <p>
+    UK Yield curve data from the <a href="https://www.bankofengland.co.uk/statistics/yield-curves">Bank of England</a>.
+  </p>
+  <BoeRates client:load />
+</Base>

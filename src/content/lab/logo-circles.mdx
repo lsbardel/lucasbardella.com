@@ -1,0 +1,21 @@
+---
+title: Geometric SVG Logo Generator
+description: Free interactive SVG logo generator built with D3.js. Design geometric logos from overlapping circles with rotational symmetry, export as SVG or PNG.
+date: 2026-03-13
+keywords: art, generative, logo, d3, svg, geometry, design
+private: true
+---
+
+import LogoCirclesDemo from "../../components/LogoCirclesDemo";
+
+## How it works
+
+Every professional logo begins as a geometric idea. This generator explores one of the simplest: take `n` circles of radius `r`, place each centre at distance `r` from the origin, and let them overlap. Because every circle passes through the origin, the intersections are predictable and the resulting silhouette has exact `n`-fold rotational symmetry.
+
+## Controls
+
+From that single construction you get a surprising range of marks depending on what you keep and what you cut away. The **clip** controls trim the shape to its outer boundary or hollow out its centre. **Fill petals** shades the lens-shaped intersection between each pair of adjacent circles, the building block of countless natural and designed forms, from Islamic geometric patterns to modern brand marks. **Show chords** adds the straight lines that connect each circle's outer intersection points, forming an inscribed polygon and introducing a harder, more architectural feeling.
+
+Tune the controls in real time and download the result as SVG or PNG.
+
+<LogoCirclesDemo client:load />

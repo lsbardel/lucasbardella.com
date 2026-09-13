@@ -1,0 +1,28 @@
+---
+title: Game of Life
+description: The famous Conway's Game of Life!
+date: 2023-01-28
+keywords: game, d3
+---
+
+import GameOfLifeDemo from "../../components/GameOfLifeDemo";
+
+A web component animating with the famous [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
+
+## Pulsar
+
+This is my favourite pattern and the most common period-3 oscillator.
+
+<GameOfLifeDemo client:load pattern="pulsar" speed={500} aspectRatio="60%" />
+
+## Beacon
+
+The most common period-2 oscillator.
+
+<GameOfLifeDemo client:load pattern="beacon" speed={500} aspectRatio="40%" />
+
+## Gosper
+
+The "Gosper glider gun" produces a pattern that can grow indefinitely
+
+<GameOfLifeDemo client:load pattern="gosper" speed={200} aspectRatio="60%" />

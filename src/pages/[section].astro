@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { formatDate } from "../lib/date";
+import { entryPath } from "../lib/entry-path";
+
+/**
+ * Section listings, the equivalent of content/blog.md.ts and lab.md.ts calling
+ * ContentLoader.emitList(). Same card markup, same ordering (newest first),
+ * same rule that drafts are left out.
+ */
+const SECTIONS = ["blog", "lab", "coding"] as const;
+
+export async function getStaticPaths() {
+  return ["blog", "lab", "coding"].map((section) => ({ params: { section } }));
+}
+
+const { section } = Astro.params as { section: (typeof SECTIONS)[number] };
+
+const entries = (await getCollection(section))
+  .filter((entry) => entry.data.private !== true)
+  .map((entry) => ({
+    title: entry.data.title ?? entry.id,
+    description: entry.data.description ?? "",
+    date: entry.data.date,
+    path: entryPath(section, entry.id, entry.data.date),
+  }))
+  .sort((a, b) => new Date(String(b.date)).getTime() - new Date(String(a.date)).getTime());
+
+const title = section.charAt(0).toUpperCase() + section.slice(1);
+---
+
+<Base title={title} description={`All ${section} entries.`}>
+  {entries.map((entry) => (
+    <a class="no-deco" href={entry.path}>
+      <div class="card">
+        <h2 class="blog-list">{entry.title}</h2>
+        <h3 class="date">{formatDate(entry.date)}</h3>
+        <p class="description">{entry.description}</p>
+      </div>
+    </a>
+  ))}
+</Base>

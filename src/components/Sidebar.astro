@@ -1,0 +1,32 @@
+---
+import { navigation } from "../lib/nav";
+
+const sections = await navigation();
+const current = Astro.url.pathname.replace(/\/$/, "");
+const link = "block px-3 py-1 rounded no-underline";
+---
+
+<nav class="sidebar">
+  {sections.map((sect) => (
+    sect.pages && sect.pages.length > 0 ? (
+      <details open={sect.open || sect.pages.some((p) => p.path === current)}>
+        <summary class="px-3 py-1 cursor-pointer select-none">
+          {/* The section name links to its listing page, as the Observable
+              sidebar did: <summary><a href="/lab">lab</a></summary>. Without
+              it the disclosure triangle is the only thing a click can do and
+              /lab and /blog are unreachable by navigation. */}
+          {sect.path ? <a href={sect.path} class={sect.path === current ? "current" : undefined}>{sect.name}</a> : sect.name}
+        </summary>
+        <ul class="list-none pl-2 m-0">
+          {sect.pages.map((page) => (
+            <li>
+              <a href={page.path} class={`${link} ${page.path === current ? "current" : ""}`}>{page.name}{page.draft && <span class="draft">draft</span>}</a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    ) : (
+      <a href={sect.path} class={`${link} ${sect.path === current ? "current" : ""}`}>{sect.name}</a>
+    )
+  ))}
+</nav>
