@@ -27,7 +27,7 @@ const { Content, headings } = await render(entry);
 <Base
   title={entry.data.title ?? entry.id}
   description={entry.data.description}
-  contentPath={entry.filePath?.replace(/^src\/content\//, "content/")}
+  contentPath={entry.filePath}
   width={entry.data.width}
   date={entry.data.date}
   heroImage={entry.data.heroImage}

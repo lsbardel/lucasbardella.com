@@ -3,7 +3,7 @@ layout: ../layouts/Base.astro
 title: Curriculum Vitae
 description: Curriculum vitae of Luca Sbardella, quantitative algo trader and tech lead.
 showTitle: false
-contentPath: content/cv.md
+contentPath: src/pages/cv.md
 ---
 
 # Curriculum Vitae

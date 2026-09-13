@@ -3,7 +3,7 @@ layout: ../layouts/Base.astro
 title: Now
 description: What I'm currently working on and running towards.
 showTitle: false
-contentPath: content/now.md
+contentPath: src/pages/now.md
 ---
 
 # Now

@@ -2,7 +2,7 @@
 layout: ../layouts/Base.astro
 title: Links
 showTitle: false
-contentPath: content/links.md
+contentPath: src/pages/links.md
 ---
 
 # Links

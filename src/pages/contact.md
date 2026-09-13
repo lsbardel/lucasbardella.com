@@ -2,7 +2,7 @@
 layout: ../layouts/Base.astro
 title: Contact Me
 showTitle: false
-contentPath: content/contact.md
+contentPath: src/pages/contact.md
 ---
 
 # Contact Me

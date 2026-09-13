@@ -3,7 +3,7 @@ layout: ../layouts/Base.astro
 title: Information for Recruiters
 description: My current engagement, how I work with clients as a consultant via Quantmind, and the terms I work under.
 showTitle: false
-contentPath: content/recruiters.md
+contentPath: src/pages/recruiters.md
 ---
 
 # Information for Recruiters
