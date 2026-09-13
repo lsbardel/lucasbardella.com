@@ -1,14 +1,16 @@
 import {BetaAnalyticsDataClient} from "@google-analytics/data";
-import config from "@ls/config";
 
+// Read straight from the environment. This used to come from lsts/config.ts via
+// the `@ls/config` alias, which went with the Observable site; CI passes these
+// as secrets, and locally they come from .env.
 const analyticsClient = new BetaAnalyticsDataClient({
   credentials: {
-    client_email: config.ga.clientEmail,
-    private_key: config.ga.privateKey,
+    client_email: process.env.GA_CLIENT_EMAIL,
+    private_key: (process.env.GA_PRIVATE_KEY || "").replace(/\\n/g, "\n"),
   }
 });
 
-const defaultProperty = `properties/${config.ga.propertyId}`;
+const defaultProperty = `properties/${process.env.GA_PROPERTY_ID}`;
 
 
 export async function runReport({
