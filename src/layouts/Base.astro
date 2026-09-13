@@ -170,21 +170,33 @@ const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
                 />
               </div>
             </div>
-            <h1 class="sr-only">{title}</h1>
           </>
         )}
-        {showTitle && !heroUrls && (
-          <>
-            <h1>{title}</h1>
-            {/* Entry pages carry the date and the description under the title,
-                the header lsts/content.ts emitted for every blog and lab entry.
-                Pages with no date, the market dashboards, keep the bare h1. */}
-            {date && <p class="date">{formatDate(date)}</p>}
-            {date && description && <p class="description">{description}</p>}
-          </>
+        {/* An entry with no heroImage gets the same banner without a photo:
+            PageHeader renders its title, description and date over the plain
+            .inner-placeholder panel, so every entry has the same header
+            geometry. Pages with no date, the market dashboards and the section
+            listings, keep the bare h1 instead. */}
+        {showTitle && !heroUrls && date && (
+          <div class="outer-placeholder" style={`padding-top: ${heroAspectRatio};`}>
+            <div class="inner-placeholder no-image">
+              <PageHeader
+                client:load
+                title={title}
+                subtitle={description}
+                date={formatDate(date)}
+                urls={undefined}
+                textColor={heroTextColor}
+              />
+            </div>
+          </div>
         )}
+        <div class="column">
+        {showTitle && heroUrls && <h1 class="sr-only">{title}</h1>}
+        {showTitle && !heroUrls && !date && <h1>{title}</h1>}
         <slot />
         <Footer contentPath={contentPath} />
+        </div>
       </main>
     </div>
     <script>
@@ -199,7 +211,7 @@ const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
           ? root.dataset.theme === "dark"
           : window.matchMedia("(prefers-color-scheme: dark)").matches;
         const { default: mermaid } = await import("mermaid");
-        mermaid.initialize({ startOnLoad: false, theme: dark ? "dark" : "default" });
+        mermaid.initialize({ startOnLoad: false, securityLevel: "loose", look: "classic", theme: dark ? "dark" : "neutral" });
         for (const [index, pre] of [...blocks].entries()) {
           const source = pre.querySelector("code")?.textContent ?? "";
           try {

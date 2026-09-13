@@ -1,5 +1,5 @@
 ---
-title: Porting This Site From Observable Framework to Astro
+title: Observable to Astro
 description: What it took to move sixty pages, twenty five components and an interactive CFD simulation off Observable Framework, and what the site weighs now.
 date: 2026-09-12
 keywords: observable framework, astro, site migration, react islands, static site generator, npm resolution, bundle size, mdx, tailwind

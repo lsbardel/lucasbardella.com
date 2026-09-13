@@ -22,6 +22,7 @@ PHOTOS = (
     ("rust2", ImageProvider.PIXABAY, "3397227"),
     ("bwcharts", ImageProvider.PIXABAY, "1863880"),
     ("ai", ImageProvider.UNSPLASH, "cZgRe9BlYR4"),
+    ("mermaid", ImageProvider.UNSPLASH, "J2wMKgixIHQ"),
 )
 
 

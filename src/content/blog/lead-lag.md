@@ -1,5 +1,6 @@
 ---
 title: Lead Lag Portfolios
+date: 2025 December 12
 private: true
 ---
 

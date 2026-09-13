@@ -3,6 +3,8 @@ title: State Diagrams with Mermaid
 date: 2023-03-25
 description: Transform markdown text into stunning diagrams with Mermaid javascript library and ask chatGPT to generate some for you!
 keywords: visualization
+heroImage: mermaid
+heroOpacity: "0.5"
 ---
 
 [Mermaid](https://mermaid.js.org/) is a JavaScript library that allows you to create diagrams and charts using simple text syntax. With Mermaid, you can easily create professional-looking diagrams without using a graphical interface or specialized software. In this post, we'll concentrate on state diagrams, but Mermaid also supports flowcharts, sequence diagrams, Gantt charts, and others.

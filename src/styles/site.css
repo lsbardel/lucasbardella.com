@@ -12,6 +12,15 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 /*
+ * HeroImage composes its class as `object-cover${blur ...}`, so the token is
+ * never standalone in the source and Tailwind v4's scanner does not find it.
+ * The Observable site used the v3 CDN, which generated utilities from the live
+ * DOM and so never had the problem. Without this the hero img has no
+ * object-fit and stretches instead of cropping.
+ */
+@source inline("object-cover");
+
+/*
  * Three theme states. Light lives on bare :root so it is the fallback, the
  * media query covers "system" (no data-theme set), and the explicit
  * [data-theme] rules let the toggle win in both directions.
@@ -127,8 +136,11 @@ p.date { font-style: italic; color: var(--foreground-faint); }
 p.description { color: var(--foreground-faint); }
 
 /* Page width, set by the `width` prop on the Base layout. */
-main { margin: 0; padding: 2rem 2rem 6rem; min-width: 0; }
-.content-prose { max-width: 54rem; }
+main { margin: 0 auto; padding: 2rem 2rem 6rem; min-width: 0; }
+/* The hero spans this, 1440px as on the old site. The text does not: it
+   sits in .column below, centred in the same space it had before. */
+.content-prose { max-width: 90rem; }
+.content-prose > .column { max-width: 54rem; margin: 0 auto; }
 .content-wide { max-width: 76rem; }
 .content-full { max-width: none; }
 
@@ -152,6 +164,13 @@ select { margin-left: 0.5rem; background: var(--surface); color: var(--foregroun
 .warning > :first-child, .caution > :first-child { margin-top: 0; }
 .note > :last-child, .tip > :last-child,
 .warning > :last-child, .caution > :last-child { margin-bottom: 0; }
+
+/* Mermaid renders node labels as HTML in a foreignObject and wraps the text in
+   <p>, which picks up the page's paragraph margin and leaves a band of empty
+   space at the bottom of every box. Nothing inside a diagram wants page
+   typography. */
+.mermaid p { margin: 0; }
+.mermaid foreignObject div { line-height: 1.2; }
 
 /* Tables, used by the comparison in the port write up. */
 table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
@@ -209,8 +228,25 @@ th { color: var(--foreground-faint); font-weight: 600; }
 .shell > main { flex: 1 1 auto; min-width: 0; }
 @media (max-width: 720px) {
   .shell { flex-direction: column; }
-  .sidebar-handle { display: none; }
-  .sidebar { position: static; flex: 1 1 auto; width: 100%; height: auto; border-right: 0; border-bottom: 1px solid var(--foreground-fainter); }
+  /* The handle becomes a full width bar above the content, and the nav starts
+     collapsed: stacked open it is a wall of links to scroll past before
+     reaching the page. The checkbox logic is inverted here for that reason. */
+  .sidebar-handle {
+    position: static;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 0.75rem;
+    justify-content: flex-start;
+    cursor: pointer;
+    border-right: 0;
+    border-bottom: 1px solid var(--foreground-fainter);
+  }
+  .sidebar-handle::before { content: "\2630"; font-size: 1.25rem; }
+  #sidebar-toggle:checked ~ .sidebar-handle { cursor: pointer; }
+  #sidebar-toggle:checked ~ .sidebar-handle::before { content: "\2715"; }
+  .sidebar { display: none; position: static; flex: 1 1 auto; width: 100%; height: auto; border-right: 0; border-bottom: 1px solid var(--foreground-fainter); }
+  #sidebar-toggle:checked ~ .sidebar { display: block; }
 }
 
 .draft {
@@ -288,8 +324,19 @@ th { color: var(--foreground-faint); font-weight: 600; }
 
 /* Hero header box, as used by the credits page. The outer element sets the
    aspect ratio with padding-top and the inner one fills it. */
-.outer-placeholder { position: relative; width: 100%; overflow: hidden; }
-.inner-placeholder { position: absolute; inset: 0; }
+/* Observable wrapped every block, the hero included, in .observablehq--block
+   with `margin: 1rem 0`, which reads too tight here. The gap below matches the
+   2rem the section headings use, so the hero is separated from the text the
+   same way a section is. */
+.outer-placeholder { position: relative; width: 100%; overflow: hidden; margin: 1rem 0 2rem; }
+/* The dark panel the hero image fades into: HeroImage draws the photo at the
+   requested opacity with no backdrop of its own, so without this the image
+   washes out against the page. From div.outer-placeholder in themes/ls.css. */
+.inner-placeholder { position: absolute; inset: 0; background-color: #1a1a1a; }
+/* The banner on an entry with no photo. Lighter than --background, which is
+   #0c1018 in dark mode, so the band stays visible in both themes while still
+   being dark enough for the white overlay text. */
+.inner-placeholder.no-image { background-color: #1e293b; }
 
 .sr-only {
   position: absolute;
