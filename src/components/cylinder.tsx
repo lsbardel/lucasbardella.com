@@ -136,9 +136,12 @@ const drawCylinder = (
     .data(data).enter().append("path").classed("down", true)
     .attr("d", (d) => linedo(d)).call(pathAttrs);
 
+  // The page background, as a style rather than an attribute so the variable
+  // resolves: white on the light theme, near black on the dark one, and it
+  // follows the theme toggle without a redraw.
   svg.append("circle")
     .attr("cx", scalex(0)).attr("cy", scaley(0)).attr("r", scaler(radius))
-    .attr("fill", "#020202");
+    .style("fill", "var(--background)");
 
   // --- Layer 3: animated particles canvas ---
   const partCanvas = document.createElement("canvas");

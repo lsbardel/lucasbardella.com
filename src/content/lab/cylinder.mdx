@@ -21,16 +21,20 @@ where *a* is the cylinder radius.
 The pressure field is obtained from Bernoulli's equation. The velocity components in polar coordinates are:
 
 ```tex
-v_r = V_{\infty}\left(1 - \frac{a^2}{r^2}\right)\cos\theta, \qquad
-v_\theta = -V_{\infty}\left(1 + \frac{a^2}{r^2}\right)\sin\theta
+\begin{aligned}
+    v_r &= V_{\infty}\left(1 - \frac{a^2}{r^2}\right)\cos\theta, \qquad\\
+    v_\theta &= -V_{\infty}\left(1 + \frac{a^2}{r^2}\right)\sin\theta
+\end{aligned}
 ```
 
 giving the pressure coefficient:
 
 ```tex
-C_p = 1 - \frac{v_r^2 + v_\theta^2}{V_{\infty}^2}
-    = 1 - \left(1 - \frac{a^2}{r^2}\right)^2\cos^2\theta
+\begin{aligned}
+C_p &= 1 - \frac{v_r^2 + v_\theta^2}{V_{\infty}^2} \\
+    &= 1 - \left(1 - \frac{a^2}{r^2}\right)^2\cos^2\theta
         - \left(1 + \frac{a^2}{r^2}\right)^2\sin^2\theta
+\end{aligned}
 ```
 
 On the cylinder surface (*r* = *a*) this reduces to:

@@ -41,6 +41,10 @@
   --accent: #8a7724;
   --link: #1d4ed8;
   --measure: 760px;
+  /* Page width and the gutter main reserves inside it. The hero derives its
+     own cap from the pair, so the two cannot drift apart. */
+  --content-max: 90rem;
+  --content-pad: 2rem;
 }
 
 :root:not([data-theme="light"]) {
@@ -134,6 +138,13 @@ blockquote {
 hr { border: 0; border-top: 1px solid var(--foreground-fainter); margin: 2rem 0; }
 img { max-width: 100%; }
 
+/* Interactive demos hydrate inside <astro-island>, a custom element, and an
+   unknown element is display:inline by default. So a component dropped into a
+   post has no block margin of its own and the next paragraph, whose top margin
+   is zero, sits flush against it. Scoped to .column like the h2 rule above, so
+   an island nested inside a card or a layout keeps its own flow. */
+.column > astro-island { display: block; margin: 2rem 0; }
+
 pre { background: var(--surface); padding: 1rem; border-radius: 6px; overflow-x: auto; line-height: 1.5; }
 pre, code, tt { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; }
 :not(pre) > code { background: var(--surface); padding: 0.1em 0.3em; border-radius: 3px; }
@@ -143,10 +154,10 @@ p.date { font-style: italic; color: var(--foreground-faint); }
 p.description { color: var(--foreground-faint); }
 
 /* Page width, set by the `width` prop on the Base layout. */
-main { margin: 0 auto; padding: 2rem 2rem 6rem; min-width: 0; }
+main { margin: 0 auto; padding: 2rem var(--content-pad) 6rem; min-width: 0; }
 /* The hero spans this, 1440px as on the old site. The text does not: it
    sits in .column below, centred in the same space it had before. */
-.content-prose { max-width: 90rem; }
+.content-prose { max-width: var(--content-max); }
 .content-prose .column { max-width: 54rem; margin: 0 auto; }
 .content-wide { max-width: 76rem; }
 .content-full { max-width: none; }
@@ -365,7 +376,21 @@ th { color: var(--foreground-faint); font-weight: 600; }
    with `margin: 1rem 0`, which reads too tight here. The gap below matches the
    2rem the section headings use, so the hero is separated from the text the
    same way a section is. */
-.outer-placeholder { position: relative; width: 100%; overflow: hidden; margin: 1rem 0 2rem; }
+/* The hero sits directly inside <main>, so without a cap of its own it takes
+   whatever width the page's `width` frontmatter gives main: --content-max on a
+   prose page but edge to edge on a `full` one, which made the four full width
+   lab entries (the red-black tree among them) show a wider banner than every
+   other entry. main is border-box, so its content box, and therefore the hero
+   on a prose page, is --content-max minus the gutter on both sides. Matching
+   that exactly is what keeps a full width page's header the same size and in
+   the same place as everywhere else, with only the content below it widening. */
+.outer-placeholder {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--content-max) - 2 * var(--content-pad));
+  overflow: hidden;
+  margin: 1rem auto 2rem;
+}
 /* The dark panel the hero image fades into: HeroImage draws the photo at the
    requested opacity with no backdrop of its own, so without this the image
    washes out against the page. From div.outer-placeholder in themes/ls.css. */
