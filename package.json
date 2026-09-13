@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "astro build && pagefind --site dist && rm -rf public/pagefind && cp -r dist/pagefind public/pagefind",
-    "data": "tsx data/build.ts",
+    "data": "tsx dataloaders/build.ts",
     "dev": "astro dev --port 4069",
     "heatmap-sources": "tsx lsts/heatmap-sources.ts",
     "heatmap-validate": "tsx lsts/heatmap-validate.ts",

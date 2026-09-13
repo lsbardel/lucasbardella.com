@@ -20,7 +20,7 @@ import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { dirname, join } from "path";
 
 interface Loader {
-  /** Path of the loader, relative to data/. */
+  /** Path of the loader, relative to dataloaders/. */
   source: string;
   /** Where its output goes, relative to the repository root. */
   out: string;
@@ -30,7 +30,7 @@ interface Loader {
 
 /**
  * Only loaders the site actually reads are listed. Observable ran loaders on
- * demand, so an unreferenced one never ran: data/cutting-through-noise.zip.py
+ * demand, so an unreferenced one never ran: dataloaders/cutting-through-noise.zip.py
  * is the current example, its coding entry is a draft that shows the snippet
  * rather than plotting anything.
  *
@@ -62,9 +62,9 @@ const force = process.argv.includes("--force");
 
 /** Python loaders need the project virtualenv, which is what `uv run` gives them. */
 const command = (source: string): [string, string[]] => {
-  if (source.endsWith(".py")) return ["uv", ["run", "python", join("data", source)]];
-  if (source.endsWith(".ts")) return ["npx", ["tsx", join("data", source)]];
-  return ["node", [join("data", source)]];
+  if (source.endsWith(".py")) return ["uv", ["run", "python", join("dataloaders", source)]];
+  if (source.endsWith(".ts")) return ["npx", ["tsx", join("dataloaders", source)]];
+  return ["node", [join("dataloaders", source)]];
 };
 
 let written = 0;
