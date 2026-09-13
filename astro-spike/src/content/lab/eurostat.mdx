@@ -1,0 +1,15 @@
+---
+title: Eurostat data loaders
+description: Eurostat data loaders for easy access to European statistics datasets
+date: 2025-06-22
+keywords: eurostat, data loader, statistics, europe, parquet
+width: full
+---
+
+import EurostatCatalogue from "../../components/EurostatCatalogue";
+
+The [Eurostat data browser](https://ec.europa.eu/eurostat/databrowser/explore/all/all_themes) is a great sources for all european statistics. But it is sometimes a bit difficult to use. This page loads its XML catalog and converts it to an easier csv format.
+
+This page has been taken from [Fil/pangea](https://github.com/Fil/pangea) and slightly adapted to work with my Observable setup. All credits to [Fil](https://github.com/Fil).
+
+<EurostatCatalogue client:load />

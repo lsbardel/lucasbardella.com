@@ -1,0 +1,29 @@
+---
+import { TradingViewTicketTape } from "../../components/tradingview";
+import Base from "../../layouts/Base.astro";
+
+/**
+ * The market section landing page, ported from content/market.md, which was a
+ * single Observable cell displaying the ticker tape.
+ */
+const symbols = [
+  "NASDAQ:AAPL",
+  "NASDAQ:GOOGL",
+  "NASDAQ:MSFT",
+  "NASDAQ:AMZN",
+  "NASDAQ:META",
+  "NASDAQ:TSLA",
+  "NASDAQ:NVDA",
+  "NASDAQ:NFLX",
+  "NASDAQ:PLTR",
+  "NYSE:V",
+];
+---
+
+<Base
+  title="Market"
+  description="Financial market dashboards: a live ticker tape, the world stock heatmap and US interest rates."
+  width="full"
+>
+  <TradingViewTicketTape client:load symbols={symbols} theme="dark" compact={true} />
+</Base>

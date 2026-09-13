@@ -1,3 +1,4 @@
+import { config as loadEnv } from "dotenv";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import tailwind from "@tailwindcss/vite";
@@ -6,7 +7,13 @@ import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import remarkTexBlocks from "./src/plugins/remark-tex-blocks.mjs";
 
+// The Google Analytics id lives in the repository root .env, where
+// lsts/config.ts already reads it from, so the port does not duplicate it.
+loadEnv({ path: "../.env", quiet: true });
+
 export default defineConfig({
+  // Absolute URLs for canonical links, og:url and the sitemap.
+  site: "https://lucasbardella.com",
   integrations: [mdx(), react()],
   vite: { plugins: [tailwind()] },
   markdown: {

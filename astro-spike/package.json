@@ -11,24 +11,33 @@
     "@astrojs/markdown-remark": "^7.3.1",
     "@astrojs/mdx": "^8.0.1",
     "@astrojs/react": "^6.0.5",
+    "@nanostores/react": "^2.0.1",
     "@observablehq/plot": "^0.6.17",
     "@tailwindcss/vite": "^4.3.3",
     "@types/d3": "^7.4.3",
     "astro": "^7.3.2",
     "d3": "^7.9.0",
+    "d3-quant": "^0.5.1",
+    "dotenv": "^17.4.2",
+    "eurostat-map": "^4.11.3",
     "fflate": "^0.8.3",
     "htl": "^1.0.0",
+    "jszip": "^3.10.2",
     "katex": "^0.18.7",
+    "mermaid": "^12.0.0",
+    "nanostores": "^1.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "tailwindcss": "^4.3.3",
+    "topojson-client": "^3.1.0",
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
+    "@types/topojson-client": "^3.1.5",
     "pagefind": "^1.5.2"
   }
 }

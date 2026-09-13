@@ -4,6 +4,10 @@ import "../styles/site.css";
 import Sidebar from "../components/Sidebar.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { formatDate } from "../lib/date";
+import { pageTitle, site } from "../lib/site";
+import { PageHeader } from "../components/image";
+import images from "../data/images.json";
 
 /**
  * `width` replaces Observable's `theme: dashboard` frontmatter:
@@ -19,6 +23,14 @@ interface Props {
   width?: ContentWidth;
   /** Repository path of the page source, for the footer's source link. */
   contentPath?: string;
+  /** Publication date of a blog or lab entry; pages without one show no date line. */
+  date?: string | Date;
+  /** Hero header, the `heroImage` family of frontmatter fields on the old site. */
+  heroImage?: string;
+  heroOpacity?: number | string;
+  heroBlur?: string;
+  heroTextColor?: string;
+  heroAspectRatio?: string;
   showTitle?: boolean;
 }
 /**
@@ -30,6 +42,15 @@ const title: string = Astro.props.title ?? fm.title;
 const description: string | undefined = Astro.props.description ?? fm.description;
 const width: ContentWidth = Astro.props.width ?? fm.width ?? "prose";
 const contentPath: string | undefined = Astro.props.contentPath ?? fm.contentPath;
+const date: string | Date | undefined = Astro.props.date ?? fm.date;
+const heroImage: string | undefined = Astro.props.heroImage ?? fm.heroImage;
+const heroUrls = heroImage ? (images as Record<string, any>)[heroImage] : undefined;
+const heroOpacity = Astro.props.heroOpacity ?? fm.heroOpacity;
+const heroBlur: string | undefined = Astro.props.heroBlur ?? fm.heroBlur;
+const heroTextColor: string | undefined = Astro.props.heroTextColor ?? fm.heroTextColor;
+const heroAspectRatio: string = Astro.props.heroAspectRatio ?? fm.heroAspectRatio ?? "35%";
+/** Canonical URL of this page, absolute, from `site` in astro.config.mjs. */
+const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
 /** Pages with their own hero heading suppress the layout's h1. */
 const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
 ---
@@ -38,8 +59,53 @@ const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
+    <title>{pageTitle(title)}</title>
     {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+
+    {/* Open Graph and Twitter. The old site set only the image and the card
+        type site-wide, so every page shared the same preview text. Titles,
+        descriptions and urls are per page here. */}
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle(title)} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content={date ? "article" : "website"} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={site.ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle(title)} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={site.ogImage} />
+
+    {/* Icons, manifest and theme colour, the `head` block of observablehq.config.js. */}
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/luca-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/luca-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/luca-48.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/luca-64.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/luca-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/luca-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/luca-180.png" />
+    <link rel="manifest" href="/assets/manifest.json" />
+    <meta name="theme-color" content={site.themeColor} />
+    <meta name="google-adsense-account" content={site.adsenseAccount} />
+
+    {/* Google Analytics, the gtag pair lsts/footer.ts appended to every page.
+        Skipped when GA_MEASUREMENT_ID is unset, so local builds do not send
+        events, and so the old `?id=undefined` request cannot happen. */}
+    {site.gaMeasurementId && (
+      <>
+        <script async is:inline src={`https://www.googletagmanager.com/gtag/js?id=${site.gaMeasurementId}`}></script>
+        <script is:inline define:vars={{ measurementId: site.gaMeasurementId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag("js", new Date());
+          gtag("config", measurementId);
+        </script>
+      </>
+    )}
     {/* Pagefind writes into public/ at build time, so dev serves it too. */}
     <link rel="stylesheet" href="/pagefind/pagefind-component-ui.css" />
     <script is:inline>
@@ -85,10 +151,70 @@ const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
       <label class="sidebar-handle" for="sidebar-toggle" title="Toggle sidebar"></label>
       <Sidebar />
       <main class={`content-${width}`} data-pagefind-body>
-        {showTitle && <h1>{title}</h1>}
+        {/* heroHeader() in lsts/content.ts: the title, description and date
+            move into the image overlay, and the real h1 stays for screen
+            readers and search engines. */}
+        {showTitle && heroUrls && (
+          <>
+            <div class="outer-placeholder" style={`padding-top: ${heroAspectRatio};`}>
+              <div class="inner-placeholder">
+                <PageHeader
+                  client:load
+                  title={title}
+                  subtitle={description}
+                  date={date ? formatDate(date) : undefined}
+                  urls={heroUrls}
+                  opacity={heroOpacity === undefined ? undefined : Number(heroOpacity)}
+                  blur={heroBlur}
+                  textColor={heroTextColor}
+                />
+              </div>
+            </div>
+            <h1 class="sr-only">{title}</h1>
+          </>
+        )}
+        {showTitle && !heroUrls && (
+          <>
+            <h1>{title}</h1>
+            {/* Entry pages carry the date and the description under the title,
+                the header lsts/content.ts emitted for every blog and lab entry.
+                Pages with no date, the market dashboards, keep the bare h1. */}
+            {date && <p class="date">{formatDate(date)}</p>}
+            {date && description && <p class="description">{description}</p>}
+          </>
+        )}
         <slot />
         <Footer contentPath={contentPath} />
       </main>
     </div>
+    <script>
+      // Observable Framework rendered ```mermaid fences as diagrams natively.
+      // Astro highlights them as code instead, so swap each block for the
+      // rendered SVG. The library is a large dependency, hence the dynamic
+      // import behind the guard: pages without a diagram never load it.
+      const blocks = document.querySelectorAll('pre[data-language="mermaid"]');
+      if (blocks.length > 0) {
+        const root = document.documentElement;
+        const dark = root.dataset.theme
+          ? root.dataset.theme === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const { default: mermaid } = await import("mermaid");
+        mermaid.initialize({ startOnLoad: false, theme: dark ? "dark" : "default" });
+        for (const [index, pre] of [...blocks].entries()) {
+          const source = pre.querySelector("code")?.textContent ?? "";
+          try {
+            const { svg } = await mermaid.render(`mermaid-${index}`, source);
+            const figure = document.createElement("figure");
+            figure.className = "mermaid";
+            figure.innerHTML = svg;
+            pre.replaceWith(figure);
+          } catch (error) {
+            // A diagram that fails to parse keeps its code block rather than
+            // taking the rest of the page down with it.
+            console.error("mermaid:", error);
+          }
+        }
+      }
+    </script>
   </body>
 </html>

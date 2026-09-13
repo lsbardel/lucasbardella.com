@@ -1,0 +1,16 @@
+---
+title: Voronoi Logo Generator
+description: Free interactive SVG logo generator built with D3.js. Design geometric logos from Voronoi diagrams and Delaunay triangulations, export as SVG or PNG.
+date: 2026-03-13
+keywords: art, generative, logo, d3, svg, voronoi, delaunay, geometry, design
+---
+
+import LogoVoronoiDemo from "../../components/LogoVoronoiDemo";
+
+## How it works
+
+A [Voronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram) partitions the plane into regions, each region contains all points closer to one seed than to any other. The dual graph, the [Delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation), connects seeds whose Voronoi cells share an edge. Together they produce organic, cell-like structures that appear throughout nature: giraffe markings, dragonfly wings, foam bubbles.
+
+The seed arrangement drives the character of the result. **Phyllotaxis** (the golden-angle spiral) gives the dense, balanced packing found in sunflowers. **Ring** places seeds on concentric circles for a more regular, radial feel. **Grid** clips a square lattice to a circle. **Random** uses a seeded generator so you can explore the space reproducibly.
+
+<LogoVoronoiDemo client:load />

@@ -28,6 +28,13 @@ const { Content } = await render(entry);
   title={entry.data.title ?? entry.id}
   description={entry.data.description}
   contentPath={entry.filePath?.replace(/^src\/content\//, "content/")}
+  width={entry.data.width}
+  date={entry.data.date}
+  heroImage={entry.data.heroImage}
+  heroOpacity={entry.data.heroOpacity}
+  heroBlur={entry.data.heroBlur}
+  heroTextColor={entry.data.heroTextColor}
+  heroAspectRatio={entry.data.heroAspectRatio}
 >
   <Content />
 </Base>

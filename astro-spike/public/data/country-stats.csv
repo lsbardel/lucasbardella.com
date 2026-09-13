@@ -1,0 +1,193 @@
+country,continent,countryRiskPremium,totalEquityRiskPremium
+Zimbabwe,Africa,11.66,15.89
+Zambia,Africa,11.66,15.89
+"Yemen, Republic",Asia,15.54,19.77
+Yemen,Asia,16.02,20.35
+Vietnam,Asia,3.9,8.13
+Venezuela,South America,26.66,30.89
+Uzbekistan,Asia,4.66,8.89
+Uruguay,South America,2.07,6.3
+United States,North America,0.23,4.46
+United Kingdom,Europe,0.78,5.01
+United Arab Emirates,Asia,0.64,4.87
+Ukraine,Europe,15.54,19.77
+Uganda,Africa,8.41,12.64
+Turks & Caicos Islands,North America,2.13,6.46
+Turks and Caicos Islands,North America,2.07,6.3
+Turkey,Asia,4.66,8.89
+Tunisia,Africa,9.71,13.94
+Trinidad and Tobago,North America,3.9,8.13
+Togo,Africa,8.41,12.64
+Thailand,Asia,2.07,6.3
+Tanzania,Africa,5.83,10.06
+Tajikistan,Asia,8.41,12.64
+Taiwan,Asia,0.78,5.01
+Syria,Asia,15.54,19.77
+Switzerland,Europe,0.0,4.23
+Sweden,Europe,0.0,4.23
+Swaziland,Africa,7.12,11.35
+Suriname,South America,9.71,13.94
+Sudan,Africa,26.66,30.89
+St. Maarten,North America,3.9,8.13
+Sri Lanka,Asia,15.54,19.77
+Spain,Europe,1.55,5.78
+South Korea,Asia,0.66,4.99
+South Africa,Africa,3.9,8.13
+Somalia,Africa,12.95,17.18
+Solomon Islands,Oceania,9.71,13.94
+Slovenia,Europe,1.55,5.78
+Slovakia,Europe,1.55,5.78
+Singapore,Asia,0.0,4.23
+Sierra Leone,Africa,8.41,12.64
+Serbia,Europe,3.9,8.13
+Senegal,Africa,9.71,13.94
+Saudi Arabia,Asia,0.78,5.01
+Saint Lucia,North America,8.11,12.44
+Rwanda,Africa,7.12,11.35
+Russia,Europe,3.9,8.13
+Romania,Europe,2.85,7.08
+Reunion,Africa,1.44,5.77
+Qatar,Asia,0.64,4.87
+Portugal,Europe,1.55,5.78
+Poland,Europe,1.1,5.33
+Philippines,Asia,2.46,6.69
+Peru,South America,2.07,6.3
+Paraguay,South America,2.85,7.08
+Papua New Guinea,Oceania,7.12,11.35
+Panama,North America,2.85,7.08
+Palestinian Authority,Asia,23.59,27.92
+Pakistan,Asia,9.71,13.94
+Oman,Asia,2.85,7.08
+Norway,Europe,0.0,4.23
+Nigeria,Africa,8.41,12.64
+Niger,Africa,12.95,17.18
+Nicaragua,North America,7.12,11.35
+New Zealand,Oceania,0.0,4.23
+Netherlands,Europe,0.0,4.23
+Nepal,Asia,4.66,8.89
+Namibia,Africa,5.83,10.06
+Myanmar,Asia,15.54,19.77
+Mozambique,Africa,12.95,17.18
+Morocco,Africa,3.24,7.47
+Montserrat,North America,2.85,7.08
+Montenegro,Europe,5.83,10.06
+Mongolia,Asia,5.83,10.06
+Monaco,Europe,0.0,4.33
+Moldova,Europe,8.41,12.64
+Mexico,North America,2.46,6.69
+Mauritius,Africa,2.85,7.08
+Martinique,North America,8.11,12.44
+Malta,Europe,1.1,5.33
+Mali,Africa,11.66,15.89
+Maldives,Asia,11.66,15.89
+Malaysia,Asia,1.55,5.78
+Malawi,Africa,12.95,17.18
+Madagascar,Africa,8.41,12.64
+Macedonia,Europe,4.66,8.89
+Macau,Asia,0.8,5.13
+Macao,Asia,0.78,5.01
+Luxembourg,Europe,0.0,4.23
+Lithuania,Europe,1.1,5.33
+Liechtenstein,Europe,0.0,4.23
+Libya,Africa,3.9,8.13
+Liberia,Africa,11.66,15.89
+Lebanon,Asia,26.66,30.89
+Latvia,Europe,1.55,5.78
+Laos,Asia,11.66,15.89
+Kyrgyzstan,Asia,8.41,12.64
+Kuwait,Asia,0.91,5.14
+"Korea, D.P.R.",Asia,15.54,19.77
+Korea,Asia,0.64,4.87
+Kenya,Africa,9.71,13.94
+Kazakhstan,Asia,2.07,6.3
+Jordan,Asia,4.66,8.89
+Jersey (States of),Europe,0.78,5.01
+Japan,Asia,0.91,5.14
+Jamaica,North America,4.66,8.89
+Ivory Coast,Africa,4.02,8.35
+Italy,Europe,2.46,6.69
+Israel,Asia,2.07,6.3
+Isle of Man,Europe,0.78,5.01
+Ireland,Europe,0.78,5.01
+Iraq,Asia,9.71,13.94
+Iran,Asia,9.71,13.94
+Indonesia,Asia,2.46,6.69
+India,Asia,2.85,7.08
+Iceland,Europe,0.91,5.14
+Hungary,Europe,2.46,6.69
+Hong Kong,Asia,0.78,5.01
+Honduras,North America,5.83,10.06
+Haiti,North America,12.95,17.18
+Guyana,South America,2.07,6.3
+Guinea-Bissau,Africa,9.71,13.94
+Guinea,Africa,11.66,15.89
+Guernsey,Europe,0.91,5.14
+Guatemala,North America,3.24,7.47
+Greenland,North America,1.12,5.45
+Greece,Europe,2.85,7.08
+Gibraltar,Europe,1.12,5.45
+Ghana,Africa,9.71,13.94
+Germany,Europe,0.0,4.23
+Georgia,Asia,3.9,8.13
+Gambia,Africa,7.12,11.35
+Gabon,Africa,11.66,15.89
+French Guiana,South America,4.82,9.15
+France,Europe,0.78,5.01
+Finland,Europe,0.36,4.59
+Fiji,Oceania,5.83,10.06
+Falkland Islands,South America,4.82,9.15
+Ethiopia,Africa,11.66,15.89
+Estonia,Europe,0.91,5.14
+El Salvador,North America,8.41,12.64
+Egypt,Africa,9.71,13.94
+Ecuador,South America,12.95,17.18
+Dominican Republic,North America,3.9,8.13
+Denmark,Europe,0.0,4.23
+Czech Republic,Europe,0.78,5.01
+Cyprus,Asia,1.55,5.78
+Curaçao,North America,2.93,7.26
+Curacao,North America,2.85,7.08
+Cuba,North America,15.54,19.77
+Croatia,Europe,1.55,5.78
+Côte d'Ivoire,Africa,3.9,8.13
+Costa Rica,North America,3.9,8.13
+Cook Islands,Oceania,5.83,10.06
+Congo (Republic of),Africa,11.66,15.89
+Congo (Democratic Republic of),Africa,8.41,12.64
+Colombia,South America,2.85,7.08
+China,Asia,0.91,5.14
+Chile,South America,1.1,5.33
+Cayman Islands,North America,0.78,5.01
+Cape Verde,Africa,7.12,11.35
+Canada,North America,0.0,4.23
+Cameroon,Africa,9.71,13.94
+Cambodia,Asia,7.12,11.35
+Burkina Faso,Africa,9.71,13.94
+Bulgaria,Europe,2.07,6.3
+Brunei,Asia,0.78,5.01
+British Virgin Islands,North America,8.11,12.44
+Brazil,South America,3.24,7.47
+Botswana,Africa,2.07,6.3
+Bosnia and Herzegovina,Europe,8.41,12.64
+Bolivia,South America,15.54,19.77
+Bermuda,North America,1.1,5.33
+Benin,Africa,5.83,10.06
+Belize,North America,9.71,13.94
+Belgium,Europe,0.78,5.01
+Belarus,Europe,26.66,30.89
+Barbados,North America,7.12,11.35
+Bangladesh,Asia,7.12,11.35
+Bahrain,Asia,7.12,11.35
+Bahamas,North America,5.83,10.06
+Azerbaijan,Asia,2.85,7.08
+Austria,Europe,0.36,4.59
+Australia,Oceania,0.0,4.23
+Aruba,North America,2.85,7.08
+Armenia,Asia,4.66,8.89
+Argentina,South America,9.71,13.94
+Antigua and Barbuda,North America,8.1,12.43
+Anguilla,North America,8.11,12.44
+Angola,Africa,8.41,12.64
+Andorra (Principality of),Europe,2.07,6.3
+Algeria,Africa,5.83,10.06
+Albania,Europe,4.66,8.89

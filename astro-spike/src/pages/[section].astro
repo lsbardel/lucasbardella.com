@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "../layouts/Base.astro";
+import { formatDate } from "../lib/date";
 import { entryPath } from "../lib/entry-path";
 
 /**
@@ -15,12 +16,6 @@ export async function getStaticPaths() {
 }
 
 const { section } = Astro.params as { section: (typeof SECTIONS)[number] };
-
-const formatDate = (value: unknown): string => {
-  const date = value instanceof Date ? value : new Date(String(value ?? ""));
-  if (Number.isNaN(date.getTime())) return "";
-  return date.toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
-};
 
 const entries = (await getCollection(section))
   .filter((entry) => entry.data.private !== true)
