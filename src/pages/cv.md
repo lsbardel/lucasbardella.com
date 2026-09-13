@@ -8,7 +8,7 @@ contentPath: content/cv.md
 
 # Curriculum Vitae
 
-<a class="no-deco text-white focus:ring-blue-300 bg-blue-600 hover:bg-blue-800 rounded-lg px-5 py-2.5 font-medium" href="/data/luca-sbardella-cv.pdf">Download CV</a>
+<a class="no-deco text-white focus:ring-blue-300 bg-blue-600 hover:bg-blue-800 rounded-lg px-5 py-2.5 font-medium" href="/assets/luca-sbardella-cv.pdf">Download CV</a>
 
 **Web**: [lucasbardella.com](https://lucasbardella.com)<br>
 **Email**: [luca@quantmind.com](mailto:luca@quantmind.com)<br>

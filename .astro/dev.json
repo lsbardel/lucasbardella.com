@@ -1,0 +1,14 @@
+{
+	"pid": 251695,
+	"port": 4069,
+	"url": "http://localhost:4069",
+	"urls": {
+		"local": [
+			"http://localhost:4069/"
+		],
+		"network": [],
+		"networkInterfaceNames": []
+	},
+	"background": false,
+	"startedAt": "2026-09-13T15:10:06.929Z"
+}

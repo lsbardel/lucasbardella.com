@@ -12,15 +12,12 @@ static/lab
 static/pages
 static/docs
 compiled.*
-content/.observablehq
 
 # directories
 coverage
 dist
 .tmp
 .data
-content/phd
-content/local
 
 #
 # files
@@ -55,3 +52,14 @@ __pycache__
 # Added by cargo
 
 /target
+
+# Everything under public/data is written by `make data` and never committed.
+# Static files that belong to the repository live in public/assets instead.
+/public/data/
+/src/data/images.json
+/src/data/repos.json
+/src/data/the-most-used-ais.json
+
+# search index, written into public/ by `npm run build` so the dev server
+# can serve it; regenerated on every build
+/public/pagefind/

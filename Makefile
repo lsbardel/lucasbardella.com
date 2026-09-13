@@ -48,11 +48,19 @@ cv: cv-sync		## Build CV pdf from src/pages/cv.md
 	@cd cv &&\
 	pdflatex -interaction=batchmode luca-sbardella-cv.tex &&\
 	pdflatex -interaction=batchmode luca-sbardella-cv.tex &&\
-	mv luca-sbardella-cv.pdf ../public/data/luca-sbardella-cv.pdf
+	mv luca-sbardella-cv.pdf ../public/assets/luca-sbardella-cv.pdf
 
 .PHONY: cv-sync
 cv-sync:		## Generate the LaTeX CV sources from src/pages/cv.md
 	@uv run ls cv-sync
+
+.PHONY: data
+data:			## Run the data loaders for files that are missing
+	@npm run data
+
+.PHONY: data-force
+data-force:		## Re-run every data loader, refreshing the data
+	@npm run data -- --force
 
 .PHONY: heatmap-sources
 heatmap-sources:	## Refresh the TradingView market list for the heatmap page
