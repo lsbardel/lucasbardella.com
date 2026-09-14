@@ -42,6 +42,7 @@ const BEFORE_COLLECTIONS: NavSection[] = [
     path: "/market",
     open: true,
     pages: [
+      { name: "overview", path: "/market/overview" },
       { name: "heatmap", path: "/market/heatmap" },
       { name: "fed", path: "/market/fed" },
       { name: "boe", path: "/market/boe" },

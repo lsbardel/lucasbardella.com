@@ -19,6 +19,18 @@
     <pagefind-searchbox></pagefind-searchbox>
   </div>
 
+  {/* Narrow screens have no room for the inline box, so an icon opens the
+      same search in a full screen modal. Its own instance keeps its query
+      apart from the inline box. A plain button rather than Pagefind's trigger,
+      which would bind Ctrl+K even while hidden. */}
+  <button type="button" class="search-open" aria-label="Search" title="Search">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="11" cy="11" r="7"></circle>
+      <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+    </svg>
+  </button>
+  <pagefind-modal instance="modal"></pagefind-modal>
+
   <div class="theme-toggle" role="group" aria-label="Colour theme">
     <button type="button" data-set-theme="light" title="Light" aria-label="Light">☀</button>
     <button type="button" data-set-theme="system" title="System" aria-label="System">◐</button>
@@ -36,4 +48,8 @@
       (window as unknown as { __setTheme: (p: string) => void }).__setTheme(button.dataset.setTheme!);
     });
   }
+
+  document.querySelector(".search-open")?.addEventListener("click", () => {
+    (document.querySelector("pagefind-modal") as (HTMLElement & { open?: () => void }) | null)?.open?.();
+  });
 </script>

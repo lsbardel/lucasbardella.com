@@ -1,5 +1,6 @@
 import { config as loadEnv } from "dotenv";
 import mdx from "@astrojs/mdx";
+import { unified } from "@astrojs/markdown-remark";
 import react from "@astrojs/react";
 import tailwind from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
@@ -17,12 +18,15 @@ export default defineConfig({
   integrations: [mdx(), react()],
   vite: { plugins: [tailwind()] },
   markdown: {
-    // Observable leaves `typographer` off, so straight quotes stay straight.
-    // With it on, smart quotes also corrupt attribute quotes in raw HTML.
-    smartypants: false,
-    // remarkTexBlocks runs first so ```tex fences become math nodes,
-    // which remark-math/rehype-katex then render like any $$ block.
-    remarkPlugins: [remarkTexBlocks, remarkMath],
-    rehypePlugins: [rehypeKatex],
+    // MDX inherits this processor, so .mdx files get the same plugins.
+    processor: unified({
+      // Observable leaves `typographer` off, so straight quotes stay straight.
+      // With it on, smart quotes also corrupt attribute quotes in raw HTML.
+      smartypants: false,
+      // remarkTexBlocks runs first so ```tex fences become math nodes,
+      // which remark-math/rehype-katex then render like any $$ block.
+      remarkPlugins: [remarkTexBlocks, remarkMath],
+      rehypePlugins: [rehypeKatex],
+    }),
   },
 });

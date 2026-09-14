@@ -93,7 +93,7 @@ const MarketHeatmap = ({
   source = "SPX500",
   size = "market_cap_basic",
   group = "no_group",
-  theme = "dark",
+  theme,
   aspectRatio = "100%",
 }: MarketHeatmapProps) => {
   const defaults = React.useMemo<HeatmapChoices>(() => ({ source, size, group }), [source, size, group]);

@@ -1,0 +1,17 @@
+---
+import { TradingViewMarketOverview } from "../../components/tradingview";
+import tabs from "../../lib/market-overview.json";
+import Base from "../../layouts/Base.astro";
+
+/**
+ * The symbols come from a static JSON list for now, one tab per asset class.
+ */
+---
+
+<Base
+  title="Market Overview"
+  description="A macro view of global markets: indices, futures, bonds, forex and crypto in one TradingView market overview."
+  width="full"
+>
+  <TradingViewMarketOverview client:load tabs={tabs} aspectRatio="80%" />
+</Base>

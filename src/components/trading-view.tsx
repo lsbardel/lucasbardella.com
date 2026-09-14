@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useSiteTheme } from "./site-theme";
 
 const TRADING_VIEW_BASE = "https://assets.metablock.io/trading-view/charting_library/";
 const TRADING_VIEW_URL = `${TRADING_VIEW_BASE}charting_library.js`;
@@ -36,6 +37,16 @@ export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbol
   const widgetRef = React.useRef<any>(null);
   const allBarsRef = React.useRef<Record<string, { time: number }[]>>({});
   const [isScriptReady, setIsScriptReady] = React.useState(false);
+  const theme = useSiteTheme();
+  // The widget is built with whatever theme is current, and the effect below
+  // switches it afterwards, so a toggle never rebuilds the chart.
+  const themeRef = React.useRef(theme);
+  themeRef.current = theme;
+  const appliedThemeRef = React.useRef(theme);
+  const seriesOverrides = {
+    "mainSeriesProperties.style": chartStyle,
+    ...(colors[0] ? { "mainSeriesProperties.lineStyle.color": colors[0] } : {}),
+  };
 
   // Load TradingView script
   React.useEffect(() => {
@@ -158,13 +169,11 @@ export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbol
       user_id: "public_user_id",
       fullscreen: false,
       autosize: true,
-      theme: "dark",
-      overrides: {
-        "mainSeriesProperties.style": chartStyle,
-        ...(colors[0] ? { "mainSeriesProperties.lineStyle.color": colors[0] } : {}),
-      },
+      theme: themeRef.current,
+      overrides: seriesOverrides,
       studies_overrides: {},
     });
+    appliedThemeRef.current = themeRef.current;
     widgetRef.current.onChartReady(() => {
       const chart = widgetRef.current.activeChart();
       const studyPromises = plotSymbols.slice(1).map((s, i) =>
@@ -175,6 +184,17 @@ export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbol
       });
     });
   }, [isScriptReady, multiSeriesDatafeed, plotSymbols]);
+
+  // Follow the site theme toggle. changeTheme resets chart properties, so the
+  // series style and colour are applied again once it finishes.
+  React.useEffect(() => {
+    const widget = widgetRef.current;
+    if (!widget || appliedThemeRef.current === theme) return;
+    appliedThemeRef.current = theme;
+    widget.onChartReady(() => {
+      widget.changeTheme(theme).then(() => widget.applyOverrides(seriesOverrides));
+    });
+  }, [theme]);
 
   return (
     <div style={{ width: "100%", position: "relative", paddingTop: `${(1 / aspectRatio) * 100}%` }}>

@@ -137,6 +137,9 @@ blockquote {
 }
 hr { border: 0; border-top: 1px solid var(--foreground-fainter); margin: 2rem 0; }
 img { max-width: 100%; }
+/* Embeds carry fixed width attributes, so scale them down on narrow screens. */
+iframe { max-width: 100%; }
+iframe[src*="youtube.com"] { height: auto; aspect-ratio: 16 / 9; }
 
 /* Interactive demos hydrate inside <astro-island>, a custom element, and an
    unknown element is display:inline by default. So a component dropped into a
@@ -274,6 +277,9 @@ th { color: var(--foreground-faint); font-weight: 600; }
 .sidebar summary a { color: inherit; font: inherit; }
 .sidebar summary a.current { background: transparent; color: var(--accent); }
 .shell > main { flex: 1 1 auto; min-width: 0; }
+/* When the shell stacks below 720px, main's auto margins stop it stretching,
+   so it would size to its widest content and push the page off screen. */
+.shell > main { width: 100%; }
 @media (max-width: 720px) {
   .shell { flex-direction: column; }
   /* The handle becomes a full width bar above the content, and the nav starts
@@ -341,9 +347,25 @@ th { color: var(--foreground-faint); font-weight: 600; }
 .theme-toggle button[aria-pressed="true"] { background: var(--surface); color: var(--accent); }
 
 
+/* Search icon for narrow screens, styled like a theme toggle button. */
+.search-open {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.5rem;
+  background: transparent;
+  border: 1px solid var(--foreground-fainter);
+  border-radius: 6px;
+  color: var(--foreground-faint);
+  cursor: pointer;
+}
+.search-open:hover { background: var(--surface); color: var(--foreground); }
+
+/* The inline box would wrap onto a second row, so it gives way to the icon. */
 @media (max-width: 720px) {
-  .site-header { flex-wrap: wrap; }
-  .site-header .search { order: 3; flex: 1 1 100%; }
+  .site-header { gap: 0.5rem; }
+  .site-header .search { display: none; }
+  .search-open { display: inline-flex; }
 }
 
 /* Cards and grid, standing in for the Observable dashboard theme. */

@@ -1,5 +1,7 @@
 ---
-import { TradingViewTicketTape } from "../../components/tradingview";
+import { TradingViewMarketData, TradingViewMarketOverview, TradingViewTicketTape } from "../../components/tradingview";
+import commodities from "../../lib/market-data-commodities.json";
+import tabs from "../../lib/market-overview.json";
 import Base from "../../layouts/Base.astro";
 
 /**
@@ -22,8 +24,14 @@ const symbols = [
 
 <Base
   title="Market"
+  hideTitle={true}
   description="Financial market dashboards: a live ticker tape, the world stock heatmap and US interest rates."
   width="full"
 >
-  <TradingViewTicketTape client:load symbols={symbols} theme="dark" compact={true} />
+  <TradingViewTicketTape client:load symbols={symbols} compact={true} />
+  <!-- Stacked on small screens, overview left and commodities right from lg up. -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+    <TradingViewMarketOverview client:load tabs={tabs} aspectRatio="100%" />
+    <TradingViewMarketData client:load groups={commodities} aspectRatio="100%" />
+  </div>
 </Base>

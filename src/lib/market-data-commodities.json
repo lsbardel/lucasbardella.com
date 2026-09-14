@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Energy",
+    "symbols": [
+      { "symbol": "TVC:USOIL", "label": "WTI Crude Oil" },
+      { "symbol": "TVC:UKOIL", "label": "Brent Crude Oil" },
+      { "symbol": "CAPITALCOM:NATURALGAS", "label": "Natural Gas" },
+      { "symbol": "CAPITALCOM:GASOLINE", "label": "Gasoline" },
+      { "symbol": "CAPITALCOM:HEATINGOIL", "label": "Heating Oil" }
+    ]
+  },
+  {
+    "title": "Metals",
+    "symbols": [
+      { "symbol": "TVC:GOLD", "label": "Gold" },
+      { "symbol": "TVC:SILVER", "label": "Silver" },
+      { "symbol": "CAPITALCOM:COPPER", "label": "Copper" },
+      { "symbol": "TVC:PLATINUM", "label": "Platinum" },
+      { "symbol": "TVC:PALLADIUM", "label": "Palladium" }
+    ]
+  },
+  {
+    "title": "Agriculture",
+    "symbols": [
+      { "symbol": "CAPITALCOM:CORN", "label": "Corn" },
+      { "symbol": "CAPITALCOM:WHEAT", "label": "Wheat" },
+      { "symbol": "CAPITALCOM:SOYBEAN", "label": "Soybeans" },
+      { "symbol": "PEPPERSTONE:COFFEE", "label": "Coffee" },
+      { "symbol": "PEPPERSTONE:SUGAR", "label": "Sugar" }
+    ]
+  }
+]

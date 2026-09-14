@@ -32,6 +32,8 @@ interface Props {
   heroTextColor?: string;
   heroAspectRatio?: string;
   showTitle?: boolean;
+  /** Keeps the h1 for search engines and screen readers but shows no title. */
+  hideTitle?: boolean;
   /**
    * Table of contents in the right margin, the `toc` option on the old site.
    * Off unless a page asks for it. Astro passes `headings` to .md pages that
@@ -73,6 +75,9 @@ const headings = (Astro.props.headings ?? []).filter((h) => h.depth === 2);
 const showToc = toc && headings.length > 0;
 /** Pages with their own hero heading suppress the layout's h1. */
 const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
+/** The title banner and the visible h1 both go, only the sr-only h1 stays. */
+const hideTitle: boolean = Astro.props.hideTitle ?? fm.hideTitle ?? false;
+const visibleTitle = showTitle && !hideTitle;
 ---
 
 <html lang="en">
@@ -174,7 +179,7 @@ const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
         {/* heroHeader() in lsts/content.ts: the title, description and date
             move into the image overlay, and the real h1 stays for screen
             readers and search engines. */}
-        {showTitle && heroUrls && (
+        {visibleTitle && heroUrls && (
           <>
             <div class="outer-placeholder" style={`padding-top: ${heroAspectRatio};`}>
               <div class="inner-placeholder">
@@ -197,7 +202,7 @@ const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
             .inner-placeholder panel, so every entry has the same header
             geometry. Pages with no date, the market dashboards and the section
             listings, keep the bare h1 instead. */}
-        {showTitle && !heroUrls && date && (
+        {visibleTitle && !heroUrls && date && (
           <div class="outer-placeholder" style={`padding-top: ${heroAspectRatio};`}>
             <div class="inner-placeholder no-image">
               <PageHeader
@@ -213,8 +218,8 @@ const showTitle: boolean = Astro.props.showTitle ?? fm.showTitle ?? true;
         )}
         <div class={showToc ? "with-toc" : ""}>
         <div class="column">
-        {showTitle && heroUrls && <h1 class="sr-only">{title}</h1>}
-        {showTitle && !heroUrls && !date && <h1>{title}</h1>}
+        {showTitle && (hideTitle || heroUrls) && <h1 class="sr-only">{title}</h1>}
+        {visibleTitle && !heroUrls && !date && <h1>{title}</h1>}
         <slot />
         <Footer contentPath={contentPath} />
         </div>

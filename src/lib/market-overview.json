@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Indices",
+    "symbols": [
+      { "symbol": "FOREXCOM:SPXUSD", "label": "S&P 500" },
+      { "symbol": "FOREXCOM:NSXUSD", "label": "Nasdaq 100" },
+      { "symbol": "FOREXCOM:DJI", "label": "Dow Jones" },
+      { "symbol": "INDEX:SX5E", "label": "Euro Stoxx 50" },
+      { "symbol": "XETR:DAX", "label": "DAX" },
+      { "symbol": "FOREXCOM:UKXGBP", "label": "FTSE 100" },
+      { "symbol": "INDEX:CAC40", "label": "CAC 40" },
+      { "symbol": "INDEX:NKY", "label": "Nikkei 225" },
+      { "symbol": "HSI:HSI", "label": "Hang Seng" },
+      { "symbol": "SSE:000001", "label": "Shanghai Composite" }
+    ]
+  }
+]
