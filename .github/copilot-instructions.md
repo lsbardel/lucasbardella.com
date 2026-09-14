@@ -24,3 +24,4 @@ The project uses a combination of Python, TypeScript, and Markdown for content. 
 - Lab entries follow the [lab instructions](./instructions/lab-instructions.md) file.
 - CFD code follows the [CFD instructions](./instructions/cfd-instructions.md) file.
 - Makefile targets should follow the [makefile conventions](./instructions/makefile.instructions.md).
+- Releases follow the [release instructions](./instructions/release.instructions.md).

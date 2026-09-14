@@ -65,6 +65,22 @@ const heroUrls = heroImage
     ? { thumbnail: heroImage, small: heroImage, regular: heroImage, large: heroImage }
     : (images as Record<string, any>)[heroImage]
   : undefined;
+/**
+ * Social preview image: the hero when there is one, else the site default.
+ * Unsplash URLs are imgix URLs, so they can be cropped to the 1200x630 size
+ * previews expect. Other providers and local files are used as they are, with
+ * no size declared since it is unknown.
+ */
+const ogImage: { url: string; type?: string; width?: number; height?: number } = (() => {
+  if (!heroUrls?.regular) return { url: site.ogImage, type: "image/png", width: 1200, height: 630 };
+  const url = new URL(heroUrls.regular, Astro.site ?? site.url);
+  if (url.hostname !== "images.unsplash.com") return { url: url.href };
+  url.searchParams.set("w", "1200");
+  url.searchParams.set("h", "630");
+  url.searchParams.set("fit", "crop");
+  url.searchParams.set("fm", "jpg");
+  return { url: url.href, type: "image/jpeg", width: 1200, height: 630 };
+})();
 const heroOpacity = Astro.props.heroOpacity ?? fm.heroOpacity;
 const heroBlur: string | undefined = Astro.props.heroBlur ?? fm.heroBlur;
 const heroTextColor: string | undefined = Astro.props.heroTextColor ?? fm.heroTextColor;
@@ -99,14 +115,14 @@ const visibleTitle = showTitle && !hideTitle;
     {description && <meta property="og:description" content={description} />}
     <meta property="og:type" content={date ? "article" : "website"} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={site.ogImage} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content={ogImage.url} />
+    {ogImage.type && <meta property="og:image:type" content={ogImage.type} />}
+    {ogImage.width && <meta property="og:image:width" content={String(ogImage.width)} />}
+    {ogImage.height && <meta property="og:image:height" content={String(ogImage.height)} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle(title)} />
     {description && <meta name="twitter:description" content={description} />}
-    <meta name="twitter:image" content={site.ogImage} />
+    <meta name="twitter:image" content={ogImage.url} />
 
     {/* Icons, manifest and theme colour, the `head` block of observablehq.config.js. */}
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/luca-16.png" />

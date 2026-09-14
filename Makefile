@@ -94,6 +94,17 @@ py-lint:		## Lint python code
 py-test:		## Run python tests (CFD tests run in docker via cfd-test)
 	@uv run --extra dev pytest lspy/tests
 
+.PHONY: release
+release:		## Tag the current version (from package.json) and push the tag
+	$(eval VERSION := $(shell node -p "require('./package.json').version"))
+	@read -p "Tagging with v$(VERSION), are you sure? [Y/n] " ans; \
+	ans=$${ans:-Y}; \
+	if [ "$$ans" = "Y" ] || [ "$$ans" = "y" ]; then \
+		git tag -a v$(VERSION) -m "v$(VERSION)" && git push origin v$(VERSION); \
+	else \
+		echo "Aborted."; \
+	fi
+
 .PHONY: rs-lint
 rs-lint:		## Lint rust code
 	@uv run .dev/rs-lint fix
