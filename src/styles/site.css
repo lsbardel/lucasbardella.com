@@ -40,6 +40,7 @@
   --foreground-fainter: #d1d5db;
   --accent: #8a7724;
   --link: #1d4ed8;
+  --code: #be185d;
   --measure: 760px;
   /* Page width and the gutter main reserves inside it. The hero derives its
      own cap from the pair, so the two cannot drift apart. */
@@ -58,6 +59,7 @@
     --foreground-fainter: #374151;
     --accent: #bdac5a;
     --link: #93c5fd;
+    --code: #f9a8d4;
   }
 }
 
@@ -71,6 +73,7 @@
   --foreground-fainter: #374151;
   --accent: #bdac5a;
   --link: #93c5fd;
+  --code: #f9a8d4;
 }
 
 /*
@@ -140,6 +143,11 @@ img { max-width: 100%; }
 /* Embeds carry fixed width attributes, so scale them down on narrow screens. */
 iframe { max-width: 100%; }
 iframe[src*="youtube.com"] { height: auto; aspect-ratio: 16 / 9; }
+/* In dark mode the page declares color-scheme: dark. A browser paints an opaque
+   white backdrop behind an iframe whose scheme differs from the document inside
+   it, which turned the transparent TradingView widgets white. Matching the
+   widget document's scheme keeps the backdrop transparent. */
+.tradingview-widget-container iframe { color-scheme: normal; }
 
 /* Interactive demos hydrate inside <astro-island>, a custom element, and an
    unknown element is display:inline by default. So a component dropped into a
@@ -149,9 +157,11 @@ iframe[src*="youtube.com"] { height: auto; aspect-ratio: 16 / 9; }
 .column > astro-island { display: block; margin: 2rem 0; }
 
 pre { background: var(--surface); padding: 1rem; border-radius: 6px; overflow-x: auto; line-height: 1.5; }
-pre, code, tt { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; }
-:not(pre) > code { background: var(--surface); padding: 0.1em 0.3em; border-radius: 3px; }
-h1 code, h2 code, h3 code, h4 code { font-size: 90%; }
+/* Sized in em so code tracks the fluid body type (and headings) instead of a
+   fixed pixel size; monospace runs visually large, hence slightly under 1em. */
+pre, code, tt { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+pre { font-size: 0.85em; }
+:not(pre) > code { font-size: 0.9em; color: var(--code); background: var(--surface); padding: 0.1em 0.3em; border-radius: 3px; }
 
 p.date { font-style: italic; color: var(--foreground-faint); }
 p.description { color: var(--foreground-faint); }
@@ -347,9 +357,9 @@ th { color: var(--foreground-faint); font-weight: 600; }
 .theme-toggle button[aria-pressed="true"] { background: var(--surface); color: var(--accent); }
 
 
-/* Search icon for narrow screens, styled like a theme toggle button. */
+/* Search icon, styled like a theme toggle button. */
 .search-open {
-  display: none;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.35rem 0.5rem;
@@ -361,11 +371,8 @@ th { color: var(--foreground-faint); font-weight: 600; }
 }
 .search-open:hover { background: var(--surface); color: var(--foreground); }
 
-/* The inline box would wrap onto a second row, so it gives way to the icon. */
-@media (max-width: 720px) {
+@media (max-width: 480px) {
   .site-header { gap: 0.5rem; }
-  .site-header .search { display: none; }
-  .search-open { display: inline-flex; }
 }
 
 /* Cards and grid, standing in for the Observable dashboard theme. */

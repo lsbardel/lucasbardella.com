@@ -1,60 +1,48 @@
 ---
 title: Observable to Astro
-description: Why a React dependency wall forced this site off Observable Framework, what the port actually cost, and why AI has weakened the case for opinionated frameworks.
+description: What Observable Framework did well, the React dependency problem that pushed this site to Astro, and what the move actually changed in practice.
 date: 2026-09-12
-keywords: observable framework, astro, site migration, react islands, static site generator, npm resolution, bundle size, opinionated frameworks, django
-private: true
+keywords: observable framework, astro, site migration, react islands, static site generator, npm resolution, bundle size, ai agents
 toc: true
+heroImage: astro
+heroTextColor: "#ffc34d"
 ---
 
-This site ran on [Observable Framework](https://observablehq.com/framework/) for several years and it was a good fit. Markdown pages with reactive code cells are a pleasant way to write technical posts, and the reactive runtime removes wiring you would otherwise do by hand. It now runs on [Astro](https://astro.build), and the reason has nothing to do with any of that.
+This site ran on [Observable Framework](https://observablehq.com/framework/) for several years, and it was a good fit. It now runs on [Astro](https://astro.build). This post covers what Observable Framework did well, the one problem that made me move, and what the move involved.
 
-The trigger was mundane. The market heatmap page needed a searchable dropdown, because the list of markets had grown past two hundred entries and a plain `select` had become unusable. That is a solved problem with several mature libraries, so I reached for one, and every candidate shipped a second copy of React into the page.
+## What Observable Framework Did Well
 
-## The Dependency Wall
+- **Markdown with live code.** A page is a markdown file with code cells in it. For technical posts that mix prose, maths and charts, this is a very pleasant way to write.
+- **A reactive runtime.** Cells re-run when the values they depend on change. An input slider feeds a chart with no event handlers or state management to write.
+- **Data loaders.** A Python or TypeScript script next to the content produces a data file. The framework ran it when a page asked for that file and cached the result.
+- **No dependency tree.** `npm:` imports are resolved through a CDN, so there is no `node_modules` to install or maintain for a content site.
+- **Layout for free.** A `pages` array in the config gives you a sidebar, a theme and a footer.
 
-Observable Framework resolves `npm:` imports through a CDN at build time rather than through a local `node_modules` tree. You install nothing and maintain no dependency tree for a content site. The cost appears with any package declaring React as a peer dependency. The CDN resolves that range independently and picks the lowest version satisfying it. Your page is already running one version of React, the library arrives bound to another, and nothing deduplicates them, because in ES modules identity is the URL, so two URLs are two separately initialised modules.
+None of these were a reason to leave. The reactive runtime in particular is genuinely good.
 
-I measured four candidates for that dropdown. All four had the same defect:
+## Why I Moved Away
 
-| Library | React it pulled in | Modules added |
-|---|---|---|
-| `react-select` | 16.14.0 plus `react-dom` 16 | 53 |
-| `downshift` | 18.3.1 | 13 |
-| `@tanstack/react-virtual` | 19.3.0 | 9 |
-| `@headlessui/react` | 18.3.1 plus `react-dom` 18 | 48 |
+The trigger was small. The market heatmap page needed a searchable dropdown, because the list of markets had grown past two hundred entries and a plain `select` was no longer usable. I tried the usual React libraries for this, and every one of them broke the page.
 
-The page was on React 19. Hooks depend on module level mutable state, so when `react-dom` renders your tree it sets the current dispatcher on its own copy of React. A component calling `useState` from a different copy sees no active render and throws [Invalid hook call](https://react.dev/warnings/invalid-hook-call-warning).
+The cause is the CDN resolution that made the "no dependency tree" point above so convenient. When a library declares React as a peer dependency, the CDN resolves that range on its own and picks a version of React for the library. The page already runs its own React, and nothing merges the two. In ES modules a module is identified by its URL, so two URLs mean two separate copies of React.
 
-Version proximity does not save you. TanStack pulled React 19.3.0 while the page ran 19.2.4, which are semver compatible and would collapse to one copy under any bundler. They still break, because the deduplication step a bundler performs does not exist in this pipeline. There is no lockfile to pin and no resolutions field, so the practical rule is that React component libraries are unavailable as a category. That is structural rather than a bug awaiting a fix, and it is the only reason this port happened.
+I tried `react-select`, `downshift`, `@tanstack/react-virtual` and `@headlessui/react`. React hooks only work when the component and the renderer share the same copy of React, so every one of them failed with an [Invalid hook call](https://react.dev/warnings/invalid-hook-call-warning) error.
 
-## What The Port Actually Cost
+A bundler would have merged the copies into one, but this pipeline has no such step, no lockfile and no way to force a version. In practice that rules out React component libraries entirely, and that is a design choice, not a bug that will get fixed. It was the only reason for the move.
 
-Sixty pages sounded like a rewrite. Most of them are prose, and prose moved by copying the file, since frontmatter is compatible and Astro's content collections accept the loose date formats already in the content.
+## What the Move Changed
 
-The components were the surprise. All twenty five import only genuine npm packages, so porting them meant deleting the `npm:` prefix. The Mandelbrot component is a hundred and thirty one lines and three import lines changed. Nothing in any component body was rewritten.
-
-The real work was the twelve pages built on the reactive runtime, which is the one thing Astro has no equivalent for. The port moves that state into the component: the controls and the `useState` calls live together, and React re-renders instead of the runtime re-running a cell. For the Mandelbrot page, a twenty three line markdown file became a thirteen line MDX file plus a thirty six line wrapper. The canvas underneath did not change.
-
-The interactive CFD post was the worst case and the one that decided whether this was feasible. Nine inputs became one wrapper of about a hundred and sixty lines, sitting on six hundred lines of unchanged component code. The data needed more thought: the two cases are thirty megabytes of raw JSON, nine and a half zipped, so the port reads them out of the zip with [fflate](https://github.com/101arrowz/fflate), loading only the case being viewed.
-
-The other cost was the layout. Observable gives you a sidebar, a theme and a footer from a `pages` array in the config. Astro is deliberately unopinionated and ships none of it, so the sidebar was the first component built, along with an equivalent for the page width that Observable sets from frontmatter. It is a day of work for something that had previously been free.
-
-## AI Has Hollowed Out The Opinionated Framework
-
-I hand rolled that dropdown in under two hundred lines, and the result was better than the library would have given. It is controlled rather than uncontrolled, so browser history keeps working, and it inherits the site styles instead of needing a stylesheet overridden.
-
-A few years ago that sentence would have been a defeat. Writing two hundred lines to avoid an import is exactly the tax an opinionated framework exists to save you from. That bargain was always the same one: accept someone else's structure, get the sidebar, the admin, the ORM, the reactive runtime for nothing. It made sense when writing the code yourself was the expensive part.
-
-It no longer is. The dropdown, the sidebar, the width prop, the twelve wrapper components, all of it was written in an afternoon with an agent, and none of it is code I need to maintain in the sense that word used to carry. What the framework was selling has quietly become cheap, while what it charges has not changed at all. You still inherit its structure, its upgrade path, and in Observable's case a module resolution model that made an entire category of library unusable.
-
-This applies well beyond static site generators. Django's pitch is the same: batteries included, conventions decided, an admin and an ORM you did not write. Weigh that now against a few hundred lines of FastAPI and SQL that you did not write either, that do exactly what you asked, and that carry no opinion you have to work around when the requirements turn out to be unusual. The generated version is smaller, has no upgrade treadmill, and cannot wall you off from a library.
-
-The remaining case for a framework is not code you would rather not write. It is the constraints worth being held to: a shared structure across a team, a security posture you should not be reinventing, an ecosystem of things that assume it. Those are real. Convenience is not one of them any more, and convenience was most of what the pitch was.
+- **Prose pages** were copied across. The frontmatter was already compatible with Astro content collections.
+- **Components** needed their imports changed from `npm:react` to `react`. The component code itself stayed the same.
+- **Reactive pages** were the real work, since Astro has no equivalent of the reactive runtime. The controls and their state now live in a small React wrapper around the existing component.
+- **Data loaders** kept their scripts. Astro does not run them, so a small build script replaces that part, and `make data` runs every loader before the build.
+- **Large data** for the interactive CFD post is shipped as a zip and read in the browser with [fflate](https://github.com/101arrowz/fflate), loading only the case being viewed.
+- **The layout** had to be built, because Astro ships no sidebar. The new sidebar is plain HTML using native `details` elements.
+- **The dropdown** that started all this ended up hand written, in about 150 lines. It is controlled, so browser history keeps working, and it uses the site styles directly.
 
 ## What It Weighs Now
 
-The measurement that justifies the exercise:
+A side effect of Astro's islands model is that a page only ships JavaScript for its interactive parts:
 
 | Page | HTML | JavaScript |
 |---|---|---|
@@ -62,10 +50,16 @@ The measurement that justifies the exercise:
 | Mandelbrot set | 8 KB | 13 KB |
 | CFD cavity | 24 KB | 52 KB |
 
-A prose page ships no JavaScript at all. KaTeX renders at build time, the sidebar collapses with native `details` elements, and nothing hydrates. Of the sixty pages, roughly forty eight are prose. The interactive pages load their island and only their island.
+Prose pages ship no JavaScript at all. KaTeX renders the maths at build time and the sidebar needs no script.
 
-## What I Would Tell You
+## AI Agents Make Frameworks Less Important
 
-If you are running Observable Framework and it works, stay. The reactive runtime is genuinely good, and nothing here is a complaint about the writing experience.
+A big part of what an opinionated framework offers is the boilerplate it saves you from writing: the sidebar, the layout, the wiring between inputs and charts. With AI agents, most of that boilerplate can be written for you. The sidebar, the reactive wrappers and the dropdown on this site are exactly that kind of code.
 
-Move when you hit the dependency wall, because that wall does not move. Everything else in this port was mechanical: prose copied, a prefix deleted across twenty five components, twelve pages of reactive plumbing, and a layout you no longer get for nothing. That last item used to be the strongest argument for staying. It is now the weakest.
+That shifts what matters in a framework. Convenience counts for less, and staying out of the way counts for more. Astro is very lightweight. It does not get in the way of styling, and it does not get in the way of dependencies, since packages are installed and bundled the normal way. That makes it a very good fit for building a website together with an AI agent: the agent writes plain components, CSS and imports, with no framework conventions to work around.
+
+## Conclusion
+
+If you run Observable Framework and it works for you, stay. The writing experience and the reactive runtime are excellent.
+
+Move if you need React component libraries, because the way Observable resolves npm packages makes them unusable and that will not change. For this site, the move was mostly mechanical. The two pieces of real work were rewriting the reactive pages as React wrappers and building the layout that Observable used to provide for free, and that is the kind of work AI agents now handle well.

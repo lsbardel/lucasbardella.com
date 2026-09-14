@@ -69,6 +69,9 @@ export const TradingViewChart = ({symbol, aspectRatio, theme}: TradingViewInput)
     const widget = document.createElement("div");
     widget.className = "tradingview-widget-container__widget";
     el.replaceChildren(widget);
+    // This widget ignores isTransparent, so paint it with the site's own
+    // --background token instead. Read here, the effect reruns on a theme change.
+    const background = getComputedStyle(document.documentElement).getPropertyValue("--background").trim();
     const script = document.createElement("script");
     script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
     script.type = "text/javascript";
@@ -80,6 +83,7 @@ export const TradingViewChart = ({symbol, aspectRatio, theme}: TradingViewInput)
         "interval": "D",
         "timezone": "Etc/UTC",
         "theme": "${colorTheme}",
+        "backgroundColor": "${background}",
         "style": "1",
         "locale": "en",
         "allow_symbol_change": true,
@@ -165,7 +169,8 @@ export const TradingViewMarketOverview = ({tabs, theme, aspectRatio, dateRange =
       showChart,
       locale: "en",
       largeChartUrl: "",
-      isTransparent: false,
+      // Transparent, so the site background shows through in either theme.
+      isTransparent: true,
       showSymbolLogo: logo,
       showFloatingTooltip: true,
       width: "100%",
@@ -207,7 +212,8 @@ export const TradingViewMarketData = ({groups, theme, aspectRatio, logo = true}:
       colorTheme,
       locale: "en",
       largeChartUrl: "",
-      isTransparent: false,
+      // Transparent, so the site background shows through in either theme.
+      isTransparent: true,
       showSymbolLogo: logo,
       width: "100%",
       height: "100%",
@@ -220,6 +226,52 @@ export const TradingViewMarketData = ({groups, theme, aspectRatio, logo = true}:
     el.appendChild(script);
     return () => el.replaceChildren();
   }, [groups, colorTheme, logo]);
+
+  const style = {width: "100%", position: "relative" as const, paddingTop: aspectRatio};
+  const styleInner = {position: "absolute" as const, top: 0, left: 0, bottom: 0, right: 0};
+  return (
+    <div className="tradingview-widget-container-outer" style={style}>
+      <div className="tradingview-widget-container" ref={container} style={styleInner} />
+    </div>
+  );
+}
+
+
+interface TradingViewCryptoScreenerInput {
+  theme?: string;
+  aspectRatio: string;
+  currency?: string;
+  // Opening column set, e.g. overview, performance, oscillators, moving_averages.
+  column?: string;
+};
+
+export const TradingViewCryptoScreener = ({theme, aspectRatio, currency = "USD", column = "overview"}: TradingViewCryptoScreenerInput) => {
+  const siteTheme = useSiteTheme();
+  const colorTheme = theme ?? siteTheme;
+  const container = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    const el = container.current;
+    if (!el) return;
+    // Same as the overview, clear any previous render so prop changes do not stack widgets.
+    el.replaceChildren();
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-screener.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      width: "100%",
+      height: "100%",
+      defaultColumn: column,
+      screener_type: "crypto_mkt",
+      displayCurrency: currency,
+      colorTheme,
+      // Transparent, so the site background shows through in either theme.
+      isTransparent: true,
+      locale: "en",
+    });
+    el.appendChild(script);
+    return () => el.replaceChildren();
+  }, [colorTheme, currency, column]);
 
   const style = {width: "100%", position: "relative" as const, paddingTop: aspectRatio};
   const styleInner = {position: "absolute" as const, top: 0, left: 0, bottom: 0, right: 0};
@@ -250,7 +302,8 @@ export const TradingViewTicketTape = ({symbols, compact, logo, theme}: TradingVi
       symbols: symbols.map(s => ({proName: s})),
       showSymbolLogo: logo ? true : false,
       colorTheme,
-      isTransparent: false,
+      // Transparent, so the site background shows through in either theme.
+      isTransparent: true,
       displayMode: compact ? "compact" : "regular",
       locale: "en"
     });

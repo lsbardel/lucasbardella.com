@@ -80,7 +80,7 @@ install-tex:		## Install texlive dependencies
 
 .PHONY: phd
 phd:			## Download phd thesis
-	curl -L -o dist/phd-thesis.pdf https://raw.githubusercontent.com/lsbardel/phd/main/thesis/thesis.pdf
+	curl -fL --create-dirs -o public/phd-thesis.pdf https://raw.githubusercontent.com/lsbardel/phd/main/thesis/thesis.pdf
 
 .PHONY: py-install
 py-install:		## Install python dependencies

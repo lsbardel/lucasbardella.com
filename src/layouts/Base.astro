@@ -31,6 +31,8 @@ interface Props {
   heroBlur?: string;
   heroTextColor?: string;
   heroAspectRatio?: string;
+  /** Text under the hero title, when it should differ from the meta description. */
+  heroSubtitle?: string;
   showTitle?: boolean;
   /** Keeps the h1 for search engines and screen readers but shows no title. */
   hideTitle?: boolean;
@@ -67,6 +69,7 @@ const heroOpacity = Astro.props.heroOpacity ?? fm.heroOpacity;
 const heroBlur: string | undefined = Astro.props.heroBlur ?? fm.heroBlur;
 const heroTextColor: string | undefined = Astro.props.heroTextColor ?? fm.heroTextColor;
 const heroAspectRatio: string = Astro.props.heroAspectRatio ?? fm.heroAspectRatio ?? "35%";
+const heroSubtitle: string | undefined = Astro.props.heroSubtitle ?? fm.heroSubtitle ?? description;
 /** Canonical URL of this page, absolute, from `site` in astro.config.mjs. */
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
 const toc: boolean = Astro.props.toc ?? fm.toc ?? false;
@@ -173,7 +176,7 @@ const visibleTitle = showTitle && !hideTitle;
       {/* Checkbox toggle, the same trick Observable Framework uses, so
           collapsing the sidebar needs no JavaScript at all. */}
       <input id="sidebar-toggle" type="checkbox" aria-label="Collapse sidebar" />
-      <label class="sidebar-handle" for="sidebar-toggle" title="Toggle sidebar"></label>
+      <label class="sidebar-handle" for="sidebar-toggle" title="Toggle sidebar (Ctrl+B / ⌘B)"></label>
       <Sidebar />
       <main class={`content-${width}`} data-pagefind-body>
         {/* heroHeader() in lsts/content.ts: the title, description and date
@@ -186,7 +189,7 @@ const visibleTitle = showTitle && !hideTitle;
                 <PageHeader
                   client:load
                   title={title}
-                  subtitle={description}
+                  subtitle={heroSubtitle}
                   date={date ? formatDate(date) : undefined}
                   urls={heroUrls}
                   opacity={heroOpacity === undefined ? undefined : Number(heroOpacity)}
@@ -236,6 +239,20 @@ const visibleTitle = showTitle && !hideTitle;
         </div>
       </main>
     </div>
+    <script>
+      // Ctrl+B, or Cmd+B on a Mac, toggles the sidebar, the shortcut Observable
+      // Framework used. Flipping the checkbox is all the CSS needs. Keys typed
+      // into a field, such as the search box, are left alone.
+      const sidebarToggle = document.getElementById("sidebar-toggle") as HTMLInputElement | null;
+      addEventListener("keydown", (event) => {
+        if (!sidebarToggle || event.key.toLowerCase() !== "b" || !(event.ctrlKey || event.metaKey)) return;
+        if (event.altKey || event.shiftKey) return;
+        const target = event.target as HTMLElement | null;
+        if (target && (target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName))) return;
+        event.preventDefault();
+        sidebarToggle.checked = !sidebarToggle.checked;
+      });
+    </script>
     <script>
       // Highlight the contents entry for the section currently under the
       // header: the last heading whose top has passed the header line.

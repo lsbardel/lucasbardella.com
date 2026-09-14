@@ -43,9 +43,16 @@ export const TradingViewChart: React.FC<TradingViewChartProps> = ({ data, symbol
   const themeRef = React.useRef(theme);
   themeRef.current = theme;
   const appliedThemeRef = React.useRef(theme);
+  // The charting library has no transparent mode, so the pane is painted with
+  // the site's own --background token. It is read on every render, so after a
+  // toggle the theme effect below applies the new value.
+  const background = typeof document === "undefined"
+    ? ""
+    : getComputedStyle(document.documentElement).getPropertyValue("--background").trim();
   const seriesOverrides = {
     "mainSeriesProperties.style": chartStyle,
     ...(colors[0] ? { "mainSeriesProperties.lineStyle.color": colors[0] } : {}),
+    ...(background ? { "paneProperties.backgroundType": "solid", "paneProperties.background": background } : {}),
   };
 
   // Load TradingView script

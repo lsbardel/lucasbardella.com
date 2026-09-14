@@ -2,26 +2,16 @@
 layout: ../layouts/Base.astro
 title: Credits
 description: A thank you to the open-source authors and communities that make this site possible
-showTitle: false
 contentPath: src/pages/credits.mdx
+toc: true
+heroImage: thanks
+heroOpacity: "0.5"
+heroBlur: blur-sm
+heroAspectRatio: "40%"
+heroSubtitle: None of this exists without the open-source community. Thank you.
 ---
 
-import { PageHeader } from "../components/image";
-import images from "../data/images.json";
-
-<div class="outer-placeholder" style={{ paddingTop: "40%" }}>
-  <div class="inner-placeholder">
-    <PageHeader
-      client:load
-      title="Credits"
-      subtitle="None of this exists without the open-source community. Thank you."
-      urls={images.thanks}
-      opacity={0.5}
-      blur="blur-sm"
-    />
-  </div>
-</div>
-<h1 class="sr-only">Credits</h1>
+import ImageCredits from "../components/ImageCredits.astro";
 
 This website is the product of a lot of great open-source work. I believe in giving credit where it is due, so this page lists every major library and framework that powers the site, from the static site generator down to the smallest utility.
 
@@ -30,6 +20,8 @@ This website is the product of a lot of great open-source work. I believe in giv
 [Astro](https://astro.build/) is the foundation of the site. It is an open-source static site generator that renders pages to HTML at build time and ships JavaScript only where a page actually needs it, through its islands architecture. Content lives in Markdown and MDX, and interactive components drop into a page where they are wanted.
 
 [Tailwind CSS](https://tailwindcss.com/) handles all the styling. Its utility-first approach keeps the CSS footprint small and makes it easy to build consistent layouts without writing custom stylesheets.
+
+[KaTeX](https://katex.org/) renders the mathematics in posts and lab entries. Formulas written in Markdown are turned into HTML when the site is built, through [remark-math](https://github.com/remarkjs/remark-math) and [rehype-katex](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex), so equations are already typeset when a page loads and need no JavaScript in the browser.
 
 ## Visualizations and Data
 
@@ -60,6 +52,12 @@ Behind the scenes, all data fetching and processing is handled by Python. [quant
 [aio-fluid](https://github.com/quantmind/aio-fluid) provides async utilities for backend services, including the task scheduler used for data pipeline jobs. [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) handles communication with AWS S3 for storing and retrieving data files.
 
 [foamlib](https://github.com/gerlero/foamlib) is the Python interface for [OpenFOAM](https://openfoam.org/), used to configure and run the CFD simulations featured in the lab section.
+
+## Images
+
+The photographs used across the site, mostly as page headers, come from [Unsplash](https://unsplash.com/) and [Pixabay](https://pixabay.com/). This list is generated from the site's image registry, so every registered photo is credited here. Each one links to its original page, where the photographer is named.
+
+<ImageCredits />
 
 ## Source Code
 

@@ -15,6 +15,7 @@
  * makes a local build cheap and keeps API calls down. Pass --force to refresh.
  */
 import { spawnSync } from "child_process";
+import { config as loadEnv } from "dotenv";
 import { unzipSync } from "fflate";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { dirname, join } from "path";
@@ -57,6 +58,12 @@ const LOADERS: Loader[] = [
   { source: "cfd/cavity_100.zip.py", out: "public/data/cfd/cavity_100.zip" },
   { source: "cfd/cavity_1000.zip.py", out: "public/data/cfd/cavity_1000.zip" },
 ];
+
+// Loaders read secrets such as TRADING_DATA_URL from the environment. CI sets
+// them directly; locally they live in .env, which nothing else loads for the
+// loaders. Each loader inherits this process's environment. Variables already
+// set, as in CI, win over the file.
+loadEnv({ quiet: true });
 
 const force = process.argv.includes("--force");
 

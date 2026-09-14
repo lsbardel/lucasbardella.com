@@ -23,6 +23,7 @@ PHOTOS = (
     ("bwcharts", ImageProvider.PIXABAY, "1863880"),
     ("ai", ImageProvider.UNSPLASH, "cZgRe9BlYR4"),
     ("mermaid", ImageProvider.UNSPLASH, "J2wMKgixIHQ"),
+    ("astro", ImageProvider.UNSPLASH, "_ok8uVzL2gI"),
 )
 
 

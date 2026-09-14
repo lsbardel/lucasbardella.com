@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Crypto",
+    "symbols": [
+      { "symbol": "BITSTAMP:BTCUSD", "label": "Bitcoin" },
+      { "symbol": "BITSTAMP:ETHUSD", "label": "Ethereum" },
+      { "symbol": "COINBASE:SOLUSD", "label": "Solana" },
+      { "symbol": "BITSTAMP:XRPUSD", "label": "XRP" },
+      { "symbol": "BINANCE:BNBUSDT", "label": "BNB" },
+      { "symbol": "BINANCE:DOGEUSDT", "label": "Dogecoin" },
+      { "symbol": "COINBASE:ADAUSD", "label": "Cardano" }
+    ]
+  }
+]

@@ -1,6 +1,7 @@
 ---
 import { TradingViewMarketData, TradingViewMarketOverview, TradingViewTicketTape } from "../../components/tradingview";
 import commodities from "../../lib/market-data-commodities.json";
+import crypto from "../../lib/market-data-crypto.json";
 import tabs from "../../lib/market-overview.json";
 import Base from "../../layouts/Base.astro";
 
@@ -29,9 +30,15 @@ const symbols = [
   width="full"
 >
   <TradingViewTicketTape client:load symbols={symbols} compact={true} />
-  <!-- Stacked on small screens, overview left and commodities right from lg up. -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+  <!-- Stacked on small screens, overview left and commodities right from lg up.
+       items-start stops the overview stretching to the taller right column. -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 items-start gap-4 mt-4">
     <TradingViewMarketOverview client:load tabs={tabs} aspectRatio="100%" />
-    <TradingViewMarketData client:load groups={commodities} aspectRatio="100%" />
+    <!-- Right column: commodities with crypto underneath, as two separate
+         market data widgets so they share the same look. -->
+    <div class="flex flex-col gap-4">
+      <TradingViewMarketData client:load groups={commodities} aspectRatio="100%" />
+      <TradingViewMarketData client:load groups={crypto} aspectRatio="100%" />
+    </div>
   </div>
 </Base>
