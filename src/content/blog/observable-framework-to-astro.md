@@ -8,7 +8,7 @@ heroImage: astro
 heroTextColor: "#ffc34d"
 ---
 
-This site ran on [Observable Framework](https://observablehq.com/framework/) for several years, and it was a good fit. It now runs on [Astro](https://astro.build). This post covers what Observable Framework did well, the one problem that made me move, and what the move involved.
+This site ran on [Observable Framework](https://observablehq.com/framework/) for several years, and it was a good fit. It now runs on [Astro](https://astro.build). This post covers what Observable Framework did well, the reasons that made me move, and what the move involved.
 
 ## What Observable Framework Did Well
 
@@ -22,13 +22,15 @@ None of these were a reason to leave. The reactive runtime in particular is genu
 
 ## Why I Moved Away
 
-The trigger was small. The market heatmap page needed a searchable dropdown, because the list of markets had grown past two hundred entries and a plain `select` was no longer usable. I tried the usual React libraries for this, and every one of them broke the page.
+The trigger was small. The [market heatmap](/market/heatmap) page needed a searchable dropdown, because the list of markets had grown past two hundred entries and a plain `select` was no longer usable. I tried the usual React libraries for this, and every one of them broke the page.
 
 The cause is the CDN resolution that made the "no dependency tree" point above so convenient. When a library declares React as a peer dependency, the CDN resolves that range on its own and picks a version of React for the library. The page already runs its own React, and nothing merges the two. In ES modules a module is identified by its URL, so two URLs mean two separate copies of React.
 
 I tried `react-select`, `downshift`, `@tanstack/react-virtual` and `@headlessui/react`. React hooks only work when the component and the renderer share the same copy of React, so every one of them failed with an [Invalid hook call](https://react.dev/warnings/invalid-hook-call-warning) error.
 
-A bundler would have merged the copies into one, but this pipeline has no such step, no lockfile and no way to force a version. In practice that rules out React component libraries entirely, and that is a design choice, not a bug that will get fixed. It was the only reason for the move.
+A bundler would have merged the copies into one, but this pipeline has no such step, no lockfile and no way to force a version. In practice that rules out React component libraries entirely, and that is a design choice, not a bug that will get fixed. It was the main reason for the move.
+
+The second reason was maintenance. Observable Framework was updated only sporadically, and it felt as if the project was no longer maintained. Building a site on a framework that may not keep up with its dependencies is a risk, and that made the decision to move easier.
 
 ## What the Move Changed
 
