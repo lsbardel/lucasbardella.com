@@ -8,7 +8,8 @@
       { "symbol": "BITSTAMP:XRPUSD", "label": "XRP" },
       { "symbol": "BINANCE:BNBUSDT", "label": "BNB" },
       { "symbol": "BINANCE:DOGEUSDT", "label": "Dogecoin" },
-      { "symbol": "COINBASE:ADAUSD", "label": "Cardano" }
+      { "symbol": "COINBASE:ADAUSD", "label": "Cardano" },
+      { "symbol": "COINBASE:HYPEUSD", "label": "Hyperliquid" }
     ]
   }
 ]
