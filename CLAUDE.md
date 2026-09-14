@@ -6,6 +6,7 @@
 @.github/instructions/python-instructions.md
 @.github/instructions/typescript-instructions.md
 @.github/instructions/lab-instructions.md
+@.github/instructions/release.instructions.md
 
 ## Skills
 
