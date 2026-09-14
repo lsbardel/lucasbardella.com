@@ -16,8 +16,18 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    # The data and analytics secrets live in this environment, not at repo level.
+    environment:
+      name: github-pages
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
+      GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
+      GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
+      GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
+      FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+      TRADING_DATA_URL: ${{ secrets.TRADING_DATA_URL }}
     steps:
       - name: checkout repo
         uses: actions/checkout@v6
@@ -50,7 +60,7 @@ jobs:
           node-version: 22
       - uses: actions/setup-python@v6
         with:
-          python-version: 3.13
+          python-version: 3.14
       - name: install uv
         run: pip install uv
       - name: python tests
@@ -60,25 +70,10 @@ jobs:
       - name: run CFD cases
         run: make cfd-cases
       - name: run data loaders
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
-          GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
-          GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
-          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
-          TRADING_DATA_URL: ${{ secrets.TRADING_DATA_URL }}
         run: npm i && make data
       - name: download thesis
         run: make phd
       - name: build bundle
-        env:
-          GITHUB_RUN_ID: ${{ github.run_id }}
-          GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
-          GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
-          GA_CLIENT_EMAIL: ${{ secrets.GA_CLIENT_EMAIL }}
-          GA_PRIVATE_KEY: ${{ secrets.GA_PRIVATE_KEY }}
-          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
-          TRADING_DATA_URL: ${{ secrets.TRADING_DATA_URL }}
         run: npm run build
       - name: publish GitHub release
         run: |
