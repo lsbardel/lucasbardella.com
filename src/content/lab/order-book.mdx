@@ -1,0 +1,39 @@
+---
+title: Live Order Book
+description: Live crypto trades, limit order book, depth chart and bid ask imbalance, streamed from the Binance public feeds straight into the browser.
+date: 2026-10-09
+keywords: order book, market depth, depth chart, order book imbalance, market microstructure, crypto, binance, websocket
+---
+
+import OrderBookDemo from "../../components/OrderBookDemo";
+
+Live trades and every resting limit order on a Binance book, streamed into the browser.
+
+<OrderBookDemo client:load />
+
+## Reading the Chart
+
+On the left is the recent trade flow, scrolling from right to left, with the mid price as a white line. Each bubble groups the trades of a quarter of a second on one side, green for buyers crossing the spread and red for sellers, drawn at their average price. Bubble area grows with traded size, up to a cap for the largest trades.
+
+On the right is the book itself, on the same price axis. Each bar is the total size resting in a narrow price band, bids in green below the mid and asks in red above it, and the yellow tag marks the mid price.
+
+Below them is the depth chart. It adds the book up from the best price outwards, bids to the left of the mid and asks to the right. Hover over it to read how much size, and how much money, sits between the mid and any price, which is what a market order would have to eat through to move the price that far.
+
+Below the chart, the imbalance compares the size on each side:
+
+```
+imbalance = (bidSize − askSize) / (bidSize + askSize)
+```
+
+It runs from +100% when the book is all bids to −100% when it is all asks, and it is measured at the best prices only and with all the size within 10, 50 and 100 basis points of the mid.
+
+## How It Works
+
+There is no backend. The page opens a WebSocket to the [Binance market data streams](https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams) and subscribes to two public channels, the order book diffs every 100ms and the aggregated trades.
+
+The diff stream only says what changed, so the full book has to be rebuilt locally:
+
+1. Open the stream and buffer the diffs.
+2. Fetch a 5000 level snapshot from the REST API.
+3. Drop the buffered diffs the snapshot already contains, then apply the rest in order.
+4. Check that every update id follows on from the last one. A gap means a message was lost, so the book is discarded and synced again.
