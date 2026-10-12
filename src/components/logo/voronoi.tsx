@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as d3 from "d3";
 import { type BaseLogoProps, LogoWrapper } from "./base";
-import { schemes } from "../palettes";
+import { schemes } from "../shared/palettes";
 
 type Pattern = "phyllotaxis" | "random" | "ring" | "grid";
 

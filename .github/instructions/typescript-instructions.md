@@ -1,17 +1,17 @@
 ---
-applyTo: "content/components/**/*.{ts,tsx}"
+applyTo: "src/components/**/*.{ts,tsx}"
 ---
 
 # TypeScript Development Guidelines
 
-Instructions for TypeScript components in the `content/components/` directory.
+Instructions for TypeScript components in the `src/components/` directory. They are React components rendered as Astro islands.
 
 ## Conventions
 
-- Import npm packages with the `npm:` prefix (e.g. `"npm:react"`, `"npm:d3"`).
-- Use `import * as React from "npm:react"` for React.
+- Import npm packages by their plain name (e.g. `"react"`, `"d3"`), and local modules without a file extension (e.g. `"./shared/inputs"`).
+- Use `import * as React from "react"` for React.
 - No `any` types; define explicit interfaces or type aliases for props and data shapes.
-- Use `import type` or `import { type Foo }` for type-only imports to avoid runtime errors in Observable Framework.
+- Use `import type` or `import { type Foo }` for type-only imports so the import is dropped at compile time rather than resolved at runtime.
 - Export the component as the default export.
 
 ## Component Structure
@@ -20,12 +20,13 @@ Instructions for TypeScript components in the `content/components/` directory.
 - Read dimensions (`el.offsetWidth` / `el.offsetHeight`) inside `useEffect`; never hardcode sizes.
 - Always return a cleanup function from `useEffect` to cancel animation frames, timers, and event listeners.
 - List all props that should trigger re-render in the `useEffect` dependency array.
-- Keep all logic in the `.tsx` file; the corresponding `.md` page should be minimal.
+- Keep all logic in the `.tsx` file; the corresponding `.mdx` page should be minimal.
 
 ## Subdirectories
 
-- CFD-related components go in `content/components/cfd/`.
-- General blog/lab components go directly in `content/components/`.
+- CFD-related components go in `src/components/cfd/`.
+- General blog/lab components go directly in `src/components/`. The component a page imports is named `{Name}Demo.tsx` (PascalCase) for lab entries, and can delegate the drawing to a lowercase module such as `cylinder.tsx`.
+- Components and modules used by more than one component or page live in `src/components/shared/`. That includes the shared controls and the `useRemote` data hook in `src/components/shared/inputs.tsx`.
 
 ## Node Version Management
 

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Color, Controls, Range, Select, Toggle } from "./inputs";
+import { Color, Controls, Range, Select, Toggle } from "./shared/inputs";
 import CirclesLogo, { type CirclesLogoProps } from "./logo/circles";
 
 const CLIP_MODES = ["none", "outer", "inner", "petals"] as const;

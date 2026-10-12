@@ -1,7 +1,7 @@
 import * as React from "react";
-import FullScreen from "./FullScreen";
+import FullScreen from "./shared/FullScreen";
 import Mandelbrot from "./Mandelbrot";
-import { schemes } from "./palettes";
+import { schemes } from "./shared/palettes";
 
 interface Props {
   maxIter?: number;

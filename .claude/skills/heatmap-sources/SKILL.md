@@ -4,7 +4,7 @@ Refreshes the market list used by the market heatmap page at `/market/heatmap`.
 
 ## What this is
 
-`content/components/heatmap-sources.ts` is a **generated** file holding every market
+`src/components/heatmap-sources.ts` is a **generated** file holding every market
 the TradingView stock heatmap supports, grouped by country. It is committed to the
 repo and read at runtime, nothing is fetched in the browser.
 
@@ -49,7 +49,7 @@ only reliable oracle: the heatmap is a canvas inside a cross origin iframe, so
 the check reads the iframe's own DevTools target. It refuses to write an empty
 result, so a failed run cannot wipe the committed list.
 
-Do not edit `content/components/heatmap-sources.ts` by hand, the next refresh
+Do not edit `src/components/heatmap-sources.ts` by hand, the next refresh
 overwrites it. Edit `lsts/heatmap-sources.ts` instead.
 
 The script prints what changed, for example:
@@ -86,6 +86,6 @@ Watch out for two traps that have already bitten this parser:
 
 ## Related
 
-- `content/components/market-heatmap.tsx` renders the controls and keeps the choices
+- `src/components/market-heatmap.tsx` renders the controls and keeps the choices
   in the query string
-- `content/market/heatmap.md` is the page itself
+- `src/pages/market/heatmap.astro` is the page itself

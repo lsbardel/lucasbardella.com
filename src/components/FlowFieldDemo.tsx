@@ -1,7 +1,7 @@
 import * as React from "react";
 import FlowField from "./flow-field";
-import { Controls, Range, Select } from "./inputs";
-import { schemes } from "./palettes";
+import { Controls, Range, Select } from "./shared/inputs";
+import { schemes } from "./shared/palettes";
 
 /** The background choice mapped to a canvas colour, as the display cell did. */
 const BACKGROUNDS: Record<string, string> = {

@@ -1,7 +1,7 @@
 import * as Plot from "@observablehq/plot";
 import * as d3 from "d3";
 import * as React from "react";
-import { useRemote } from "./inputs";
+import { useRemote } from "./shared/inputs";
 
 interface Props {
   /** File name under public/data/wholesale, without the extension. */

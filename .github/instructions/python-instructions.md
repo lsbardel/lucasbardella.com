@@ -1,5 +1,5 @@
 ---
-applyTo: "lspy/**/*.py, cfd/**/*.py, content/data/**/*.py"
+applyTo: "lspy/**/*.py, cfd/**/*.py, dataloaders/**/*.py"
 ---
 
 

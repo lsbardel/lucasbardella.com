@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import * as React from "react";
-import {schemes} from "./palettes";
+import {schemes} from "./shared/palettes";
 
 interface Props {
   maxIter?: number;

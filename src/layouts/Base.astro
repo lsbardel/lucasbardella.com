@@ -6,7 +6,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { formatDate } from "../lib/date";
 import { pageTitle, site } from "../lib/site";
-import { PageHeader } from "../components/image";
+import { PageHeader } from "../components/shared/image";
 import images from "../data/images.json";
 
 /**
@@ -31,6 +31,8 @@ interface Props {
   heroBlur?: string;
   heroTextColor?: string;
   heroAspectRatio?: string;
+  /** Darkness, from 0 to 1, of a shade behind the hero text, for bright images. */
+  heroShade?: number | string;
   /** Text under the hero title, when it should differ from the meta description. */
   heroSubtitle?: string;
   showTitle?: boolean;
@@ -85,6 +87,7 @@ const heroOpacity = Astro.props.heroOpacity ?? fm.heroOpacity;
 const heroBlur: string | undefined = Astro.props.heroBlur ?? fm.heroBlur;
 const heroTextColor: string | undefined = Astro.props.heroTextColor ?? fm.heroTextColor;
 const heroAspectRatio: string = Astro.props.heroAspectRatio ?? fm.heroAspectRatio ?? "35%";
+const heroShade = Astro.props.heroShade ?? fm.heroShade;
 const heroSubtitle: string | undefined = Astro.props.heroSubtitle ?? fm.heroSubtitle ?? description;
 /** Canonical URL of this page, absolute, from `site` in astro.config.mjs. */
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
@@ -211,6 +214,7 @@ const visibleTitle = showTitle && !hideTitle;
                   opacity={heroOpacity === undefined ? undefined : Number(heroOpacity)}
                   blur={heroBlur}
                   textColor={heroTextColor}
+                  shade={heroShade === undefined ? undefined : Number(heroShade)}
                 />
               </div>
             </div>

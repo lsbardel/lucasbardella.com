@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TradingViewHeatmap } from "./tradingview";
+import { TradingViewHeatmap } from "./shared/tradingview";
 import { SOURCE_VALUES } from "./heatmap-sources";
 import MarketSelect from "./market-select";
 

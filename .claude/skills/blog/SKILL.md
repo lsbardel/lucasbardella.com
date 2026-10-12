@@ -5,19 +5,19 @@ description: Create a blog post with substantial content, interactive charts, an
 
 # Blog Post Guidelines
 
-Blog posts live in the `/blog` section of the site and are built with [Observable Framework](https://observablehq.com/framework/).
-They are served at `/blog/{year}/{slug}`.
+Blog posts live in the `/blog` section of the site and are built with [Astro](https://astro.build).
+They are served at `/blog/{year}/{slug}`, with the year taken from the `date` frontmatter.
 
 ## File Structure
 
 A blog post is a single file:
 
-- **Markdown page**: `content/blog/{slug}.md`
+- **Markdown page**: `src/content/blog/{slug}.md`, or `src/content/blog/{slug}.mdx` when the post imports components
 
 When the post includes interactive visualizations, also create:
 
-- **TypeScript component**: `content/components/{slug}.tsx` — all chart/animation logic
-- **Data loader**: `content/data/{slug}.{ext}.py` — data fetching script (if external data is needed)
+- **TypeScript component**: `src/components/{Name}.tsx`, all chart and animation logic
+- **Data loader**: `dataloaders/{slug}.{ext}.py`, data fetching script (if external data is needed), registered in `dataloaders/build.ts`
 
 ## Frontmatter
 
@@ -74,7 +74,7 @@ Blog posts must have **substantial content** — at minimum 600 words of body te
 
 ## Callouts
 
-Use Observable Framework callout blocks to visually highlight important information. Four types are available:
+Use callout blocks, styled in `src/styles/site.css`, to visually highlight important information. Four types are available:
 
 ```html
 <div class="note">
@@ -112,44 +112,43 @@ Use callouts sparingly — one or two per post. Leave a blank line inside the di
 
 ## Interactive Content
 
-Use Observable Framework for charts and interactive elements.
+Charts and interactive elements are React components rendered as Astro islands in an `.mdx` post.
 
 ### Data loading
 
-Load data via `FileAttachment` — do not inline large datasets in the markdown:
+Do not inline large datasets in the markdown. Data fetching scripts go in `dataloaders/` and follow the
+[Python data loader conventions](../../../.github/instructions/python-instructions.md). Register each one in the
+`LOADERS` list of `dataloaders/build.ts`; `make data` runs the loaders whose output is missing and CI runs it before the build.
 
-```js
-const data = FileAttachment("../../data/my-data.json").json();
+A loader writing to `public/data/` is fetched at runtime with `useRemote` from `src/components/shared/inputs.tsx`:
+
+```tsx
+const data = useRemote("/data/my-data.csv", (text) => d3.csvParse(text, d3.autoType));
 ```
 
-Data fetching scripts go in `content/data/` and follow the [Python data loader conventions](../.github/instructions/python-instructions.md).
+A loader writing to `src/data/` is imported at build time instead.
 
 ### TSX components
 
-When a chart or interactive element requires significant logic, create a TypeScript component in `content/components/{slug}.tsx` and import it:
+Charts live in a TypeScript component in `src/components/` and are imported at the top of the `.mdx` post:
 
-```tsx
-import MyChart from "../../components/my-chart.js";
+```mdx
+import MyChart from "../../components/MyChart";
 ```
 
-```tsx
-display(<MyChart data={data} />);
+Render it with `client:load`, otherwise it is rendered to static HTML with no interactivity:
+
+```mdx
+<MyChart client:load />
 ```
 
 Follow the same component conventions as lab entries (see lab skill).
 
-### Inline plots
+### Plots
 
-For simple, one-off charts that don't need reuse, use Observable Plot inline:
-
-```js
-display(Plot.plot({
-  marks: [Plot.lineY(data, {x: "date", y: "value", stroke: "series"})],
-  width,
-}));
-```
-
-Use `resize((width) => ...)` when the chart should respond to container width.
+Use [Observable Plot](https://observablehq.com/plot/) (`@observablehq/plot`) inside a component for charts,
+as `src/components/FedRates.tsx` and `src/components/UkPowerChart.tsx` do. Size the chart from the container width
+read in `useEffect`, never a hardcoded width.
 
 ## Hero Image
 
@@ -162,7 +161,7 @@ heroOpacity: 0.4
 ---
 ```
 
-See the `images` skill for how to search and register images.
+See the `images` skill for how to register images.
 
 ## Example Post Structure
 
@@ -194,11 +193,9 @@ Step-by-step instructions...
 
 Core technical content...
 
-```js
-const data = FileAttachment("../../data/options/btc.csv").csv({typed: true});
-```
+<OptionsChart client:load />
 
-Chart or interactive element here.
+Chart or interactive element here, imported at the top of the `.mdx` file.
 
 ## Results and Interpretation
 

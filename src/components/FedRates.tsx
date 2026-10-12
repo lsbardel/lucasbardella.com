@@ -84,6 +84,7 @@ const plotCurve = (data: Row[], { width }: { width: number }) => {
   );
   return Plot.plot({
     width,
+    style: { fontSize: "14px" },
     color: { scheme: "Blues", domain, legend: true },
     y: { label: "Rate (%)", tickFormat: (d: number) => `${d}%`, grid: true },
     x: { domain: RATE_DOMAIN },

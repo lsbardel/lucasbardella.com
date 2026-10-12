@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import * as React from "react";
-import { useRemote } from "./inputs";
+import { useRemote } from "./shared/inputs";
 import GameOfLife from "./life";
 
 interface Props {

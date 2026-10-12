@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Range } from "./inputs";
+import { Button, Range } from "./shared/inputs";
 import Planarity from "./planarity";
 
 /**

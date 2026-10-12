@@ -2,7 +2,7 @@ import { strFromU8, unzipSync } from "fflate";
 import * as React from "react";
 import Cavity from "./cfd/cavity";
 import { meshFields2d } from "./cfd/mesh2d";
-import { schemes } from "./palettes";
+import { schemes } from "./shared/palettes";
 
 type Solution = ReturnType<typeof meshFields2d>;
 

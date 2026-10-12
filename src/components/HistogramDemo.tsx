@@ -1,6 +1,6 @@
 import * as React from "react";
 import { LargestHistogram } from "./histogram";
-import { Range } from "./inputs";
+import { Range } from "./shared/inputs";
 
 /**
  * Replaces the Observable cell

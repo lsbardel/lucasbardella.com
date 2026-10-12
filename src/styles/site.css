@@ -41,7 +41,6 @@
   --accent: #8a7724;
   --link: #1d4ed8;
   --code: #be185d;
-  --measure: 760px;
   /* Page width and the gutter main reserves inside it. The hero derives its
      own cap from the pair, so the two cannot drift apart. */
   --content-max: 90rem;
@@ -123,10 +122,6 @@ h3 { margin-top: 1.75rem; }
 
 p { margin: 0 0 1rem; }
 
-/* The framework caps prose at 640px, too narrow a ribbon on a wide screen. */
-p, table, figure, figcaption, h1, h2, h3, h4, h5, h6, .katex-display { max-width: var(--measure); }
-blockquote, ol, ul { max-width: calc(var(--measure) - 40px); }
-
 a { color: var(--link); text-decoration: none; }
 a:hover, a:focus { text-decoration: underline; }
 
@@ -159,7 +154,7 @@ iframe[src*="youtube.com"] { height: auto; aspect-ratio: 16 / 9; }
 pre { background: var(--surface); padding: 1rem; border-radius: 6px; overflow-x: auto; line-height: 1.5; }
 /* Sized in em so code tracks the fluid body type (and headings) instead of a
    fixed pixel size; monospace runs visually large, hence slightly under 1em. */
-pre, code, tt { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+pre, code, tt, th, td { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 pre { font-size: 0.85em; }
 :not(pre) > code { font-size: 0.9em; color: var(--code); background: var(--surface); padding: 0.1em 0.3em; border-radius: 3px; }
 
@@ -206,7 +201,15 @@ select { margin-left: 0.5rem; background: var(--surface); color: var(--foregroun
 /* Tables, used by the comparison in the port write up. */
 table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
 th, td { border-bottom: 1px solid var(--foreground-fainter); padding: 0.5rem 0.75rem; text-align: left; }
+/* Markdown sets column alignment with the align attribute, which the rule
+   above would otherwise override. */
+th[align="right"], td[align="right"] { text-align: right; }
+th[align="center"], td[align="center"] { text-align: center; }
 th { color: var(--foreground-faint); font-weight: 600; }
+/* Lightweight charts lays itself out with a table, which must not pick up
+   the margin, padding and borders above or its time axis is pushed out. */
+.line-chart table { margin: 0; }
+.line-chart td { padding: 0; border: 0; }
 
 /* Table of contents in the right margin, opt in with `toc: true`. The content
    column keeps its own width and the list sits beside it, sticky under the

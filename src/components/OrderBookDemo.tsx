@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Controls, Range, Select } from "./inputs";
+import { Controls, Range, Select } from "./shared/inputs";
 import OrderBookChart from "./order-book-chart";
 
 const SYMBOLS = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT", "XRPUSDT", "DOGEUSDT"];

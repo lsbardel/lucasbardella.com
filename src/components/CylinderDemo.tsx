@@ -1,8 +1,8 @@
 import * as React from "react";
 import Cylinder from "./cylinder";
-import FullScreen from "./FullScreen";
-import { Controls, Range, Select } from "./inputs";
-import { schemes } from "./palettes";
+import FullScreen from "./shared/FullScreen";
+import { Controls, Range, Select } from "./shared/inputs";
+import { schemes } from "./shared/palettes";
 
 /**
  * Replaces the five Observable inputs that drove the potential flow plot,

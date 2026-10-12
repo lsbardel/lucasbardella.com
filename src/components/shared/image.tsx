@@ -52,9 +52,11 @@ interface PageHeaderProps {
   blur?: string;
   opacity?: number;
   textColor?: string;
+  /** Darkness, from 0 to 1, of a radial shade behind the text, for bright images. */
+  shade?: number;
 }
 
-export const PageHeader = ({ title, subtitle, date, urls, blur, opacity, textColor = "#fff" }: PageHeaderProps) => {
+export const PageHeader = ({ title, subtitle, date, urls, blur, opacity, textColor = "#fff", shade }: PageHeaderProps) => {
   const innerStyle = { position: "absolute" as const, top: 0, left: 0, bottom: 0, right: 0 };
   const textStyle = {
     ...innerStyle,
@@ -68,19 +70,32 @@ export const PageHeader = ({ title, subtitle, date, urls, blur, opacity, textCol
   return (
     <HeroImage urls={urls} blur={blur} opacity={opacity}>
       <div style={textStyle}>
-        <h1 style={{ color: textColor, margin: 0, fontSize: "clamp(1.4rem, 4vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2 }}>
-          {title}
-        </h1>
-        {subtitle && (
-          <p style={{ color: textColor, opacity: 0.85, margin: "0.6rem 0 0", fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>
-            {subtitle}
-          </p>
-        )}
-        {date && (
-          <p style={{ color: textColor, opacity: 0.7, margin: "0.4rem 0 0", fontSize: "clamp(0.75rem, 1.5vw, 1rem)" }}>
-            {date}
-          </p>
-        )}
+        <div
+          style={
+            shade
+              ? {
+                  padding: "0.75rem 1.5rem",
+                  borderRadius: "1rem",
+                  background: `rgba(0, 0, 0, ${shade})`,
+                  boxShadow: `0 0 2.5rem 1.5rem rgba(0, 0, 0, ${shade})`,
+                }
+              : undefined
+          }
+        >
+          <h1 style={{ color: textColor, margin: 0, fontSize: "clamp(1.4rem, 4vw, 2.8rem)", fontWeight: 700, lineHeight: 1.2 }}>
+            {title}
+          </h1>
+          {subtitle && (
+            <p style={{ color: textColor, opacity: 0.85, margin: "0.6rem 0 0", fontSize: "clamp(1rem, 2.4vw, 1.45rem)" }}>
+              {subtitle}
+            </p>
+          )}
+          {date && (
+            <p style={{ color: textColor, opacity: 0.7, margin: "0.4rem 0 0", fontSize: "clamp(0.75rem, 1.5vw, 1rem)" }}>
+              {date}
+            </p>
+          )}
+        </div>
       </div>
     </HeroImage>
   );

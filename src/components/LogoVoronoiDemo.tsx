@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Color, Controls, Range, Select, Toggle } from "./inputs";
+import { Color, Controls, Range, Select, Toggle } from "./shared/inputs";
 import VoronoiLogo, { type VoronoiLogoProps } from "./logo/voronoi";
-import { schemes } from "./palettes";
+import { schemes } from "./shared/palettes";
 
 const PATTERNS = ["phyllotaxis", "random", "ring", "grid"] as const;
 
